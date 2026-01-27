@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "eyebrow": "Our Work",
+    "title": "Our Creative",
+    "titleHighlight": "Portfolio",
+    "subtitle": "Explore our work across web design, e-commerce, automation, chatbots, and SEO. Each project showcases our commitment to excellence and innovation.",
+    "ctaLabel": "Start Your Project",
+    "ctaHref": "/contact",
+    "heroItems": [
+      { "id": 1, "title": "E-Commerce", "imageUrl": "/media/portfolio/hero/ecommerce.jpg" },
+      { "id": 2, "title": "Web Design", "imageUrl": "/media/portfolio/hero/web-design.jpg" },
+      { "id": 3, "title": "AI Chatbots", "imageUrl": "/media/portfolio/hero/ai-chatbots.jpg" },
+      { "id": 4, "title": "Automation", "imageUrl": "/media/portfolio/hero/automation.jpg" },
+      { "id": 5, "title": "SEO", "imageUrl": "/media/portfolio/hero/seo.jpg" }
+    ],
+    "_visible": true
+  },
+  "filters": {
+    "eyebrow": "Our Expertise",
+    "title": "Skills &",
+    "titleHighlight": "Technologies",
+    "subtitle": "Drag and explore the technologies we master to bring your vision to life",
+    "tags": ["All", "Web Design", "Shopify", "WordPress", "SEO", "Chatbot Development", "N8N Automations", "React", "Next.js", "Tailwind", "TypeScript", "Figma", "Stripe", "OpenAI", "Analytics", "SaaS", "AI/ML"],
+    "_visible": true
+  },
+  "grid": {
+    "eyebrow": "Our Work",
+    "title": "All",
+    "titleHighlight": "Projects",
+    "subtitle": "Explore our complete collection of successful client projects",
+    "_visible": true
+  },
+  "caseStudies": {
+    "eyebrow": "Case Studies",
+    "title": "Success",
+    "titleHighlight": "Stories",
+    "subtitle": "Deep dives into our most impactful projects and the results we achieved",
+    "studies": [
+      { "img": "/media/portfolio/case-studies/enterprise-platform.jpg", "title": "Enterprise Platform", "desc": "Built a scalable enterprise platform handling 1M+ daily transactions.", "sliderName": "enterprise" },
+      { "img": "/media/portfolio/case-studies/mobile-app.jpg", "title": "Mobile App Launch", "desc": "Launched a mobile app achieving 100K+ downloads in the first month.", "sliderName": "mobile" },
+      { "img": "/media/portfolio/case-studies/ai-integration.jpg", "title": "AI Integration", "desc": "Integrated AI-powered features reducing manual processing time by 85%.", "sliderName": "ai" },
+      { "img": "/media/portfolio/case-studies/digital-transformation.jpg", "title": "Digital Transformation", "desc": "Led complete digital transformation with 200% increase in engagement.", "sliderName": "digital" }
+    ],
+    "_visible": true
+  },
+  "cta": {
+    "eyebrow": "Ready to Start?",
+    "title": "Let's Work",
+    "titleHighlight": "Together",
+    "subtitle": "Have a project in mind? We would love to hear from you.",
+    "ctaText": "Get in Touch",
+    "ctaLink": "/contact",
+    "_visible": true
+  }
+}

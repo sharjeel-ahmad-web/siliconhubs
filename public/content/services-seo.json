@@ -1,0 +1,174 @@
+{
+  "hero": {
+    "title": "Dominate Search",
+    "highlightedText": "Drive Organic Growth",
+    "subtitle": "Strategic SEO solutions that boost your rankings, increase organic traffic, and convert visitors into customers. Data-driven optimization for measurable results.",
+    "ctaButton": { "label": "Get SEO Audit", "href": "/contact" },
+    "floatingIcons": [
+      { "icon": "Search", "label": "Keywords", "position": { "x": "8%", "y": "25%" }, "color": "#37AFE1" },
+      { "icon": "TrendingUp", "label": "Rankings", "position": { "x": "12%", "y": "60%" }, "color": "#37AFE1" },
+      { "icon": "Target", "label": "Traffic", "position": { "x": "82%", "y": "20%" }, "color": "#F58122" },
+      { "icon": "BarChart3", "label": "Analytics", "position": { "x": "78%", "y": "55%" }, "color": "#F58122" }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "video": {
+    "eyebrow": "See SEO In Action",
+    "title": "Watch How We Drive",
+    "titleHighlight": "Organic Growth",
+    "subtitle": "Experience our SEO process and see the ranking improvements we achieve for our clients.",
+    "videoSrc": "/media/services/seo/video/hero-video.mp4",
+    "ctaText": "Start Your SEO Journey",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "serpRanking": {
+    "eyebrow": "SERP Tracking",
+    "title": "Search Engine",
+    "titleHighlight": "Rankings",
+    "subtitle": "Watch your keywords climb from page 2 to the top of search results.",
+    "keywords": [
+      { "keyword": "Web Design Agency", "startPosition": 10, "endPosition": 1, "color": "#31A4DB" },
+      { "keyword": "Custom Chatbots", "startPosition": 8, "endPosition": 2, "color": "#31A4DB" },
+      { "keyword": "N8N Automation", "startPosition": 12, "endPosition": 3, "color": "#31A4DB" },
+      { "keyword": "Shopify Development", "startPosition": 15, "endPosition": 4, "color": "#31A4DB" },
+      { "keyword": "WordPress Solutions", "startPosition": 9, "endPosition": 5, "color": "#31A4DB" }
+    ],
+    "competitors": [
+      { "position": 6, "name": "Competitor A" },
+      { "position": 7, "name": "Competitor B" },
+      { "position": 8, "name": "Competitor C" }
+    ],
+    "yourRankingsLabel": "Your Rankings",
+    "competitorsLabel": "Competitors",
+    "siteDomain": "risingdot.agency",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "keywordCloud": {
+    "eyebrow": "Keyword Strategy",
+    "title": "Strategic Keyword",
+    "titleHighlight": "Targeting",
+    "subtitle": "Explore our comprehensive keyword strategy tailored to your business.",
+    "keywords": [
+      { "text": "Web Design", "importance": 10, "category": "design" },
+      { "text": "SEO", "importance": 9, "category": "marketing" },
+      { "text": "Chatbot", "importance": 8, "category": "ai" },
+      { "text": "Automation", "importance": 8, "category": "automation" },
+      { "text": "E-commerce", "importance": 7, "category": "ecommerce" },
+      { "text": "WordPress", "importance": 7, "category": "cms" },
+      { "text": "Shopify", "importance": 7, "category": "ecommerce" },
+      { "text": "N8N", "importance": 6, "category": "automation" },
+      { "text": "AI", "importance": 6, "category": "ai" },
+      { "text": "Conversion", "importance": 6, "category": "marketing" }
+    ],
+    "categories": [
+      { "id": "all", "name": "All Keywords", "color": "#2563EB" },
+      { "id": "design", "name": "Design", "color": "#F97316" },
+      { "id": "marketing", "name": "Marketing", "color": "#31A4DB" },
+      { "id": "ai", "name": "AI", "color": "#2563EB" },
+      { "id": "automation", "name": "Automation", "color": "#F97316" },
+      { "id": "ecommerce", "name": "E-commerce", "color": "#F59E0B" },
+      { "id": "cms", "name": "CMS", "color": "#EF4444" },
+      { "id": "technical", "name": "Technical", "color": "#64748B" }
+    ],
+    "totalKeywordsLabel": "Total Keywords",
+    "avgImportanceLabel": "Avg Importance",
+    "categoriesLabel": "Categories",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "trafficGrowth": {
+    "eyebrow": "Growth Metrics",
+    "title": "Organic Traffic",
+    "titleHighlight": "Growth",
+    "subtitle": "See the exponential growth in organic traffic and conversions.",
+    "data": [
+      { "month": "Jan", "traffic": 1200, "conversions": 24 },
+      { "month": "Feb", "traffic": 1800, "conversions": 36 },
+      { "month": "Mar", "traffic": 2500, "conversions": 50 },
+      { "month": "Apr", "traffic": 3200, "conversions": 64 },
+      { "month": "May", "traffic": 4100, "conversions": 82 },
+      { "month": "Jun", "traffic": 5300, "conversions": 106 },
+      { "month": "Jul", "traffic": 6800, "conversions": 136 },
+      { "month": "Aug", "traffic": 8500, "conversions": 170 },
+      { "month": "Sep", "traffic": 10200, "conversions": 204 },
+      { "month": "Oct", "traffic": 12500, "conversions": 250 },
+      { "month": "Nov", "traffic": 15000, "conversions": 300 },
+      { "month": "Dec", "traffic": 18000, "conversions": 360 }
+    ],
+    "milestones": [
+      { "index": 2, "label": "2.5K Visitors", "icon": "🎯" },
+      { "index": 5, "label": "5K Visitors", "icon": "🚀" },
+      { "index": 8, "label": "10K Visitors", "icon": "⭐" },
+      { "index": 11, "label": "18K Visitors", "icon": "🎉" }
+    ],
+    "totalGrowthLabel": "Total Growth",
+    "monthlyVisitorsLabel": "Monthly Visitors",
+    "conversionsLabel": "Conversions",
+    "conversionRateLabel": "Conversion Rate",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "competitorAnalysis": {
+    "eyebrow": "Market Analysis",
+    "title": "Competitive",
+    "titleHighlight": "Advantage",
+    "subtitle": "Outrank your competitors and capture more market share.",
+    "yourSite": {
+      "name": "Rising Dot",
+      "rank": 1,
+      "traffic": 18000,
+      "keywords": 250,
+      "backlinks": 1200,
+      "color": "#31A4DB"
+    },
+    "competitors": [
+      { "name": "Competitor A", "rank": 2, "traffic": 15000, "keywords": 220, "backlinks": 980, "color": "#F59E0B" },
+      { "name": "Competitor B", "rank": 3, "traffic": 12000, "keywords": 180, "backlinks": 850, "color": "#F59E0B" },
+      { "name": "Competitor C", "rank": 4, "traffic": 9500, "keywords": 150, "backlinks": 720, "color": "#F59E0B" },
+      { "name": "Competitor D", "rank": 5, "traffic": 7200, "keywords": 120, "backlinks": 580, "color": "#F59E0B" }
+    ],
+    "monthlyTrafficLabel": "Monthly Traffic",
+    "rankingKeywordsLabel": "Ranking Keywords",
+    "qualityBacklinksLabel": "Quality Backlinks",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "caseStudies": {
+    "eyebrow": "SEO Success Stories",
+    "title": "Rankings That",
+    "titleHighlight": "Dominate",
+    "subtitle": "See how we've helped businesses climb to the top of search results and drive organic growth.",
+    "studies": [
+      { "img": "/media/services/seo/case-studies/local-business.jpg", "title": "Local Business SEO", "desc": "From page 5 to #1 rankings with 250% increase in organic traffic and 180% more leads.", "sliderName": "local" },
+      { "img": "/media/services/seo/case-studies/ecommerce-seo.jpg", "title": "E-Commerce SEO", "desc": "Product page optimization resulting in 300% revenue growth from organic search.", "sliderName": "ecommerce" },
+      { "img": "/media/services/seo/case-studies/technical-seo.jpg", "title": "Technical SEO Audit", "desc": "Site-wide technical fixes improving Core Web Vitals and 40% faster indexing.", "sliderName": "technical" },
+      { "img": "/media/services/seo/case-studies/content-strategy.jpg", "title": "Content Strategy", "desc": "Topic cluster approach generating 500+ ranking keywords and 10x organic visibility.", "sliderName": "content" }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "cta": {
+    "title": "Ready to Dominate Search Results?",
+    "subtitle": "Let's create an SEO strategy that drives real business results",
+    "ctaText": "Start Your SEO Journey",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "techStack": {
+    "eyebrow": "✨ Our Tech Stack",
+    "title": "Build Your",
+    "titleHighlight": "Digital Empire",
+    "subtitle": "We leverage cutting-edge technologies to deliver scalable, high-performance solutions that drive your business forward.",
+    "ctaText": "Start Your Project",
+    "ctaHref": "/contact",
+    "secondaryCtaText": "View Our Work",
+    "secondaryCtaHref": "/portfolio",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  }
+}

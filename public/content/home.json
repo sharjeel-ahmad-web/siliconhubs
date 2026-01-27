@@ -1,0 +1,49 @@
+{
+  "hero": {
+    "eyebrow": "Welcome to Rising Dot",
+    "title": "Web Development & Design Agency",
+    "subtitle": "We create stunning, high-performance websites that drive results",
+    "ctaText": "Get Started",
+    "ctaLink": "/contact",
+    "backgroundImage": "/media/home/hero-bg.jpg",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive web solutions for your business",
+    "services": [
+      {
+        "title": "Web Design",
+        "description": "Beautiful, modern websites that convert visitors into customers",
+        "icon": "palette",
+        "link": "/services/webdesign"
+      },
+      {
+        "title": "SEO",
+        "description": "Get found online with our proven SEO strategies",
+        "icon": "search",
+        "link": "/services/seo"
+      },
+      {
+        "title": "WordPress Development",
+        "description": "Custom WordPress solutions tailored to your needs",
+        "icon": "wordpress",
+        "link": "/services/wordpress"
+      }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "about": {
+    "title": "About Rising Dot",
+    "content": "We're a passionate team of designers and developers dedicated to creating exceptional digital experiences.",
+    "stats": [
+      { "value": "100+", "label": "Projects Completed" },
+      { "value": "50+", "label": "Happy Clients" },
+      { "value": "5+", "label": "Years Experience" }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  }
+}

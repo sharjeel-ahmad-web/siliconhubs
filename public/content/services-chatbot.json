@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "eyebrow": "Chatbot Development",
+    "title": "AI-Powered",
+    "titleHighlight": "Conversations",
+    "subtitle": "Custom chatbots that understand context and deliver results.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "video": {
+    "eyebrow": "See It In Action",
+    "title": "Watch How We Build",
+    "titleHighlight": "Smart Bots",
+    "subtitle": "Experience our chatbot development process.",
+    "videoSrc": "/media/services/chatbot-development/video/hero-video.mp4",
+    "ctaText": "Start Your Project",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "chatDemo": {
+    "title": "Try the Demo",
+    "subtitle": "See how a custom chatbot can work for you.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "learningAnimation": {
+    "title": "How It Learns",
+    "subtitle": "Continuous improvement from every conversation.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "accuracyChart": {
+    "title": "Accuracy Over Time",
+    "subtitle": "Measuring performance and reliability.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "caseStudies": {
+    "eyebrow": "Success Stories",
+    "title": "Chatbots That",
+    "titleHighlight": "Deliver",
+    "subtitle": "See how we've helped businesses automate conversations.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "techStack": {
+    "eyebrow": "Our Stack",
+    "title": "Build Your",
+    "titleHighlight": "Digital Empire",
+    "subtitle": "We use cutting-edge tools to build intelligent chatbots.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "cta": {
+    "title": "Ready to Build Your Chatbot?",
+    "subtitle": "Let's create an AI that works for your business.",
+    "ctaText": "Get Started",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  }
+}

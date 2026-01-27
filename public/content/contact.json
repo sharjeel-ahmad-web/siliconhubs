@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "eyebrow": "Let's Connect",
+    "title": "Get In Touch",
+    "subtitle": "Ready to start your next project? Let's create something amazing together. We're here to help bring your vision to life.",
+    "ctaLabel": "Send Message",
+    "ctaHref": "#contact-form",
+    "_visible": true
+  },
+  "form": {
+    "title": "Send Us a",
+    "titleHighlight": "Message",
+    "_visible": true
+  },
+  "info": {
+    "title": "Contact",
+    "titleHighlight": "Information",
+    "email": "hello@risingdot.agency",
+    "phone": "+1 (555) 123-4567",
+    "address": "123 Innovation Street\nTech District, CA 94102",
+    "hours": "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday - Sunday: Closed",
+    "_visible": true
+  },
+  "map": {
+    "eyebrow": "Location",
+    "title": "Find",
+    "titleHighlight": "Us",
+    "_visible": true
+  },
+  "cta": {
+    "eyebrow": "Explore Our Work",
+    "title": "View Our",
+    "titleHighlight": "Portfolio",
+    "subtitle": "See how we've helped businesses like yours achieve their goals.",
+    "ctaText": "View Portfolio",
+    "ctaLink": "/portfolio",
+    "_visible": true
+  }
+}

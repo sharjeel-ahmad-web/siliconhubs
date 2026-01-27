@@ -1,0 +1,143 @@
+{
+  "hero": {
+    "eyebrow": "E-Commerce Excellence",
+    "title": "Build Your Shopify Empire with Expert Development",
+    "highlightedWord": "Shopify",
+    "highlightedWord2": "Expert",
+    "subtitle": "High-converting online stores that drive sales and delight customers. From custom themes to seamless integrations, we build e-commerce experiences that scale.",
+    "services": [
+      { "id": "custom-themes", "name": "Custom Themes", "url": "/portfolio?category=shopify-themes", "description": "Unique store designs that stand out", "imgSrc": "/media/services/shopify/services/custom-themes.jpg" },
+      { "id": "store-setup", "name": "Store Setup", "url": "/portfolio?category=shopify-setup", "description": "Complete Shopify store configuration", "imgSrc": "/media/services/shopify/services/store-setup.jpg" },
+      { "id": "app-integration", "name": "App Integration", "url": "/portfolio?category=shopify-apps", "description": "Seamless third-party integrations", "imgSrc": "/media/services/shopify/services/app-integration.jpg" },
+      { "id": "conversion-optimization", "name": "Conversion Optimization", "url": "/portfolio?category=shopify-cro", "description": "Boost your sales with proven strategies", "imgSrc": "/media/services/shopify/services/conversion-optimization.jpg" },
+      { "id": "payment-setup", "name": "Payment Setup", "url": "/portfolio?category=shopify-payments", "description": "Secure payment gateway integration", "imgSrc": "/media/services/shopify/services/payment-setup.jpg" },
+      { "id": "migration", "name": "Store Migration", "url": "/portfolio?category=shopify-migration", "description": "Seamless migration from any platform", "imgSrc": "/media/services/shopify/services/migration.jpg" }
+    ],
+    "ctaLabel": "Start Your Store",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "video": {
+    "eyebrow": "See Shopify In Action",
+    "title": "Watch How We Build",
+    "titleHighlight": "E-Commerce Stores",
+    "subtitle": "Experience our development process and see the high-converting Shopify stores we create for our clients.",
+    "videoSrc": "/media/services/shopify/video/hero-video.mp4",
+    "ctaText": "Start Your Shopify Store",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "conversionFunnel": {
+    "eyebrow": "Sales Analytics",
+    "title": "Conversion Funnel",
+    "titleHighlight": "Visualization",
+    "subtitle": "Watch how customers flow through your sales funnel with real-time particle visualization.",
+    "stages": [
+      { "name": "Visitors", "percentage": 100, "color": "#2563EB" },
+      { "name": "Product Views", "percentage": 65, "color": "#F97316" },
+      { "name": "Add to Cart", "percentage": 35, "color": "#2563EB" },
+      { "name": "Checkout", "percentage": 20, "color": "#F97316" },
+      { "name": "Purchase", "percentage": 15, "color": "#31A4DB" }
+    ],
+    "conversionLabel": "Conversions",
+    "abandonmentLabel": "Abandonment",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "productPreview": {
+    "eyebrow": "Product Display",
+    "title": "Interactive 3D",
+    "titleHighlight": "Product Preview",
+    "subtitle": "Give customers an immersive product experience with 3D rotation and color customization.",
+    "colorSwatches": [
+      { "name": "Midnight Black", "color": "#1E293B", "image": "black" },
+      { "name": "Ocean Blue", "color": "#2563EB", "image": "blue" },
+      { "name": "Sunset Orange", "color": "#F97316", "image": "orange" },
+      { "name": "Forest Green", "color": "#31A4DB", "image": "green" }
+    ],
+    "productLabel": "SHOP",
+    "addToCartText": "Add to Cart",
+    "dragHint": "Drag to rotate",
+    "scrollHint": "Scroll to zoom",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "dashboard": {
+    "eyebrow": "Analytics",
+    "title": "Real-Time Performance",
+    "titleHighlight": "Dashboard",
+    "subtitle": "Track your store's performance with live metrics and animated visualizations.",
+    "metrics": [
+      { "label": "Revenue", "target": 125000, "unit": "$", "color": "#31A4DB" },
+      { "label": "Orders", "target": 1250, "unit": "", "color": "#2563EB" },
+      { "label": "Conversion Rate", "target": 3.8, "unit": "%", "color": "#F97316" },
+      { "label": "Avg Order Value", "target": 98, "unit": "$", "color": "#F59E0B" }
+    ],
+    "chartTitle": "Revenue Trend",
+    "liveDataLabel": "Live Data",
+    "monthLabels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "mobileExperience": {
+    "eyebrow": "Mobile First",
+    "title": "Mobile Shopping",
+    "titleHighlight": "Experience",
+    "subtitle": "Deliver a seamless mobile shopping experience that converts.",
+    "products": [
+      { "id": 1, "name": "Premium Headphones", "price": 299, "image": "🎧" },
+      { "id": 2, "name": "Smart Watch", "price": 399, "image": "⌚" },
+      { "id": 3, "name": "Wireless Earbuds", "price": 199, "image": "🎵" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Lightning Fast", "desc": "Optimized for mobile performance" },
+      { "icon": "👆", "title": "Touch Optimized", "desc": "Intuitive gestures and interactions" },
+      { "icon": "🎨", "title": "Beautiful Design", "desc": "Stunning visuals on any screen" },
+      { "icon": "🔒", "title": "Secure Checkout", "desc": "Safe and encrypted transactions" }
+    ],
+    "shopTitle": "Shop",
+    "shopSubtitle": "Discover amazing products",
+    "checkoutText": "Checkout",
+    "continueShoppingText": "Continue Shopping",
+    "addedToCartText": "Added to Cart!",
+    "featuresTitle": "Mobile-First Experience",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "caseStudies": {
+    "eyebrow": "E-Commerce Success Stories",
+    "title": "Shopify Stores That",
+    "titleHighlight": "Convert",
+    "subtitle": "See how we've helped businesses build high-converting Shopify stores that drive sales.",
+    "studies": [
+      { "img": "/media/services/shopify/case-studies/fashion-boutique.jpg", "title": "Fashion Boutique", "desc": "Custom Shopify store with 3.8% conversion rate and 35% increase in average order value.", "sliderName": "fashion" },
+      { "img": "/media/services/shopify/case-studies/electronics-store.jpg", "title": "Electronics Store", "desc": "High-volume e-commerce with advanced filtering and 40% reduction in cart abandonment.", "sliderName": "electronics" },
+      { "img": "/media/services/shopify/case-studies/subscription-box.jpg", "title": "Subscription Box", "desc": "Recurring revenue model with seamless subscription management and 95% retention rate.", "sliderName": "subscription" },
+      { "img": "/media/services/shopify/case-studies/marketplace.jpg", "title": "Multi-vendor Marketplace", "desc": "Platform migration with 200+ vendors and zero downtime during transition.", "sliderName": "marketplace" }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "cta": {
+    "title": "Ready to Launch Your Online Store?",
+    "subtitle": "Let's build a Shopify store that turns visitors into loyal customers",
+    "ctaText": "Start Your Project",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "techStack": {
+    "eyebrow": "✨ Our Tech Stack",
+    "title": "Build Your",
+    "titleHighlight": "Digital Empire",
+    "subtitle": "We leverage cutting-edge technologies to deliver scalable, high-performance solutions that drive your business forward.",
+    "ctaText": "Start Your Project",
+    "ctaHref": "/contact",
+    "secondaryCtaText": "View Our Work",
+    "secondaryCtaHref": "/portfolio",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  }
+}

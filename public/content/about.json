@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "eyebrow": "About Us",
+    "title": "Building Digital Excellence",
+    "subtitle": "We're a team of passionate creators dedicated to transforming your digital presence",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "story": {
+    "title": "Our Story",
+    "content": "Founded with a vision to revolutionize web development, Rising Dot has grown into a trusted partner for businesses seeking digital excellence.",
+    "image": "/media/about/story.jpg",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "mission": {
+    "title": "Our Mission",
+    "content": "To empower businesses with cutting-edge web solutions that drive growth and success.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  }
+}

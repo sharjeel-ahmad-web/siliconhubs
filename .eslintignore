@@ -1,0 +1,2 @@
+# Exclude generated Framer components from linting
+components/framer/

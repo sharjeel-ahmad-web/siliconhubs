@@ -1,0 +1,149 @@
+{
+  "hero": {
+    "eyebrow": "WordPress Experts",
+    "title": "Build Scalable WordPress Solutions with Modular Architecture",
+    "highlightedWord": "WordPress",
+    "highlightedWord2": "Modular",
+    "subtitle": "Scalable, modular WordPress solutions that grow with your business. From custom themes to powerful plugins, we build websites that perform.",
+    "services": [
+      { "id": "custom-themes", "name": "Custom Themes", "url": "/portfolio?category=wordpress-themes", "description": "Bespoke WordPress themes tailored to your brand", "imgSrc": "/media/services/wordpress/services/custom-themes.jpg" },
+      { "id": "plugin-development", "name": "Plugin Development", "url": "/portfolio?category=wordpress-plugins", "description": "Custom plugins for unique functionality", "imgSrc": "/media/services/wordpress/services/plugin-development.jpg" },
+      { "id": "woocommerce", "name": "WooCommerce", "url": "/portfolio?category=woocommerce", "description": "Powerful e-commerce solutions", "imgSrc": "/media/services/wordpress/services/woocommerce.jpg" },
+      { "id": "speed-optimization", "name": "Speed Optimization", "url": "/portfolio?category=wordpress-speed", "description": "Lightning-fast loading times", "imgSrc": "/media/services/wordpress/services/speed-optimization.jpg" },
+      { "id": "security", "name": "Security Hardening", "url": "/portfolio?category=wordpress-security", "description": "Protect your site from threats", "imgSrc": "/media/services/wordpress/services/security.jpg" },
+      { "id": "maintenance", "name": "Maintenance Plans", "url": "/portfolio?category=wordpress-maintenance", "description": "Keep your site running smoothly", "imgSrc": "/media/services/wordpress/services/maintenance.jpg" }
+    ],
+    "ctaLabel": "Start Your Project",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "video": {
+    "eyebrow": "See WordPress In Action",
+    "title": "Watch How We Build",
+    "titleHighlight": "WordPress Sites",
+    "subtitle": "Experience our development process and see the powerful WordPress solutions we create for our clients.",
+    "videoSrc": "/media/services/wordpress/video/hero-video.mp4",
+    "ctaText": "Start Your WordPress Project",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "modularGrid": {
+    "eyebrow": "Architecture",
+    "title": "Modular Component",
+    "titleHighlight": "System",
+    "subtitle": "Watch how WordPress components snap together like puzzle pieces to create powerful websites.",
+    "modules": [
+      { "id": "header", "title": "Header", "icon": "📋", "color": "#2563EB", "position": { "row": 0, "col": 0 } },
+      { "id": "hero", "title": "Hero Section", "icon": "🎯", "color": "#F97316", "position": { "row": 0, "col": 1 } },
+      { "id": "nav", "title": "Navigation", "icon": "🧭", "color": "#2563EB", "position": { "row": 0, "col": 2 } },
+      { "id": "search", "title": "Search", "icon": "🔍", "color": "#F97316", "position": { "row": 0, "col": 3 } },
+      { "id": "content", "title": "Content Block", "icon": "📝", "color": "#F97316", "position": { "row": 1, "col": 0 } },
+      { "id": "sidebar", "title": "Sidebar", "icon": "📊", "color": "#2563EB", "position": { "row": 1, "col": 1 } },
+      { "id": "gallery", "title": "Gallery", "icon": "🖼️", "color": "#F97316", "position": { "row": 1, "col": 2 } },
+      { "id": "forms", "title": "Forms", "icon": "📋", "color": "#2563EB", "position": { "row": 1, "col": 3 } },
+      { "id": "testimonials", "title": "Testimonials", "icon": "💬", "color": "#2563EB", "position": { "row": 2, "col": 0 } },
+      { "id": "cta", "title": "Call to Action", "icon": "🎯", "color": "#F97316", "position": { "row": 2, "col": 1 } },
+      { "id": "footer", "title": "Footer", "icon": "📌", "color": "#2563EB", "position": { "row": 2, "col": 2 } },
+      { "id": "social", "title": "Social Links", "icon": "🔗", "color": "#F97316", "position": { "row": 2, "col": 3 } }
+    ],
+    "successMessage": "✨ Modular components assembled successfully!",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "metrics": {
+    "eyebrow": "Analytics",
+    "title": "Performance That",
+    "titleHighlight": "Matters",
+    "subtitle": "See the dramatic improvements our WordPress optimization delivers.",
+    "metrics": [
+      { "label": "Loading Speed", "before": 4.2, "after": 1.3, "unit": "s", "format": "number", "inverse": true },
+      { "label": "SEO Score", "before": 72, "after": 96, "unit": "/100", "format": "score" },
+      { "label": "Accessibility", "before": 68, "after": 94, "unit": "/100", "format": "score" },
+      { "label": "Conversion Rate", "before": 2.1, "after": 4.8, "unit": "%", "format": "percentage" }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "pluginConstellation": {
+    "eyebrow": "Integrations",
+    "title": "Plugin",
+    "titleHighlight": "Ecosystem",
+    "subtitle": "Explore our curated selection of WordPress plugins and their relationships.",
+    "plugins": [
+      { "id": "wordfence", "name": "Wordfence", "category": "security", "x": 12, "y": 15, "relatedTo": ["jetpack", "ithemes"] },
+      { "id": "ithemes", "name": "iThemes Security", "category": "security", "x": 8, "y": 32, "relatedTo": ["wordfence", "sucuri"] },
+      { "id": "sucuri", "name": "Sucuri", "category": "security", "x": 18, "y": 45, "relatedTo": ["ithemes", "wordfence"] },
+      { "id": "wp-rocket", "name": "WP Rocket", "category": "performance", "x": 38, "y": 12, "relatedTo": ["autoptimize", "smush"] },
+      { "id": "autoptimize", "name": "Autoptimize", "category": "performance", "x": 48, "y": 25, "relatedTo": ["wp-rocket", "smush"] },
+      { "id": "smush", "name": "Smush", "category": "performance", "x": 58, "y": 15, "relatedTo": ["wp-rocket", "autoptimize", "imagify"] },
+      { "id": "imagify", "name": "Imagify", "category": "performance", "x": 68, "y": 28, "relatedTo": ["smush"] },
+      { "id": "yoast", "name": "Yoast SEO", "category": "seo", "x": 78, "y": 18, "relatedTo": ["rank-math", "aioseo"] },
+      { "id": "rank-math", "name": "Rank Math", "category": "seo", "x": 88, "y": 32, "relatedTo": ["yoast", "aioseo"] },
+      { "id": "aioseo", "name": "All in One SEO", "category": "seo", "x": 82, "y": 48, "relatedTo": ["yoast", "rank-math"] },
+      { "id": "woocommerce", "name": "WooCommerce", "category": "ecommerce", "x": 28, "y": 62, "relatedTo": ["stripe", "paypal", "mailchimp"] },
+      { "id": "stripe", "name": "Stripe", "category": "ecommerce", "x": 38, "y": 78, "relatedTo": ["woocommerce", "paypal"] },
+      { "id": "paypal", "name": "PayPal", "category": "ecommerce", "x": 22, "y": 82, "relatedTo": ["woocommerce", "stripe"] },
+      { "id": "elementor", "name": "Elementor", "category": "content", "x": 15, "y": 68, "relatedTo": ["acf", "gutenberg"] },
+      { "id": "acf", "name": "ACF", "category": "content", "x": 8, "y": 52, "relatedTo": ["elementor", "wpbakery"] },
+      { "id": "gutenberg", "name": "Gutenberg", "category": "content", "x": 32, "y": 88, "relatedTo": ["elementor"] },
+      { "id": "wpbakery", "name": "WPBakery", "category": "content", "x": 5, "y": 75, "relatedTo": ["acf", "elementor"] },
+      { "id": "monsterinsights", "name": "MonsterInsights", "category": "analytics", "x": 72, "y": 62, "relatedTo": ["google-analytics", "jetpack"] },
+      { "id": "google-analytics", "name": "GA Dashboard", "category": "analytics", "x": 85, "y": 72, "relatedTo": ["monsterinsights"] },
+      { "id": "jetpack", "name": "Jetpack", "category": "utility", "x": 55, "y": 52, "relatedTo": ["wordfence", "mailchimp", "monsterinsights"] },
+      { "id": "mailchimp", "name": "Mailchimp", "category": "utility", "x": 48, "y": 42, "relatedTo": ["woocommerce", "jetpack"] },
+      { "id": "contact-form-7", "name": "Contact Form 7", "category": "utility", "x": 62, "y": 38, "relatedTo": ["mailchimp"] },
+      { "id": "updraftplus", "name": "UpdraftPlus", "category": "backup", "x": 75, "y": 85, "relatedTo": ["jetpack"] },
+      { "id": "duplicator", "name": "Duplicator", "category": "backup", "x": 88, "y": 58, "relatedTo": ["updraftplus"] }
+    ],
+    "categoryColors": [
+      { "category": "security", "color": "#EF4444" },
+      { "category": "performance", "color": "#2563EB" },
+      { "category": "seo", "color": "#31A4DB" },
+      { "category": "ecommerce", "color": "#F59E0B" },
+      { "category": "content", "color": "#F97316" },
+      { "category": "analytics", "color": "#37AFE1" },
+      { "category": "utility", "color": "#64748B" },
+      { "category": "backup", "color": "#22C55E" }
+    ],
+    "legendTitle": "Plugin Categories",
+    "instructionText": "Hover over plugins to see related connections",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "caseStudies": {
+    "eyebrow": "WordPress Success Stories",
+    "title": "WordPress Projects That",
+    "titleHighlight": "Deliver",
+    "subtitle": "See how we've helped businesses build powerful WordPress solutions that drive results.",
+    "studies": [
+      { "img": "/media/services/wordpress/case-studies/blog-platform.jpg", "title": "Blog Platform", "desc": "High-performance WordPress blog with 120% increase in organic traffic and 98/100 SEO score.", "sliderName": "blog" },
+      { "img": "/media/services/wordpress/case-studies/woocommerce-store.jpg", "title": "WooCommerce Store", "desc": "Custom WooCommerce solution with 45% conversion rate improvement and optimized checkout.", "sliderName": "woocommerce" },
+      { "img": "/media/services/wordpress/case-studies/corporate-site.jpg", "title": "Corporate Site", "desc": "Enterprise WordPress site with custom plugins and 1.2s load time optimization.", "sliderName": "corporate" },
+      { "img": "/media/services/wordpress/case-studies/membership-portal.jpg", "title": "Membership Portal", "desc": "Secure membership site with custom user roles and protected content management.", "sliderName": "membership" }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "cta": {
+    "title": "Ready to Build Your WordPress Site?",
+    "subtitle": "Let's create a scalable, high-performance WordPress solution tailored to your needs",
+    "ctaText": "Start Your Project",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "techStack": {
+    "eyebrow": "✨ Our Tech Stack",
+    "title": "Build Your",
+    "titleHighlight": "Digital Empire",
+    "subtitle": "We leverage cutting-edge technologies to deliver scalable, high-performance solutions that drive your business forward.",
+    "ctaText": "Start Your Project",
+    "ctaHref": "/contact",
+    "secondaryCtaText": "View Our Work",
+    "secondaryCtaHref": "/portfolio",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  }
+}

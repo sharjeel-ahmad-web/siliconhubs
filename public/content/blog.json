@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "eyebrow": "Our Blog",
+    "title": "Insights & Ideas",
+    "subtitle": "Discover the latest trends, tips, and insights in web development, design, and digital marketing.",
+    "ctaLabel": "Latest Posts",
+    "ctaHref": "#posts",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "filter": {
+    "categories": [
+      "All",
+      "Development",
+      "Design",
+      "Marketing",
+      "Technology",
+      "Business",
+      "Tutorial"
+    ],
+    "activeColor": "#37AFE1",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "emptyState": {
+    "title": "No blog posts found in this category.",
+    "subtitle": "Check back soon for new content!",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  }
+}

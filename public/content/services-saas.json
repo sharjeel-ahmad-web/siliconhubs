@@ -1,0 +1,114 @@
+{
+  "hero": {
+    "badge": "Custom Software Solutions",
+    "titleHighlight": "SaaS",
+    "title": "for Your Business",
+    "description": "Custom software solutions that scale with your business and streamline operations. From CRM to inventory management, we build what you need.",
+    "primaryCta": { "text": "Start Your Project", "href": "/contact" },
+    "secondaryCta": { "text": "View Our Work", "href": "/portfolio" },
+    "image": "/media/services/saas/hero/saas-dashboard.jpg",
+    "imageAlt": "SaaS Dashboard",
+    "video": "/media/services/saas/video/hero-video.mp4",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "video": {
+    "eyebrow": "See SaaS In Action",
+    "title": "Watch How We Build",
+    "titleHighlight": "Custom Software",
+    "subtitle": "Experience our development process and see the scalable SaaS solutions we create for our clients.",
+    "videoSrc": "/media/services/saas/video/hero-video.mp4",
+    "ctaText": "Start Your SaaS Project",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "features": {
+    "eyebrow": "Why Choose Us",
+    "title": "Why Choose Our",
+    "titleHighlight": "SaaS Solutions?",
+    "subtitle": "We build scalable, secure, and user-friendly software tailored to your needs.",
+    "features": [
+      { "title": "Scalable Architecture", "desc": "Built to grow with your business from day one", "icon": "🚀", "borderColor": "#37AFE1" },
+      { "title": "Cloud-Native", "desc": "Deployed on modern cloud infrastructure for reliability", "icon": "☁️", "borderColor": "#2563EB" },
+      { "title": "API-First Design", "desc": "Seamless integrations with your existing tools", "icon": "🔗", "borderColor": "#F97316" },
+      { "title": "Real-Time Analytics", "desc": "Data-driven insights to make informed decisions", "icon": "📊", "borderColor": "#31A4DB" },
+      { "title": "Enterprise Security", "desc": "Bank-level security to protect your data", "icon": "🔒", "borderColor": "#F58122" },
+      { "title": "24/7 Support", "desc": "Round-the-clock support when you need it", "icon": "💬", "borderColor": "#37AFE1" }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "solutions": {
+    "eyebrow": "Solutions",
+    "title": "Our SaaS",
+    "titleHighlight": "Solutions",
+    "subtitle": "From CRM to inventory management, we build what your business needs.",
+    "solutions": [
+      { "title": "CRM Systems", "desc": "Manage customer relationships and sales pipelines effectively", "gradientFrom": "#F58122", "gradientTo": "#37AFE1", "borderColor": "#37AFE1" },
+      { "title": "Inventory Management", "desc": "Track stock levels, orders, and suppliers in real-time", "gradientFrom": "#37AFE1", "gradientTo": "#2563EB", "borderColor": "#2563EB" },
+      { "title": "Project Management", "desc": "Collaborate with teams and track project progress", "gradientFrom": "#2563EB", "gradientTo": "#31A4DB", "borderColor": "#31A4DB" },
+      { "title": "HR & Payroll", "desc": "Streamline employee management and payroll processing", "gradientFrom": "#31A4DB", "gradientTo": "#F97316", "borderColor": "#F97316" }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "caseStudies": {
+    "eyebrow": "SaaS Success Stories",
+    "title": "Software That",
+    "titleHighlight": "Scales",
+    "subtitle": "See how we've helped businesses build custom software solutions that drive growth.",
+    "studies": [
+      { "img": "/media/services/saas/case-studies/project-management.jpg", "title": "CRM Platform", "desc": "Custom CRM serving 500+ users with real-time analytics and 99.9% uptime.", "sliderName": "crm" },
+      { "img": "/media/services/saas/case-studies/inventory-system.jpg", "title": "Inventory System", "desc": "Real-time inventory management tracking 50,000+ SKUs across multiple warehouses.", "sliderName": "inventory" },
+      { "img": "/media/services/saas/case-studies/project-management.jpg", "title": "Project Management", "desc": "Team collaboration platform with 10,000+ daily active users and advanced reporting.", "sliderName": "project" },
+      { "img": "/media/services/saas/case-studies/hr-payroll.jpg", "title": "HR & Payroll", "desc": "Automated payroll processing for 2,000+ employees with compliance management.", "sliderName": "hr" }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "cta": {
+    "eyebrow": "SaaS Experts",
+    "title": "Ready to Transform",
+    "titleHighlight": "Your Business?",
+    "subtitle": "Let's build a custom SaaS solution that drives your business forward",
+    "ctaText": "Get Started Today",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "liveDashboard": {
+    "eyebrow": "Live Preview",
+    "title": "See Your Dashboard",
+    "titleHighlight": "In Action",
+    "subtitle": "Experience a live preview of what your custom SaaS dashboard could look like.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "howItWorks": {
+    "eyebrow": "Our Process",
+    "title": "How We Build Your",
+    "titleHighlight": "SaaS",
+    "subtitle": "A proven methodology that delivers results every time.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "roiCalculator": {
+    "eyebrow": "Calculate Your Savings",
+    "title": "ROI",
+    "titleHighlight": "Calculator",
+    "subtitle": "See how much you could save by automating your workflows with a custom SaaS solution.",
+    "ctaText": "Get Custom Quote",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "featureRequest": {
+    "eyebrow": "Tell Us Your Vision",
+    "title": "Request a",
+    "titleHighlight": "Feature",
+    "subtitle": "Have an idea for your SaaS? We'd love to hear it.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  }
+}
