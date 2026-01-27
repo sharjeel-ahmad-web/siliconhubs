@@ -93,7 +93,6 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
 ## Project Structure
-
 ```
 ├── app/                    # Next.js App Router
 │   ├── (public)/          # Public pages (home, portfolio, services, etc.)
@@ -109,7 +108,6 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
 ## Scripts
-
 ```bash
 npm run dev          # Start development server
 npm run build        # Build for production
@@ -121,7 +119,6 @@ npm run type-check   # TypeScript type checking
 ```
 
 ## Services Offered
-
 - **Web Design** - Custom, responsive website design
 - **Shopify Development** - E-commerce solutions
 - **SEO Optimization** - Search engine visibility
@@ -131,14 +128,11 @@ npm run type-check   # TypeScript type checking
 - **SaaS Development** - Scalable web applications
 
 ## Author
-
 **KuchikiRenji**  
 Email: KuchikiRenji@outlook.com
 
 ## License
-
 This project is proprietary software. All rights reserved.
-
 ---
 
 Built with ❤️ by [KuchikiRenji](mailto:KuchikiRenji@outlook.com)
