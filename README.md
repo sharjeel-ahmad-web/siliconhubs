@@ -2,7 +2,7 @@
 
 A modern, high-performance web development agency website built with Next.js 14, featuring stunning animations, CMS integration, and a comprehensive admin dashboard.
 
-![Rising Dot - Homepage](public/README/main.jpg)
+![Rising Dot - Homepage](./public/readme/main.jpg)
 
 ## Overview
 
@@ -19,7 +19,7 @@ Rising Dot Agency is a full-featured agency website showcasing web development, 
 
 ### Portfolio Showcase
 
-![Portfolio Page](public/README/portfolio.jpg)
+![Portfolio Page](./public/readme/portfolio.jpg)
 
 Interactive portfolio with category filtering, project cards with hover effects, and detailed case studies.
 
@@ -32,7 +32,7 @@ Interactive portfolio with category filtering, project cards with hover effects,
 
 ### SEO & Analytics
 
-![SEO Dashboard](public/README/seo.jpg)
+![SEO Dashboard](./public/readme/seo.jpg)
 
 Built-in SEO tools including keyword cloud visualization, importance scoring, and Google PageSpeed integration.
 
