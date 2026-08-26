@@ -40,7 +40,8 @@ export function ServicesHeroSection({
   ctaHref = '/contact',
 }: ServicesHeroSectionProps) {
   const timelineRef = useRef<HTMLDivElement>(null);
-  const safeServices: ServiceItem[] = services != null && Array.isArray(services) ? services : [];
+  const safeServices: ServiceItem[] =
+    services != null && Array.isArray(services) ? services : [];
 
   const revealVariants = {
     visible: (i: number) => ({
@@ -65,7 +66,7 @@ export function ServicesHeroSection({
 
     const animatedGradientStyle = {
       backgroundImage:
-        'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+        'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
       backgroundSize: '300% 100%',
       animation: 'gradient-shift 4s ease-in-out infinite',
     };
@@ -99,7 +100,7 @@ export function ServicesHeroSection({
   };
 
   return (
-    <main ref={timelineRef} className="bg-black">
+    <main ref={timelineRef} className="bg-navy">
       <div className="mx-auto min-h-screen max-w-screen-2xl px-4 pb-5 pt-28">
         <article className="mx-auto w-fit max-w-2xl space-y-6 text-center xl:max-w-4xl 2xl:max-w-5xl">
           {/* Eyebrow */}
@@ -110,9 +111,9 @@ export function ServicesHeroSection({
               animationNum={1}
               timelineRef={timelineRef}
               customVariants={revealVariants}
-              className="mx-auto flex w-fit items-center gap-1 rounded-full border-2 border-[#37AFE1]/30 bg-[#37AFE1]/20 py-0.5 pl-0.5 pr-3 text-xs"
+              className="mx-auto flex w-fit items-center gap-1 rounded-full border-2 border-cyan/30 bg-cyan/20 py-0.5 pl-0.5 pr-3 text-xs"
             >
-              <div className="rounded-full bg-[#37AFE1] px-2 py-1 text-xs font-medium text-white">
+              <div className="rounded-full bg-cyan px-2 py-1 text-xs font-medium text-white">
                 New
               </div>
               <p className="inline-block text-xs text-white sm:text-base">
@@ -184,7 +185,7 @@ export function ServicesHeroSection({
               timelineRef={timelineRef}
               key={service.id}
               customVariants={revealVariants}
-              className="group relative aspect-video cursor-default overflow-hidden rounded-xl border border-white/10 backdrop-blur-sm transition-all hover:border-[#37AFE1]/50"
+              className="group relative aspect-video cursor-default overflow-hidden rounded-xl border border-white/10 backdrop-blur-sm transition-all hover:border-cyan/50"
             >
               <figure className="relative h-full w-full">
                 <Image
@@ -196,7 +197,7 @@ export function ServicesHeroSection({
                 />
               </figure>
               {/* Dark overlay */}
-              <div className="absolute inset-0 rounded-xl bg-black/40 transition-colors duration-300 group-hover:bg-black/30" />
+              <div className="absolute inset-0 rounded-xl bg-navy/40 transition-colors duration-300 group-hover:bg-navy/30" />
               <ProgressiveBlur
                 className="pointer-events-none absolute bottom-0 left-0 h-[50%] w-full"
                 blurIntensity={0.5}

@@ -75,7 +75,7 @@ export default function ProjectDetail({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-navy/80 p-4 backdrop-blur-sm"
       onClick={onClose}
     >
       <motion.div
@@ -84,14 +84,14 @@ export default function ProjectDetail({
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-        className="relative max-h-[90vh] w-full max-w-6xl overflow-hidden rounded-2xl bg-[#0F172A] shadow-2xl"
+        className="relative max-h-[90vh] w-full max-w-6xl overflow-hidden rounded-2xl bg-navy shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <ParticleWrapper className="absolute right-4 top-4 z-50">
           <button
             onClick={onClose}
-            className="rounded-full bg-[#1E293B] p-2 text-2xl text-white transition-colors hover:bg-[#37AFE1]"
+            className="rounded-full bg-navy p-2 text-2xl text-white transition-colors hover:bg-cyan"
           >
             ✕
           </button>
@@ -118,8 +118,8 @@ export default function ProjectDetail({
                   className="h-full w-full bg-gradient-to-br"
                   style={{
                     backgroundImage: `linear-gradient(${45 + index * 20}deg, 
-                      rgba(55, 175, 225, ${0.1 + index * 0.05}) 0%, 
-                      rgba(245, 129, 34, ${0.1 + index * 0.05}) 100%)`,
+                      rgba(6, 182, 212, ${0.1 + index * 0.05}) 0%, 
+                      rgba(252, 76, 0, ${0.1 + index * 0.05}) 100%)`,
                   }}
                 />
               </motion.div>
@@ -152,12 +152,12 @@ export default function ProjectDetail({
                     onClick={() => setSelectedHotspot(index)}
                   >
                     <motion.div
-                      className="h-8 w-8 rounded-full border-2 border-white bg-[#F58122] shadow-lg"
+                      className="h-8 w-8 rounded-full border-2 border-white bg-orange shadow-lg"
                       animate={{
                         boxShadow: [
-                          '0 0 0 0 rgba(245, 129, 34, 0.7)',
-                          '0 0 0 20px rgba(245, 129, 34, 0)',
-                          '0 0 0 0 rgba(245, 129, 34, 0)',
+                          '0 0 0 0 rgba(252, 76, 0, 0.7)',
+                          '0 0 0 20px rgba(252, 76, 0, 0)',
+                          '0 0 0 0 rgba(252, 76, 0, 0)',
                         ],
                       }}
                       transition={{
@@ -174,12 +174,12 @@ export default function ProjectDetail({
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
-                          className="absolute left-1/2 top-full mt-2 w-64 -translate-x-1/2 rounded-lg border border-[#37AFE1]/30 bg-[#1E293B] p-4 shadow-xl"
+                          className="absolute left-1/2 top-full mt-2 w-64 -translate-x-1/2 rounded-lg border border-cyan/30 bg-navy p-4 shadow-xl"
                         >
                           <h4 className="mb-2 font-bold text-white">
                             {hotspot.title}
                           </h4>
-                          <p className="text-sm text-[#64748B]">
+                          <p className="text-sm text-slate-grey">
                             {hotspot.description}
                           </p>
                         </motion.div>
@@ -201,14 +201,14 @@ export default function ProjectDetail({
               <h2 className="mb-2 text-4xl font-bold text-white">
                 {project.title}
               </h2>
-              <p className="mb-6 text-xl text-[#64748B]">{project.client}</p>
+              <p className="mb-6 text-xl text-slate-grey">{project.client}</p>
 
               {/* Tags */}
               <div className="mb-8 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-[#37AFE1]/30 bg-[#37AFE1]/20 px-4 py-2 text-[#37AFE1]"
+                    className="rounded-full border border-cyan/30 bg-cyan/20 px-4 py-2 text-cyan"
                   >
                     {tag}
                   </span>
@@ -216,7 +216,7 @@ export default function ProjectDetail({
               </div>
 
               {/* Description */}
-              <p className="mb-8 text-lg leading-relaxed text-[#64748B]">
+              <p className="mb-8 text-lg leading-relaxed text-slate-grey">
                 {project.description}
               </p>
 
@@ -228,12 +228,12 @@ export default function ProjectDetail({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
-                    className="rounded-lg border border-[#64748B]/20 bg-[#1E293B] p-6"
+                    className="rounded-lg border border-slate-grey/20 bg-navy p-6"
                   >
-                    <p className="mb-2 text-sm text-[#64748B]">
+                    <p className="mb-2 text-sm text-slate-grey">
                       {metric.label}
                     </p>
-                    <p className="text-3xl font-bold text-[#F58122]">
+                    <p className="text-3xl font-bold text-orange">
                       {metric.value}
                     </p>
                   </motion.div>
@@ -269,14 +269,14 @@ export default function ProjectDetail({
           width: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: #1e293b;
+          background: #0a192f;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #37afe1;
+          background: #06b6d4;
           border-radius: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #f58122;
+          background: #fc4c00;
         }
       `}</style>
     </motion.div>

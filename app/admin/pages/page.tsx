@@ -153,7 +153,7 @@ export default function PagesAdminPage() {
   if (loading) {
     return (
       <div className="flex min-h-full items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -178,7 +178,7 @@ export default function PagesAdminPage() {
           {content.length === 0 && (
             <button
               onClick={seedContent}
-              className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-4 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+              className="flex items-center gap-2 rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80"
             >
               <Save className="h-4 w-4" />
               Seed All Content
@@ -218,21 +218,21 @@ export default function PagesAdminPage() {
               <Link
                 key={page.id}
                 href={page.id ? `/admin/pages/${page.id}` : '#'}
-                className="group rounded-xl border border-slate-700/50 bg-[#1E293B] p-5 transition-all hover:border-[#37AFE1]/50 hover:shadow-lg"
+                className="group rounded-xl border border-slate-700/50 bg-navy p-5 transition-all hover:border-cyan/50 hover:shadow-lg"
               >
                 <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-slate-700 p-3 transition-colors group-hover:bg-[#37AFE1]/20">
-                    <Icon className="h-6 w-6 text-[#37AFE1]" />
+                  <div className="rounded-lg bg-slate-700 p-3 transition-colors group-hover:bg-cyan/20">
+                    <Icon className="h-6 w-6 text-cyan" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-white transition-colors group-hover:text-[#37AFE1]">
+                    <h3 className="font-semibold text-white transition-colors group-hover:text-cyan">
                       {page.label}
                     </h3>
                     <p className="mt-1 text-sm text-slate-400">
                       {page.description}
                     </p>
                     <div className="mt-3 flex items-center gap-2">
-                      <span className="rounded bg-[#37AFE1]/20 px-2 py-1 text-xs text-[#37AFE1]">
+                      <span className="rounded bg-cyan/20 px-2 py-1 text-xs text-cyan">
                         {page.sections} sections
                       </span>
                       {configured > 0 && (
@@ -261,21 +261,21 @@ export default function PagesAdminPage() {
               <Link
                 key={page.id}
                 href={page.id ? `/admin/pages/${page.id}` : '#'}
-                className="group rounded-xl border border-slate-700/50 bg-[#1E293B] p-5 transition-all hover:border-[#37AFE1]/50 hover:shadow-lg"
+                className="group rounded-xl border border-slate-700/50 bg-navy p-5 transition-all hover:border-cyan/50 hover:shadow-lg"
               >
                 <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-slate-700 p-3 transition-colors group-hover:bg-[#37AFE1]/20">
-                    <Icon className="h-6 w-6 text-[#37AFE1]" />
+                  <div className="rounded-lg bg-slate-700 p-3 transition-colors group-hover:bg-cyan/20">
+                    <Icon className="h-6 w-6 text-cyan" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-white transition-colors group-hover:text-[#37AFE1]">
+                    <h3 className="font-semibold text-white transition-colors group-hover:text-cyan">
                       {page.label}
                     </h3>
                     <p className="mt-1 text-sm text-slate-400">
                       {page.description}
                     </p>
                     <div className="mt-3 flex items-center gap-2">
-                      <span className="rounded bg-[#37AFE1]/20 px-2 py-1 text-xs text-[#37AFE1]">
+                      <span className="rounded bg-cyan/20 px-2 py-1 text-xs text-cyan">
                         {page.sections} sections
                       </span>
                       {configured > 0 && (

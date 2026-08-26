@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next';
+﻿import { MetadataRoute } from 'next';
 import clientPromise from '@/lib/db/mongodb';
 
 // Static pages configuration
@@ -84,9 +84,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   } catch (error) {
     // If MongoDB is not available, just return static pages
-    console.warn('MongoDB not available for sitemap generation, using static pages only');
+    console.warn(
+      'MongoDB not available for sitemap generation, using static pages only'
+    );
   }
 
   return urls;
 }
-

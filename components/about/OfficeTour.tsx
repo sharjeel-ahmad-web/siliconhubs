@@ -151,7 +151,7 @@ export default function OfficeTour() {
   return (
     <div className="relative">
       {/* Main viewer */}
-      <div className="relative h-[600px] overflow-hidden rounded-2xl border border-[#64748B]/20 bg-[#0F172A]">
+      <div className="relative h-[600px] overflow-hidden rounded-2xl border border-slate-grey/20 bg-navy">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentStop}
@@ -164,7 +164,7 @@ export default function OfficeTour() {
             {/* 360° view simulation */}
             <div className="relative h-full w-full">
               {/* Background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/20 to-[#37AFE1]/20" />
+              <div className="absolute inset-0 bg-gradient-to-br from-navy/20 to-cyan/20" />
 
               {/* Large emoji as placeholder */}
               <div className="absolute inset-0 flex items-center justify-center text-[200px] opacity-30">
@@ -188,12 +188,12 @@ export default function OfficeTour() {
                   onClick={() => setSelectedHotspot(hotspot.id)}
                 >
                   <motion.div
-                    className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-[#2563EB] font-bold text-white shadow-lg"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-navy font-bold text-white shadow-lg"
                     animate={{
                       boxShadow: [
-                        '0 0 0 0 rgba(37, 99, 235, 0.7)',
-                        '0 0 0 20px rgba(37, 99, 235, 0)',
-                        '0 0 0 0 rgba(37, 99, 235, 0)',
+                        '0 0 0 0 rgba(10, 25, 47, 0.7)',
+                        '0 0 0 20px rgba(10, 25, 47, 0)',
+                        '0 0 0 0 rgba(10, 25, 47, 0)',
                       ],
                     }}
                     transition={{
@@ -212,12 +212,12 @@ export default function OfficeTour() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute left-1/2 top-full z-10 mt-2 w-64 -translate-x-1/2 rounded-lg border border-[#2563EB]/30 bg-[#1E293B] p-4 shadow-xl"
+                        className="absolute left-1/2 top-full z-10 mt-2 w-64 -translate-x-1/2 rounded-lg border border-navy/30 bg-navy p-4 shadow-xl"
                       >
                         <h4 className="mb-2 font-bold text-white">
                           {hotspot.title}
                         </h4>
-                        <p className="text-sm text-[#64748B]">
+                        <p className="text-sm text-slate-grey">
                           {hotspot.description}
                         </p>
                       </motion.div>
@@ -227,7 +227,7 @@ export default function OfficeTour() {
               ))}
 
               {/* Info overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0F172A] to-transparent p-8">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy to-transparent p-8">
                 <motion.h3
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -251,13 +251,13 @@ export default function OfficeTour() {
         {/* Navigation arrows */}
         <button
           onClick={handlePrev}
-          className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[#1E293B] text-2xl text-white transition-colors hover:bg-[#2563EB]"
+          className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-navy text-2xl text-white transition-colors hover:bg-navy"
         >
           ←
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[#1E293B] text-2xl text-white transition-colors hover:bg-[#2563EB]"
+          className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-navy text-2xl text-white transition-colors hover:bg-navy"
         >
           →
         </button>
@@ -274,8 +274,8 @@ export default function OfficeTour() {
             }}
             className={`rounded-lg px-6 py-3 font-semibold transition-all ${
               currentStop === index
-                ? 'bg-[#2563EB] text-white shadow-lg shadow-[#2563EB]/50'
-                : 'bg-[#1E293B] text-[#64748B] hover:bg-[#1E293B]/80'
+                ? 'bg-navy text-white shadow-lg shadow-navy/50'
+                : 'bg-navy text-slate-grey hover:bg-navy/80'
             }`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Performance Budget Checker
  * Validates that bundle sizes and resource sizes meet performance budgets
  */

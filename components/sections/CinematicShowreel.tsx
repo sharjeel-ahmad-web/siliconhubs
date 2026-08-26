@@ -226,7 +226,7 @@ export default function CinematicShowreel() {
             style={{
               willChange: 'transform',
               transform: 'translateZ(0)',
-              background: '#0A0F1E',
+              background: '#0a192f',
             }}
           >
             {/* Moving border animation */}
@@ -239,7 +239,7 @@ export default function CinematicShowreel() {
                   className="h-24 w-24 opacity-[0.9]"
                   style={{
                     background:
-                      'radial-gradient(#37AFE1 30%, #F58122 50%, transparent 70%)',
+                      'radial-gradient(#06b6d4 30%, #fc4c00 50%, transparent 70%)',
                     filter: 'blur(2px)',
                   }}
                 />
@@ -250,14 +250,14 @@ export default function CinematicShowreel() {
             <div
               className="absolute inset-0 rounded-xl"
               style={{
-                border: '1px solid rgba(55, 175, 225, 0.3)',
+                border: '1px solid rgba(6, 182, 212, 0.3)',
               }}
             />
 
             {/* Inner card container */}
-            <div className="relative overflow-hidden rounded-xl bg-black">
+            <div className="relative overflow-hidden rounded-xl bg-navy">
               {/* Video Container */}
-              <div className="relative aspect-video bg-[#0A0F1E]">
+              <div className="relative aspect-video bg-navy">
                 {videoSrc && (
                   <video
                     ref={videoRef}
@@ -299,9 +299,9 @@ export default function CinematicShowreel() {
                         }}
                         className="pointer-events-auto flex h-20 w-20 items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
                         style={{
-                          background: 'rgba(245, 129, 34, 0.9)',
+                          background: 'rgba(252, 76, 0, 0.9)',
                           boxShadow:
-                            '0 0 40px rgba(245, 129, 34, 0.5), 0 0 80px rgba(245, 129, 34, 0.3)',
+                            '0 0 40px rgba(252, 76, 0, 0.5), 0 0 80px rgba(252, 76, 0, 0.3)',
                         }}
                         aria-label={isPlaying ? 'Pause video' : 'Play video'}
                       >
@@ -316,14 +316,14 @@ export default function CinematicShowreel() {
                 </AnimatePresence>
 
                 {/* Status badge */}
-                <div className="absolute bottom-4 left-4 z-10 rounded-full bg-black/40 px-3 py-1.5 text-xs text-white/80 backdrop-blur-sm">
+                <div className="absolute bottom-4 left-4 z-10 rounded-full bg-navy/40 px-3 py-1.5 text-xs text-white/80 backdrop-blur-sm">
                   {isPlaying ? 'Playing' : 'Paused'}
                 </div>
 
                 {/* Sound toggle button */}
                 <button
                   onClick={toggleMute}
-                  className="absolute bottom-4 right-4 z-10 flex items-center gap-2 rounded-full bg-black/40 px-3 py-1.5 text-xs text-white/80 backdrop-blur-sm transition-colors hover:bg-black/60"
+                  className="absolute bottom-4 right-4 z-10 flex items-center gap-2 rounded-full bg-navy/40 px-3 py-1.5 text-xs text-white/80 backdrop-blur-sm transition-colors hover:bg-navy/60"
                   aria-label={isMuted ? 'Unmute' : 'Mute'}
                 >
                   {isMuted ? (
@@ -338,16 +338,16 @@ export default function CinematicShowreel() {
 
                 {/* Loading state */}
                 {!isVideoLoaded && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-[#0A0F1E]">
+                  <div className="absolute inset-0 flex items-center justify-center bg-navy">
                     <div className="flex flex-col items-center gap-4">
                       <div
                         className="h-12 w-12 animate-spin rounded-full"
                         style={{
-                          border: '2px solid rgba(55, 175, 225, 0.3)',
-                          borderTopColor: '#37AFE1',
+                          border: '2px solid rgba(6, 182, 212, 0.3)',
+                          borderTopColor: '#06b6d4',
                         }}
                       />
-                      <span className="text-sm text-[#64748B]">
+                      <span className="text-sm text-slate-grey">
                         Loading showreel...
                       </span>
                     </div>
@@ -364,8 +364,8 @@ export default function CinematicShowreel() {
             className="flex items-center gap-2 rounded-full px-6 py-3 transition-transform duration-200 active:scale-95"
             style={{
               background:
-                'linear-gradient(135deg, rgba(55, 175, 225, 0.2) 0%, rgba(49, 164, 219, 0.2) 100%)',
-              border: '1px solid rgba(55, 175, 225, 0.3)',
+                'linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(49, 164, 219, 0.2) 100%)',
+              border: '1px solid rgba(6, 182, 212, 0.3)',
             }}
             onClick={toggleMute}
             aria-label={isMuted ? 'Unmute video' : 'Mute video'}

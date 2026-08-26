@@ -57,7 +57,7 @@ export default function Hero({ typewriterSpeed = 80 }: HeroProps) {
       {/* Single Column Content - z-10 */}
       <div className="relative z-10 mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center gap-6 text-center">
-          <p className="font-inter text-lg uppercase tracking-wide text-[#F97316] md:text-xl">
+          <p className="font-inter text-lg uppercase tracking-wide text-orange md:text-xl">
             {eyebrow}
           </p>
 
@@ -65,7 +65,7 @@ export default function Hero({ typewriterSpeed = 80 }: HeroProps) {
             className="bg-clip-text font-montserrat text-4xl font-bold text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
             style={{
               backgroundImage:
-                'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+                'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
               backgroundSize: '300% 100%',
               animation: 'gradient-shift 4s ease-in-out infinite',
             }}
@@ -92,9 +92,9 @@ export default function Hero({ typewriterSpeed = 80 }: HeroProps) {
       <div
         className={`absolute bottom-8 left-1/2 z-[10] flex -translate-x-1/2 flex-col items-center gap-2 transition-opacity duration-500 ${isAnimationComplete ? 'opacity-100' : 'opacity-0'}`}
       >
-        <span className="font-inter text-sm text-[#37AFE1]">{scrollText}</span>
-        <div className="flex h-10 w-6 justify-center rounded-full border-2 border-[#37AFE1] pt-2">
-          <div className="h-3 w-1.5 animate-bounce rounded-full bg-[#F97316]" />
+        <span className="font-inter text-sm text-cyan">{scrollText}</span>
+        <div className="flex h-10 w-6 justify-center rounded-full border-2 border-cyan pt-2">
+          <div className="h-3 w-1.5 animate-bounce rounded-full bg-orange" />
         </div>
       </div>
     </section>

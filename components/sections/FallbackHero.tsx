@@ -14,7 +14,7 @@ export default function FallbackHero() {
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(circle at 20% 50%, rgba(55, 175, 225, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(245, 129, 34, 0.3) 0%, transparent 50%)',
+              'radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(252, 76, 0, 0.3) 0%, transparent 50%)',
           }}
         />
       </div>
@@ -23,10 +23,10 @@ export default function FallbackHero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center gap-8 text-center">
           {/* Eyebrow */}
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#37AFE1]/30 bg-[#37AFE1]/10 px-6 py-3 text-sm font-medium uppercase tracking-wider text-[#37AFE1] backdrop-blur-sm">
+          <span className="inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-6 py-3 text-sm font-medium uppercase tracking-wider text-cyan backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#37AFE1] opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#37AFE1]"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan"></span>
             </span>
             Digital Excellence Delivered
           </span>
@@ -37,7 +37,7 @@ export default function FallbackHero() {
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  'linear-gradient(135deg, #37AFE1 0%, #F58122 100%)',
+                  'linear-gradient(135deg, #06b6d4 0%, #fc4c00 100%)',
               }}
             >
               Rising Dot Agency
@@ -58,7 +58,7 @@ export default function FallbackHero() {
                 duration={2.5}
                 style={{
                   background:
-                    'linear-gradient(135deg, #37AFE1 0%, #31A4DB 100%)',
+                    'linear-gradient(135deg, #06b6d4 0%, #06b6d4 100%)',
                 }}
               >
                 Get Started

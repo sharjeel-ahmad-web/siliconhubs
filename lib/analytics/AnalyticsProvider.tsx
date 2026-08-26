@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Analytics Provider
  *
  * Unified analytics provider that integrates:

@@ -117,14 +117,14 @@ export default function ValueProposition() {
 
   // Color configuration from CMS
   const colors = {
-    cardBackground: sectionContent?.colors?.cardBackground || '#1E293B',
-    cardAccentColor: sectionContent?.colors?.cardAccentColor || '#37AFE1',
+    cardBackground: sectionContent?.colors?.cardBackground || '#0a192f',
+    cardAccentColor: sectionContent?.colors?.cardAccentColor || '#06b6d4',
     cardHoverAccentColor:
-      sectionContent?.colors?.cardHoverAccentColor || '#F58122',
-    particleColor: sectionContent?.colors?.particleColor || '#37AFE1',
+      sectionContent?.colors?.cardHoverAccentColor || '#fc4c00',
+    particleColor: sectionContent?.colors?.particleColor || '#06b6d4',
     connectionLineStart:
-      sectionContent?.colors?.connectionLineStart || '#37AFE1',
-    connectionLineEnd: sectionContent?.colors?.connectionLineEnd || '#F58122',
+      sectionContent?.colors?.connectionLineStart || '#06b6d4',
+    connectionLineEnd: sectionContent?.colors?.connectionLineEnd || '#fc4c00',
   };
 
   // Emit particles on hover
@@ -348,14 +348,14 @@ export default function ValueProposition() {
                 borderRadius="1rem"
                 borderWidth="2px"
                 className={`cursor-pointer p-10 transition-all duration-200
-                           ${hoveredService === service.id ? 'scale-105 shadow-[0_0_20px_rgba(55,175,225,0.3)]' : 'shadow-lg'}`}
+                           ${hoveredService === service.id ? 'shadow-[0_0_20px_rgba(6, 182, 212,0.3)] scale-105' : 'shadow-lg'}`}
               >
                 <div className="flex flex-col items-center">
                   <div className="mb-5 text-7xl">{service.icon}</div>
                   <h3 className="text-center font-montserrat text-2xl font-semibold text-white">
                     {service.name}
                   </h3>
-                  <p className="mt-3 text-center font-inter text-base text-[#64748B]">
+                  <p className="mt-3 text-center font-inter text-base text-slate-grey">
                     {service.description}
                   </p>
                 </div>

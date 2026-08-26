@@ -165,7 +165,7 @@ export function PremiumTestimonials() {
   return (
     <section
       id="testimonials"
-      className="relative overflow-hidden bg-black px-4 py-12 text-white sm:px-6 md:py-16 lg:px-8"
+      className="relative overflow-hidden bg-navy px-4 py-12 text-white sm:px-6 md:py-16 lg:px-8"
     >
       <motion.div
         ref={containerRef}
@@ -188,7 +188,7 @@ export function PremiumTestimonials() {
               animate={{ rotate: 360 }}
               transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
             >
-              <Sparkles className="h-3 w-3 text-[#F58122] sm:h-4 sm:w-4" />
+              <Sparkles className="h-3 w-3 text-orange sm:h-4 sm:w-4" />
             </motion.div>
             <span className="font-medium text-white/80">{eyebrow}</span>
             <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
@@ -203,7 +203,7 @@ export function PremiumTestimonials() {
             </span>
             <br />
             <motion.span
-              className="bg-gradient-to-r from-[#F58122] via-[#37AFE1] to-[#F58122] bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-orange via-cyan to-orange bg-clip-text text-transparent"
               animate={{
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
               }}
@@ -253,7 +253,7 @@ export function PremiumTestimonials() {
                 <div className="group relative h-full overflow-hidden rounded-3xl border border-white/[0.15] bg-gradient-to-br from-white/[0.08] to-white/[0.02] p-8 backdrop-blur-xl md:p-12">
                   {/* Animated background gradient */}
                   <motion.div
-                    className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#F58122]/[0.08] via-[#37AFE1]/[0.05] to-[#F58122]/[0.08]"
+                    className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange/[0.08] via-cyan/[0.05] to-orange/[0.08]"
                     animate={{
                       backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
                     }}
@@ -273,7 +273,7 @@ export function PremiumTestimonials() {
                     animate={{ rotate: [0, 10, 0] }}
                     transition={{ duration: 4, repeat: Infinity }}
                   >
-                    <Quote className="h-16 w-16 text-[#F58122]" />
+                    <Quote className="h-16 w-16 text-orange" />
                   </motion.div>
 
                   <div className="relative z-10 flex h-full flex-col items-center gap-8 md:flex-row">
@@ -284,21 +284,21 @@ export function PremiumTestimonials() {
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full border-4 border-[#F58122]/30 md:mx-0">
+                        <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full border-4 border-orange/30 md:mx-0">
                           <img
                             src={testimonials[currentIndex].avatar}
                             alt={testimonials[currentIndex].name}
                             className="h-full w-full object-cover"
                           />
                           <motion.div
-                            className="absolute inset-0 bg-gradient-to-br from-[#F58122]/20 to-[#37AFE1]/20"
+                            className="absolute inset-0 bg-gradient-to-br from-orange/20 to-cyan/20"
                             animate={{ opacity: [0, 0.3, 0] }}
                             transition={{ duration: 3, repeat: Infinity }}
                           />
                         </div>
                         {/* Floating ring animation */}
                         <motion.div
-                          className="absolute inset-0 rounded-full border-2 border-[#F58122]/30"
+                          className="absolute inset-0 rounded-full border-2 border-orange/30"
                           animate={{
                             scale: [1, 1.4, 1],
                             opacity: [0.5, 0, 0.5],
@@ -310,7 +310,7 @@ export function PremiumTestimonials() {
                       <h3 className="mb-2 text-2xl font-bold text-white">
                         {testimonials[currentIndex].name}
                       </h3>
-                      <p className="mb-1 font-medium text-[#F58122]">
+                      <p className="mb-1 font-medium text-orange">
                         {testimonials[currentIndex].role}
                       </p>
                       <p className="mb-4 text-white/60">
@@ -327,7 +327,7 @@ export function PremiumTestimonials() {
                               animate={{ opacity: 1, scale: 1 }}
                               transition={{ delay: i * 0.1, duration: 0.3 }}
                             >
-                              <Star className="h-5 w-5 fill-[#F58122] text-[#F58122]" />
+                              <Star className="h-5 w-5 fill-orange text-orange" />
                             </motion.div>
                           )
                         )}
@@ -359,7 +359,7 @@ export function PremiumTestimonials() {
                                 duration: 0.5,
                               }}
                               whileHover={{
-                                backgroundColor: 'rgba(245, 129, 34, 0.1)',
+                                backgroundColor: 'rgba(252, 76, 0, 0.1)',
                               }}
                             >
                               <span className="text-sm font-medium text-white/70">
@@ -380,10 +380,10 @@ export function PremiumTestimonials() {
           <div className="mt-8 flex items-center justify-center gap-6">
             <motion.button
               onClick={prevTestimonial}
-              className="rounded-full border border-white/[0.15] bg-white/[0.08] p-3 text-white backdrop-blur-sm transition-all hover:bg-[#F58122]/20"
+              className="rounded-full border border-white/[0.15] bg-white/[0.08] p-3 text-white backdrop-blur-sm transition-all hover:bg-orange/20"
               whileHover={{
                 scale: 1.1,
-                backgroundColor: 'rgba(245, 129, 34, 0.2)',
+                backgroundColor: 'rgba(252, 76, 0, 0.2)',
               }}
               whileTap={{ scale: 0.95 }}
             >
@@ -401,7 +401,7 @@ export function PremiumTestimonials() {
                   }}
                   className={`h-3 w-3 rounded-full transition-all ${
                     index === currentIndex
-                      ? 'scale-125 bg-[#F58122]'
+                      ? 'scale-125 bg-orange'
                       : 'bg-white/30 hover:bg-white/50'
                   }`}
                   whileHover={{ scale: 1.2 }}
@@ -412,10 +412,10 @@ export function PremiumTestimonials() {
 
             <motion.button
               onClick={nextTestimonial}
-              className="rounded-full border border-white/[0.15] bg-white/[0.08] p-3 text-white backdrop-blur-sm transition-all hover:bg-[#F58122]/20"
+              className="rounded-full border border-white/[0.15] bg-white/[0.08] p-3 text-white backdrop-blur-sm transition-all hover:bg-orange/20"
               whileHover={{
                 scale: 1.1,
-                backgroundColor: 'rgba(245, 129, 34, 0.2)',
+                backgroundColor: 'rgba(252, 76, 0, 0.2)',
               }}
               whileTap={{ scale: 0.95 }}
             >
@@ -437,7 +437,7 @@ export function PremiumTestimonials() {
               whileHover={{ scale: 1.05 }}
             >
               <motion.div
-                className="mb-2 bg-gradient-to-r from-[#F58122] to-[#37AFE1] bg-clip-text text-3xl font-bold text-transparent md:text-4xl"
+                className="mb-2 bg-gradient-to-r from-orange to-cyan bg-clip-text text-3xl font-bold text-transparent md:text-4xl"
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{
                   duration: 2,

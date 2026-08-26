@@ -29,13 +29,13 @@ interface ThemeConfig {
 
 const defaultTheme: ThemeConfig = {
   colors: {
-    primary: '#F97316',
-    primaryAlt: '#F58122',
-    secondary: '#37AFE1',
-    secondaryAlt: '#31A4DB',
-    accent: '#2563EB',
+    primary: '#fc4c00',
+    primaryAlt: '#fc4c00',
+    secondary: '#06b6d4',
+    secondaryAlt: '#06b6d4',
+    accent: '#0a192f',
     background: '#000000',
-    surface: '#1E293B',
+    surface: '#0a192f',
     text: '#FFFFFF',
     textMuted: '#94A3B8',
   },
@@ -149,7 +149,7 @@ export default function ThemeSettings() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -176,7 +176,7 @@ export default function ThemeSettings() {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-6 py-2 text-white hover:bg-[#37AFE1]/80 disabled:opacity-50"
+          className="flex items-center gap-2 rounded-lg bg-cyan px-6 py-2 text-white hover:bg-cyan/80 disabled:opacity-50"
         >
           <Save className={`h-4 w-4 ${saving ? 'animate-spin' : ''}`} />
           {saving ? 'Saving...' : 'Save Changes'}
@@ -185,10 +185,10 @@ export default function ThemeSettings() {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Colors */}
-        <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+        <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
           <div className="mb-6 flex items-center gap-3">
-            <div className="rounded-lg bg-[#37AFE1]/20 p-2">
-              <Palette className="h-5 w-5 text-[#37AFE1]" />
+            <div className="rounded-lg bg-cyan/20 p-2">
+              <Palette className="h-5 w-5 text-cyan" />
             </div>
             <h3 className="text-lg font-semibold text-white">Color Palette</h3>
           </div>
@@ -221,7 +221,7 @@ export default function ThemeSettings() {
                           e.target.value
                         )
                       }
-                      className="flex-1 rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 font-mono text-sm text-white"
+                      className="flex-1 rounded-lg border border-slate-700 bg-navy px-3 py-2 font-mono text-sm text-white"
                     />
                   </div>
                 </div>
@@ -232,7 +232,7 @@ export default function ThemeSettings() {
 
         {/* Fonts */}
         <div className="space-y-6">
-          <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+          <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
             <div className="mb-6 flex items-center gap-3">
               <div className="rounded-lg bg-purple-500/20 p-2">
                 <Type className="h-5 w-5 text-purple-400" />
@@ -254,7 +254,7 @@ export default function ThemeSettings() {
                         e.target.value
                       )
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 text-white"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 text-white"
                   >
                     {fontOptions.map((font) => (
                       <option key={font} value={font}>
@@ -274,7 +274,7 @@ export default function ThemeSettings() {
           </div>
 
           {/* Spacing */}
-          <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+          <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
             <div className="mb-6 flex items-center gap-3">
               <div className="rounded-lg bg-green-500/20 p-2">
                 <Maximize className="h-5 w-5 text-green-400" />
@@ -296,7 +296,7 @@ export default function ThemeSettings() {
                     updateSpacing('sectionPadding', e.target.value)
                   }
                   placeholder="e.g., 80px"
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 text-white"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 text-white"
                 />
               </div>
               <div>
@@ -310,7 +310,7 @@ export default function ThemeSettings() {
                     updateSpacing('containerMaxWidth', e.target.value)
                   }
                   placeholder="e.g., 1280px"
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 text-white"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 text-white"
                 />
               </div>
               <div>
@@ -324,7 +324,7 @@ export default function ThemeSettings() {
                     updateSpacing('borderRadius', e.target.value)
                   }
                   placeholder="e.g., 12px"
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 text-white"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 text-white"
                 />
               </div>
             </div>
@@ -333,7 +333,7 @@ export default function ThemeSettings() {
       </div>
 
       {/* Preview */}
-      <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+      <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
         <h3 className="mb-4 font-semibold text-white">Live Preview</h3>
         <div
           className="rounded-lg p-6"

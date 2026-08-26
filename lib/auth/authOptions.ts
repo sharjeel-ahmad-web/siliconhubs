@@ -1,4 +1,4 @@
-import { NextAuthOptions } from 'next-auth';
+﻿import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 
@@ -8,7 +8,9 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '';
 
 // Validate admin credentials are set
 if (!ADMIN_EMAIL || !ADMIN_PASSWORD) {
-  console.warn('⚠️ WARNING: ADMIN_EMAIL or ADMIN_PASSWORD not set in environment variables');
+  console.warn(
+    'âš ï¸ WARNING: ADMIN_EMAIL or ADMIN_PASSWORD not set in environment variables'
+  );
 }
 
 // Build providers array conditionally
@@ -23,7 +25,9 @@ const providers: any[] = [
     async authorize(credentials) {
       // Check if admin credentials are configured
       if (!ADMIN_EMAIL || !ADMIN_PASSWORD) {
-        console.error('❌ Admin credentials not configured in environment variables');
+        console.error(
+          'âŒ Admin credentials not configured in environment variables'
+        );
         return null;
       }
 
@@ -57,11 +61,8 @@ const providers: any[] = [
       );
       console.log('Password comparison:', inputPassword === expectedPassword);
 
-      if (
-        inputEmail === expectedEmail &&
-        inputPassword === expectedPassword
-      ) {
-        console.log('✓ Login successful!');
+      if (inputEmail === expectedEmail && inputPassword === expectedPassword) {
+        console.log('âœ“ Login successful!');
         return {
           id: '1',
           email: ADMIN_EMAIL,
@@ -70,7 +71,7 @@ const providers: any[] = [
         };
       }
 
-      console.log('✗ Login failed - credentials do not match');
+      console.log('âœ— Login failed - credentials do not match');
       return null;
     },
   }),
@@ -116,8 +117,10 @@ export const authOptions: NextAuthOptions = {
   secret: (() => {
     const secret = process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET;
     if (!secret) {
-      console.error('❌ CRITICAL: NEXTAUTH_SECRET is not set in environment variables!');
-      console.error('💡 Please add NEXTAUTH_SECRET to your .env.local file');
+      console.error(
+        'âŒ CRITICAL: NEXTAUTH_SECRET is not set in environment variables!'
+      );
+      console.error('ðŸ’¡ Please add NEXTAUTH_SECRET to your .env.local file');
       throw new Error('NEXTAUTH_SECRET is required');
     }
     return secret;

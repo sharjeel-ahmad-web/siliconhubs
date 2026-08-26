@@ -20,7 +20,7 @@ export function StarButton({
   lightWidth = 100,
   duration = 3,
   lightColor = '#FFFFFF',
-  backgroundColor = '#F58122',
+  backgroundColor = '#fc4c00',
   textColor = '#FFFFFF',
   borderWidth = 3,
   className,
@@ -30,9 +30,9 @@ export function StarButton({
   const pathRef = useRef<HTMLButtonElement>(null);
 
   // Set colors based on variant
-  const bgColor = variant === 'primary' ? '#F58122' : '#37AFE1';
+  const bgColor = variant === 'primary' ? '#fc4c00' : '#06b6d4';
   const finalBgColor =
-    backgroundColor !== '#F58122' && backgroundColor !== 'currentColor'
+    backgroundColor !== '#fc4c00' && backgroundColor !== 'currentColor'
       ? backgroundColor
       : bgColor;
 

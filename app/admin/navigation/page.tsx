@@ -428,7 +428,7 @@ export default function NavigationPage() {
   if (loading) {
     return (
       <div className="flex min-h-[400px] items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -470,7 +470,7 @@ export default function NavigationPage() {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="flex items-center gap-2 rounded-lg bg-[#F58122] px-6 py-2 text-white transition-colors hover:bg-[#e0741d] disabled:opacity-50"
+          className="flex items-center gap-2 rounded-lg bg-orange px-6 py-2 text-white transition-colors hover:bg-[#e0741d] disabled:opacity-50"
         >
           <Save className="h-5 w-5" />
           {saving ? 'Saving...' : 'Save Changes'}
@@ -483,8 +483,8 @@ export default function NavigationPage() {
           onClick={() => setActiveTab('header')}
           className={`flex items-center gap-2 rounded-lg px-4 py-2 font-medium transition-colors ${
             activeTab === 'header'
-              ? 'bg-[#37AFE1] text-white'
-              : 'bg-[#1E293B] text-slate-300 hover:bg-slate-700'
+              ? 'bg-cyan text-white'
+              : 'bg-navy text-slate-300 hover:bg-slate-700'
           }`}
         >
           <Menu className="h-4 w-4" />
@@ -494,8 +494,8 @@ export default function NavigationPage() {
           onClick={() => setActiveTab('footer')}
           className={`flex items-center gap-2 rounded-lg px-4 py-2 font-medium transition-colors ${
             activeTab === 'footer'
-              ? 'bg-[#37AFE1] text-white'
-              : 'bg-[#1E293B] text-slate-300 hover:bg-slate-700'
+              ? 'bg-cyan text-white'
+              : 'bg-navy text-slate-300 hover:bg-slate-700'
           }`}
         >
           <LayoutGrid className="h-4 w-4" />
@@ -505,8 +505,8 @@ export default function NavigationPage() {
           onClick={() => setActiveTab('social')}
           className={`flex items-center gap-2 rounded-lg px-4 py-2 font-medium transition-colors ${
             activeTab === 'social'
-              ? 'bg-[#37AFE1] text-white'
-              : 'bg-[#1E293B] text-slate-300 hover:bg-slate-700'
+              ? 'bg-cyan text-white'
+              : 'bg-navy text-slate-300 hover:bg-slate-700'
           }`}
         >
           <Globe className="h-4 w-4" />
@@ -518,7 +518,7 @@ export default function NavigationPage() {
       {activeTab === 'header' && (
         <div className="space-y-6">
           {/* Logo Settings */}
-          <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+          <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
             <h3 className="mb-4 text-lg font-semibold text-white">Logo</h3>
             <div>
               <label className="mb-2 block text-sm font-medium text-slate-300">
@@ -533,14 +533,14 @@ export default function NavigationPage() {
                     header: { ...prev.header, logo: e.target.value },
                   }))
                 }
-                className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                 placeholder="/logo.png"
               />
             </div>
           </div>
 
           {/* CTA Button */}
-          <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-[#1E293B]">
+          <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-navy">
             <button
               onClick={() => toggleSection('ctaButton')}
               className="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-slate-700/30"
@@ -570,7 +570,7 @@ export default function NavigationPage() {
                         },
                       }))
                     }
-                    className="h-4 w-4 rounded border-slate-600 text-[#37AFE1] focus:ring-[#37AFE1]"
+                    className="h-4 w-4 rounded border-slate-600 text-cyan focus:ring-cyan"
                   />
                   <span className="text-slate-300">Show CTA Button</span>
                 </label>
@@ -594,7 +594,7 @@ export default function NavigationPage() {
                           },
                         }))
                       }
-                      className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                      className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     />
                   </div>
                   <div>
@@ -616,7 +616,7 @@ export default function NavigationPage() {
                           },
                         }))
                       }
-                      className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                      className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     />
                   </div>
                 </div>
@@ -625,7 +625,7 @@ export default function NavigationPage() {
           </div>
 
           {/* Navigation Links */}
-          <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-[#1E293B]">
+          <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-navy">
             <button
               onClick={() => toggleSection('navLinks')}
               className="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-slate-700/30"
@@ -644,7 +644,7 @@ export default function NavigationPage() {
                 {settings.header.navLinks.map((link, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-3 rounded-lg bg-[#0F172A] p-3"
+                    className="flex items-center gap-3 rounded-lg bg-navy p-3"
                   >
                     <GripVertical className="h-4 w-4 cursor-move text-slate-500" />
                     <input
@@ -653,7 +653,7 @@ export default function NavigationPage() {
                       onChange={(e) =>
                         updateNavLink(index, 'label', e.target.value)
                       }
-                      className="flex-1 rounded border border-slate-700 bg-slate-800 px-3 py-1.5 text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+                      className="flex-1 rounded border border-slate-700 bg-slate-800 px-3 py-1.5 text-sm text-white focus:border-cyan focus:outline-none"
                       placeholder="Label"
                     />
                     <input
@@ -662,7 +662,7 @@ export default function NavigationPage() {
                       onChange={(e) =>
                         updateNavLink(index, 'href', e.target.value)
                       }
-                      className="flex-1 rounded border border-slate-700 bg-slate-800 px-3 py-1.5 text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+                      className="flex-1 rounded border border-slate-700 bg-slate-800 px-3 py-1.5 text-sm text-white focus:border-cyan focus:outline-none"
                       placeholder="/path"
                     />
                     <label className="flex items-center gap-1 text-xs text-slate-400">
@@ -698,7 +698,7 @@ export default function NavigationPage() {
                 ))}
                 <button
                   onClick={addNavLink}
-                  className="flex items-center gap-2 rounded-lg px-4 py-2 text-[#37AFE1] transition-colors hover:bg-[#37AFE1]/10"
+                  className="flex items-center gap-2 rounded-lg px-4 py-2 text-cyan transition-colors hover:bg-cyan/10"
                 >
                   <Plus className="h-4 w-4" />
                   Add Navigation Link
@@ -708,7 +708,7 @@ export default function NavigationPage() {
           </div>
 
           {/* Service Dropdown Links */}
-          <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-[#1E293B]">
+          <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-navy">
             <button
               onClick={() => toggleSection('serviceLinks')}
               className="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-slate-700/30"
@@ -730,7 +730,7 @@ export default function NavigationPage() {
                 {settings.header.serviceLinks.map((link, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-3 rounded-lg bg-[#0F172A] p-3"
+                    className="flex items-center gap-3 rounded-lg bg-navy p-3"
                   >
                     <GripVertical className="h-4 w-4 cursor-move text-slate-500" />
                     <input
@@ -739,7 +739,7 @@ export default function NavigationPage() {
                       onChange={(e) =>
                         updateServiceLink(index, 'label', e.target.value)
                       }
-                      className="flex-1 rounded border border-slate-700 bg-slate-800 px-3 py-1.5 text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+                      className="flex-1 rounded border border-slate-700 bg-slate-800 px-3 py-1.5 text-sm text-white focus:border-cyan focus:outline-none"
                       placeholder="Service Name"
                     />
                     <input
@@ -748,7 +748,7 @@ export default function NavigationPage() {
                       onChange={(e) =>
                         updateServiceLink(index, 'href', e.target.value)
                       }
-                      className="flex-1 rounded border border-slate-700 bg-slate-800 px-3 py-1.5 text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+                      className="flex-1 rounded border border-slate-700 bg-slate-800 px-3 py-1.5 text-sm text-white focus:border-cyan focus:outline-none"
                       placeholder="/services/..."
                     />
                     <button
@@ -773,7 +773,7 @@ export default function NavigationPage() {
                 ))}
                 <button
                   onClick={addServiceLink}
-                  className="flex items-center gap-2 rounded-lg px-4 py-2 text-[#37AFE1] transition-colors hover:bg-[#37AFE1]/10"
+                  className="flex items-center gap-2 rounded-lg px-4 py-2 text-cyan transition-colors hover:bg-cyan/10"
                 >
                   <Plus className="h-4 w-4" />
                   Add Service Link
@@ -787,7 +787,7 @@ export default function NavigationPage() {
       {/* Footer Tab */}
       {activeTab === 'footer' && (
         <div className="space-y-6">
-          <div className="space-y-4 rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+          <div className="space-y-4 rounded-xl border border-slate-700/50 bg-navy p-6">
             <h3 className="mb-4 text-lg font-semibold text-white">
               General Settings
             </h3>
@@ -804,7 +804,7 @@ export default function NavigationPage() {
                     footer: { ...prev.footer, logo: e.target.value },
                   }))
                 }
-                className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                 placeholder="/logo.png"
               />
             </div>
@@ -821,7 +821,7 @@ export default function NavigationPage() {
                   }))
                 }
                 rows={3}
-                className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                 placeholder="Company description..."
               />
             </div>
@@ -838,7 +838,7 @@ export default function NavigationPage() {
                     footer: { ...prev.footer, copyrightText: e.target.value },
                   }))
                 }
-                className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                 placeholder="© {year} Company Name. All rights reserved."
               />
               <p className="mt-1 text-xs text-slate-500">
@@ -858,7 +858,7 @@ export default function NavigationPage() {
                     },
                   }))
                 }
-                className="h-4 w-4 rounded border-slate-600 text-[#37AFE1] focus:ring-[#37AFE1]"
+                className="h-4 w-4 rounded border-slate-600 text-cyan focus:ring-cyan"
               />
               <span className="text-slate-300">
                 Show Newsletter Subscription
@@ -867,14 +867,14 @@ export default function NavigationPage() {
           </div>
 
           {/* Footer Columns */}
-          <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-[#1E293B]">
+          <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-navy">
             <div className="flex items-center justify-between border-b border-slate-700/50 p-4">
               <h3 className="text-lg font-semibold text-white">
                 Footer Link Columns
               </h3>
               <button
                 onClick={addFooterColumn}
-                className="flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-[#37AFE1] transition-colors hover:bg-[#37AFE1]/10"
+                className="flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-cyan transition-colors hover:bg-cyan/10"
               >
                 <Plus className="h-4 w-4" />
                 Add Column
@@ -882,7 +882,7 @@ export default function NavigationPage() {
             </div>
             <div className="space-y-4 p-4">
               {settings.footer.columns.map((column, colIndex) => (
-                <div key={colIndex} className="rounded-lg bg-[#0F172A] p-4">
+                <div key={colIndex} className="rounded-lg bg-navy p-4">
                   <div className="mb-3 flex items-center gap-3">
                     <input
                       type="text"
@@ -895,7 +895,7 @@ export default function NavigationPage() {
                           footer: { ...prev.footer, columns: newColumns },
                         }));
                       }}
-                      className="flex-1 rounded border border-slate-700 bg-slate-800 px-3 py-1.5 font-medium text-white focus:border-[#37AFE1] focus:outline-none"
+                      className="flex-1 rounded border border-slate-700 bg-slate-800 px-3 py-1.5 font-medium text-white focus:border-cyan focus:outline-none"
                       placeholder="Column Title"
                     />
                     <button
@@ -920,7 +920,7 @@ export default function NavigationPage() {
                               footer: { ...prev.footer, columns: newColumns },
                             }));
                           }}
-                          className="flex-1 rounded border border-slate-700 bg-slate-800 px-2 py-1 text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+                          className="flex-1 rounded border border-slate-700 bg-slate-800 px-2 py-1 text-sm text-white focus:border-cyan focus:outline-none"
                           placeholder="Link Label"
                         />
                         <input
@@ -935,7 +935,7 @@ export default function NavigationPage() {
                               footer: { ...prev.footer, columns: newColumns },
                             }));
                           }}
-                          className="flex-1 rounded border border-slate-700 bg-slate-800 px-2 py-1 text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+                          className="flex-1 rounded border border-slate-700 bg-slate-800 px-2 py-1 text-sm text-white focus:border-cyan focus:outline-none"
                           placeholder="/path"
                         />
                         <button
@@ -966,7 +966,7 @@ export default function NavigationPage() {
                     ))}
                     <button
                       onClick={() => addFooterLink(colIndex)}
-                      className="flex items-center gap-1 rounded px-2 py-1 text-xs text-[#37AFE1] transition-colors hover:bg-[#37AFE1]/10"
+                      className="flex items-center gap-1 rounded px-2 py-1 text-xs text-cyan transition-colors hover:bg-cyan/10"
                     >
                       <Plus className="h-3 w-3" />
                       Add Link
@@ -987,7 +987,7 @@ export default function NavigationPage() {
       {/* Social Links Tab */}
       {activeTab === 'social' && (
         <div className="space-y-6">
-          <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+          <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
             <h3 className="mb-2 text-lg font-semibold text-white">
               Social Media Links
             </h3>
@@ -1004,7 +1004,7 @@ export default function NavigationPage() {
                   return (
                     <div
                       key={key}
-                      className="flex items-center gap-4 rounded-lg bg-[#0F172A] p-4"
+                      className="flex items-center gap-4 rounded-lg bg-navy p-4"
                     >
                       {/* Icon */}
                       <div
@@ -1027,7 +1027,7 @@ export default function NavigationPage() {
                           onChange={(e) =>
                             updateSocialLink(key, 'url', e.target.value)
                           }
-                          className="w-full rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+                          className="w-full rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white focus:border-cyan focus:outline-none"
                           placeholder={placeholder}
                         />
                       </div>
@@ -1060,7 +1060,7 @@ export default function NavigationPage() {
           </div>
 
           {/* Preview */}
-          <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+          <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
             <h3 className="mb-4 text-lg font-semibold text-white">Preview</h3>
             <p className="mb-4 text-sm text-slate-400">
               This is how your social links will appear in the footer:
@@ -1080,7 +1080,7 @@ export default function NavigationPage() {
                     }
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-[#37AFE1]/30 bg-[#0F172A] text-[#F58122] transition-colors hover:border-[#37AFE1] hover:text-[#37AFE1]"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-cyan/30 bg-navy text-orange transition-colors hover:border-cyan hover:text-cyan"
                     title={label}
                   >
                     <Icon className="h-5 w-5" />

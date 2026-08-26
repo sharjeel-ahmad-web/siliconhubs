@@ -20,7 +20,7 @@ export function SectionHeading({
   centered = true,
 }: SectionHeadingProps) {
   const [mounted, setMounted] = useState(false);
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -41,8 +41,8 @@ export function SectionHeading({
     <motion.div
       className={baseClassName}
       initial="hidden"
-      whileInView={mounted ? "visible" : undefined}
-      animate={!mounted ? "visible" : undefined}
+      whileInView={mounted ? 'visible' : undefined}
+      animate={!mounted ? 'visible' : undefined}
       viewport={mounted ? { once: true, margin: '-50px' } : undefined}
     >
       {eyebrow && (
@@ -55,7 +55,7 @@ export function SectionHeading({
             animate={{ rotate: 360 }}
             transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
           >
-            <Sparkles className="h-4 w-4 text-[#F58122]" />
+            <Sparkles className="h-4 w-4 text-orange" />
           </motion.div>
           <span className="text-sm font-medium text-white/80">
             ✨ {eyebrow}
@@ -75,7 +75,7 @@ export function SectionHeading({
           <>
             {' '}
             <motion.span
-              className="bg-gradient-to-r from-[#F58122] via-[#37AFE1] to-[#F58122] bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-[#fc4c00] via-[#06b6d4] to-[#fc4c00] bg-clip-text text-transparent"
               animate={{
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
               }}

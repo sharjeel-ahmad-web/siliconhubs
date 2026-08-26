@@ -104,7 +104,7 @@ export default function SubmitTestimonialModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-navy/80 p-4 backdrop-blur-sm"
           onClick={handleClose}
         >
           <motion.div
@@ -112,7 +112,7 @@ export default function SubmitTestimonialModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-slate-700/50 bg-[#1E293B]"
+            className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-slate-700/50 bg-navy"
             onClick={(e) => e.stopPropagation()}
           >
             {isSubmitted ? (
@@ -129,7 +129,7 @@ export default function SubmitTestimonialModal({
                 </p>
                 <button
                   onClick={handleClose}
-                  className="rounded-lg bg-[#37AFE1] px-6 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+                  className="rounded-lg bg-cyan px-6 py-2 text-white transition-colors hover:bg-cyan/80"
                 >
                   Close
                 </button>
@@ -158,7 +158,7 @@ export default function SubmitTestimonialModal({
                   <div className="flex justify-center">
                     <div
                       onClick={() => fileInputRef.current?.click()}
-                      className="group relative h-24 w-24 cursor-pointer overflow-hidden rounded-full border-2 border-dashed border-slate-600 bg-[#0F172A] transition-colors hover:border-[#37AFE1]"
+                      className="group relative h-24 w-24 cursor-pointer overflow-hidden rounded-full border-2 border-dashed border-slate-600 bg-navy transition-colors hover:border-cyan"
                     >
                       {imagePreview ? (
                         <img
@@ -167,7 +167,7 @@ export default function SubmitTestimonialModal({
                           className="h-full w-full object-cover"
                         />
                       ) : (
-                        <div className="flex h-full flex-col items-center justify-center text-slate-500 group-hover:text-[#37AFE1]">
+                        <div className="flex h-full flex-col items-center justify-center text-slate-500 group-hover:text-cyan">
                           <Camera className="mb-1 h-6 w-6" />
                           <span className="text-xs">Add Photo</span>
                         </div>
@@ -196,7 +196,7 @@ export default function SubmitTestimonialModal({
                           setFormData({ ...formData, name: e.target.value })
                         }
                         placeholder="Your name"
-                        className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2.5 text-white placeholder-slate-500 transition-colors focus:border-[#37AFE1] focus:outline-none"
+                        className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2.5 text-white placeholder-slate-500 transition-colors focus:border-cyan focus:outline-none"
                       />
                     </div>
                     <div>
@@ -211,7 +211,7 @@ export default function SubmitTestimonialModal({
                           setFormData({ ...formData, email: e.target.value })
                         }
                         placeholder="your@email.com"
-                        className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2.5 text-white placeholder-slate-500 transition-colors focus:border-[#37AFE1] focus:outline-none"
+                        className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2.5 text-white placeholder-slate-500 transition-colors focus:border-cyan focus:outline-none"
                       />
                     </div>
                   </div>
@@ -229,7 +229,7 @@ export default function SubmitTestimonialModal({
                           setFormData({ ...formData, company: e.target.value })
                         }
                         placeholder="Company name"
-                        className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2.5 text-white placeholder-slate-500 transition-colors focus:border-[#37AFE1] focus:outline-none"
+                        className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2.5 text-white placeholder-slate-500 transition-colors focus:border-cyan focus:outline-none"
                       />
                     </div>
                     <div>
@@ -243,7 +243,7 @@ export default function SubmitTestimonialModal({
                           setFormData({ ...formData, role: e.target.value })
                         }
                         placeholder="Your role"
-                        className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2.5 text-white placeholder-slate-500 transition-colors focus:border-[#37AFE1] focus:outline-none"
+                        className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2.5 text-white placeholder-slate-500 transition-colors focus:border-cyan focus:outline-none"
                       />
                     </div>
                   </div>
@@ -288,7 +288,7 @@ export default function SubmitTestimonialModal({
                         setFormData({ ...formData, text: e.target.value })
                       }
                       placeholder="Share your experience working with us..."
-                      className="w-full resize-none rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2.5 text-white placeholder-slate-500 transition-colors focus:border-[#37AFE1] focus:outline-none"
+                      className="w-full resize-none rounded-lg border border-slate-700 bg-navy px-4 py-2.5 text-white placeholder-slate-500 transition-colors focus:border-cyan focus:outline-none"
                     />
                   </div>
 
@@ -303,7 +303,7 @@ export default function SubmitTestimonialModal({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#F58122] py-3 font-semibold text-white transition-colors hover:bg-[#e0741d] disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-orange py-3 font-semibold text-white transition-colors hover:bg-[#e0741d] disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <>

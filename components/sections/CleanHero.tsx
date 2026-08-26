@@ -68,7 +68,7 @@ export default function CleanHero() {
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs backdrop-blur-sm sm:px-5 sm:text-sm">
               <span className="font-medium text-white/90">{eyebrow}</span>
-              <ArrowRight className="h-4 w-4 text-[#37AFE1]" />
+              <ArrowRight className="h-4 w-4 text-cyan" />
             </div>
 
             {/* Main Heading */}

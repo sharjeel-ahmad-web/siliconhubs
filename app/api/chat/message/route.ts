@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import { ObjectId } from 'mongodb';
 import clientPromise from '@/lib/db/mongodb';
 import { getChatResponse, ChatMessage } from '@/lib/groq';
@@ -94,10 +94,10 @@ export async function POST(request: NextRequest) {
           await resend.emails.send({
             from: 'Rising Dot <onboarding@resend.dev>',
             to: notificationEmail,
-            subject: `🔔 Human Support Requested - ${conversation.visitorName}`,
+            subject: `ðŸ”” Human Support Requested - ${conversation.visitorName}`,
             html: `
               <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                <h2 style="color: #F58122;">Human Support Requested</h2>
+                <h2 style="color: #fc4c00;">Human Support Requested</h2>
                 <p>A visitor has requested to speak with a human:</p>
                 <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 20px 0;">
                   <p><strong>Name:</strong> ${conversation.visitorName}</p>
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
                   "${message}"
                 </div>
                 <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/live-chat/${conversationId}" 
-                   style="display: inline-block; background: #F58122; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; margin-top: 15px;">
+                   style="display: inline-block; background: #fc4c00; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; margin-top: 15px;">
                   Reply Now
                 </a>
               </div>

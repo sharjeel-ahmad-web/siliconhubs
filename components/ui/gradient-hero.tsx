@@ -39,12 +39,12 @@ export function GradientHero({
   videoPoster,
 }: GradientHeroProps) {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-black">
+    <div className="relative min-h-screen overflow-hidden bg-navy">
       {/* Gradient background with blur effect */}
       <div className="absolute -right-60 -top-10 z-0 flex flex-col items-end blur-xl">
-        <div className="z-1 h-[10rem] w-[60rem] rounded-full bg-gradient-to-b from-[#37AFE1] to-[#31A4DB] blur-[6rem]"></div>
-        <div className="z-1 h-[10rem] w-[90rem] rounded-full bg-gradient-to-b from-[#F58122] to-[#37AFE1] blur-[6rem]"></div>
-        <div className="z-1 h-[10rem] w-[60rem] rounded-full bg-gradient-to-b from-[#31A4DB] to-[#F58122] blur-[6rem]"></div>
+        <div className="z-1 h-[10rem] w-[60rem] rounded-full bg-gradient-to-b from-cyan to-cyan blur-[6rem]"></div>
+        <div className="z-1 h-[10rem] w-[90rem] rounded-full bg-gradient-to-b from-orange to-cyan blur-[6rem]"></div>
+        <div className="z-1 h-[10rem] w-[60rem] rounded-full bg-gradient-to-b from-cyan to-orange blur-[6rem]"></div>
       </div>
 
       {/* Noise texture overlay */}
@@ -61,7 +61,7 @@ export function GradientHero({
             className="mx-auto flex max-w-fit items-center justify-center space-x-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 backdrop-blur-sm"
           >
             <span className="text-sm font-medium text-white">{badge}</span>
-            <ArrowRight className="h-4 w-4 text-[#37AFE1]" />
+            <ArrowRight className="h-4 w-4 text-cyan" />
           </motion.div>
         )}
 
@@ -79,7 +79,7 @@ export function GradientHero({
                   className="bg-clip-text text-transparent"
                   style={{
                     backgroundImage:
-                      'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+                      'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
                     backgroundSize: '300% 100%',
                     animation: 'gradient-shift 4s ease-in-out infinite',
                   }}
@@ -143,7 +143,7 @@ export function GradientHero({
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative mx-auto my-16 w-full max-w-5xl"
             >
-              <div className="absolute inset-0 rounded-2xl bg-[#37AFE1] opacity-20 blur-[8rem]" />
+              <div className="absolute inset-0 rounded-2xl bg-cyan opacity-20 blur-[8rem]" />
               {video ? (
                 <video
                   src={video}

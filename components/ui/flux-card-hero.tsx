@@ -30,14 +30,14 @@ interface FluxCardHeroProps {
 // Default card configurations - used as fallback when CMS content is not available
 const defaultCardConfigs: CardConfig[] = [
   {
-    bgColor: 'bg-[#37AFE1]',
+    bgColor: 'bg-cyan',
     content: {
       greeting: 'Automate your workflows with N8N',
       subtitle: 'Connect apps and services seamlessly',
     },
   },
   {
-    bgColor: 'bg-[#31A4DB]',
+    bgColor: 'bg-cyan',
     content: {
       type: 'analytics',
       greeting: 'Performance Analytics',
@@ -45,7 +45,7 @@ const defaultCardConfigs: CardConfig[] = [
     },
   },
   {
-    bgColor: 'bg-[#F58122]',
+    bgColor: 'bg-orange',
     content: {
       type: 'projects',
       title: 'Active Workflows',
@@ -53,7 +53,7 @@ const defaultCardConfigs: CardConfig[] = [
     },
   },
   {
-    bgColor: 'bg-[#37AFE1]',
+    bgColor: 'bg-cyan',
     content: {
       type: 'chat-history',
     },
@@ -91,13 +91,13 @@ export function FluxCardHero({
   const currentConfig = activeCards[currentCard];
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-black">
+    <section className="relative min-h-screen w-full overflow-hidden bg-navy">
       {/* Gradient Background */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse at 50% 50%, rgba(55, 175, 225, 0.1) 0%, transparent 60%)',
+            'radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 60%)',
         }}
       />
 
@@ -109,7 +109,7 @@ export function FluxCardHero({
             className="mb-6 bg-clip-text text-3xl font-bold leading-tight tracking-tight text-transparent md:text-4xl lg:text-5xl"
             style={{
               backgroundImage:
-                'linear-gradient(90deg, #ffffff, #37AFE1, #F58122, #37AFE1, #ffffff)',
+                'linear-gradient(90deg, #ffffff, #06b6d4, #fc4c00, #06b6d4, #ffffff)',
               backgroundSize: '300% 100%',
               animation: 'gradient-shift 4s ease-in-out infinite',
             }}
@@ -139,28 +139,28 @@ export function FluxCardHero({
           {/* Background Cards */}
           <div className="absolute inset-0 rotate-3 scale-95 transform transition-all duration-1000 ease-in-out">
             <div
-              className={`h-72 w-full rounded-3xl bg-[#F58122]/60 opacity-50 shadow-2xl transition-all duration-1000 ${
+              className={`h-72 w-full rounded-3xl bg-orange/60 opacity-50 shadow-2xl transition-all duration-1000 ${
                 currentCard === 1 ? 'scale-105 opacity-70' : ''
               }`}
             />
           </div>
           <div className="scale-96 absolute inset-0 -rotate-2 transform transition-all delay-300 duration-1000 ease-in-out">
             <div
-              className={`h-76 w-full rounded-3xl bg-[#37AFE1]/60 opacity-60 shadow-2xl transition-all duration-1000 ${
+              className={`h-76 w-full rounded-3xl bg-cyan/60 opacity-60 shadow-2xl transition-all duration-1000 ${
                 currentCard === 2 ? 'scale-105 opacity-80' : ''
               }`}
             />
           </div>
           <div className="scale-97 absolute inset-0 rotate-1 transform transition-all delay-500 duration-1000 ease-in-out">
             <div
-              className={`h-72 w-full rounded-3xl bg-[#31A4DB]/50 opacity-50 shadow-2xl transition-all duration-1000 ${
+              className={`h-72 w-full rounded-3xl bg-cyan/50 opacity-50 shadow-2xl transition-all duration-1000 ${
                 currentCard === 3 ? 'scale-105 opacity-70' : ''
               }`}
             />
           </div>
           <div className="scale-98 absolute inset-0 -rotate-1 transform transition-all delay-700 duration-1000 ease-in-out">
             <div
-              className={`h-72 w-full rounded-3xl bg-[#F58122]/40 opacity-40 shadow-2xl transition-all duration-1000 ${
+              className={`h-72 w-full rounded-3xl bg-orange/40 opacity-40 shadow-2xl transition-all duration-1000 ${
                 currentCard === 0 ? 'scale-105 opacity-60' : ''
               }`}
             />
@@ -207,7 +207,7 @@ export function FluxCardHero({
                   onClick={() => setCurrentCard(index)}
                   className={`h-2 w-2 rounded-full transition-all duration-300 ${
                     currentCard === index
-                      ? 'scale-125 bg-[#37AFE1]'
+                      ? 'scale-125 bg-cyan'
                       : 'bg-gray-600 hover:bg-gray-400'
                   }`}
                 />
@@ -279,22 +279,22 @@ function WorkflowDiagram() {
         <div className="relative mt-4">
           <div className="flex items-center justify-between">
             <div className="text-center">
-              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-[#37AFE1]">
+              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-cyan">
                 <Zap className="h-5 w-5 text-white" />
               </div>
               <div className="text-xs text-black/80">Webhook</div>
             </div>
             <div className="relative mx-2 h-0.5 flex-1 bg-white/30">
-              <div className="absolute -top-1 right-0 h-3 w-3 animate-ping rounded-full bg-[#37AFE1]" />
+              <div className="absolute -top-1 right-0 h-3 w-3 animate-ping rounded-full bg-cyan" />
             </div>
             <div className="text-center">
-              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F58122]">
+              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-orange">
                 <Zap className="h-5 w-5 text-white" />
               </div>
               <div className="text-xs text-black/80">Process</div>
             </div>
             <div className="relative mx-2 h-0.5 flex-1 bg-white/30">
-              <div className="absolute -top-1 right-0 h-3 w-3 animate-ping rounded-full bg-[#F58122]" />
+              <div className="absolute -top-1 right-0 h-3 w-3 animate-ping rounded-full bg-orange" />
             </div>
             <div className="text-center">
               <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-green-500">
@@ -332,7 +332,7 @@ function UsageAnalytics() {
           </div>
           <div className="h-2.5 w-full rounded-full bg-white/30">
             <div
-              className="h-2.5 rounded-full bg-gradient-to-r from-[#37AFE1] to-[#F58122]"
+              className="h-2.5 rounded-full bg-gradient-to-r from-cyan to-orange"
               style={{ width: '28%' }}
             />
           </div>
@@ -347,7 +347,7 @@ function UsageAnalytics() {
           <div className="rounded-xl bg-white/20 p-3">
             <div className="mb-1 text-xs text-black/60">Success Rate</div>
             <div className="text-xl font-bold text-black/90">99.2%</div>
-            <div className="mt-1 text-xs text-[#37AFE1]">Excellent</div>
+            <div className="mt-1 text-xs text-cyan">Excellent</div>
           </div>
         </div>
       </div>

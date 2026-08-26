@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db/mongodb';
 import { TeamMember } from '@/lib/db/models';
 

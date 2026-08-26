@@ -1,4 +1,4 @@
-import clientPromise from '@/lib/db/mongodb';
+﻿import clientPromise from '@/lib/db/mongodb';
 import { Metadata } from 'next';
 
 interface PageMeta {

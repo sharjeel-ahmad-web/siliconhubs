@@ -10,7 +10,7 @@ const projects = [
     category: 'Shopify Development',
     video: '/videos/project-1.mp4',
     poster: '/Projects/1.jpeg',
-    color: '#31A4DB',
+    color: '#06b6d4',
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const projects = [
     category: 'Web Design',
     video: '/videos/project-2.mp4',
     poster: '/Projects/2.jpeg',
-    color: '#37AFE1',
+    color: '#06b6d4',
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const projects = [
     category: 'N8N Workflows',
     video: '/videos/project-3.mp4',
     poster: '/Projects/3.jpeg',
-    color: '#2563EB',
+    color: '#0a192f',
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const projects = [
     category: 'Chatbot Development',
     video: '/videos/project-4.mp4',
     poster: '/Projects/4.jpeg',
-    color: '#31A4DB',
+    color: '#06b6d4',
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ const projects = [
     category: 'WordPress',
     video: '/videos/project-5.mp4',
     poster: '/Projects/5.jpeg',
-    color: '#F97316',
+    color: '#fc4c00',
   },
   {
     id: 6,
@@ -281,11 +281,11 @@ function ProjectCard({
 // Main WorkGrid - Fixed 2-column asymmetrical layout
 export default function WorkGrid() {
   return (
-    <section className="bg-[#0A0F1E] py-24 md:py-32">
+    <section className="bg-navy py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 md:mb-24">
-          <span className="mb-4 block text-sm font-bold uppercase tracking-[0.2em] text-[#37AFE1]">
+          <span className="mb-4 block text-sm font-bold uppercase tracking-[0.2em] text-cyan">
             Our Work
           </span>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -328,7 +328,7 @@ export default function WorkGrid() {
         <div className="mt-20 text-center">
           <a
             href="/portfolio"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#37AFE1] to-[#2563EB] px-8 py-3 text-base font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#37AFE1]/30"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan to-navy px-8 py-3 text-base font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan/30"
             style={{
               boxShadow:
                 '0 0 40px rgba(139, 92, 246, 0.3), 0 10px 30px -10px rgba(0, 0, 0, 0.5)',

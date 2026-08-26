@@ -116,10 +116,10 @@ function ProjectCard({
       className="relative h-full cursor-none overflow-hidden rounded-3xl"
       style={{
         gridArea,
-        background: 'linear-gradient(145deg, #1E293B 0%, #0F172A 100%)',
-        border: '2px solid #37AFE1',
+        background: 'linear-gradient(145deg, #0a192f 0%, #0a192f 100%)',
+        border: '2px solid #06b6d4',
         boxShadow:
-          '0 0 30px rgba(55, 175, 225, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+          '0 0 30px rgba(6, 182, 212, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
         minHeight: '100px',
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -203,7 +203,7 @@ export default function FeaturedWork() {
           <h2 className="mb-4 font-montserrat text-4xl font-bold text-white md:text-5xl">
             Featured Work
           </h2>
-          <p className="mx-auto max-w-2xl font-inter text-xl text-[#64748B]">
+          <p className="mx-auto max-w-2xl font-inter text-xl text-slate-grey">
             Explore our latest projects and see how we bring ideas to life
           </p>
         </motion.div>
@@ -279,8 +279,8 @@ export default function FeaturedWork() {
             href="/portfolio"
             className="rounded-full px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105"
             style={{
-              background: 'linear-gradient(135deg, #F58122 0%, #e0741d 100%)',
-              boxShadow: '0 0 30px rgba(245, 129, 34, 0.3)',
+              background: 'linear-gradient(135deg, #fc4c00 0%, #e0741d 100%)',
+              boxShadow: '0 0 30px rgba(252, 76, 0, 0.3)',
             }}
           >
             View All Projects

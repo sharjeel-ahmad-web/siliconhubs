@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SmoothScroll System
  *
  * Integrates Lenis for momentum-based smooth scrolling with velocity tracking
@@ -241,7 +241,7 @@ export class SmoothScroll {
 
   /**
    * Get velocity multiplied by skew factor
-   * Requirement 33.6: Apply skewY transformation with velocity × 0.1 multiplier
+   * Requirement 33.6: Apply skewY transformation with velocity Ã— 0.1 multiplier
    */
   public getSkewValue(): number {
     return this.velocity.current * 0.1;

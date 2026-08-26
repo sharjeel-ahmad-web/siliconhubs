@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -14,12 +14,21 @@ const inFlight = new Map<string, Promise<void>>();
 const warnedMissing = new Set<string>();
 const CACHE_DURATION = 10 * 1000; // 10 seconds - fast CMS updates
 
-function logMissingContentOnce(page: string, section: string | undefined, status?: number) {
+function logMissingContentOnce(
+  page: string,
+  section: string | undefined,
+  status?: number
+) {
   const key = section ? `${page}_${section}` : page;
   if (warnedMissing.has(key)) return;
   warnedMissing.add(key);
-  const label = section ? `page "${page}" section "${section}"` : `page "${page}"`;
-  if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+  const label = section
+    ? `page "${page}" section "${section}"`
+    : `page "${page}"`;
+  if (
+    typeof process !== 'undefined' &&
+    process.env.NODE_ENV === 'development'
+  ) {
     console.warn(
       `[useSiteContent] Content not found for ${label}${status ? ` (HTTP ${status})` : ''}. Using empty content. Add data via API/seed or create the content file.`
     );
@@ -62,10 +71,13 @@ function loadContent(
         return;
       }
       const data = await res.json();
-      const result = section && data != null ? data[section] : data ?? null;
+      const result = section && data != null ? data[section] : (data ?? null);
       contentCache[cacheKey] = { data: result, timestamp: Date.now() };
     } catch (err) {
-      if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+      if (
+        typeof process !== 'undefined' &&
+        process.env.NODE_ENV === 'development'
+      ) {
         const key = section ? `${page}_${section}` : page;
         if (!warnedMissing.has(key)) {
           warnedMissing.add(key);
@@ -104,24 +116,35 @@ export function useSiteContent<T = any>(page: string, section?: string) {
     let cancelled = false;
     const cacheKey = section ? `${page}_${section}` : page;
 
-    loadContent(page, section, cacheKey).then(({ data, visible }) => {
-      if (cancelled) return;
-      setContent(data as T);
-      setIsVisible(visible);
-      setError(null);
-    }).catch((err) => {
-      if (cancelled) return;
-      if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
-        console.warn('[useSiteContent] Unexpected error loading content:', err instanceof Error ? err.message : err);
-      }
-      setError(null);
-      setContent((section ? undefined : null) as T);
-      setIsVisible(true);
-    }).finally(() => {
-      if (!cancelled) setLoading(false);
-    });
+    loadContent(page, section, cacheKey)
+      .then(({ data, visible }) => {
+        if (cancelled) return;
+        setContent(data as T);
+        setIsVisible(visible);
+        setError(null);
+      })
+      .catch((err) => {
+        if (cancelled) return;
+        if (
+          typeof process !== 'undefined' &&
+          process.env.NODE_ENV === 'development'
+        ) {
+          console.warn(
+            '[useSiteContent] Unexpected error loading content:',
+            err instanceof Error ? err.message : err
+          );
+        }
+        setError(null);
+        setContent((section ? undefined : null) as T);
+        setIsVisible(true);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
 
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [page, section]);
 
   return { content, loading, error, isVisible };
@@ -196,7 +219,8 @@ export interface Project {
 
 /** Ensure image path is absolute (under /public). */
 export function toAbsoluteImagePath(path: string): string {
-  if (!path || typeof path !== 'string') return '/media/portfolio/all-projects/project-1/thumbnail.jpg';
+  if (!path || typeof path !== 'string')
+    return '/media/portfolio/all-projects/project-1/thumbnail.jpg';
   return path.startsWith('/') ? path : `/${path.replace(/^\/+/, '')}`;
 }
 
@@ -205,7 +229,10 @@ export function mapApiProjectToProject(raw: Record<string, unknown>): Project {
   const id = (raw._id?.toString?.() ?? raw.id ?? raw.slug ?? '') as string;
   const thumbnail = (raw.thumbnailUrl ?? raw.thumbnail ?? '') as string;
   const images = (raw.images as string[] | undefined) ?? [thumbnail];
-  const metricsRaw = (raw.metrics as { name?: string; label?: string; value: string }[] | undefined) ?? [];
+  const metricsRaw =
+    (raw.metrics as
+      | { name?: string; label?: string; value: string }[]
+      | undefined) ?? [];
   const metrics = metricsRaw.map((m) => ({
     label: (m.label ?? m.name ?? '') as string,
     value: (m.value ?? '') as string,
@@ -256,7 +283,9 @@ export function usePortfolioProjects() {
 
         const data = await res.json();
         const rawList = data.projects ?? [];
-        const projectsData = rawList.map((p: Record<string, unknown>) => mapApiProjectToProject(p));
+        const projectsData = rawList.map((p: Record<string, unknown>) =>
+          mapApiProjectToProject(p)
+        );
 
         contentCache[cacheKey] = {
           data: projectsData,

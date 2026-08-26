@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Structured Data (JSON-LD) Schema Generator
  * Generates Schema.org compliant JSON-LD for SEO
  */
@@ -198,20 +198,18 @@ export function generateBreadcrumbListSchema(
 /**
  * Generate Article Schema for blog posts
  */
-export function generateArticleSchema(
-  article: {
-    title: string;
-    description?: string;
-    image?: string;
-    publishedAt: string;
-    updatedAt?: string;
-    author: string;
-    authorUrl?: string;
-    url: string;
-    category?: string;
-    tags?: string[];
-  }
-): ArticleSchema {
+export function generateArticleSchema(article: {
+  title: string;
+  description?: string;
+  image?: string;
+  publishedAt: string;
+  updatedAt?: string;
+  author: string;
+  authorUrl?: string;
+  url: string;
+  category?: string;
+  tags?: string[];
+}): ArticleSchema {
   const baseUrl = getBaseUrl();
   const images = article.image
     ? Array.isArray(article.image)
@@ -252,14 +250,12 @@ export function generateArticleSchema(
 /**
  * Generate Service Schema
  */
-export function generateServiceSchema(
-  service: {
-    name: string;
-    description: string;
-    serviceType?: string;
-    areaServed?: string;
-  }
-): ServiceSchema {
+export function generateServiceSchema(service: {
+  name: string;
+  description: string;
+  serviceType?: string;
+  areaServed?: string;
+}): ServiceSchema {
   const baseUrl = getBaseUrl();
 
   return {
@@ -326,4 +322,3 @@ export function generateLocalBusinessSchema(
 export function schemaToJsonLd(schema: object): string {
   return JSON.stringify(schema, null, 2);
 }
-

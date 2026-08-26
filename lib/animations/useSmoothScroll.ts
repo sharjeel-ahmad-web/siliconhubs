@@ -1,4 +1,4 @@
-/**
+﻿/**
  * React Hook for SmoothScroll
  *
  * Provides easy integration of smooth scrolling in React components
@@ -82,7 +82,7 @@ export function useScrollPosition(smoothScroll: SmoothScroll | null) {
 
 /**
  * Hook to get skew value for velocity-based transformations
- * Requirement 33.6: Apply skewY transformation with velocity × 0.1 multiplier
+ * Requirement 33.6: Apply skewY transformation with velocity Ã— 0.1 multiplier
  */
 export function useScrollSkew(smoothScroll: SmoothScroll | null) {
   const [skew, setSkew] = useState(0);

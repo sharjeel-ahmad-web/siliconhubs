@@ -130,7 +130,7 @@ export default function TeamMembersPage() {
             resetForm();
             setShowModal(true);
           }}
-          className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-4 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+          className="flex items-center gap-2 rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80"
         >
           <Plus className="h-5 w-5" />
           Add Member
@@ -139,10 +139,10 @@ export default function TeamMembersPage() {
 
       {loading ? (
         <div className="flex justify-center py-12">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
         </div>
       ) : members.length === 0 ? (
-        <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] py-12 text-center">
+        <div className="rounded-xl border border-slate-700/50 bg-navy py-12 text-center">
           <p className="text-slate-400">
             No team members yet. Add your first team member!
           </p>
@@ -152,7 +152,7 @@ export default function TeamMembersPage() {
           {members.map((member) => (
             <div
               key={member._id}
-              className="flex items-center gap-4 rounded-xl border border-slate-700/50 bg-[#1E293B] p-4"
+              className="flex items-center gap-4 rounded-xl border border-slate-700/50 bg-navy p-4"
             >
               <GripVertical className="h-5 w-5 cursor-grab text-slate-500" />
 
@@ -198,7 +198,7 @@ export default function TeamMembersPage() {
                 </button>
                 <button
                   onClick={() => openEditModal(member)}
-                  className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-[#37AFE1] hover:text-white"
+                  className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-cyan hover:text-white"
                 >
                   <Edit className="h-5 w-5" />
                 </button>
@@ -216,8 +216,8 @@ export default function TeamMembersPage() {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="w-full max-w-lg rounded-2xl bg-[#1E293B]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/70 p-4">
+          <div className="w-full max-w-lg rounded-2xl bg-navy">
             <div className="border-b border-slate-700 p-6">
               <h2 className="text-xl font-bold text-white">
                 {editingMember ? 'Edit Team Member' : 'Add Team Member'}
@@ -235,7 +235,7 @@ export default function TeamMembersPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   required
                 />
               </div>
@@ -250,7 +250,7 @@ export default function TeamMembersPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, role: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="e.g., CEO, Lead Developer"
                   required
                 />
@@ -266,7 +266,7 @@ export default function TeamMembersPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, image: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="/team/member-name.png"
                 />
                 <p className="mt-1 text-xs text-slate-500">
@@ -287,7 +287,7 @@ export default function TeamMembersPage() {
                       order: parseInt(e.target.value),
                     })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                 />
               </div>
 
@@ -298,7 +298,7 @@ export default function TeamMembersPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, published: e.target.checked })
                   }
-                  className="h-4 w-4 rounded border-slate-600 text-[#37AFE1] focus:ring-[#37AFE1]"
+                  className="h-4 w-4 rounded border-slate-600 text-cyan focus:ring-cyan"
                 />
                 <span className="text-slate-300">Published</span>
               </label>
@@ -316,7 +316,7 @@ export default function TeamMembersPage() {
                 </button>
                 <button
                   type="submit"
-                  className="rounded-lg bg-[#37AFE1] px-6 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+                  className="rounded-lg bg-cyan px-6 py-2 text-white transition-colors hover:bg-cyan/80"
                 >
                   {editingMember ? 'Update' : 'Add Member'}
                 </button>

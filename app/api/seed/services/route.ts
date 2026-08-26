@@ -1,11 +1,11 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 
 const initialServices = [
   {
     name: 'N8N Automations',
     slug: 'n8n-automations',
-    icon: '⚡',
+    icon: 'âš¡',
     shortDescription: 'Workflow automation',
     description:
       'Streamline your business workflows with powerful N8N automation solutions. We build custom integrations that connect your apps, automate repetitive tasks, and save you countless hours every week.',
@@ -20,7 +20,7 @@ const initialServices = [
   {
     name: 'Chatbot Development',
     slug: 'chatbot-development',
-    icon: '🤖',
+    icon: 'ðŸ¤–',
     shortDescription: 'AI-powered conversations',
     description:
       'Engage your customers 24/7 with intelligent AI-powered chatbots. From customer support to lead generation, our chatbots deliver personalized experiences that convert visitors into customers.',
@@ -35,7 +35,7 @@ const initialServices = [
   {
     name: 'Web Design',
     slug: 'web-design',
-    icon: '🎨',
+    icon: 'ðŸŽ¨',
     shortDescription: 'Beautiful interfaces',
     description:
       'Create stunning, high-performance websites that captivate your audience. We specialize in modern web technologies to deliver fast, responsive, and SEO-optimized digital experiences.',
@@ -50,7 +50,7 @@ const initialServices = [
   {
     name: 'WordPress Development',
     slug: 'wordpress',
-    icon: '📝',
+    icon: 'ðŸ“',
     shortDescription: 'Content management',
     description:
       'Build powerful, flexible websites with WordPress. Whether you need a blog, business site, or custom web application, we create WordPress solutions tailored to your unique needs.',
@@ -65,7 +65,7 @@ const initialServices = [
   {
     name: 'Shopify Solutions',
     slug: 'shopify',
-    icon: '🛒',
+    icon: 'ðŸ›’',
     shortDescription: 'E-commerce solutions',
     description:
       'Launch and scale your e-commerce business with custom Shopify stores. From theme customization to app integrations, we build online stores that drive sales and delight customers.',
@@ -80,7 +80,7 @@ const initialServices = [
   {
     name: 'SEO Optimization',
     slug: 'seo',
-    icon: '📈',
+    icon: 'ðŸ“ˆ',
     shortDescription: 'Search optimization',
     description:
       'Dominate search rankings and drive organic traffic to your website. Our data-driven SEO strategies help you reach your target audience and grow your online presence sustainably.',

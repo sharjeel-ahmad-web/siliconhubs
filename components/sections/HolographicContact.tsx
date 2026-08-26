@@ -49,13 +49,13 @@ function CustomDropdown({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex min-w-[180px] cursor-pointer items-center gap-2 border-b-2 border-[#37AFE1]/50 bg-transparent px-2 py-1 text-[#37AFE1] outline-none transition-colors hover:border-[#F58122] focus:border-[#F58122]"
+        className="flex min-w-[180px] cursor-pointer items-center gap-2 border-b-2 border-cyan/50 bg-transparent px-2 py-1 text-cyan outline-none transition-colors hover:border-orange focus:border-orange"
       >
-        <span className={value ? 'text-[#37AFE1]' : 'text-[#64748B]/50'}>
+        <span className={value ? 'text-cyan' : 'text-slate-grey/50'}>
           {selectedLabel}
         </span>
         <svg
-          className={`h-4 w-4 text-[#37AFE1] transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`h-4 w-4 text-cyan transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -77,10 +77,10 @@ function CustomDropdown({
             transition={{ duration: 0.2 }}
             className="absolute left-0 top-full z-50 mt-2 min-w-full overflow-hidden rounded-lg"
             style={{
-              backgroundColor: '#1E293B',
-              border: '1px solid #37AFE1',
+              backgroundColor: '#0a192f',
+              border: '1px solid #06b6d4',
               boxShadow:
-                '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(55, 175, 225, 0.2)',
+                '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(6, 182, 212, 0.2)',
             }}
           >
             {options.map((option) => (
@@ -91,10 +91,8 @@ function CustomDropdown({
                   onChange(option.value);
                   setIsOpen(false);
                 }}
-                className={`w-full px-4 py-3 text-left text-base transition-colors hover:bg-[#37AFE1]/20 ${
-                  value === option.value
-                    ? 'bg-[#37AFE1]/30 text-[#37AFE1]'
-                    : 'text-white'
+                className={`w-full px-4 py-3 text-left text-base transition-colors hover:bg-cyan/20 ${
+                  value === option.value ? 'bg-cyan/30 text-cyan' : 'text-white'
                 }`}
               >
                 {option.label}
@@ -384,7 +382,7 @@ export default function HolographicContact() {
   );
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black py-16">
+    <section className="relative min-h-screen overflow-hidden bg-navy py-16">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <SectionHeading
           eyebrow={eyebrow}
@@ -405,8 +403,8 @@ export default function HolographicContact() {
           >
             <canvas ref={canvasRef} className="h-full w-full" />
             <div className="absolute bottom-4 left-4 flex items-center gap-2">
-              <div className="h-3 w-3 animate-pulse rounded-full bg-[#F58122]" />
-              <span className="text-sm text-[#64748B]">Global Reach</span>
+              <div className="h-3 w-3 animate-pulse rounded-full bg-orange" />
+              <span className="text-sm text-slate-grey">Global Reach</span>
             </div>
           </motion.div>
 
@@ -420,9 +418,9 @@ export default function HolographicContact() {
           >
             {isSubmitted ? (
               <div className="py-12 text-center">
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#37AFE1]/20">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-cyan/20">
                   <svg
-                    className="h-10 w-10 text-[#37AFE1]"
+                    className="h-10 w-10 text-cyan"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -438,7 +436,7 @@ export default function HolographicContact() {
                 <h3 className="mb-2 text-2xl font-bold text-white">
                   Message Sent!
                 </h3>
-                <p className="text-[#64748B]">
+                <p className="text-slate-grey">
                   We&apos;ll get back to you within 24 hours.
                 </p>
               </div>
@@ -455,7 +453,7 @@ export default function HolographicContact() {
                       }
                       placeholder="Your Name"
                       required
-                      className="min-w-[150px] border-b-2 border-[#37AFE1]/50 bg-transparent px-2 py-1 text-[#37AFE1] placeholder-[#64748B]/50 outline-none transition-colors focus:border-[#F58122]"
+                      className="min-w-[150px] border-b-2 border-cyan/50 bg-transparent px-2 py-1 text-cyan placeholder-slate-grey/50 outline-none transition-colors focus:border-orange"
                     />
                     {formData.company && ' from '}
                     <input
@@ -465,7 +463,7 @@ export default function HolographicContact() {
                         handleInputChange('company', e.target.value)
                       }
                       placeholder="Company (optional)"
-                      className="min-w-[150px] border-b-2 border-[#37AFE1]/50 bg-transparent px-2 py-1 text-[#37AFE1] placeholder-[#64748B]/50 outline-none transition-colors focus:border-[#F58122]"
+                      className="min-w-[150px] border-b-2 border-cyan/50 bg-transparent px-2 py-1 text-cyan placeholder-slate-grey/50 outline-none transition-colors focus:border-orange"
                     />
                   </p>
 
@@ -479,7 +477,7 @@ export default function HolographicContact() {
                       }
                       placeholder="your@email.com"
                       required
-                      className="min-w-[200px] border-b-2 border-[#37AFE1]/50 bg-transparent px-2 py-1 text-[#37AFE1] placeholder-[#64748B]/50 outline-none transition-colors focus:border-[#F58122]"
+                      className="min-w-[200px] border-b-2 border-cyan/50 bg-transparent px-2 py-1 text-cyan placeholder-slate-grey/50 outline-none transition-colors focus:border-orange"
                     />
                   </p>
 
@@ -525,7 +523,7 @@ export default function HolographicContact() {
                       placeholder="Tell us about your project..."
                       required
                       rows={3}
-                      className="mt-2 w-full resize-none rounded-xl border-2 border-[#37AFE1]/30 bg-transparent px-4 py-3 text-base text-[#37AFE1] placeholder-[#64748B]/50 outline-none transition-colors focus:border-[#F58122]"
+                      className="mt-2 w-full resize-none rounded-xl border-2 border-cyan/30 bg-transparent px-4 py-3 text-base text-cyan placeholder-slate-grey/50 outline-none transition-colors focus:border-orange"
                     />
                   </p>
                 </div>

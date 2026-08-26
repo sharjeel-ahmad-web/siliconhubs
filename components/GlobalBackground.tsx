@@ -11,8 +11,6 @@ export default function GlobalBackground() {
     return null;
   }
 
-  // For other pages, return minimal pure black background
-  return (
-    <div className="fixed inset-0 -z-50 bg-black" />
-  );
+  // For other pages, return minimal warm cream background
+  return <div className="fixed inset-0 -z-50 bg-warm-cream" />;
 }

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db/mongodb';
 
 const VALID_SECTIONS = ['team', 'testimonials', 'blog'] as const;
@@ -15,7 +15,9 @@ export async function GET(request: NextRequest) {
     ? sectionsParam
         .split(',')
         .map((s) => s.trim().toLowerCase())
-        .filter((s) => VALID_SECTIONS.includes(s as (typeof VALID_SECTIONS)[number]))
+        .filter((s) =>
+          VALID_SECTIONS.includes(s as (typeof VALID_SECTIONS)[number])
+        )
     : [...VALID_SECTIONS];
   const limit = Math.min(
     Math.max(0, parseInt(searchParams.get('limit') || '4', 10) || 4),

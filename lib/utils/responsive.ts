@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Responsive Design Utilities
  * Provides breakpoint detection and adaptive configuration based on viewport size
  */

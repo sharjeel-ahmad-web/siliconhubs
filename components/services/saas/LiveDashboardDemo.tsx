@@ -52,21 +52,21 @@ const defaultMetrics: MetricCard[] = [
     value: 124500,
     prefix: '$',
     change: 12.5,
-    color: '#37AFE1',
+    color: '#06b6d4',
     icon: 'dollar',
   },
   {
     label: 'Active Users',
     value: 8420,
     change: 8.3,
-    color: '#2563EB',
+    color: '#0a192f',
     icon: 'users',
   },
   {
     label: 'Orders Today',
     value: 342,
     change: -2.1,
-    color: '#F97316',
+    color: '#fc4c00',
     icon: 'cart',
   },
   {
@@ -74,7 +74,7 @@ const defaultMetrics: MetricCard[] = [
     value: 23.5,
     suffix: '%',
     change: 5.7,
-    color: '#31A4DB',
+    color: '#06b6d4',
     icon: 'trending',
   },
 ];
@@ -157,15 +157,15 @@ export default function LiveDashboardDemo({
   const maxChartValue = Math.max(...chartData.map((d) => d.value));
 
   return (
-    <section className="bg-black/50 px-6 py-20">
+    <section className="bg-navy/50 px-6 py-20">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-12 text-center">
-          <span className="text-sm font-medium uppercase tracking-wider text-[#37AFE1]">
+          <span className="text-sm font-medium uppercase tracking-wider text-cyan">
             {eyebrow}
           </span>
           <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">
-            {title} <span className="text-[#37AFE1]">{titleHighlight}</span>
+            {title} <span className="text-cyan">{titleHighlight}</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-[#94A3B8]">
             {subtitle}
@@ -174,13 +174,13 @@ export default function LiveDashboardDemo({
 
         {/* Dashboard Mock */}
         <motion.div
-          className="overflow-hidden rounded-2xl border border-slate-700/50 bg-[#0F172A] shadow-2xl"
+          className="overflow-hidden rounded-2xl border border-slate-700/50 bg-navy shadow-2xl"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           {/* Dashboard Header */}
-          <div className="flex items-center justify-between border-b border-slate-700/50 bg-[#1E293B] px-6 py-4">
+          <div className="flex items-center justify-between border-b border-slate-700/50 bg-navy px-6 py-4">
             <h3 className="font-semibold text-white">{dashboardTitle}</h3>
             <div className="flex items-center gap-2">
               <motion.div
@@ -189,9 +189,9 @@ export default function LiveDashboardDemo({
                 className="relative"
               >
                 <Bell className="h-5 w-5 text-slate-400" />
-                <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-[#F97316]" />
+                <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-orange" />
               </motion.div>
-              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-[#37AFE1] to-[#2563EB]" />
+              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-[#06b6d4] to-[#0a192f]" />
             </div>
           </div>
 
@@ -202,7 +202,7 @@ export default function LiveDashboardDemo({
               return (
                 <motion.div
                   key={i}
-                  className="rounded-xl border border-slate-700/30 bg-[#1E293B] p-4"
+                  className="rounded-xl border border-slate-700/30 bg-navy p-4"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.1 }}
@@ -244,7 +244,7 @@ export default function LiveDashboardDemo({
           {/* Chart and Notifications */}
           <div className="grid gap-6 p-6 pt-0 md:grid-cols-3">
             {/* Chart */}
-            <div className="rounded-xl border border-slate-700/30 bg-[#1E293B] p-4 md:col-span-2">
+            <div className="rounded-xl border border-slate-700/30 bg-navy p-4 md:col-span-2">
               <h4 className="mb-4 font-medium text-white">{chartTitle}</h4>
               <div className="flex h-48 items-end justify-between gap-2">
                 {chartData.map((data, i) => {
@@ -258,7 +258,7 @@ export default function LiveDashboardDemo({
                       className="flex h-full flex-1 flex-col items-center justify-end gap-2"
                     >
                       <motion.div
-                        className="min-h-[8px] w-full rounded-t bg-gradient-to-t from-[#37AFE1] to-[#2563EB]"
+                        className="min-h-[8px] w-full rounded-t bg-gradient-to-t from-[#06b6d4] to-[#0a192f]"
                         initial={{ height: 8 }}
                         animate={{ height: `${heightPercent}%` }}
                         transition={{
@@ -277,7 +277,7 @@ export default function LiveDashboardDemo({
             </div>
 
             {/* Notifications */}
-            <div className="rounded-xl border border-slate-700/30 bg-[#1E293B] p-4">
+            <div className="rounded-xl border border-slate-700/30 bg-navy p-4">
               <h4 className="mb-4 font-medium text-white">
                 {notificationsTitle}
               </h4>
@@ -287,7 +287,7 @@ export default function LiveDashboardDemo({
                     key={i}
                     className={`rounded-lg border p-3 transition-all ${
                       i === activeNotification
-                        ? 'border-[#37AFE1]/50 bg-[#0F172A]'
+                        ? 'border-cyan/50 bg-navy'
                         : 'border-transparent bg-transparent'
                     }`}
                     animate={{ opacity: i === activeNotification ? 1 : 0.5 }}

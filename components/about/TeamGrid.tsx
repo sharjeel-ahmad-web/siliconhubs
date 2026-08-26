@@ -151,12 +151,12 @@ export default function TeamGrid() {
         {particles.map((particle) => (
           <div
             key={particle.id}
-            className="absolute h-2 w-2 rounded-full bg-[#2563EB]"
+            className="absolute h-2 w-2 rounded-full bg-navy"
             style={{
               left: particle.x,
               top: particle.y,
               opacity: particle.life,
-              boxShadow: `0 0 ${particle.life * 10}px rgba(37, 99, 235, ${particle.life})`,
+              boxShadow: `0 0 ${particle.life * 10}px rgba(10, 25, 47, ${particle.life})`,
             }}
           />
         ))}
@@ -249,7 +249,7 @@ function TeamCard({
       >
         {/* Front side */}
         <div
-          className="backface-hidden absolute inset-0 overflow-hidden rounded-lg border border-[#64748B]/20 bg-[#0F172A]"
+          className="backface-hidden absolute inset-0 overflow-hidden rounded-lg border border-slate-grey/20 bg-navy"
           style={{ backfaceVisibility: 'hidden' }}
         >
           <div className="flex h-full flex-col items-center justify-center p-8 text-center">
@@ -257,23 +257,23 @@ function TeamCard({
             <h3 className="mb-2 text-2xl font-bold text-white">
               {member.name}
             </h3>
-            <p className="mb-4 text-[#2563EB]">{member.role}</p>
-            <p className="text-sm text-[#64748B]">Click to view bio</p>
+            <p className="mb-4 text-navy">{member.role}</p>
+            <p className="text-sm text-slate-grey">Click to view bio</p>
           </div>
 
           {/* Hover glow */}
           <motion.div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#2563EB]/0 to-[#37AFE1]/0"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-navy/0 to-cyan/0"
             whileHover={{
               background:
-                'linear-gradient(to bottom right, rgba(37, 99, 235, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)',
+                'linear-gradient(to bottom right, rgba(10, 25, 47, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)',
             }}
           />
         </div>
 
         {/* Back side */}
         <div
-          className="backface-hidden absolute inset-0 overflow-hidden rounded-lg border border-[#2563EB]/30 bg-[#0F172A]"
+          className="backface-hidden absolute inset-0 overflow-hidden rounded-lg border border-navy/30 bg-navy"
           style={{
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
@@ -283,17 +283,17 @@ function TeamCard({
             <h3 className="mb-2 text-2xl font-bold text-white">
               {member.name}
             </h3>
-            <p className="mb-4 text-[#2563EB]">{member.role}</p>
-            <p className="mb-6 leading-relaxed text-[#64748B]">{member.bio}</p>
+            <p className="mb-4 text-navy">{member.role}</p>
+            <p className="mb-6 leading-relaxed text-slate-grey">{member.bio}</p>
 
             {/* Skills */}
             <div className="space-y-2">
-              <p className="mb-2 text-sm text-[#64748B]">Key Skills:</p>
+              <p className="mb-2 text-sm text-slate-grey">Key Skills:</p>
               <div className="flex flex-wrap gap-2">
                 {member.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-[#2563EB]/30 bg-[#2563EB]/20 px-3 py-1 text-xs text-[#2563EB]"
+                    className="rounded-full border border-navy/30 bg-navy/20 px-3 py-1 text-xs text-navy"
                   >
                     {skill}
                   </span>

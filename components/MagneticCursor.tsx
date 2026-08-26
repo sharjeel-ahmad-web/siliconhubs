@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 
@@ -208,7 +208,7 @@ export default function MagneticCursor() {
 
   return (
     <>
-      {/* Center dot - Orange from branding (#F58122) */}
+      {/* Center dot - Orange from branding (#fc4c00) */}
       <div
         ref={cursorDotRef}
         className="pointer-events-none fixed left-0 top-0 z-[99999] will-change-transform"
@@ -217,10 +217,10 @@ export default function MagneticCursor() {
           height: `${DOT_SIZE}px`,
           marginLeft: `${-DOT_SIZE / 2}px`,
           marginTop: `${-DOT_SIZE / 2}px`,
-          backgroundColor: '#F58122',
+          backgroundColor: '#fc4c00',
           borderRadius: '50%',
           boxShadow:
-            '0 0 10px rgba(245, 129, 34, 0.8), 0 0 20px rgba(245, 129, 34, 0.4)',
+            '0 0 10px rgba(252, 76, 0, 0.8), 0 0 20px rgba(252, 76, 0, 0.4)',
         }}
       />
 

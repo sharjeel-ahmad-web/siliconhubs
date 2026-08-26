@@ -89,14 +89,14 @@ const AccordionItemCard = ({
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-navy/50" />
 
       {/* Cyan glow on active */}
       {isActive && (
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            boxShadow: 'inset 0 0 60px rgba(55, 175, 225, 0.3)',
+            boxShadow: 'inset 0 0 60px rgba(6, 182, 212, 0.3)',
           }}
         />
       )}
@@ -117,7 +117,7 @@ const AccordionItemCard = ({
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#37AFE1] to-[#F58122]"
+          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan to-orange"
         />
       )}
     </motion.div>
@@ -135,7 +135,7 @@ export function ImageAccordionHero({
   const [activeIndex, setActiveIndex] = useState(2);
 
   return (
-    <section className="relative flex min-h-screen w-full items-center overflow-hidden bg-black">
+    <section className="relative flex min-h-screen w-full items-center overflow-hidden bg-navy">
       <div className="mx-auto w-full max-w-7xl px-6 py-20">
         <div className="flex flex-col items-center justify-between gap-12 lg:flex-row lg:gap-16">
           {/* Left Side: Text Content */}
@@ -152,7 +152,7 @@ export function ImageAccordionHero({
                   className="block bg-clip-text text-transparent"
                   style={{
                     backgroundImage:
-                      'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+                      'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
                     backgroundSize: '300% 100%',
                     animation: 'gradient-shift 4s ease-in-out infinite',
                   }}
@@ -166,9 +166,15 @@ export function ImageAccordionHero({
             </p>
             {ctaButton && (
               <ParticleWrapper>
-                <Link href={ctaButton?.href != null && ctaButton.href !== '' ? ctaButton.href : '/'}>
+                <Link
+                  href={
+                    ctaButton?.href != null && ctaButton.href !== ''
+                      ? ctaButton.href
+                      : '/'
+                  }
+                >
                   <StarButton
-                    className="px-8 py-4 text-base font-semibold shadow-[0_0_30px_rgba(245,129,34,0.4)] transition-transform hover:scale-105"
+                    className="shadow-[0_0_30px_rgba(252, 76, 0,0.4)] px-8 py-4 text-base font-semibold transition-transform hover:scale-105"
                     duration={2.5}
                   >
                     {ctaButton.label}

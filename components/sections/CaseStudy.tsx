@@ -77,7 +77,7 @@ export default function CaseStudy({
     <section
       ref={sectionRef}
       className="relative min-h-screen overflow-hidden px-6 py-20"
-      style={{ backgroundColor: '#0F172A' }}
+      style={{ backgroundColor: '#0a192f' }}
     >
       {/* Animated gradient orbs background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -125,7 +125,7 @@ export default function CaseStudy({
           <h2 className="mb-4 font-montserrat text-4xl font-bold text-white md:text-5xl">
             {title}
           </h2>
-          <p className="mx-auto max-w-3xl font-inter text-xl text-[#64748B]">
+          <p className="mx-auto max-w-3xl font-inter text-xl text-slate-grey">
             {description}
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function CaseStudy({
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-[500px] overflow-hidden rounded-2xl border-2 border-[#2563EB] bg-[#1E293B]"
+            className="relative h-[500px] overflow-hidden rounded-2xl border-2 border-navy bg-navy"
           >
             <Canvas>
               <ProjectMockup3D />
@@ -154,7 +154,7 @@ export default function CaseStudy({
               <h3 className="mb-2 font-montserrat text-3xl font-bold text-white">
                 {client}
               </h3>
-              <p className="font-inter text-[#64748B]">
+              <p className="font-inter text-slate-grey">
                 Delivering exceptional results through innovative solutions
               </p>
             </div>
@@ -186,19 +186,19 @@ export default function CaseStudy({
 
           <div
             ref={sliderRef}
-            className="relative h-[400px] cursor-ew-resize overflow-hidden rounded-2xl border-2 border-[#2563EB]"
+            className="relative h-[400px] cursor-ew-resize overflow-hidden rounded-2xl border-2 border-navy"
             onMouseDown={handleSliderMouseDown}
           >
             {/* Before Image */}
-            <div className="absolute inset-0 flex items-center justify-center bg-[#1E293B]">
-              <span className="font-montserrat text-2xl text-[#64748B]">
+            <div className="absolute inset-0 flex items-center justify-center bg-navy">
+              <span className="font-montserrat text-2xl text-slate-grey">
                 Before
               </span>
             </div>
 
             {/* After Image with clip */}
             <div
-              className="absolute inset-0 flex items-center justify-center bg-[#2563EB] transition-all duration-300"
+              className="absolute inset-0 flex items-center justify-center bg-navy transition-all duration-300"
               style={{
                 clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
               }}
@@ -208,13 +208,13 @@ export default function CaseStudy({
 
             {/* Slider Handle */}
             <div
-              className="absolute bottom-0 top-0 w-1 cursor-ew-resize bg-[#37AFE1]"
+              className="absolute bottom-0 top-0 w-1 cursor-ew-resize bg-cyan"
               style={{
                 left: `${sliderPosition}%`,
                 boxShadow: '0 0 20px rgba(139, 92, 246, 0.6)',
               }}
             >
-              <div className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#37AFE1] shadow-lg">
+              <div className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cyan shadow-lg">
                 <svg
                   className="h-6 w-6 text-white"
                   fill="none"
@@ -338,11 +338,11 @@ function ProjectMockup3D() {
       {/* 3D Mockup - Simple box for now */}
       <mesh ref={meshRef}>
         <boxGeometry args={[2, 3, 0.1]} />
-        <meshStandardMaterial color="#2563EB" metalness={0.3} roughness={0.4} />
+        <meshStandardMaterial color="#0a192f" metalness={0.3} roughness={0.4} />
       </mesh>
 
       {/* Subtle grid */}
-      <gridHelper args={[10, 10, '#334155', '#1E293B']} />
+      <gridHelper args={[10, 10, '#334155', '#0a192f']} />
     </>
   );
 }
@@ -403,14 +403,14 @@ function MetricCard({
         delay: index * 0.1,
         ease: [0.34, 1.56, 0.64, 1],
       }}
-      className="rounded-xl border-2 border-[#2563EB] bg-[#1E293B] p-6"
+      className="rounded-xl border-2 border-navy bg-navy p-6"
     >
-      <div className="mb-2 font-montserrat text-4xl font-bold text-[#31A4DB]">
+      <div className="mb-2 font-montserrat text-4xl font-bold text-cyan">
         {metric.prefix}
         {count.toFixed(metric.suffix === 's' ? 1 : 0)}
         {metric.suffix}
       </div>
-      <div className="font-inter text-sm text-[#64748B]">{metric.label}</div>
+      <div className="font-inter text-sm text-slate-grey">{metric.label}</div>
     </motion.div>
   );
 }

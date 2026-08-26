@@ -148,7 +148,7 @@ export default function ServicesPage() {
             resetForm();
             setShowModal(true);
           }}
-          className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-4 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+          className="flex items-center gap-2 rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80"
         >
           <Plus className="h-5 w-5" />
           Add Service
@@ -157,10 +157,10 @@ export default function ServicesPage() {
 
       {loading ? (
         <div className="flex justify-center py-12">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
         </div>
       ) : services.length === 0 ? (
-        <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] py-12 text-center">
+        <div className="rounded-xl border border-slate-700/50 bg-navy py-12 text-center">
           <p className="mb-4 text-slate-400">
             No services yet. Add your first service!
           </p>
@@ -173,7 +173,7 @@ export default function ServicesPage() {
           {services.map((service) => (
             <div
               key={service._id}
-              className="flex items-center gap-4 rounded-xl border border-slate-700/50 bg-[#1E293B] p-4"
+              className="flex items-center gap-4 rounded-xl border border-slate-700/50 bg-navy p-4"
             >
               <GripVertical className="h-5 w-5 cursor-grab text-slate-500" />
 
@@ -190,7 +190,7 @@ export default function ServicesPage() {
                   {service.features?.slice(0, 3).map((feature, i) => (
                     <span
                       key={i}
-                      className="rounded bg-[#37AFE1]/20 px-2 py-0.5 text-xs text-[#37AFE1]"
+                      className="rounded bg-cyan/20 px-2 py-0.5 text-xs text-cyan"
                     >
                       {feature}
                     </span>
@@ -225,7 +225,7 @@ export default function ServicesPage() {
                 </button>
                 <button
                   onClick={() => openEditModal(service)}
-                  className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-[#37AFE1] hover:text-white"
+                  className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-cyan hover:text-white"
                 >
                   <Edit className="h-5 w-5" />
                 </button>
@@ -243,8 +243,8 @@ export default function ServicesPage() {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-[#1E293B]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/70 p-4">
+          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-navy">
             <div className="border-b border-slate-700 p-6">
               <h2 className="text-xl font-bold text-white">
                 {editingService ? 'Edit Service' : 'Add Service'}
@@ -263,7 +263,7 @@ export default function ServicesPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     required
                   />
                 </div>
@@ -277,7 +277,7 @@ export default function ServicesPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, icon: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     placeholder="⚡"
                   />
                 </div>
@@ -293,7 +293,7 @@ export default function ServicesPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, slug: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="web-development (auto-generated if empty)"
                 />
               </div>
@@ -311,7 +311,7 @@ export default function ServicesPage() {
                       shortDescription: e.target.value,
                     })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="Brief tagline for cards"
                 />
               </div>
@@ -326,7 +326,7 @@ export default function ServicesPage() {
                     setFormData({ ...formData, description: e.target.value })
                   }
                   rows={4}
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                 />
               </div>
 
@@ -340,7 +340,7 @@ export default function ServicesPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, features: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="Custom Design, SEO Optimization, Fast Loading"
                 />
               </div>
@@ -359,7 +359,7 @@ export default function ServicesPage() {
                         order: parseInt(e.target.value),
                       })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   />
                 </div>
                 <div className="flex items-end">
@@ -373,7 +373,7 @@ export default function ServicesPage() {
                           published: e.target.checked,
                         })
                       }
-                      className="h-4 w-4 rounded border-slate-600 text-[#37AFE1] focus:ring-[#37AFE1]"
+                      className="h-4 w-4 rounded border-slate-600 text-cyan focus:ring-cyan"
                     />
                     <span className="text-slate-300">Published</span>
                   </label>
@@ -393,7 +393,7 @@ export default function ServicesPage() {
                 </button>
                 <button
                   type="submit"
-                  className="rounded-lg bg-[#37AFE1] px-6 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+                  className="rounded-lg bg-cyan px-6 py-2 text-white transition-colors hover:bg-cyan/80"
                 >
                   {editingService ? 'Update' : 'Add Service'}
                 </button>

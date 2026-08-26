@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { ParticleWrapper } from '@/components/ui/particle-button';
 import { StarButton } from '@/components/ui/star-button';
 import { useNavigation } from '@/lib/hooks/useNavigation';
+import Logo from '@/components/Logo';
 
 // Magnetic Nav Link with dock-style hover effect
 function MagneticNavLink({
@@ -82,13 +83,13 @@ function MagneticNavLink({
       {/* Glowing ring effect on hover */}
       {isHovered && (
         <motion.span
-          className="absolute inset-0 rounded-full border border-[#37AFE1]/40"
+          className="absolute inset-0 rounded-full border border-[#06b6d4]/40"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           style={{
-            boxShadow: '0 0 15px rgba(55, 175, 225, 0.3)',
+            boxShadow: '0 0 15px rgba(6, 182, 212, 0.3)',
           }}
         />
       )}
@@ -97,7 +98,7 @@ function MagneticNavLink({
       {isActive && (
         <motion.div
           layoutId="lamp"
-          className="absolute inset-0 -z-10 w-full rounded-full bg-[#F58122]/5"
+          className="absolute inset-0 -z-10 w-full rounded-full bg-[#fc4c00]/5"
           initial={false}
           transition={{
             type: 'spring',
@@ -105,10 +106,10 @@ function MagneticNavLink({
             damping: 30,
           }}
         >
-          <div className="absolute -top-2 left-1/2 h-1 w-8 -translate-x-1/2 rounded-t-full bg-[#F58122]">
-            <div className="absolute -left-2 -top-2 h-6 w-12 rounded-full bg-[#F58122]/20 blur-md" />
-            <div className="absolute -top-1 h-6 w-8 rounded-full bg-[#F58122]/20 blur-md" />
-            <div className="absolute left-2 top-0 h-4 w-4 rounded-full bg-[#F58122]/20 blur-sm" />
+          <div className="absolute -top-2 left-1/2 h-1 w-8 -translate-x-1/2 rounded-t-full bg-[#fc4c00]">
+            <div className="absolute -left-2 -top-2 h-6 w-12 rounded-full bg-[#fc4c00]/20 blur-md" />
+            <div className="absolute -top-1 h-6 w-8 rounded-full bg-[#fc4c00]/20 blur-md" />
+            <div className="absolute left-2 top-0 h-4 w-4 rounded-full bg-[#fc4c00]/20 blur-sm" />
           </div>
         </motion.div>
       )}
@@ -222,7 +223,7 @@ export default function Header() {
         <nav
           className="relative flex items-center gap-1.5 rounded-full px-5 py-3 backdrop-blur-2xl"
           style={{
-            background: 'rgba(15, 23, 42, 0.6)',
+            background: 'rgba(10, 25, 47, 0.6)',
             border: '1px solid rgba(255, 255, 255, 0.08)',
             boxShadow: `
               0 4px 30px rgba(0, 0, 0, 0.2),
@@ -233,25 +234,7 @@ export default function Header() {
           }}
         >
           {/* Logo */}
-          <Link
-            href="/"
-            className="flex shrink-0 items-center gap-2 rounded-full px-4 py-1.5 transition-all duration-300 hover:bg-white/5"
-          >
-            <img
-              src={settings.header.logo || '/logo.png'}
-              alt="Rising Dot"
-              className="h-10 w-auto object-contain"
-              onError={(e) => {
-                // Prevent infinite loop by only setting fallback once
-                if (
-                  e.currentTarget.src !==
-                  window.location.origin + '/logo.png'
-                ) {
-                  e.currentTarget.src = '/logo.png';
-                }
-              }}
-            />
-          </Link>
+          <Logo href="/" className="px-2 py-1" />
 
           <div className="mx-1 hidden h-6 w-px shrink-0 bg-white/10 md:block" />
 
@@ -302,10 +285,10 @@ export default function Header() {
                     <div
                       className="w-56 overflow-hidden rounded-2xl backdrop-blur-xl"
                       style={{
-                        background: 'rgba(15, 23, 42, 0.95)',
-                        border: '1px solid rgba(55, 175, 225, 0.2)',
+                        background: 'rgba(10, 25, 47, 0.95)',
+                        border: '1px solid rgba(6, 182, 212, 0.2)',
                         boxShadow:
-                          '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(55, 175, 225, 0.1)',
+                          '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(6, 182, 212, 0.1)',
                       }}
                     >
                       <div className="p-2">
@@ -384,7 +367,7 @@ export default function Header() {
               : 'pointer-events-none invisible -translate-y-4 opacity-0'
           }`}
           style={{
-            background: 'rgba(15, 23, 42, 0.95)',
+            background: 'rgba(10, 25, 47, 0.95)',
             border: '1px solid rgba(255, 255, 255, 0.1)',
             boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
           }}
@@ -441,10 +424,10 @@ export default function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {pathname === (link.href ?? '#') && (
-                      <div className="absolute -top-1 left-1/2 h-1 w-8 -translate-x-1/2 rounded-t-full bg-[#F58122]">
-                        <div className="absolute -left-2 -top-2 h-6 w-12 rounded-full bg-[#F58122]/20 blur-md" />
-                        <div className="absolute -top-1 h-6 w-8 rounded-full bg-[#F58122]/20 blur-md" />
-                        <div className="absolute left-2 top-0 h-4 w-4 rounded-full bg-[#F58122]/20 blur-sm" />
+                      <div className="absolute -top-1 left-1/2 h-1 w-8 -translate-x-1/2 rounded-t-full bg-[#fc4c00]">
+                        <div className="absolute -left-2 -top-2 h-6 w-12 rounded-full bg-[#fc4c00]/20 blur-md" />
+                        <div className="absolute -top-1 h-6 w-8 rounded-full bg-[#fc4c00]/20 blur-md" />
+                        <div className="absolute left-2 top-0 h-4 w-4 rounded-full bg-[#fc4c00]/20 blur-sm" />
                       </div>
                     )}
                     <span className="flex items-center gap-2">

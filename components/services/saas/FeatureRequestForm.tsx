@@ -70,7 +70,7 @@ export default function FeatureRequestForm({
   successMessage = 'Request Submitted!',
   successSubtext = "We'll get back to you within 24 hours.",
   placeholders = defaultPlaceholders,
-  accentColor = '#37AFE1',
+  accentColor = '#06b6d4',
 }: FeatureRequestFormProps) {
   const [formData, setFormData] = useState({
     name: '',
@@ -167,7 +167,7 @@ export default function FeatureRequestForm({
 
         <motion.form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-slate-700/50 bg-[#1E293B] p-8"
+          className="rounded-2xl border border-slate-700/50 bg-navy p-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -186,7 +186,7 @@ export default function FeatureRequestForm({
                   setFormData((prev) => ({ ...prev, name: e.target.value }))
                 }
                 placeholder={placeholders.name}
-                className="w-full rounded-xl border border-slate-700 bg-[#0F172A] px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-[#37AFE1] focus:outline-none"
+                className="w-full rounded-xl border border-slate-700 bg-navy px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-cyan focus:outline-none"
               />
             </div>
             <div>
@@ -201,7 +201,7 @@ export default function FeatureRequestForm({
                   setFormData((prev) => ({ ...prev, email: e.target.value }))
                 }
                 placeholder={placeholders.email}
-                className="w-full rounded-xl border border-slate-700 bg-[#0F172A] px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-[#37AFE1] focus:outline-none"
+                className="w-full rounded-xl border border-slate-700 bg-navy px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-cyan focus:outline-none"
               />
             </div>
           </div>
@@ -217,7 +217,7 @@ export default function FeatureRequestForm({
                 setFormData((prev) => ({ ...prev, company: e.target.value }))
               }
               placeholder={placeholders.company}
-              className="w-full rounded-xl border border-slate-700 bg-[#0F172A] px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-[#37AFE1] focus:outline-none"
+              className="w-full rounded-xl border border-slate-700 bg-navy px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-cyan focus:outline-none"
             />
           </div>
 
@@ -237,7 +237,7 @@ export default function FeatureRequestForm({
                 }))
               }
               placeholder={placeholders.description}
-              className="w-full resize-none rounded-xl border border-slate-700 bg-[#0F172A] px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-[#37AFE1] focus:outline-none"
+              className="w-full resize-none rounded-xl border border-slate-700 bg-navy px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-cyan focus:outline-none"
             />
           </div>
 
@@ -254,8 +254,8 @@ export default function FeatureRequestForm({
                   onClick={() => handleFeatureToggle(feature.value)}
                   className={`rounded-xl border px-4 py-3 text-sm font-medium transition-all ${
                     formData.features.includes(feature.value)
-                      ? 'border-[#37AFE1] bg-[#37AFE1]/10 text-[#37AFE1]'
-                      : 'border-slate-700 bg-[#0F172A] text-slate-400 hover:border-slate-600'
+                      ? 'border-cyan bg-cyan/10 text-cyan'
+                      : 'border-slate-700 bg-navy text-slate-400 hover:border-slate-600'
                   }`}
                   style={
                     formData.features.includes(feature.value)
@@ -288,8 +288,8 @@ export default function FeatureRequestForm({
                   }
                   className={`rounded-lg border px-4 py-2 text-sm font-medium transition-all ${
                     formData.budget === option.value
-                      ? 'border-[#37AFE1] bg-[#37AFE1]/10 text-[#37AFE1]'
-                      : 'border-slate-700 bg-[#0F172A] text-slate-400 hover:border-slate-600'
+                      ? 'border-cyan bg-cyan/10 text-cyan'
+                      : 'border-slate-700 bg-navy text-slate-400 hover:border-slate-600'
                   }`}
                   style={
                     formData.budget === option.value

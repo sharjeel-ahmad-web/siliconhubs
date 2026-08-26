@@ -74,7 +74,7 @@ export default function UsersPage() {
         {activeTab === 'users' && (
           <button
             onClick={() => setCreatingUser(true)}
-            className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-4 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+            className="flex items-center gap-2 rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80"
           >
             <Plus className="h-5 w-5" />
             Add User
@@ -89,7 +89,7 @@ export default function UsersPage() {
             onClick={() => setActiveTab('users')}
             className={`border-b-2 px-1 pb-4 text-sm font-medium transition-colors ${
               activeTab === 'users'
-                ? 'border-[#37AFE1] text-[#37AFE1]'
+                ? 'border-cyan text-cyan'
                 : 'border-transparent text-slate-400 hover:text-white'
             }`}
           >
@@ -99,7 +99,7 @@ export default function UsersPage() {
             onClick={() => setActiveTab('permissions')}
             className={`flex items-center gap-2 border-b-2 px-1 pb-4 text-sm font-medium transition-colors ${
               activeTab === 'permissions'
-                ? 'border-[#37AFE1] text-[#37AFE1]'
+                ? 'border-cyan text-cyan'
                 : 'border-transparent text-slate-400 hover:text-white'
             }`}
           >
@@ -110,7 +110,7 @@ export default function UsersPage() {
             onClick={() => setActiveTab('activity')}
             className={`flex items-center gap-2 border-b-2 px-1 pb-4 text-sm font-medium transition-colors ${
               activeTab === 'activity'
-                ? 'border-[#37AFE1] text-[#37AFE1]'
+                ? 'border-cyan text-cyan'
                 : 'border-transparent text-slate-400 hover:text-white'
             }`}
           >

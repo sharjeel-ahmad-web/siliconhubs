@@ -192,7 +192,7 @@ export default function ProjectsPage() {
             resetForm();
             setShowModal(true);
           }}
-          className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-4 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+          className="flex items-center gap-2 rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80"
         >
           <Plus className="h-5 w-5" />
           Add Project
@@ -200,13 +200,13 @@ export default function ProjectsPage() {
       </div>
 
       {/* Info Banner */}
-      <div className="mb-6 rounded-lg border border-[#37AFE1]/30 bg-[#37AFE1]/10 p-4">
-        <p className="text-sm text-[#37AFE1]">
+      <div className="mb-6 rounded-lg border border-cyan/30 bg-cyan/10 p-4">
+        <p className="text-sm text-cyan">
           <strong>Note:</strong> Portfolio projects are now managed via the CMS.
           Edit them in{' '}
-          <code className="rounded bg-[#37AFE1]/20 px-1">/admin/pages</code>{' '}
-          under the Portfolio Page section. Images should be placed in{' '}
-          <code className="rounded bg-[#37AFE1]/20 px-1">
+          <code className="rounded bg-cyan/20 px-1">/admin/pages</code> under
+          the Portfolio Page section. Images should be placed in{' '}
+          <code className="rounded bg-cyan/20 px-1">
             public/media/portfolio/
           </code>
         </p>
@@ -214,10 +214,10 @@ export default function ProjectsPage() {
 
       {loading ? (
         <div className="flex justify-center py-12">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
         </div>
       ) : projects.length === 0 ? (
-        <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] py-12 text-center">
+        <div className="rounded-xl border border-slate-700/50 bg-navy py-12 text-center">
           <p className="text-slate-400">
             No projects in database. Projects are currently loaded from code.
           </p>
@@ -227,7 +227,7 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <div
               key={project._id}
-              className="flex items-center gap-4 rounded-xl border border-slate-700/50 bg-[#1E293B] p-4"
+              className="flex items-center gap-4 rounded-xl border border-slate-700/50 bg-navy p-4"
             >
               <div className="h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg bg-slate-700">
                 {project.thumbnail && (
@@ -245,7 +245,7 @@ export default function ProjectsPage() {
                     {project.title}
                   </h3>
                   {project.featured && (
-                    <Star className="h-4 w-4 fill-[#F58122] text-[#F58122]" />
+                    <Star className="h-4 w-4 fill-orange text-orange" />
                   )}
                 </div>
                 <p className="text-sm text-slate-400">{project.client}</p>
@@ -253,7 +253,7 @@ export default function ProjectsPage() {
                   {project.tags?.slice(0, 3).map((tag, i) => (
                     <span
                       key={i}
-                      className="rounded bg-[#37AFE1]/20 px-2 py-0.5 text-xs text-[#37AFE1]"
+                      className="rounded bg-cyan/20 px-2 py-0.5 text-xs text-cyan"
                     >
                       {tag}
                     </span>
@@ -266,8 +266,8 @@ export default function ProjectsPage() {
                   onClick={() => toggleFeatured(project)}
                   className={`rounded-lg p-2 transition-colors ${
                     project.featured
-                      ? 'bg-[#F58122]/20 text-[#F58122]'
-                      : 'bg-slate-700 text-slate-400 hover:text-[#F58122]'
+                      ? 'bg-orange/20 text-orange'
+                      : 'bg-slate-700 text-slate-400 hover:text-orange'
                   }`}
                 >
                   <Star className="h-5 w-5" />
@@ -288,7 +288,7 @@ export default function ProjectsPage() {
                 </button>
                 <button
                   onClick={() => openEditModal(project)}
-                  className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-[#37AFE1] hover:text-white"
+                  className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-cyan hover:text-white"
                 >
                   <Edit className="h-5 w-5" />
                 </button>
@@ -306,8 +306,8 @@ export default function ProjectsPage() {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-[#1E293B]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/70 p-4">
+          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-navy">
             <div className="border-b border-slate-700 p-6">
               <h2 className="text-xl font-bold text-white">
                 {editingProject ? 'Edit Project' : 'Add Project'}
@@ -326,7 +326,7 @@ export default function ProjectsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, title: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     required
                   />
                 </div>
@@ -340,7 +340,7 @@ export default function ProjectsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, client: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   />
                 </div>
               </div>
@@ -355,7 +355,7 @@ export default function ProjectsPage() {
                     setFormData({ ...formData, description: e.target.value })
                   }
                   rows={3}
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   required
                 />
               </div>
@@ -370,7 +370,7 @@ export default function ProjectsPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, thumbnail: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="/media/portfolio/project-name/thumbnail.jpg"
                 />
               </div>
@@ -385,7 +385,7 @@ export default function ProjectsPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, images: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="/media/portfolio/project/img1.jpg, /media/portfolio/project/img2.jpg"
                 />
               </div>
@@ -400,7 +400,7 @@ export default function ProjectsPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, tags: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="Web Design, Shopify, SEO"
                 />
               </div>
@@ -415,7 +415,7 @@ export default function ProjectsPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, metrics: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="Conversion Rate:+45%, Page Speed:95/100"
                 />
               </div>
@@ -428,7 +428,7 @@ export default function ProjectsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, featured: e.target.checked })
                     }
-                    className="h-4 w-4 rounded border-slate-600 text-[#F58122] focus:ring-[#F58122]"
+                    className="h-4 w-4 rounded border-slate-600 text-orange focus:ring-orange"
                   />
                   <span className="text-slate-300">Featured</span>
                 </label>
@@ -458,7 +458,7 @@ export default function ProjectsPage() {
                 </button>
                 <button
                   type="submit"
-                  className="rounded-lg bg-[#37AFE1] px-6 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+                  className="rounded-lg bg-cyan px-6 py-2 text-white transition-colors hover:bg-cyan/80"
                 >
                   {editingProject ? 'Update' : 'Add Project'}
                 </button>

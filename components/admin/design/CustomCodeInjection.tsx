@@ -179,7 +179,7 @@ export default function CustomCodeInjection() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -210,7 +210,7 @@ export default function CustomCodeInjection() {
       <div className="flex justify-end">
         <button
           onClick={() => setShowForm(true)}
-          className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-4 py-2 text-white hover:bg-[#37AFE1]/80"
+          className="flex items-center gap-2 rounded-lg bg-cyan px-4 py-2 text-white hover:bg-cyan/80"
         >
           <Plus className="h-5 w-5" />
           Add Code Snippet
@@ -219,7 +219,7 @@ export default function CustomCodeInjection() {
 
       {/* Form */}
       {showForm && (
-        <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+        <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
           <div className="mb-4 flex items-center justify-between">
             <h3 className="font-semibold text-white">
               {editingId ? 'Edit Code Snippet' : 'Add New Code Snippet'}
@@ -244,7 +244,7 @@ export default function CustomCodeInjection() {
                   setFormData({ ...formData, name: e.target.value })
                 }
                 placeholder="e.g., Google Analytics, Custom Styles"
-                className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 text-white"
+                className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 text-white"
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -260,7 +260,7 @@ export default function CustomCodeInjection() {
                       type: e.target.value as 'css' | 'js',
                     })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 text-white"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 text-white"
                 >
                   <option value="css">CSS</option>
                   <option value="js">JavaScript</option>
@@ -278,7 +278,7 @@ export default function CustomCodeInjection() {
                       location: e.target.value as any,
                     })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 text-white"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 text-white"
                 >
                   <option value="head">Head (recommended for CSS)</option>
                   <option value="body-start">Body Start</option>
@@ -305,7 +305,7 @@ export default function CustomCodeInjection() {
                   : '// Your JavaScript code here\nconsole.log("Hello!");'
               }
               rows={10}
-              className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 font-mono text-sm text-white"
+              className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 font-mono text-sm text-white"
             />
           </div>
 
@@ -321,7 +321,7 @@ export default function CustomCodeInjection() {
                   className={`rounded-lg px-3 py-1.5 text-sm transition-colors ${
                     (page.value === '' && formData.pages.length === 0) ||
                     formData.pages.includes(page.value)
-                      ? 'bg-[#37AFE1] text-white'
+                      ? 'bg-cyan text-white'
                       : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
                   }`}
                 >
@@ -339,7 +339,7 @@ export default function CustomCodeInjection() {
                 onChange={(e) =>
                   setFormData({ ...formData, enabled: e.target.checked })
                 }
-                className="h-4 w-4 rounded border-slate-600 bg-[#0F172A] text-[#37AFE1]"
+                className="h-4 w-4 rounded border-slate-600 bg-navy text-cyan"
               />
               <span className="text-slate-300">Enabled</span>
             </label>
@@ -353,7 +353,7 @@ export default function CustomCodeInjection() {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-6 py-2 text-white hover:bg-[#37AFE1]/80 disabled:opacity-50"
+                className="flex items-center gap-2 rounded-lg bg-cyan px-6 py-2 text-white hover:bg-cyan/80 disabled:opacity-50"
               >
                 <Save className={`h-4 w-4 ${saving ? 'animate-spin' : ''}`} />
                 {saving ? 'Saving...' : editingId ? 'Update' : 'Create'}
@@ -364,7 +364,7 @@ export default function CustomCodeInjection() {
       )}
 
       {/* Snippets List */}
-      <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-[#1E293B]">
+      <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-navy">
         {snippets.length === 0 ? (
           <div className="p-12 text-center">
             <Code className="mx-auto mb-4 h-16 w-16 text-slate-600" />
@@ -412,7 +412,7 @@ export default function CustomCodeInjection() {
                           : snippet.pages.join(', ')}
                       </span>
                     </div>
-                    <pre className="mt-2 max-h-20 overflow-x-auto rounded bg-[#0F172A] p-2 font-mono text-xs text-slate-400">
+                    <pre className="mt-2 max-h-20 overflow-x-auto rounded bg-navy p-2 font-mono text-xs text-slate-400">
                       {snippet.code.substring(0, 200)}
                       {snippet.code.length > 200 ? '...' : ''}
                     </pre>

@@ -83,7 +83,7 @@ export default function Connect() {
   }, [animate]);
 
   return (
-    <section className="relative bg-black py-16 overflow-hidden">
+    <section className="relative overflow-hidden bg-navy py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <HighlightGroup className="group h-full">
           <div
@@ -91,11 +91,11 @@ export default function Connect() {
             data-aos="fade-down"
           >
             <HighlighterItem className="rounded-3xl p-8">
-              <div className="relative z-20 h-full overflow-hidden rounded-3xl border border-[#37AFE1]/30 bg-black">
+              <div className="relative z-20 h-full overflow-hidden rounded-3xl border border-cyan/30 bg-navy">
                 <Particles
                   className="absolute inset-0 -z-10 opacity-10 transition-opacity duration-1000 ease-in-out group-hover/item:opacity-100"
                   quantity={200}
-                  color={'#37AFE1'}
+                  color={'#06b6d4'}
                   vy={-0.2}
                 />
                 <div className="flex justify-center">
@@ -104,28 +104,28 @@ export default function Connect() {
                       className="relative mx-auto h-[320px] w-[350px] md:h-[350px] md:w-[380px]"
                       ref={scope}
                     >
-                      <Sparkles className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 text-[#F58122]" />
+                      <Sparkles className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 text-orange" />
                       <div
                         id="chatbot"
-                        className="absolute bottom-12 left-14 rounded-3xl border border-[#37AFE1]/40 bg-[#37AFE1]/10 px-3 py-2 text-sm text-white/80 opacity-50"
+                        className="absolute bottom-12 left-14 rounded-3xl border border-cyan/40 bg-cyan/10 px-3 py-2 text-sm text-white/80 opacity-50"
                       >
                         {services[0] || 'Chatbots'}
                       </div>
                       <div
                         id="automation"
-                        className="absolute left-2 top-20 rounded-3xl border border-[#37AFE1]/40 bg-[#37AFE1]/10 px-3 py-2 text-sm text-white/80 opacity-50"
+                        className="absolute left-2 top-20 rounded-3xl border border-cyan/40 bg-cyan/10 px-3 py-2 text-sm text-white/80 opacity-50"
                       >
                         {services[1] || 'N8N Automation'}
                       </div>
                       <div
                         id="webapp"
-                        className="absolute bottom-20 right-1 rounded-3xl border border-[#37AFE1]/40 bg-[#37AFE1]/10 px-3 py-2 text-sm text-white/80 opacity-50"
+                        className="absolute bottom-20 right-1 rounded-3xl border border-cyan/40 bg-cyan/10 px-3 py-2 text-sm text-white/80 opacity-50"
                       >
                         {services[2] || 'Web Development'}
                       </div>
                       <div
                         id="branding"
-                        className="absolute right-12 top-10 rounded-3xl border border-[#37AFE1]/40 bg-[#37AFE1]/10 px-3 py-2 text-sm text-white/80 opacity-50"
+                        className="absolute right-12 top-10 rounded-3xl border border-cyan/40 bg-cyan/10 px-3 py-2 text-sm text-white/80 opacity-50"
                       >
                         {services[3] || 'Shopify'}
                       </div>
@@ -134,7 +134,7 @@ export default function Connect() {
                           width="16.8"
                           height="18.2"
                           viewBox="0 0 12 13"
-                          className="fill-[#F58122]"
+                          className="fill-orange"
                           stroke="white"
                           strokeWidth="1"
                           xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ export default function Connect() {
                             d="M12 5.50676L0 0L2.83818 13L6.30623 7.86537L12 5.50676V5.50676Z"
                           />
                         </svg>
-                        <span className="relative -top-1 left-3 rounded-3xl bg-[#F58122] px-2 py-1 text-xs text-white">
+                        <span className="relative -top-1 left-3 rounded-3xl bg-orange px-2 py-1 text-xs text-white">
                           You
                         </span>
                       </div>
@@ -154,12 +154,12 @@ export default function Connect() {
                     <div className="-mt-20 flex h-full flex-col justify-center p-4 md:-mt-4 md:ml-12 md:w-[450px]">
                       <div className="flex flex-col items-center md:items-start">
                         <h3 className="mt-6 pb-1 font-montserrat font-bold">
-                          <span className="text-2xl text-[#37AFE1] md:text-4xl">
+                          <span className="text-2xl text-cyan md:text-4xl">
                             {title}
                           </span>
                         </h3>
                       </div>
-                      <p className="mb-4 font-inter text-[#64748B]">
+                      <p className="mb-4 font-inter text-slate-grey">
                         {subtitle}
                       </p>
                       <div className="flex flex-wrap gap-2">
@@ -184,13 +184,13 @@ export default function Connect() {
                               variant: 'outline',
                               size: 'icon',
                             }),
-                            'border-[#37AFE1]/30 hover:border-[#37AFE1] hover:bg-[#37AFE1]/10'
+                            'border-cyan/30 hover:border-cyan hover:bg-cyan/10'
                           )}
                         >
                           <span className="flex items-center gap-1">
                             <Mail
                               strokeWidth={1}
-                              className="h-5 w-5 text-[#37AFE1]"
+                              className="h-5 w-5 text-cyan"
                             />
                           </span>
                         </Link>
@@ -202,7 +202,7 @@ export default function Connect() {
                               variant: 'outline',
                               size: 'icon',
                             }),
-                            'border-[#37AFE1]/30 hover:border-[#37AFE1] hover:bg-[#37AFE1]/10'
+                            'border-cyan/30 hover:border-cyan hover:bg-cyan/10'
                           )}
                         >
                           <span className="flex items-center gap-1">

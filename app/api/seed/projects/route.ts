@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { getDatabase, COLLECTIONS } from '@/lib/db/mongodb';
 
 const projectsData = [

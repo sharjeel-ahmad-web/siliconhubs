@@ -1,4 +1,4 @@
-import speakeasy from 'speakeasy';
+﻿import speakeasy from 'speakeasy';
 import QRCode from 'qrcode';
 import { query } from '@/lib/db/connection';
 

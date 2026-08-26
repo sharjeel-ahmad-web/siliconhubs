@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Device Capability Detection
  * Detects device capabilities for adaptive quality adjustments
  */

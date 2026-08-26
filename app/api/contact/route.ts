@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import { getDatabase, COLLECTIONS } from '@/lib/db/mongodb';
 import { Contact } from '@/lib/db/models';
 import { sendContactNotification } from '@/lib/email/resend';

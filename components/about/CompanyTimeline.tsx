@@ -81,10 +81,10 @@ interface Particle {
 }
 
 const eraColors = {
-  foundation: '#2563EB',
-  growth: '#F97316',
-  expansion: '#2563EB',
-  innovation: '#F97316',
+  foundation: '#0a192f',
+  growth: '#fc4c00',
+  expansion: '#0a192f',
+  innovation: '#fc4c00',
 };
 
 export default function CompanyTimeline() {
@@ -177,7 +177,7 @@ export default function CompanyTimeline() {
       {/* Timeline */}
       <div className="relative">
         {/* Vertical line */}
-        <div className="absolute bottom-0 left-1/2 top-0 w-1 -translate-x-1/2 transform bg-gradient-to-b from-[#2563EB] via-[#F97316] to-[#2563EB]" />
+        <div className="absolute bottom-0 left-1/2 top-0 w-1 -translate-x-1/2 transform bg-gradient-to-b from-navy via-orange to-navy" />
 
         {/* Milestones */}
         <div className="space-y-16">
@@ -209,7 +209,7 @@ export default function CompanyTimeline() {
                       backgroundColor:
                         activeMilestone === index
                           ? `${eraColors[milestone.era]}20`
-                          : '#0F172A',
+                          : '#0a192f',
                     }}
                   >
                     <div
@@ -230,7 +230,7 @@ export default function CompanyTimeline() {
                     <h4 className="mb-2 text-xl font-semibold text-white">
                       {milestone.title}
                     </h4>
-                    <p className="text-[#64748B]">{milestone.description}</p>
+                    <p className="text-slate-grey">{milestone.description}</p>
                   </div>
                 </motion.div>
               </div>
@@ -268,7 +268,7 @@ export default function CompanyTimeline() {
               className="h-4 w-4 rounded-full"
               style={{ backgroundColor: color }}
             />
-            <span className="text-sm capitalize text-[#64748B]">{era}</span>
+            <span className="text-sm capitalize text-slate-grey">{era}</span>
           </div>
         ))}
       </motion.div>

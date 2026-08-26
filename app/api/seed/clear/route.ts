@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 
 // Clear all seeded CMS content

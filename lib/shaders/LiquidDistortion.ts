@@ -1,9 +1,9 @@
-/**
+﻿/**
  * Liquid Physics Shader System
  *
  * Implements GLSL-based image distortion with ripple effects and bloom post-processing.
  * Features:
- * - Touch map tracking at 512×512 resolution
+ * - Touch map tracking at 512Ã—512 resolution
  * - Electric Purple ripple edges
  * - Bloom post-processing with 0.5 strength
  * - 1.5-second decay animation
@@ -126,7 +126,7 @@ export const fragmentShader = `
 export interface LiquidDistortionConfig {
   /** Resolution of touch map (default: 512) */
   touchMapResolution?: number;
-  /** Ripple color in RGB (default: Electric Purple #8B5CF6) */
+  /** Ripple color in RGB (default: Electric Purple #06b6d4) */
   rippleColor?: THREE.Color;
   /** Bloom strength (default: 0.5) */
   bloomStrength?: number;
@@ -177,7 +177,7 @@ export class LiquidDistortionShader {
     this.touchMapTexture.magFilter = THREE.LinearFilter;
 
     // Create shader material
-    const rippleColor = config.rippleColor || new THREE.Color(0x8b5cf6); // Electric Purple
+    const rippleColor = config.rippleColor || new THREE.Color(0x06b6d4); // Tech Cyan
 
     this.material = new THREE.ShaderMaterial({
       uniforms: {

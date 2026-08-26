@@ -253,10 +253,10 @@ function TeamCard({
           style={{
             background: 'rgba(15, 23, 42, 0.4)',
             backdropFilter: 'blur(20px)',
-            border: `2px solid ${isHovered ? '#F58122' : 'rgba(55, 175, 225, 0.5)'}`,
+            border: `2px solid ${isHovered ? '#fc4c00' : 'rgba(6, 182, 212, 0.5)'}`,
             boxShadow: isHovered
-              ? '0 0 60px rgba(245, 129, 34, 0.6), inset 0 0 40px rgba(245, 129, 34, 0.1)'
-              : '0 0 30px rgba(55, 175, 225, 0.3), inset 0 0 20px rgba(55, 175, 225, 0.05)',
+              ? '0 0 60px rgba(252, 76, 0, 0.6), inset 0 0 40px rgba(252, 76, 0, 0.1)'
+              : '0 0 30px rgba(6, 182, 212, 0.3), inset 0 0 20px rgba(6, 182, 212, 0.05)',
             transition: 'all 0.4s ease',
           }}
         >
@@ -293,8 +293,8 @@ function TeamCard({
                       0deg,
                       transparent,
                       transparent 2px,
-                      rgba(55, 175, 225, 0.1) 2px,
-                      rgba(55, 175, 225, 0.1) 4px
+                      rgba(6, 182, 212, 0.1) 2px,
+                      rgba(6, 182, 212, 0.1) 4px
                     )`,
                     animation: 'scanlines 8s linear infinite',
                   }}
@@ -315,7 +315,7 @@ function TeamCard({
                 <div
                   className="pointer-events-none absolute inset-0"
                   style={{
-                    background: 'rgba(55, 175, 225, 0.2)',
+                    background: 'rgba(6, 182, 212, 0.2)',
                     mixBlendMode: 'color',
                   }}
                 />
@@ -324,7 +324,7 @@ function TeamCard({
                 <motion.div
                   className="pointer-events-none absolute inset-0"
                   style={{
-                    background: 'rgba(245, 129, 34, 0.3)',
+                    background: 'rgba(252, 76, 0, 0.3)',
                     clipPath: 'inset(40% 0 50% 0)',
                   }}
                   animate={{
@@ -359,7 +359,7 @@ function TeamCard({
           <div
             className="pointer-events-none absolute inset-0 rounded-3xl"
             style={{
-              boxShadow: `inset 0 0 20px ${isHovered ? 'rgba(245, 129, 34, 0.8)' : 'rgba(55, 175, 225, 0.4)'}`,
+              boxShadow: `inset 0 0 20px ${isHovered ? 'rgba(252, 76, 0, 0.8)' : 'rgba(6, 182, 212, 0.4)'}`,
               transition: 'box-shadow 0.4s ease',
             }}
           />
@@ -372,7 +372,7 @@ function TeamCard({
           <motion.h3
             className={`mb-2 font-bold text-white ${isMobile ? 'text-lg' : isTablet ? 'text-xl' : 'text-2xl'}`}
             style={{
-              textShadow: '0 0 20px rgba(55, 175, 225, 0.8)',
+              textShadow: '0 0 20px rgba(6, 182, 212, 0.8)',
               fontFamily: 'monospace',
               letterSpacing: '0.05em',
             }}
@@ -382,7 +382,7 @@ function TeamCard({
           <motion.p
             className={`font-medium ${isMobile ? 'text-xs' : 'text-sm'}`}
             style={{
-              background: 'linear-gradient(90deg, #37AFE1, #F58122)',
+              background: 'linear-gradient(90deg, #06b6d4, #fc4c00)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               fontFamily: 'monospace',
@@ -548,9 +548,7 @@ export default function HolographicTeam() {
   }, [isMobile]);
 
   return (
-    <section
-      className="relative min-h-screen overflow-hidden bg-black py-16"
-    >
+    <section className="relative min-h-screen overflow-hidden bg-navy py-16">
       {/* Background */}
       <div className="absolute inset-0">
         {/* Grid pattern */}
@@ -558,8 +556,8 @@ export default function HolographicTeam() {
           className={`absolute inset-0 ${isMobile ? 'opacity-10' : 'opacity-20'}`}
           style={{
             backgroundImage: `
-              linear-gradient(rgba(55, 175, 225, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(55, 175, 225, 0.1) 1px, transparent 1px)
+              linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
             `,
             backgroundSize: isMobile ? '30px 30px' : '50px 50px',
           }}
@@ -572,7 +570,7 @@ export default function HolographicTeam() {
             top: '20%',
             left: isMobile ? '-20%' : '10%',
             background:
-              'radial-gradient(circle, rgba(55, 175, 225, 0.15) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
           animate={{
@@ -591,7 +589,7 @@ export default function HolographicTeam() {
             bottom: '20%',
             right: isMobile ? '-20%' : '10%',
             background:
-              'radial-gradient(circle, rgba(245, 129, 34, 0.15) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(252, 76, 0, 0.15) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
           animate={{
@@ -653,10 +651,10 @@ export default function HolographicTeam() {
             className={`rounded-full transition-all duration-300 ${isMobile ? 'h-2 w-2' : 'h-3 w-3'}`}
             style={{
               background:
-                index === activeIndex ? '#F58122' : 'rgba(55, 175, 225, 0.3)',
+                index === activeIndex ? '#fc4c00' : 'rgba(6, 182, 212, 0.3)',
               boxShadow:
                 index === activeIndex
-                  ? '0 0 20px rgba(245, 129, 34, 0.8)'
+                  ? '0 0 20px rgba(252, 76, 0, 0.8)'
                   : 'none',
             }}
             animate={{
@@ -683,7 +681,7 @@ export default function HolographicTeam() {
         className={`relative z-10 text-center ${isMobile ? 'mt-8' : 'mt-12'}`}
       >
         <p
-          className={`font-mono text-[#64748B] ${isMobile ? 'px-4 text-xs' : 'text-sm'}`}
+          className={`font-mono text-slate-grey ${isMobile ? 'px-4 text-xs' : 'text-sm'}`}
         >
           {isMobile
             ? 'Swipe to navigate • Auto-advance enabled'

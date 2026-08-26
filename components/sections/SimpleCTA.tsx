@@ -76,22 +76,22 @@ export default function SimpleCTA() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-black px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+    <section className="relative overflow-hidden bg-navy px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[#37AFE1]/5 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-cyan/5 to-transparent" />
       <div className="absolute inset-0">
         <div
           className="absolute left-1/4 top-1/4 h-[600px] w-[600px] rounded-full opacity-20 blur-[100px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(55, 175, 225, 0.5) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, transparent 70%)',
           }}
         />
         <div
           className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] rounded-full opacity-20 blur-[100px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(245, 129, 34, 0.4) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(252, 76, 0, 0.4) 0%, transparent 70%)',
           }}
         />
       </div>
@@ -129,7 +129,7 @@ export default function SimpleCTA() {
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+                  'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
                 backgroundSize: '300% 100%',
                 animation: 'gradient-shift 4s ease-in-out infinite',
               }}
@@ -194,7 +194,7 @@ export default function SimpleCTA() {
                 <div className="mb-2 text-3xl font-bold text-white md:text-4xl">
                   {stat.number}
                 </div>
-                <div className="text-sm text-[#64748B] md:text-base">
+                <div className="text-sm text-slate-grey md:text-base">
                   {stat.label}
                 </div>
               </motion.div>
@@ -210,7 +210,7 @@ export default function SimpleCTA() {
             className="mt-8 flex justify-center sm:mt-10 md:mt-12"
           >
             <div>
-              <p className="mb-6 text-center text-sm text-[#64748B]">
+              <p className="mb-6 text-center text-sm text-slate-grey">
                 Follow us on social media
               </p>
               <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">

@@ -29,7 +29,7 @@ const defaultMetrics: Metric[] = [
     value: '95',
     target: 95,
     unit: '%',
-    color: '#F97316',
+    color: '#fc4c00',
     icon: '⏱️',
   },
   {
@@ -37,7 +37,7 @@ const defaultMetrics: Metric[] = [
     value: '80',
     target: 80,
     unit: '%',
-    color: '#2563EB',
+    color: '#0a192f',
     icon: '💰',
   },
   {
@@ -45,7 +45,7 @@ const defaultMetrics: Metric[] = [
     value: '99',
     target: 99,
     unit: '%',
-    color: '#31A4DB',
+    color: '#06b6d4',
     icon: '✓',
   },
   {
@@ -53,7 +53,7 @@ const defaultMetrics: Metric[] = [
     value: '10',
     target: 10,
     unit: 'x',
-    color: '#F58122',
+    color: '#fc4c00',
     icon: '📈',
   },
 ];
@@ -132,7 +132,7 @@ export const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({
       {metrics.map((metric, index) => (
         <motion.div
           key={metric.label}
-          className="relative overflow-hidden rounded-lg border border-[#64748B]/20 bg-gradient-to-br from-[#1E293B] to-[#0F172A] p-8"
+          className="relative overflow-hidden rounded-lg border border-slate-grey/20 bg-gradient-to-br from-[#0a192f] to-[#0a192f] p-8"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{
@@ -163,7 +163,9 @@ export const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({
                 {metric.unit}
               </span>
             </div>
-            <p className="text-lg font-medium text-[#64748B]">{metric.label}</p>
+            <p className="text-lg font-medium text-slate-grey">
+              {metric.label}
+            </p>
           </div>
 
           {/* Animated border */}
@@ -192,7 +194,7 @@ export const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({
 
       {/* Additional Details */}
       <motion.div
-        className="col-span-1 mt-8 rounded-lg border border-[#2563EB]/20 bg-gradient-to-r from-[#2563EB]/10 to-[#37AFE1]/10 p-8 md:col-span-2 lg:col-span-4"
+        className="col-span-1 mt-8 rounded-lg border border-navy/20 bg-gradient-to-r from-[#0a192f]/10 to-[#06b6d4]/10 p-8 md:col-span-2 lg:col-span-4"
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.5 }}
@@ -201,7 +203,7 @@ export const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {benefits.map((benefit, idx) => (
             <div key={idx} className="flex items-start gap-3">
-              <div className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[#37AFE1]">
+              <div className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-cyan">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path
                     d="M3 8L6 11L13 4"
@@ -214,7 +216,7 @@ export const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({
               </div>
               <div>
                 <p className="font-medium text-white">{benefit.title}</p>
-                <p className="text-sm text-[#64748B]">{benefit.description}</p>
+                <p className="text-sm text-slate-grey">{benefit.description}</p>
               </div>
             </div>
           ))}

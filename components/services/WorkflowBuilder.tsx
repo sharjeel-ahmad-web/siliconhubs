@@ -240,7 +240,7 @@ export const WorkflowBuilder: React.FC<WorkflowBuilderProps> = ({
   return (
     <div
       ref={canvasRef}
-      className="relative h-[500px] w-full select-none overflow-hidden rounded-2xl border border-[#37AFE1]/20 bg-[#1a1a2e]"
+      className="relative h-[500px] w-full select-none overflow-hidden rounded-2xl border border-cyan/20 bg-[#1a1a2e]"
       style={{ cursor: draggingNode ? 'grabbing' : 'default' }}
     >
       {/* Grid background - N8N style dots */}
@@ -256,7 +256,7 @@ export const WorkflowBuilder: React.FC<WorkflowBuilderProps> = ({
               cx={GRID_SIZE / 2}
               cy={GRID_SIZE / 2}
               r="1"
-              fill="#37AFE1"
+              fill="#06b6d4"
               opacity="0.15"
             />
           </pattern>
@@ -292,8 +292,8 @@ export const WorkflowBuilder: React.FC<WorkflowBuilderProps> = ({
                   x2="100%"
                   y2="0%"
                 >
-                  <stop offset="0%" stopColor="#37AFE1" />
-                  <stop offset="100%" stopColor="#F58122" />
+                  <stop offset="0%" stopColor="#06b6d4" />
+                  <stop offset="100%" stopColor="#fc4c00" />
                 </linearGradient>
               </defs>
               <path
@@ -328,7 +328,7 @@ export const WorkflowBuilder: React.FC<WorkflowBuilderProps> = ({
                       cx={x}
                       cy={y}
                       r="4"
-                      fill="#37AFE1"
+                      fill="#06b6d4"
                       opacity={0.9 - particle.progress * 0.5}
                     >
                       <animate
@@ -377,7 +377,7 @@ export const WorkflowBuilder: React.FC<WorkflowBuilderProps> = ({
             style={{
               backgroundColor: '#2a2a4a',
               borderColor:
-                draggingNode === node.id ? '#37AFE1' : getNodeColor(node.type),
+                draggingNode === node.id ? '#06b6d4' : getNodeColor(node.type),
             }}
           >
             {/* Icon circle */}
@@ -427,7 +427,7 @@ export const WorkflowBuilder: React.FC<WorkflowBuilderProps> = ({
 
       {/* Add node button */}
       <motion.button
-        className="absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-[#37AFE1]/50 bg-[#37AFE1]/20 px-4 py-2 text-sm font-medium text-[#37AFE1] transition-colors hover:bg-[#37AFE1]/30"
+        className="absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-cyan/50 bg-cyan/20 px-4 py-2 text-sm font-medium text-cyan transition-colors hover:bg-cyan/30"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -436,7 +436,7 @@ export const WorkflowBuilder: React.FC<WorkflowBuilderProps> = ({
       </motion.button>
 
       {/* Instructions */}
-      <div className="absolute right-4 top-4 rounded-lg bg-black/30 px-3 py-2 text-xs text-white/50">
+      <div className="absolute right-4 top-4 rounded-lg bg-navy/30 px-3 py-2 text-xs text-white/50">
         Drag nodes to reposition
       </div>
     </div>

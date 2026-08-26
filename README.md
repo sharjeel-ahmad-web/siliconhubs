@@ -11,6 +11,7 @@ Rising Dot Agency is a full-featured agency website showcasing web development, 
 ## Features
 
 ### Frontend
+
 - **Modern UI/UX** - Sleek dark theme with gradient accents and glassmorphism effects
 - **Smooth Animations** - Powered by Framer Motion and GSAP for fluid interactions
 - **3D Elements** - Three.js and Spline integrations for immersive visuals
@@ -24,6 +25,7 @@ Rising Dot Agency is a full-featured agency website showcasing web development, 
 Interactive portfolio with category filtering, project cards with hover effects, and detailed case studies.
 
 ### Admin Dashboard
+
 - **Content Management** - Edit all site content without touching code
 - **SEO Tools** - Keyword strategy, meta tag management, and analytics integration
 - **Media Library** - Cloudinary-powered asset management
@@ -38,21 +40,22 @@ Built-in SEO tools including keyword cloud visualization, importance scoring, an
 
 ## Tech Stack
 
-| Category | Technologies |
-|----------|-------------|
-| Framework | Next.js 14 (App Router) |
-| Styling | Tailwind CSS, CSS Modules |
-| Animation | Framer Motion, GSAP, Lenis |
-| 3D Graphics | Three.js, React Three Fiber, Spline |
-| Database | MongoDB |
-| Authentication | NextAuth.js with 2FA |
-| Media | Cloudinary, Vercel Blob |
-| Email | Resend |
-| Monitoring | Sentry |
+| Category       | Technologies                        |
+| -------------- | ----------------------------------- |
+| Framework      | Next.js 14 (App Router)             |
+| Styling        | Tailwind CSS, CSS Modules           |
+| Animation      | Framer Motion, GSAP, Lenis          |
+| 3D Graphics    | Three.js, React Three Fiber, Spline |
+| Database       | MongoDB                             |
+| Authentication | NextAuth.js with 2FA                |
+| Media          | Cloudinary, Vercel Blob             |
+| Email          | Resend                              |
+| Monitoring     | Sentry                              |
 
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - MongoDB (local or Atlas)
 - npm or yarn
@@ -93,6 +96,7 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
 ## Project Structure
+
 ```
 ├── app/                    # Next.js App Router
 │   ├── (public)/          # Public pages (home, portfolio, services, etc.)
@@ -108,6 +112,7 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
 ## Scripts
+
 ```bash
 npm run dev          # Start development server
 npm run build        # Build for production
@@ -119,6 +124,7 @@ npm run type-check   # TypeScript type checking
 ```
 
 ## Services Offered
+
 - **Web Design** - Custom, responsive website design
 - **Shopify Development** - E-commerce solutions
 - **SEO Optimization** - Search engine visibility
@@ -126,13 +132,3 @@ npm run type-check   # TypeScript type checking
 - **N8N Automations** - Workflow automation
 - **WordPress Development** - Custom themes and plugins
 - **SaaS Development** - Scalable web applications
-
-## Author
-**KuchikiRenji**  
-Email: KuchikiRenji@outlook.com
-
-## License
-This project is proprietary software. All rights reserved.
----
-
-Built with ❤️ by [KuchikiRenji](mailto:KuchikiRenji@outlook.com)

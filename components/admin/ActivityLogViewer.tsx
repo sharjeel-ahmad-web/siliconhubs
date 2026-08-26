@@ -85,7 +85,7 @@ export default function ActivityLogViewer({ userId }: ActivityLogViewerProps) {
 
   const getActionColor = (action: string) => {
     if (action.startsWith('create')) return 'text-green-400 bg-green-500/20';
-    if (action.startsWith('update')) return 'text-[#37AFE1] bg-[#37AFE1]/20';
+    if (action.startsWith('update')) return 'text-cyan bg-cyan/20';
     if (action.startsWith('delete')) return 'text-red-400 bg-red-500/20';
     if (action.includes('2fa')) return 'text-purple-400 bg-purple-500/20';
     return 'text-slate-400 bg-slate-700';
@@ -120,7 +120,7 @@ export default function ActivityLogViewer({ userId }: ActivityLogViewerProps) {
               setActionFilter(e.target.value);
               setPage(1);
             }}
-            className="rounded-lg border border-slate-700 bg-[#1E293B] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+            className="rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
           >
             <option value="">All Actions</option>
             {uniqueActions.map((action) => (
@@ -135,7 +135,7 @@ export default function ActivityLogViewer({ userId }: ActivityLogViewerProps) {
               setResourceFilter(e.target.value);
               setPage(1);
             }}
-            className="rounded-lg border border-slate-700 bg-[#1E293B] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+            className="rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
           >
             <option value="">All Resources</option>
             {uniqueResources.map((resource) => (
@@ -148,10 +148,10 @@ export default function ActivityLogViewer({ userId }: ActivityLogViewerProps) {
       )}
 
       {/* Activity Log */}
-      <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-[#1E293B]">
+      <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-navy">
         {loading ? (
           <div className="p-12 text-center">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-[#37AFE1]/30 border-t-[#37AFE1]"></div>
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-cyan/30 border-t-[#06b6d4]"></div>
             <p className="mt-4 text-slate-400">Loading activity logs...</p>
           </div>
         ) : logs.length === 0 ? (
@@ -214,7 +214,7 @@ export default function ActivityLogViewer({ userId }: ActivityLogViewerProps) {
                           <summary className="cursor-pointer text-sm text-slate-400 hover:text-white">
                             View details
                           </summary>
-                          <pre className="mt-2 overflow-x-auto rounded bg-[#0F172A] p-2 text-xs text-slate-300">
+                          <pre className="mt-2 overflow-x-auto rounded bg-navy p-2 text-xs text-slate-300">
                             {JSON.stringify(log.details, null, 2)}
                           </pre>
                         </details>

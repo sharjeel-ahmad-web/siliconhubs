@@ -189,8 +189,8 @@ export default function SEOPage() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       activeTab === tab.id
-                        ? 'bg-[#37AFE1] text-white'
-                        : 'bg-[#1E293B] text-slate-300 hover:bg-slate-700 hover:text-white'
+                        ? 'bg-cyan text-white'
+                        : 'bg-navy text-slate-300 hover:bg-slate-700 hover:text-white'
                     }`}
                   >
                     <Icon className="h-4 w-4" />

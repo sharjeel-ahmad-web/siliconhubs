@@ -14,7 +14,7 @@ import {
 
 export default function BentoGridSection() {
   return (
-    <section className="relative overflow-hidden bg-black px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+    <section className="relative overflow-hidden bg-navy px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       <div className="container mx-auto max-w-7xl">
         {/* Animated Badge - responsive */}
         <motion.div
@@ -34,7 +34,7 @@ export default function BentoGridSection() {
               animate={{ rotate: 360 }}
               transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
             >
-              <Sparkles className="h-3 w-3 text-[#F58122] sm:h-4 sm:w-4" />
+              <Sparkles className="h-3 w-3 text-orange sm:h-4 sm:w-4" />
             </motion.div>
             <span className="font-medium text-white/80">✨ Featured Work</span>
             <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
@@ -47,7 +47,7 @@ export default function BentoGridSection() {
             className="bg-clip-text text-transparent"
             style={{
               backgroundImage:
-                'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+                'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
               backgroundSize: '300% 100%',
               animation: 'gradient-shift 4s ease-in-out infinite',
             }}
@@ -107,27 +107,27 @@ const ChatbotSkeleton = () => {
     <motion.div
       initial="initial"
       whileHover="animate"
-      className="flex h-full min-h-[6rem] w-full flex-1 flex-col space-y-2 rounded-lg bg-gradient-to-br from-[#37AFE1]/10 to-transparent p-2"
+      className="flex h-full min-h-[6rem] w-full flex-1 flex-col space-y-2 rounded-lg bg-gradient-to-br from-cyan/10 to-transparent p-2"
     >
       <motion.div
         variants={variants}
-        className="flex flex-row items-center space-x-2 rounded-full border border-[#37AFE1]/20 bg-[#1E293B] p-2"
+        className="flex flex-row items-center space-x-2 rounded-full border border-cyan/20 bg-navy p-2"
       >
-        <div className="h-6 w-6 shrink-0 rounded-full bg-gradient-to-r from-[#37AFE1] to-[#F58122]" />
+        <div className="h-6 w-6 shrink-0 rounded-full bg-gradient-to-r from-cyan to-orange" />
         <div className="h-4 w-full rounded-full bg-slate-700" />
       </motion.div>
       <motion.div
         variants={variantsSecond}
-        className="ml-auto flex w-3/4 flex-row items-center space-x-2 rounded-full border border-[#F58122]/20 bg-[#1E293B] p-2"
+        className="ml-auto flex w-3/4 flex-row items-center space-x-2 rounded-full border border-orange/20 bg-navy p-2"
       >
         <div className="h-4 w-full rounded-full bg-slate-700" />
-        <div className="h-6 w-6 shrink-0 rounded-full bg-gradient-to-r from-[#F58122] to-[#37AFE1]" />
+        <div className="h-6 w-6 shrink-0 rounded-full bg-gradient-to-r from-orange to-cyan" />
       </motion.div>
       <motion.div
         variants={variants}
-        className="flex flex-row items-center space-x-2 rounded-full border border-[#37AFE1]/20 bg-[#1E293B] p-2"
+        className="flex flex-row items-center space-x-2 rounded-full border border-cyan/20 bg-navy p-2"
       >
-        <div className="h-6 w-6 shrink-0 rounded-full bg-gradient-to-r from-[#37AFE1] to-[#F58122]" />
+        <div className="h-6 w-6 shrink-0 rounded-full bg-gradient-to-r from-cyan to-orange" />
         <div className="h-4 w-full rounded-full bg-slate-700" />
       </motion.div>
     </motion.div>
@@ -146,14 +146,14 @@ const AutomationSkeleton = () => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="flex h-full min-h-[6rem] w-full flex-1 flex-col space-y-2 rounded-lg bg-gradient-to-br from-[#F58122]/10 to-transparent p-2"
+      className="flex h-full min-h-[6rem] w-full flex-1 flex-col space-y-2 rounded-lg bg-gradient-to-br from-orange/10 to-transparent p-2"
     >
       {arr.map((_, i) => (
         <motion.div
           key={'automation' + i}
           variants={variants}
           style={{ maxWidth: Math.random() * (100 - 40) + 40 + '%' }}
-          className="flex h-4 w-full flex-row items-center space-x-2 rounded-full border border-[#F58122]/20 bg-[#1E293B] p-2"
+          className="flex h-4 w-full flex-row items-center space-x-2 rounded-full border border-orange/20 bg-navy p-2"
         ></motion.div>
       ))}
     </motion.div>
@@ -169,7 +169,7 @@ const WebDesignSkeleton = () => {
       className="flex h-full min-h-[6rem] w-full flex-1 flex-col space-y-2 rounded-lg"
       style={{
         background:
-          'linear-gradient(-45deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+          'linear-gradient(-45deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
         backgroundSize: '400% 400%',
       }}
     >
@@ -184,7 +184,7 @@ const WordPressSEOSkeleton = () => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="flex h-full min-h-[6rem] w-full flex-1 flex-col items-center justify-center space-y-4 rounded-lg bg-gradient-to-br from-[#37AFE1]/10 to-[#F58122]/10 p-6"
+      className="flex h-full min-h-[6rem] w-full flex-1 flex-col items-center justify-center space-y-4 rounded-lg bg-gradient-to-br from-cyan/10 to-orange/10 p-6"
     >
       {/* Top row: 3 icons */}
       <div className="flex items-center justify-center gap-6">
@@ -243,7 +243,7 @@ const WordPressSEOSkeleton = () => {
 
       {/* Gradient Progress Bar */}
       <div className="mt-4 w-full max-w-xs space-y-2">
-        <div className="relative h-3 w-full overflow-hidden rounded-full bg-gradient-to-r from-[#37AFE1] via-[#37AFE1] to-[#F58122]">
+        <div className="relative h-3 w-full overflow-hidden rounded-full bg-gradient-to-r from-cyan via-cyan to-orange">
           <motion.div
             className="absolute inset-0 bg-white/20"
             animate={{ x: ['-100%', '100%'] }}
@@ -258,11 +258,11 @@ const WordPressSEOSkeleton = () => {
 
 const ShopifySkeleton = () => {
   return (
-    <motion.div className="flex h-full min-h-[6rem] w-full flex-1 items-center justify-center rounded-lg bg-gradient-to-br from-[#F58122]/10 to-transparent p-4">
+    <motion.div className="flex h-full min-h-[6rem] w-full flex-1 items-center justify-center rounded-lg bg-gradient-to-br from-orange/10 to-transparent p-4">
       <motion.div
         animate={{ rotateY: [0, 180, 360] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-        className="flex h-32 w-24 items-center justify-center rounded-xl bg-gradient-to-br from-[#37AFE1] to-[#F58122] shadow-2xl"
+        className="flex h-32 w-24 items-center justify-center rounded-xl bg-gradient-to-br from-cyan to-orange shadow-2xl"
       >
         <span className="text-4xl">🛍️</span>
       </motion.div>
@@ -277,7 +277,7 @@ const items = [
       'Deploy intelligent chatbots that understand context, learn from interactions, and provide human-like responses',
     header: <ChatbotSkeleton />,
     className: 'md:col-span-1',
-    icon: <MessageSquare className="h-4 w-4 text-[#37AFE1]" />,
+    icon: <MessageSquare className="h-4 w-4 text-cyan" />,
   },
   {
     title: 'Business Automation',
@@ -285,7 +285,7 @@ const items = [
       'Transform repetitive tasks into automated workflows that save time and reduce errors',
     header: <AutomationSkeleton />,
     className: 'md:col-span-1',
-    icon: <Workflow className="h-4 w-4 text-[#F58122]" />,
+    icon: <Workflow className="h-4 w-4 text-orange" />,
   },
   {
     title: 'Creative Design',
@@ -293,7 +293,7 @@ const items = [
       'Pixel-perfect interfaces that captivate users and convert visitors into loyal customers',
     header: <WebDesignSkeleton />,
     className: 'md:col-span-1',
-    icon: <Palette className="h-4 w-4 text-[#37AFE1]" />,
+    icon: <Palette className="h-4 w-4 text-cyan" />,
   },
   {
     title: 'WordPress & SEO',
@@ -301,7 +301,7 @@ const items = [
       'Powerful CMS solutions combined with search engine optimization to boost your online visibility',
     header: <WordPressSEOSkeleton />,
     className: 'md:col-span-2',
-    icon: <TrendingUp className="h-4 w-4 text-[#F58122]" />,
+    icon: <TrendingUp className="h-4 w-4 text-orange" />,
   },
   {
     title: 'Online Stores',
@@ -309,6 +309,6 @@ const items = [
       'Beautiful e-commerce experiences that drive sales and provide seamless shopping journeys',
     header: <ShopifySkeleton />,
     className: 'md:col-span-1',
-    icon: <ShoppingCart className="h-4 w-4 text-[#37AFE1]" />,
+    icon: <ShoppingCart className="h-4 w-4 text-cyan" />,
   },
 ];

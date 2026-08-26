@@ -34,7 +34,7 @@ const defaultSteps: Step[] = [
     details:
       'We dive deep into your business requirements, analyze workflows, and identify opportunities for automation and improvement.',
     icon: 'search',
-    color: '#37AFE1',
+    color: '#06b6d4',
   },
   {
     title: 'Design',
@@ -42,7 +42,7 @@ const defaultSteps: Step[] = [
     details:
       'Our designers create intuitive interfaces and user experiences that align with your brand and delight your users.',
     icon: 'palette',
-    color: '#2563EB',
+    color: '#0a192f',
   },
   {
     title: 'Development',
@@ -50,7 +50,7 @@ const defaultSteps: Step[] = [
     details:
       'Our engineers build scalable, secure, and performant applications using cutting-edge technologies and best practices.',
     icon: 'code',
-    color: '#F97316',
+    color: '#fc4c00',
   },
   {
     title: 'Testing',
@@ -58,7 +58,7 @@ const defaultSteps: Step[] = [
     details:
       'Rigorous testing across devices and scenarios ensures your application is bug-free and performs flawlessly.',
     icon: 'test',
-    color: '#31A4DB',
+    color: '#06b6d4',
   },
   {
     title: 'Launch',
@@ -66,7 +66,7 @@ const defaultSteps: Step[] = [
     details:
       'We handle deployment, monitoring, and provide ongoing support to ensure your SaaS succeeds in the market.',
     icon: 'rocket',
-    color: '#F58122',
+    color: '#fc4c00',
   },
 ];
 
@@ -92,11 +92,11 @@ export default function HowItWorks({
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-16 text-center">
-          <span className="text-sm font-medium uppercase tracking-wider text-[#37AFE1]">
+          <span className="text-sm font-medium uppercase tracking-wider text-cyan">
             {eyebrow}
           </span>
           <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">
-            {title} <span className="text-[#37AFE1]">{titleHighlight}</span>
+            {title} <span className="text-cyan">{titleHighlight}</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-[#94A3B8]">
             {subtitle}
@@ -106,7 +106,7 @@ export default function HowItWorks({
         {/* Steps */}
         <div className="relative">
           {/* Connecting Line */}
-          <div className="absolute bottom-0 left-1/2 top-0 hidden w-0.5 bg-gradient-to-b from-[#37AFE1] via-[#2563EB] to-[#F97316] md:block" />
+          <div className="absolute bottom-0 left-1/2 top-0 hidden w-0.5 bg-gradient-to-b from-[#06b6d4] via-[#0a192f] to-[#fc4c00] md:block" />
 
           <div className="space-y-8 md:space-y-0">
             {steps.map((step, i) => {
@@ -130,7 +130,7 @@ export default function HowItWorks({
                     className={`flex-1 ${isEven ? 'md:text-right' : 'md:text-left'}`}
                   >
                     <motion.div
-                      className="cursor-pointer rounded-2xl border border-slate-700/50 bg-[#1E293B] p-6 transition-colors hover:border-slate-600"
+                      className="cursor-pointer rounded-2xl border border-slate-700/50 bg-navy p-6 transition-colors hover:border-slate-600"
                       onClick={() => setExpandedStep(isExpanded ? null : i)}
                       whileHover={{ scale: 1.02 }}
                     >
@@ -181,7 +181,7 @@ export default function HowItWorks({
                   {/* Center Icon */}
                   <div className="relative z-10 flex-shrink-0">
                     <motion.div
-                      className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-[#0F172A]"
+                      className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-navy"
                       style={{ backgroundColor: step.color }}
                       whileHover={{ scale: 1.1 }}
                       whileInView={{ rotate: [0, 360] }}

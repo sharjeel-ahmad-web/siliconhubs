@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Accessibility Utilities
  * Provides functions for validating and ensuring accessibility compliance
  */

@@ -144,7 +144,7 @@ const FloatingIconsHero = React.forwardRef<
         ref={ref}
         onMouseMove={handleMouseMove}
         className={cn(
-          'relative flex h-screen min-h-[700px] w-full items-center justify-center overflow-hidden bg-black',
+          'relative flex h-screen min-h-[700px] w-full items-center justify-center overflow-hidden bg-navy',
           className
         )}
         {...props}
@@ -176,7 +176,7 @@ const FloatingIconsHero = React.forwardRef<
                   className="bg-clip-text text-transparent"
                   style={{
                     backgroundImage:
-                      'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+                      'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
                     backgroundSize: '300% 100%',
                     animation: 'gradient-shift 4s ease-in-out infinite',
                   }}
@@ -204,29 +204,29 @@ const FloatingIconsHero = React.forwardRef<
             className="mt-10"
           >
             <ParticleWrapper>
-            {typeof ctaHref === 'string' && ctaHref !== '' && (
-              <Link href={ctaHref}>
-                <StarButton
-                  className="h-12 px-6 text-sm font-semibold transition-transform hover:scale-105"
-                  duration={2.5}
-                >
-                  {ctaText}
-                  <svg
-                    className="ml-2 h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              {typeof ctaHref === 'string' && ctaHref !== '' && (
+                <Link href={ctaHref}>
+                  <StarButton
+                    className="h-12 px-6 text-sm font-semibold transition-transform hover:scale-105"
+                    duration={2.5}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </StarButton>
-              </Link>
-            )}
+                    {ctaText}
+                    <svg
+                      className="ml-2 h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </StarButton>
+                </Link>
+              )}
             </ParticleWrapper>
           </motion.div>
         </div>

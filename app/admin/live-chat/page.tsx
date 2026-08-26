@@ -143,7 +143,7 @@ export default function LiveChatPage() {
       <div className="mb-8 flex items-center justify-between">
         <div>
           <h1 className="flex items-center gap-3 text-3xl font-bold text-white">
-            <MessageCircle className="h-8 w-8 text-[#F58122]" />
+            <MessageCircle className="h-8 w-8 text-orange" />
             Live Chat
             {waitingCount > 0 && (
               <span className="animate-pulse rounded-full bg-yellow-500/20 px-2 py-1 text-sm text-yellow-400">
@@ -155,7 +155,7 @@ export default function LiveChatPage() {
         </div>
         <button
           onClick={fetchConversations}
-          className="flex items-center gap-2 rounded-lg bg-[#1E293B] px-4 py-2 text-slate-300 transition-colors hover:bg-slate-700"
+          className="flex items-center gap-2 rounded-lg bg-navy px-4 py-2 text-slate-300 transition-colors hover:bg-slate-700"
         >
           <RefreshCw className="h-4 w-4" />
           Refresh
@@ -170,8 +170,8 @@ export default function LiveChatPage() {
             onClick={() => setFilter(status)}
             className={`rounded-lg px-4 py-2 font-medium capitalize transition-colors ${
               filter === status
-                ? 'bg-[#F58122] text-white'
-                : 'bg-[#1E293B] text-slate-300 hover:bg-slate-700'
+                ? 'bg-orange text-white'
+                : 'bg-navy text-slate-300 hover:bg-slate-700'
             }`}
           >
             {status}
@@ -182,7 +182,7 @@ export default function LiveChatPage() {
       {/* Conversations List */}
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
         </div>
       ) : conversations.length === 0 ? (
         <div className="py-20 text-center">
@@ -199,7 +199,7 @@ export default function LiveChatPage() {
             return (
               <div
                 key={conv.id}
-                className={`rounded-xl border bg-[#1E293B] p-4 transition-all hover:border-[#37AFE1]/50 ${
+                className={`rounded-xl border bg-navy p-4 transition-all hover:border-cyan/50 ${
                   conv.status === 'waiting'
                     ? 'border-yellow-500/50'
                     : 'border-slate-700/50'
@@ -207,7 +207,7 @@ export default function LiveChatPage() {
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0F172A] text-lg font-semibold text-[#F58122]">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-navy text-lg font-semibold text-orange">
                       {conv.visitorName.charAt(0).toUpperCase()}
                     </div>
                     <div>
@@ -243,7 +243,7 @@ export default function LiveChatPage() {
                     <div className="flex items-center gap-2">
                       <a
                         href={conv?.id ? `/admin/live-chat/${conv.id}` : '#'}
-                        className="rounded-lg bg-[#F58122] px-3 py-1.5 text-sm text-white transition-colors hover:bg-[#e0741d]"
+                        className="rounded-lg bg-orange px-3 py-1.5 text-sm text-white transition-colors hover:bg-[#e0741d]"
                       >
                         {conv.status === 'waiting' ? 'Reply' : 'View'}
                       </a>

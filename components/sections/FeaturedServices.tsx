@@ -111,7 +111,7 @@ export default function FeaturedServices() {
                     }`}
                   >
                     <motion.h3
-                      className="mb-4 bg-gradient-to-r from-[#F58122] via-[#37AFE1] to-[#F58122] bg-clip-text font-montserrat text-2xl font-bold text-transparent md:text-3xl"
+                      className="mb-4 bg-gradient-to-r from-orange via-cyan to-orange bg-clip-text font-montserrat text-2xl font-bold text-transparent md:text-3xl"
                       animate={{
                         backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                       }}

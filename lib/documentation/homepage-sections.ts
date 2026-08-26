@@ -1,4 +1,4 @@
-import { SectionDocumentation } from './types';
+﻿import { SectionDocumentation } from './types';
 
 /**
  * Complete documentation for all 14 homepage sections
@@ -12,11 +12,31 @@ export const homepageSections: SectionDocumentation[] = [
     filePath: 'components/sections/CleanHero.tsx',
     lineNumbers: 'Lines 1-250',
     editableContent: [
-      { name: 'Badge text', line: '67-75', description: 'Welcome message with animated icon' },
-      { name: 'Main title', line: '89-95', description: 'Primary headline with gradient' },
-      { name: 'Subtitle', line: '102-108', description: 'Descriptive text about services' },
-      { name: 'Primary CTA button', line: '115-120', description: 'Main call-to-action button' },
-      { name: 'Secondary CTA button', line: '125-130', description: 'Alternative action button' },
+      {
+        name: 'Badge text',
+        line: '67-75',
+        description: 'Welcome message with animated icon',
+      },
+      {
+        name: 'Main title',
+        line: '89-95',
+        description: 'Primary headline with gradient',
+      },
+      {
+        name: 'Subtitle',
+        line: '102-108',
+        description: 'Descriptive text about services',
+      },
+      {
+        name: 'Primary CTA button',
+        line: '115-120',
+        description: 'Main call-to-action button',
+      },
+      {
+        name: 'Secondary CTA button',
+        line: '125-130',
+        description: 'Alternative action button',
+      },
     ],
     images: {
       folder: 'None (Animated background)',
@@ -33,7 +53,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: '/admin/pages/home',
     cmsEnabled: true,
-    description: 'First impression section with main CTA, animated background, and gradient text. Captures attention and communicates value proposition.',
+    description:
+      'First impression section with main CTA, animated background, and gradient text. Captures attention and communicates value proposition.',
   },
   {
     id: 'servicesShowcase',
@@ -42,11 +63,32 @@ export const homepageSections: SectionDocumentation[] = [
     filePath: 'components/sections/ServicesShowcase.tsx',
     lineNumbers: 'Lines 1-350',
     editableContent: [
-      { name: 'Section title', line: '50-60', description: 'Main heading for services section' },
-      { name: 'Service cards array', line: '78-145', description: 'Array of service objects with title, description, icon, and link' },
-      { name: 'Service titles', line: '78-145', description: 'Individual service names' },
-      { name: 'Service descriptions', line: '78-145', description: 'Service descriptions and benefits' },
-      { name: 'Service links', line: '78-145', description: 'Links to detailed service pages' },
+      {
+        name: 'Section title',
+        line: '50-60',
+        description: 'Main heading for services section',
+      },
+      {
+        name: 'Service cards array',
+        line: '78-145',
+        description:
+          'Array of service objects with title, description, icon, and link',
+      },
+      {
+        name: 'Service titles',
+        line: '78-145',
+        description: 'Individual service names',
+      },
+      {
+        name: 'Service descriptions',
+        line: '78-145',
+        description: 'Service descriptions and benefits',
+      },
+      {
+        name: 'Service links',
+        line: '78-145',
+        description: 'Links to detailed service pages',
+      },
     ],
     images: {
       folder: 'public/media/homepage/services',
@@ -63,7 +105,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: '/admin/pages/home',
     cmsEnabled: true,
-    description: 'Displays all service offerings in an engaging grid/carousel format. Links to detailed service pages.',
+    description:
+      'Displays all service offerings in an engaging grid/carousel format. Links to detailed service pages.',
   },
   {
     id: 'portfolioGallery',
@@ -72,10 +115,22 @@ export const homepageSections: SectionDocumentation[] = [
     filePath: 'components/sections/PortfolioGallery.tsx',
     lineNumbers: 'Lines 1-200',
     editableContent: [
-      { name: 'Gallery items array', line: '9-85', description: 'Array of portfolio projects' },
-      { name: 'Project images', line: '9-85', description: 'Image sources and alt text' },
+      {
+        name: 'Gallery items array',
+        line: '9-85',
+        description: 'Array of portfolio projects',
+      },
+      {
+        name: 'Project images',
+        line: '9-85',
+        description: 'Image sources and alt text',
+      },
       { name: 'Project titles', line: '9-85', description: 'Project names' },
-      { name: 'Grid layout', line: '9-85', description: 'Column span configuration (col-span-1 or col-span-2)' },
+      {
+        name: 'Grid layout',
+        line: '9-85',
+        description: 'Column span configuration (col-span-1 or col-span-2)',
+      },
     ],
     images: {
       folder: 'public/media/homepage/portfolio',
@@ -92,7 +147,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: undefined,
     cmsEnabled: false,
-    description: 'Masonry-style grid gallery showcasing portfolio projects. Responsive layout with hover effects.',
+    description:
+      'Masonry-style grid gallery showcasing portfolio projects. Responsive layout with hover effects.',
   },
   {
     id: 'about',
@@ -101,9 +157,21 @@ export const homepageSections: SectionDocumentation[] = [
     filePath: 'components/ui/about-section.tsx',
     lineNumbers: 'Lines 1-150',
     editableContent: [
-      { name: 'Section title', line: '30-40', description: 'Main heading for about section' },
-      { name: 'Description text', line: '45-60', description: 'Company introduction and mission' },
-      { name: 'Stats/Numbers', line: '70-95', description: 'Achievement statistics' },
+      {
+        name: 'Section title',
+        line: '30-40',
+        description: 'Main heading for about section',
+      },
+      {
+        name: 'Description text',
+        line: '45-60',
+        description: 'Company introduction and mission',
+      },
+      {
+        name: 'Stats/Numbers',
+        line: '70-95',
+        description: 'Achievement statistics',
+      },
       { name: 'CTA button', line: '100-110', description: 'Learn more button' },
     ],
     images: {
@@ -121,7 +189,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: undefined,
     cmsEnabled: false,
-    description: 'Company introduction section with mission, values, and key achievements. Builds trust and credibility.',
+    description:
+      'Company introduction section with mission, values, and key achievements. Builds trust and credibility.',
   },
   {
     id: 'bentoGrid',
@@ -130,10 +199,26 @@ export const homepageSections: SectionDocumentation[] = [
     filePath: 'components/sections/BentoGridSection.tsx',
     lineNumbers: 'Lines 1-300',
     editableContent: [
-      { name: 'Grid items array', line: '20-120', description: 'Array of bento grid items' },
-      { name: 'Item titles', line: '20-120', description: 'Titles for each grid item' },
-      { name: 'Item descriptions', line: '20-120', description: 'Descriptions for each feature' },
-      { name: 'Item icons', line: '20-120', description: 'Icons for visual representation' },
+      {
+        name: 'Grid items array',
+        line: '20-120',
+        description: 'Array of bento grid items',
+      },
+      {
+        name: 'Item titles',
+        line: '20-120',
+        description: 'Titles for each grid item',
+      },
+      {
+        name: 'Item descriptions',
+        line: '20-120',
+        description: 'Descriptions for each feature',
+      },
+      {
+        name: 'Item icons',
+        line: '20-120',
+        description: 'Icons for visual representation',
+      },
     ],
     images: {
       folder: 'public/media/homepage/bento',
@@ -150,7 +235,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: undefined,
     cmsEnabled: false,
-    description: 'Modern bento-style grid layout showcasing key features and innovations. Interactive hover states.',
+    description:
+      'Modern bento-style grid layout showcasing key features and innovations. Interactive hover states.',
   },
   {
     id: 'techStack',
@@ -159,10 +245,26 @@ export const homepageSections: SectionDocumentation[] = [
     filePath: 'components/sections/TechStackMarquee.tsx',
     lineNumbers: 'Lines 1-250',
     editableContent: [
-      { name: 'Tech logos array', line: '15-85', description: 'Array of technology logos' },
-      { name: 'Logo sources', line: '15-85', description: 'Image paths for tech logos' },
-      { name: 'Logo alt text', line: '15-85', description: 'Accessibility descriptions' },
-      { name: 'Marquee speed', line: '95-100', description: 'Animation speed configuration' },
+      {
+        name: 'Tech logos array',
+        line: '15-85',
+        description: 'Array of technology logos',
+      },
+      {
+        name: 'Logo sources',
+        line: '15-85',
+        description: 'Image paths for tech logos',
+      },
+      {
+        name: 'Logo alt text',
+        line: '15-85',
+        description: 'Accessibility descriptions',
+      },
+      {
+        name: 'Marquee speed',
+        line: '95-100',
+        description: 'Animation speed configuration',
+      },
     ],
     images: {
       folder: 'public/icons/tech',
@@ -175,11 +277,20 @@ export const homepageSections: SectionDocumentation[] = [
     },
     icons: {
       source: 'Custom SVG files',
-      used: ['react', 'nextjs', 'typescript', 'tailwind', 'mongodb', 'vercel', 'etc'],
+      used: [
+        'react',
+        'nextjs',
+        'typescript',
+        'tailwind',
+        'mongodb',
+        'vercel',
+        'etc',
+      ],
     },
     cmsPath: undefined,
     cmsEnabled: false,
-    description: 'Infinite scrolling marquee displaying technology stack. Shows expertise and technical capabilities.',
+    description:
+      'Infinite scrolling marquee displaying technology stack. Shows expertise and technical capabilities.',
   },
   {
     id: 'caseStudies',
@@ -188,11 +299,31 @@ export const homepageSections: SectionDocumentation[] = [
     filePath: 'components/sections/CaseStudiesCarousel.tsx',
     lineNumbers: 'Lines 1-400',
     editableContent: [
-      { name: 'Case study array', line: '30-150', description: 'Array of case study objects' },
-      { name: 'Case study titles', line: '30-150', description: 'Project titles' },
-      { name: 'Client names', line: '30-150', description: 'Client company names' },
-      { name: 'Results/Stats', line: '30-150', description: 'Project outcomes and metrics' },
-      { name: 'Descriptions', line: '30-150', description: 'Project descriptions' },
+      {
+        name: 'Case study array',
+        line: '30-150',
+        description: 'Array of case study objects',
+      },
+      {
+        name: 'Case study titles',
+        line: '30-150',
+        description: 'Project titles',
+      },
+      {
+        name: 'Client names',
+        line: '30-150',
+        description: 'Client company names',
+      },
+      {
+        name: 'Results/Stats',
+        line: '30-150',
+        description: 'Project outcomes and metrics',
+      },
+      {
+        name: 'Descriptions',
+        line: '30-150',
+        description: 'Project descriptions',
+      },
       { name: 'Images', line: '30-150', description: 'Case study images' },
     ],
     images: {
@@ -210,7 +341,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: '/admin/pages/home',
     cmsEnabled: true,
-    description: 'Auto-advancing carousel showcasing client success stories with metrics and results. Builds credibility.',
+    description:
+      'Auto-advancing carousel showcasing client success stories with metrics and results. Builds credibility.',
   },
   {
     id: 'testimonials',
@@ -219,11 +351,27 @@ export const homepageSections: SectionDocumentation[] = [
     filePath: 'components/ui/premium-testimonials.tsx',
     lineNumbers: 'Lines 1-350',
     editableContent: [
-      { name: 'Testimonials array', line: '25-120', description: 'Array of testimonial objects' },
-      { name: 'Client quotes', line: '25-120', description: 'Testimonial text' },
-      { name: 'Client names', line: '25-120', description: 'Client full names' },
+      {
+        name: 'Testimonials array',
+        line: '25-120',
+        description: 'Array of testimonial objects',
+      },
+      {
+        name: 'Client quotes',
+        line: '25-120',
+        description: 'Testimonial text',
+      },
+      {
+        name: 'Client names',
+        line: '25-120',
+        description: 'Client full names',
+      },
       { name: 'Client positions', line: '25-120', description: 'Job titles' },
-      { name: 'Client companies', line: '25-120', description: 'Company names' },
+      {
+        name: 'Client companies',
+        line: '25-120',
+        description: 'Company names',
+      },
       { name: 'Client photos', line: '25-120', description: 'Profile images' },
       { name: 'Star ratings', line: '25-120', description: 'Rating scores' },
     ],
@@ -242,7 +390,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: '/admin/pages/home',
     cmsEnabled: true,
-    description: 'Premium animated testimonials section with client photos, ratings, and quotes. Social proof.',
+    description:
+      'Premium animated testimonials section with client photos, ratings, and quotes. Social proof.',
     database: {
       collection: 'testimonials',
       model: 'Testimonial',
@@ -256,8 +405,16 @@ export const homepageSections: SectionDocumentation[] = [
     lineNumbers: 'Lines 1-250',
     editableContent: [
       { name: 'Section title', line: '30-40', description: 'Main heading' },
-      { name: 'Section description', line: '45-55', description: 'Subtitle text' },
-      { name: 'Posts per page', line: '20', description: 'Number of posts to display' },
+      {
+        name: 'Section description',
+        line: '45-55',
+        description: 'Subtitle text',
+      },
+      {
+        name: 'Posts per page',
+        line: '20',
+        description: 'Number of posts to display',
+      },
     ],
     images: {
       folder: 'public/media/blog/thumbnails',
@@ -274,7 +431,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: '/admin/blogs',
     cmsEnabled: true,
-    description: 'Displays latest blog posts from database. Fully dynamic with rich text content and SEO optimization.',
+    description:
+      'Displays latest blog posts from database. Fully dynamic with rich text content and SEO optimization.',
     database: {
       collection: 'blogs',
       model: 'Blog',
@@ -289,9 +447,21 @@ export const homepageSections: SectionDocumentation[] = [
     lineNumbers: 'Lines 1-200',
     editableContent: [
       { name: 'Section title', line: '40-50', description: 'Main heading' },
-      { name: 'Description text', line: '55-65', description: 'Engagement message' },
-      { name: 'CTA buttons', line: '70-90', description: 'Call-to-action buttons' },
-      { name: 'Social links', line: '95-120', description: 'Social media links' },
+      {
+        name: 'Description text',
+        line: '55-65',
+        description: 'Engagement message',
+      },
+      {
+        name: 'CTA buttons',
+        line: '70-90',
+        description: 'Call-to-action buttons',
+      },
+      {
+        name: 'Social links',
+        line: '95-120',
+        description: 'Social media links',
+      },
     ],
     images: {
       folder: 'None (Animated background)',
@@ -303,7 +473,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: undefined,
     cmsEnabled: false,
-    description: 'Engagement section encouraging visitors to connect. Multiple CTAs for different contact methods.',
+    description:
+      'Engagement section encouraging visitors to connect. Multiple CTAs for different contact methods.',
   },
   {
     id: 'team',
@@ -313,12 +484,20 @@ export const homepageSections: SectionDocumentation[] = [
     lineNumbers: 'Lines 1-350',
     editableContent: [
       { name: 'Section title', line: '40-50', description: 'Main heading' },
-      { name: 'Team members array', line: '60-180', description: 'Array of team member objects' },
+      {
+        name: 'Team members array',
+        line: '60-180',
+        description: 'Array of team member objects',
+      },
       { name: 'Member names', line: '60-180', description: 'Full names' },
       { name: 'Member positions', line: '60-180', description: 'Job titles' },
       { name: 'Member bios', line: '60-180', description: 'Short biographies' },
       { name: 'Member photos', line: '60-180', description: 'Profile images' },
-      { name: 'Social links', line: '60-180', description: 'LinkedIn, Twitter, etc.' },
+      {
+        name: 'Social links',
+        line: '60-180',
+        description: 'LinkedIn, Twitter, etc.',
+      },
     ],
     images: {
       folder: 'public/team',
@@ -335,7 +514,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: undefined,
     cmsEnabled: false,
-    description: 'Team member carousel with holographic effects. Shows expertise and builds personal connection.',
+    description:
+      'Team member carousel with holographic effects. Shows expertise and builds personal connection.',
   },
   {
     id: 'contact',
@@ -345,10 +525,26 @@ export const homepageSections: SectionDocumentation[] = [
     lineNumbers: 'Lines 1-450',
     editableContent: [
       { name: 'Section title', line: '50-60', description: 'Main heading' },
-      { name: 'Form fields', line: '100-250', description: 'Contact form field configuration' },
-      { name: 'Submit button', line: '260-270', description: 'Form submit button text' },
-      { name: 'Contact info', line: '280-320', description: 'Email, phone, address' },
-      { name: 'Success message', line: '330-340', description: 'Form submission success text' },
+      {
+        name: 'Form fields',
+        line: '100-250',
+        description: 'Contact form field configuration',
+      },
+      {
+        name: 'Submit button',
+        line: '260-270',
+        description: 'Form submit button text',
+      },
+      {
+        name: 'Contact info',
+        line: '280-320',
+        description: 'Email, phone, address',
+      },
+      {
+        name: 'Success message',
+        line: '330-340',
+        description: 'Form submission success text',
+      },
     ],
     images: {
       folder: 'None (3D WebGL globe)',
@@ -360,7 +556,8 @@ export const homepageSections: SectionDocumentation[] = [
     },
     cmsPath: undefined,
     cmsEnabled: false,
-    description: 'Contact form with 3D WebGL globe background. Captures leads and inquiries with email integration.',
+    description:
+      'Contact form with 3D WebGL globe background. Captures leads and inquiries with email integration.',
     apiEndpoint: '/api/contact',
   },
   {
@@ -370,12 +567,32 @@ export const homepageSections: SectionDocumentation[] = [
     filePath: 'components/sections/SimpleCTA.tsx',
     lineNumbers: 'Lines 1-300',
     editableContent: [
-      { name: 'CTA title', line: '40-50', description: 'Final call-to-action heading' },
-      { name: 'CTA description', line: '55-65', description: 'Supporting text' },
-      { name: 'CTA button', line: '70-80', description: 'Primary action button' },
-      { name: 'Social media links', line: '100-150', description: 'Footer social links' },
+      {
+        name: 'CTA title',
+        line: '40-50',
+        description: 'Final call-to-action heading',
+      },
+      {
+        name: 'CTA description',
+        line: '55-65',
+        description: 'Supporting text',
+      },
+      {
+        name: 'CTA button',
+        line: '70-80',
+        description: 'Primary action button',
+      },
+      {
+        name: 'Social media links',
+        line: '100-150',
+        description: 'Footer social links',
+      },
       { name: 'Quick links', line: '160-200', description: 'Navigation links' },
-      { name: 'Copyright text', line: '210-220', description: 'Copyright notice' },
+      {
+        name: 'Copyright text',
+        line: '210-220',
+        description: 'Copyright notice',
+      },
     ],
     images: {
       folder: 'public/logos',
@@ -388,10 +605,19 @@ export const homepageSections: SectionDocumentation[] = [
     },
     icons: {
       source: 'Lucide React + React Icons',
-      used: ['Facebook', 'Twitter', 'Linkedin', 'Instagram', 'Youtube', 'Mail', 'Phone'],
+      used: [
+        'Facebook',
+        'Twitter',
+        'Linkedin',
+        'Instagram',
+        'Youtube',
+        'Mail',
+        'Phone',
+      ],
     },
     cmsPath: undefined,
     cmsEnabled: false,
-    description: 'Final conversion opportunity with CTA, social links, and footer navigation. Closes the user journey.',
+    description:
+      'Final conversion opportunity with CTA, social links, and footer navigation. Closes the user journey.',
   },
 ];

@@ -17,15 +17,18 @@ const NullComponent = () => null;
 
 // Hero component - Clean hero with particle background (client-side only)
 const CleanHero = dynamic(
-  () => import('@/components/sections/CleanHero').catch(() => ({ default: NullComponent })),
+  () =>
+    import('@/components/sections/CleanHero').catch(() => ({
+      default: NullComponent,
+    })),
   {
     ssr: false,
     loading: () => (
       <section
         className="flex min-h-screen items-center justify-center"
-        style={{ background: '#000212' }}
+        style={{ background: '#0a192f' }}
       >
-        <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#4285F4]/30 border-t-[#4285F4]" />
+        <div className="h-12 w-12 animate-spin rounded-full border-2 border-cyan/30 border-t-cyan" />
       </section>
     ),
   }
@@ -33,12 +36,15 @@ const CleanHero = dynamic(
 
 // Connect section - dynamic import for framer-motion animations
 const Connect = dynamic(
-  () => import('@/components/sections/Connect').catch(() => ({ default: NullComponent })),
+  () =>
+    import('@/components/sections/Connect').catch(() => ({
+      default: NullComponent,
+    })),
   {
     ssr: false,
     loading: () => (
-      <section className="flex items-center justify-center bg-black py-20">
-        <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+      <section className="flex items-center justify-center bg-warm-cream py-20">
+        <div className="h-12 w-12 animate-spin rounded-full border-2 border-cyan/30 border-t-cyan" />
       </section>
     ),
   }
@@ -53,7 +59,7 @@ const HolographicContact = dynamic(
   {
     ssr: false,
     loading: () => (
-      <section className="flex min-h-screen items-center justify-center bg-[#0A0F1E] py-20">
+      <section className="flex min-h-screen items-center justify-center bg-navy py-20">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-purple-500/30 border-t-purple-500" />
       </section>
     ),
@@ -69,8 +75,8 @@ const PortfolioGallery = dynamic(
   {
     ssr: false,
     loading: () => (
-      <section className="flex items-center justify-center bg-black py-20">
-        <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+      <section className="flex items-center justify-center bg-warm-cream py-20">
+        <div className="h-12 w-12 animate-spin rounded-full border-2 border-cyan/30 border-t-cyan" />
       </section>
     ),
   }
@@ -85,8 +91,8 @@ const ServicesShowcase = dynamic(
   {
     ssr: false,
     loading: () => (
-      <section className="flex items-center justify-center bg-black py-20">
-        <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+      <section className="flex items-center justify-center bg-warm-cream py-20">
+        <div className="h-12 w-12 animate-spin rounded-full border-2 border-cyan/30 border-t-cyan" />
       </section>
     ),
   }
@@ -126,12 +132,15 @@ const TechStackMarquee = dynamic(
 
 // About Section - Who we are
 const AboutSection = dynamic(
-  () => import('@/components/ui/about-section').catch(() => ({ default: NullComponent })),
+  () =>
+    import('@/components/ui/about-section').catch(() => ({
+      default: NullComponent,
+    })),
   {
     ssr: false,
     loading: () => (
-      <section className="flex items-center justify-center bg-black py-20">
-        <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+      <section className="flex items-center justify-center bg-warm-cream py-20">
+        <div className="h-12 w-12 animate-spin rounded-full border-2 border-cyan/30 border-t-cyan" />
       </section>
     ),
   }
@@ -162,8 +171,8 @@ const PremiumTestimonials = dynamic(
   {
     ssr: false,
     loading: () => (
-      <section className="flex items-center justify-center bg-gradient-to-br from-black via-[#0F172A] to-black py-32">
-        <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#F58122]/30 border-t-[#F58122]" />
+      <section className="flex items-center justify-center bg-gradient-to-br from-navy via-navy to-navy py-32">
+        <div className="h-12 w-12 animate-spin rounded-full border-2 border-orange/30 border-t-orange" />
       </section>
     ),
   }
@@ -171,7 +180,10 @@ const PremiumTestimonials = dynamic(
 
 // BlogSection - Latest blog posts
 const BlogSection = dynamic(
-  () => import('@/components/sections/BlogSection').catch(() => ({ default: NullComponent })),
+  () =>
+    import('@/components/sections/BlogSection').catch(() => ({
+      default: NullComponent,
+    })),
   {
     ssr: false,
     loading: () => (
@@ -191,8 +203,8 @@ const BentoGridSection = dynamic(
   {
     ssr: false,
     loading: () => (
-      <section className="flex items-center justify-center bg-black py-20">
-        <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+      <section className="flex items-center justify-center bg-warm-cream py-20">
+        <div className="h-12 w-12 animate-spin rounded-full border-2 border-cyan/30 border-t-cyan" />
       </section>
     ),
   }
@@ -225,48 +237,48 @@ export default function Home() {
       {/* WebSite Schema for homepage */}
       <StructuredData schema={generateWebSiteSchema()} />
       <BatchSectionProvider page="home" sections={HOME_SECTIONS}>
-        <main className="min-h-screen bg-black">
-        <OptimizedSectionWrapper section="hero">
-          <CleanHero />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="servicesShowcase">
-          <ServicesShowcase />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="portfolioGallery">
-          <PortfolioGallery />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="about">
-          <AboutSection />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="bentoGrid">
-          <BentoGridSection />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="techStack">
-          <TechStackMarquee />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="caseStudies">
-          <CaseStudiesCarousel />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="testimonials">
-          <PremiumTestimonials />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="blog">
-          <BlogSection />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="connect">
-          <Connect />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="team">
-          <HolographicTeam />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="contact">
-          <HolographicContact />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="cta">
-          <SimpleCTA />
-        </OptimizedSectionWrapper>
-      </main>
-    </BatchSectionProvider>
+        <main className="min-h-screen bg-warm-cream">
+          <OptimizedSectionWrapper section="hero">
+            <CleanHero />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="servicesShowcase">
+            <ServicesShowcase />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="portfolioGallery">
+            <PortfolioGallery />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="about">
+            <AboutSection />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="bentoGrid">
+            <BentoGridSection />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="techStack">
+            <TechStackMarquee />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="caseStudies">
+            <CaseStudiesCarousel />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="testimonials">
+            <PremiumTestimonials />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="blog">
+            <BlogSection />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="connect">
+            <Connect />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="team">
+            <HolographicTeam />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="contact">
+            <HolographicContact />
+          </OptimizedSectionWrapper>
+          <OptimizedSectionWrapper section="cta">
+            <SimpleCTA />
+          </OptimizedSectionWrapper>
+        </main>
+      </BatchSectionProvider>
     </>
   );
 }

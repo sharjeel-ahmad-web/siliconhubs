@@ -142,7 +142,7 @@ export default function ChatDetailPage() {
   if (loading) {
     return (
       <div className="flex min-h-[400px] items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -153,7 +153,7 @@ export default function ChatDetailPage() {
         <p className="text-slate-400">Conversation not found</p>
         <button
           onClick={() => router.push('/admin/live-chat')}
-          className="mt-4 text-[#37AFE1] hover:underline"
+          className="mt-4 text-cyan hover:underline"
         >
           Back to conversations
         </button>
@@ -175,7 +175,7 @@ export default function ChatDetailPage() {
             <ArrowLeft className="h-5 w-5" />
           </button>
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1E293B] text-lg font-semibold text-[#F58122]">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-navy text-lg font-semibold text-orange">
               {conversation.visitorName.charAt(0).toUpperCase()}
             </div>
             <div>
@@ -208,7 +208,7 @@ export default function ChatDetailPage() {
       </div>
 
       {/* Messages */}
-      <div className="flex min-h-[500px] flex-1 flex-col rounded-xl border border-slate-700/50 bg-[#1E293B]">
+      <div className="flex min-h-[500px] flex-1 flex-col rounded-xl border border-slate-700/50 bg-navy">
         <div
           className="scrollbar-hide flex-1 space-y-4 overflow-y-auto p-6"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -221,10 +221,10 @@ export default function ChatDetailPage() {
               <div
                 className={`max-w-[70%] rounded-2xl px-4 py-3 ${
                   msg.role === 'user'
-                    ? 'rounded-bl-md bg-[#0F172A] text-slate-200'
+                    ? 'rounded-bl-md bg-navy text-slate-200'
                     : msg.isHuman
-                      ? 'rounded-br-md bg-[#F58122] text-white'
-                      : 'rounded-br-md bg-[#37AFE1]/20 text-slate-200'
+                      ? 'rounded-br-md bg-orange text-white'
+                      : 'rounded-br-md bg-cyan/20 text-slate-200'
                 }`}
               >
                 <div className="mb-1 flex items-center gap-2">
@@ -242,10 +242,8 @@ export default function ChatDetailPage() {
                     </>
                   ) : (
                     <>
-                      <Bot className="h-3 w-3 text-[#37AFE1]" />
-                      <span className="text-xs text-[#37AFE1]">
-                        AI Assistant
-                      </span>
+                      <Bot className="h-3 w-3 text-cyan" />
+                      <span className="text-xs text-cyan">AI Assistant</span>
                     </>
                   )}
                   <span className="ml-auto text-xs text-slate-500">
@@ -267,12 +265,12 @@ export default function ChatDetailPage() {
               value={replyMessage}
               onChange={(e) => setReplyMessage(e.target.value)}
               placeholder="Type your reply..."
-              className="flex-1 rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-3 text-white placeholder-slate-500 focus:border-[#37AFE1] focus:outline-none"
+              className="flex-1 rounded-lg border border-slate-700 bg-navy px-4 py-3 text-white placeholder-slate-500 focus:border-cyan focus:outline-none"
             />
             <button
               type="submit"
               disabled={!replyMessage.trim() || sending}
-              className="flex items-center gap-2 rounded-lg bg-[#F58122] px-6 py-3 text-white transition-colors hover:bg-[#e0741d] disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex items-center gap-2 rounded-lg bg-orange px-6 py-3 text-white transition-colors hover:bg-[#e0741d] disabled:cursor-not-allowed disabled:opacity-50"
             >
               {sending ? (
                 <Loader2 className="h-5 w-5 animate-spin" />

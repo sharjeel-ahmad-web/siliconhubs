@@ -21,7 +21,7 @@ function ParticleEffect({ elementRef }: ParticleEffectProps) {
       {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
-          className="pointer-events-none fixed z-[9999] h-1 w-1 rounded-full bg-[#F58122]"
+          className="pointer-events-none fixed z-[9999] h-1 w-1 rounded-full bg-orange"
           style={{ left: centerX, top: centerY }}
           initial={{
             scale: 0,

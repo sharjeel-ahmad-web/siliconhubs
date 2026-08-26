@@ -223,7 +223,7 @@ export default function TestimonialsPage() {
             resetForm();
             setShowModal(true);
           }}
-          className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-4 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+          className="flex items-center gap-2 rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80"
         >
           <Plus className="h-5 w-5" />
           Add Testimonial
@@ -236,8 +236,8 @@ export default function TestimonialsPage() {
           onClick={() => setActiveTab('all')}
           className={`rounded-lg px-4 py-2 font-medium transition-colors ${
             activeTab === 'all'
-              ? 'bg-[#37AFE1] text-white'
-              : 'bg-[#1E293B] text-slate-300 hover:bg-slate-700'
+              ? 'bg-cyan text-white'
+              : 'bg-navy text-slate-300 hover:bg-slate-700'
           }`}
         >
           Published
@@ -246,8 +246,8 @@ export default function TestimonialsPage() {
           onClick={() => setActiveTab('pending')}
           className={`flex items-center gap-2 rounded-lg px-4 py-2 font-medium transition-colors ${
             activeTab === 'pending'
-              ? 'bg-[#F58122] text-white'
-              : 'bg-[#1E293B] text-slate-300 hover:bg-slate-700'
+              ? 'bg-orange text-white'
+              : 'bg-navy text-slate-300 hover:bg-slate-700'
           }`}
         >
           <Clock className="h-4 w-4" />
@@ -262,10 +262,10 @@ export default function TestimonialsPage() {
 
       {loading ? (
         <div className="flex justify-center py-12">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
         </div>
       ) : filteredTestimonials.length === 0 ? (
-        <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] py-12 text-center">
+        <div className="rounded-xl border border-slate-700/50 bg-navy py-12 text-center">
           <p className="text-slate-400">
             {activeTab === 'pending'
               ? 'No pending testimonials to review.'
@@ -277,9 +277,9 @@ export default function TestimonialsPage() {
           {filteredTestimonials.map((item) => (
             <div
               key={item._id}
-              className={`flex items-start gap-4 rounded-xl border bg-[#1E293B] p-4 ${
+              className={`flex items-start gap-4 rounded-xl border bg-navy p-4 ${
                 item.status === 'pending'
-                  ? 'border-[#F58122]/50'
+                  ? 'border-orange/50'
                   : 'border-slate-700/50'
               }`}
             >
@@ -297,10 +297,10 @@ export default function TestimonialsPage() {
                 <div className="mb-1 flex items-center gap-2">
                   <h3 className="font-semibold text-white">{item.name}</h3>
                   {item.featured && (
-                    <Star className="h-4 w-4 fill-[#F58122] text-[#F58122]" />
+                    <Star className="h-4 w-4 fill-orange text-orange" />
                   )}
                   {item.status === 'pending' && (
-                    <span className="rounded-full bg-[#F58122]/20 px-2 py-0.5 text-xs text-[#F58122]">
+                    <span className="rounded-full bg-orange/20 px-2 py-0.5 text-xs text-orange">
                       Pending
                     </span>
                   )}
@@ -348,8 +348,8 @@ export default function TestimonialsPage() {
                       onClick={() => toggleFeatured(item)}
                       className={`rounded-lg p-2 transition-colors ${
                         item.featured
-                          ? 'bg-[#F58122]/20 text-[#F58122]'
-                          : 'bg-slate-700 text-slate-400 hover:text-[#F58122]'
+                          ? 'bg-orange/20 text-orange'
+                          : 'bg-slate-700 text-slate-400 hover:text-orange'
                       }`}
                       title={
                         item.featured
@@ -377,7 +377,7 @@ export default function TestimonialsPage() {
                 )}
                 <button
                   onClick={() => openEditModal(item)}
-                  className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-[#37AFE1] hover:text-white"
+                  className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-cyan hover:text-white"
                 >
                   <Edit className="h-5 w-5" />
                 </button>
@@ -395,8 +395,8 @@ export default function TestimonialsPage() {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-[#1E293B]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/70 p-4">
+          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-navy">
             <div className="border-b border-slate-700 p-6">
               <h2 className="text-xl font-bold text-white">
                 {editingItem ? 'Edit Testimonial' : 'Add Testimonial'}
@@ -415,7 +415,7 @@ export default function TestimonialsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     required
                   />
                 </div>
@@ -429,7 +429,7 @@ export default function TestimonialsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, company: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   />
                 </div>
               </div>
@@ -445,7 +445,7 @@ export default function TestimonialsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, role: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     placeholder="e.g., CEO, CTO"
                   />
                 </div>
@@ -464,7 +464,7 @@ export default function TestimonialsPage() {
                         rating: parseInt(e.target.value),
                       })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   />
                 </div>
               </div>
@@ -479,7 +479,7 @@ export default function TestimonialsPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, avatar: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="/media/home/testimonials/name.jpg"
                 />
               </div>
@@ -494,7 +494,7 @@ export default function TestimonialsPage() {
                     setFormData({ ...formData, text: e.target.value })
                   }
                   rows={4}
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   required
                 />
               </div>
@@ -509,7 +509,7 @@ export default function TestimonialsPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, results: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="300% traffic increase, 45% conversion boost"
                 />
               </div>
@@ -522,7 +522,7 @@ export default function TestimonialsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, featured: e.target.checked })
                     }
-                    className="h-4 w-4 rounded border-slate-600 text-[#F58122] focus:ring-[#F58122]"
+                    className="h-4 w-4 rounded border-slate-600 text-orange focus:ring-orange"
                   />
                   <span className="text-slate-300">Featured</span>
                 </label>
@@ -552,7 +552,7 @@ export default function TestimonialsPage() {
                 </button>
                 <button
                   type="submit"
-                  className="rounded-lg bg-[#37AFE1] px-6 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+                  className="rounded-lg bg-cyan px-6 py-2 text-white transition-colors hover:bg-cyan/80"
                 >
                   {editingItem ? 'Update' : 'Add Testimonial'}
                 </button>

@@ -45,7 +45,7 @@ export function Web3MediaHero({
   return (
     <section
       className={cn(
-        'relative flex min-h-screen w-full flex-col overflow-hidden bg-black',
+        'relative flex min-h-screen w-full flex-col overflow-hidden bg-navy',
         className
       )}
       role="banner"
@@ -129,7 +129,7 @@ export function Web3MediaHero({
                 className="bg-clip-text text-transparent"
                 style={{
                   backgroundImage:
-                    'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+                    'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
                   backgroundSize: '300% 100%',
                   animation: 'gradient-shift 4s ease-in-out infinite',
                 }}

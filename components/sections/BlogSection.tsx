@@ -88,9 +88,9 @@ export default function BlogSection() {
 
   if (loading) {
     return (
-      <section className="bg-black px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+      <section className="bg-navy px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="container mx-auto flex max-w-7xl justify-center">
-          <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+          <div className="h-12 w-12 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
         </div>
       </section>
     );
@@ -106,11 +106,11 @@ export default function BlogSection() {
     .slice(0, 3);
 
   return (
-    <section className="bg-black px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+    <section className="bg-navy px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-10 top-20 h-72 w-72 rounded-full bg-[#37AFE1]/5 blur-3xl" />
-        <div className="absolute bottom-20 right-10 h-96 w-96 rounded-full bg-[#F58122]/5 blur-3xl" />
+        <div className="absolute left-10 top-20 h-72 w-72 rounded-full bg-cyan/5 blur-3xl" />
+        <div className="absolute bottom-20 right-10 h-96 w-96 rounded-full bg-orange/5 blur-3xl" />
       </div>
 
       <div className="container relative mx-auto max-w-7xl">
@@ -131,8 +131,10 @@ export default function BlogSection() {
             viewport={{ once: true }}
             className="group lg:row-span-2"
           >
-            <Link href={featuredBlog?.slug ? `/blog/${featuredBlog.slug}` : '/blog'}>
-              <div className="relative h-full min-h-[500px] overflow-hidden rounded-3xl border border-slate-800 transition-all duration-500 hover:border-[#37AFE1]/50">
+            <Link
+              href={featuredBlog?.slug ? `/blog/${featuredBlog.slug}` : '/blog'}
+            >
+              <div className="relative h-full min-h-[500px] overflow-hidden rounded-3xl border border-slate-800 transition-all duration-500 hover:border-cyan/50">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                   {featuredBlog.thumbnail ? (
@@ -151,7 +153,7 @@ export default function BlogSection() {
                       unoptimized
                     />
                   ) : (
-                    <div className="h-full w-full bg-gradient-to-br from-[#37AFE1]/30 to-[#F58122]/30" />
+                    <div className="h-full w-full bg-gradient-to-br from-cyan/30 to-orange/30" />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
                 </div>
@@ -159,14 +161,14 @@ export default function BlogSection() {
                 {/* Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <div className="mb-4 flex items-center gap-3">
-                    <span className="rounded-full bg-[#F58122] px-3 py-1 text-xs font-bold text-white">
+                    <span className="rounded-full bg-orange px-3 py-1 text-xs font-bold text-white">
                       FEATURED
                     </span>
                     <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white backdrop-blur-sm">
                       {featuredBlog.category}
                     </span>
                   </div>
-                  <h3 className="mb-3 text-2xl font-bold text-white transition-colors group-hover:text-[#37AFE1] md:text-3xl">
+                  <h3 className="mb-3 text-2xl font-bold text-white transition-colors group-hover:text-cyan md:text-3xl">
                     {featuredBlog.title}
                   </h3>
                   <p className="mb-4 line-clamp-2 text-slate-300">
@@ -204,7 +206,7 @@ export default function BlogSection() {
                 className="group"
               >
                 <Link href={blog?.slug ? `/blog/${blog.slug}` : '/blog'}>
-                  <div className="flex gap-5 rounded-2xl border border-slate-800/50 bg-[#1E293B]/30 p-4 transition-all duration-300 hover:border-[#37AFE1]/30 hover:bg-[#1E293B]/50">
+                  <div className="flex gap-5 rounded-2xl border border-slate-800/50 bg-navy/30 p-4 transition-all duration-300 hover:border-cyan/30 hover:bg-navy/50">
                     {/* Thumbnail */}
                     <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-xl">
                       {blog.thumbnail ? (
@@ -223,16 +225,16 @@ export default function BlogSection() {
                           unoptimized
                         />
                       ) : (
-                        <div className="h-full w-full bg-gradient-to-br from-[#37AFE1]/20 to-[#F58122]/20" />
+                        <div className="h-full w-full bg-gradient-to-br from-cyan/20 to-orange/20" />
                       )}
                     </div>
 
                     {/* Content */}
                     <div className="min-w-0 flex-1">
-                      <span className="text-xs font-medium text-[#37AFE1]">
+                      <span className="text-xs font-medium text-cyan">
                         {blog.category}
                       </span>
-                      <h4 className="mb-2 mt-1 line-clamp-2 font-semibold text-white transition-colors group-hover:text-[#37AFE1]">
+                      <h4 className="mb-2 mt-1 line-clamp-2 font-semibold text-white transition-colors group-hover:text-cyan">
                         {blog.title}
                       </h4>
                       <div className="flex items-center gap-3 text-xs text-slate-500">
@@ -244,7 +246,7 @@ export default function BlogSection() {
 
                     {/* Arrow */}
                     <div className="flex items-center">
-                      <ArrowRight className="h-5 w-5 text-slate-600 transition-all group-hover:translate-x-1 group-hover:text-[#37AFE1]" />
+                      <ArrowRight className="h-5 w-5 text-slate-600 transition-all group-hover:translate-x-1 group-hover:text-cyan" />
                     </div>
                   </div>
                 </Link>

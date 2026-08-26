@@ -202,11 +202,11 @@ export default function MediaLibraryPage() {
               fetchMedia();
               fetchFolders(currentFolder);
             }}
-            className="rounded-lg border border-slate-700 bg-[#1E293B] p-2 text-slate-400 transition-colors hover:text-white"
+            className="rounded-lg border border-slate-700 bg-navy p-2 text-slate-400 transition-colors hover:text-white"
           >
             <RefreshCw className="h-5 w-5" />
           </button>
-          <label className="flex cursor-pointer items-center gap-2 rounded-lg bg-[#37AFE1] px-4 py-2 text-white transition-colors hover:bg-[#37AFE1]/80">
+          <label className="flex cursor-pointer items-center gap-2 rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80">
             <Upload className="h-4 w-4" />
             Upload Files
             <input
@@ -221,13 +221,11 @@ export default function MediaLibraryPage() {
       </div>
 
       {/* Breadcrumb Navigation */}
-      <div className="mb-4 flex items-center gap-2 rounded-lg border border-slate-700/50 bg-[#1E293B] p-3">
+      <div className="mb-4 flex items-center gap-2 rounded-lg border border-slate-700/50 bg-navy p-3">
         <button
           onClick={() => navigateToFolder('')}
           className={`flex items-center gap-1 rounded px-2 py-1 transition-colors ${
-            !currentFolder
-              ? 'text-[#37AFE1]'
-              : 'text-slate-400 hover:text-white'
+            !currentFolder ? 'text-cyan' : 'text-slate-400 hover:text-white'
           }`}
         >
           <Home className="h-4 w-4" />
@@ -242,7 +240,7 @@ export default function MediaLibraryPage() {
               }
               className={`rounded px-2 py-1 transition-colors ${
                 index === breadcrumbs.length - 1
-                  ? 'text-[#37AFE1]'
+                  ? 'text-cyan'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -259,14 +257,12 @@ export default function MediaLibraryPage() {
         onDragOver={handleDrag}
         onDrop={handleDrop}
         className={`mb-6 rounded-xl border-2 border-dashed p-6 text-center transition-colors ${
-          dragActive
-            ? 'border-[#37AFE1] bg-[#37AFE1]/10'
-            : 'border-slate-700 bg-[#1E293B]'
+          dragActive ? 'border-cyan bg-cyan/10' : 'border-slate-700 bg-navy'
         }`}
       >
         {uploading ? (
           <div className="flex flex-col items-center gap-3">
-            <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
             <p className="text-slate-400">Uploading files...</p>
           </div>
         ) : (
@@ -276,9 +272,7 @@ export default function MediaLibraryPage() {
               Drag and drop files here, or click "Upload Files"
             </p>
             {currentFolder && (
-              <p className="text-xs text-[#37AFE1]">
-                Uploading to: {currentFolder}
-              </p>
+              <p className="text-xs text-cyan">Uploading to: {currentFolder}</p>
             )}
           </div>
         )}
@@ -286,12 +280,12 @@ export default function MediaLibraryPage() {
 
       {/* Filters */}
       <div className="mb-6 flex items-center gap-4">
-        <div className="flex rounded-lg border border-slate-700 bg-[#1E293B] p-1">
+        <div className="flex rounded-lg border border-slate-700 bg-navy p-1">
           <button
             onClick={() => setMediaType('image')}
             className={`flex items-center gap-2 rounded-md px-4 py-2 transition-colors ${
               mediaType === 'image'
-                ? 'bg-[#37AFE1] text-white'
+                ? 'bg-cyan text-white'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -302,7 +296,7 @@ export default function MediaLibraryPage() {
             onClick={() => setMediaType('video')}
             className={`flex items-center gap-2 rounded-md px-4 py-2 transition-colors ${
               mediaType === 'video'
-                ? 'bg-[#37AFE1] text-white'
+                ? 'bg-cyan text-white'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -322,11 +316,11 @@ export default function MediaLibraryPage() {
             placeholder="Search files..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-lg border border-slate-700 bg-[#1E293B] py-2 pl-10 pr-4 text-white focus:border-[#37AFE1] focus:outline-none"
+            className="w-full rounded-lg border border-slate-700 bg-navy py-2 pl-10 pr-4 text-white focus:border-cyan focus:outline-none"
           />
         </div>
 
-        <div className="flex rounded-lg border border-slate-700 bg-[#1E293B] p-1">
+        <div className="flex rounded-lg border border-slate-700 bg-navy p-1">
           <button
             onClick={() => setViewMode('grid')}
             className={`rounded-md p-2 transition-colors ${
@@ -356,7 +350,7 @@ export default function MediaLibraryPage() {
           {/* Subfolders */}
           {foldersLoading ? (
             <div className="mb-6 flex items-center gap-2 text-slate-400">
-              <div className="h-4 w-4 animate-spin rounded-full border-2 border-slate-600 border-t-[#37AFE1]" />
+              <div className="h-4 w-4 animate-spin rounded-full border-2 border-slate-600 border-t-[#06b6d4]" />
               Loading folders...
             </div>
           ) : (
@@ -371,7 +365,7 @@ export default function MediaLibraryPage() {
                     <button
                       key={folder.path}
                       onClick={() => navigateToFolder(folder.path)}
-                      className="group flex flex-col items-center gap-2 rounded-xl border border-slate-700/50 bg-[#1E293B] p-4 transition-all hover:border-[#37AFE1]/50 hover:bg-[#1E293B]/80"
+                      className="group flex flex-col items-center gap-2 rounded-xl border border-slate-700/50 bg-navy p-4 transition-all hover:border-cyan/50 hover:bg-navy/80"
                     >
                       <FolderOpen className="h-10 w-10 text-yellow-500 transition-colors group-hover:text-yellow-400" />
                       <span className="w-full truncate text-center text-sm text-slate-300">
@@ -387,7 +381,7 @@ export default function MediaLibraryPage() {
           {/* Files */}
           {loading ? (
             <div className="flex h-64 items-center justify-center">
-              <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+              <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
             </div>
           ) : filteredFiles.length === 0 ? (
             <div className="flex h-64 flex-col items-center justify-center text-slate-500">
@@ -411,11 +405,11 @@ export default function MediaLibraryPage() {
                       onClick={() => setSelectedFile(file)}
                       className={`group relative cursor-pointer overflow-hidden rounded-lg border-2 transition-colors ${
                         selectedFile?.publicId === file.publicId
-                          ? 'border-[#37AFE1]'
+                          ? 'border-cyan'
                           : 'border-transparent hover:border-slate-600'
                       }`}
                     >
-                      <div className="aspect-square bg-[#0F172A]">
+                      <div className="aspect-square bg-navy">
                         {file.type === 'video' ? (
                           <video
                             src={file.url}
@@ -429,7 +423,7 @@ export default function MediaLibraryPage() {
                           />
                         )}
                       </div>
-                      <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
+                      <div className="absolute inset-0 flex items-center justify-center gap-2 bg-navy/60 opacity-0 transition-opacity group-hover:opacity-100">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
@@ -462,7 +456,7 @@ export default function MediaLibraryPage() {
                   ))}
                 </div>
               ) : (
-                <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-[#1E293B]">
+                <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-navy">
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-slate-700">
@@ -490,12 +484,12 @@ export default function MediaLibraryPage() {
                           onClick={() => setSelectedFile(file)}
                           className={`cursor-pointer border-b border-slate-700/50 transition-colors ${
                             selectedFile?.publicId === file.publicId
-                              ? 'bg-[#37AFE1]/10'
+                              ? 'bg-cyan/10'
                               : 'hover:bg-slate-700/30'
                           }`}
                         >
                           <td className="p-4">
-                            <div className="h-12 w-12 overflow-hidden rounded bg-[#0F172A]">
+                            <div className="h-12 w-12 overflow-hidden rounded bg-navy">
                               {file.type === 'video' ? (
                                 <video
                                   src={file.url}
@@ -557,7 +551,7 @@ export default function MediaLibraryPage() {
 
         {/* File Details Panel */}
         {selectedFile && (
-          <div className="sticky top-4 h-fit w-80 shrink-0 rounded-xl border border-slate-700/50 bg-[#1E293B] p-4">
+          <div className="sticky top-4 h-fit w-80 shrink-0 rounded-xl border border-slate-700/50 bg-navy p-4">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-lg font-semibold text-white">File Details</h3>
               <button
@@ -568,7 +562,7 @@ export default function MediaLibraryPage() {
               </button>
             </div>
 
-            <div className="mb-4 aspect-video overflow-hidden rounded-lg bg-[#0F172A]">
+            <div className="mb-4 aspect-video overflow-hidden rounded-lg bg-navy">
               {selectedFile.type === 'video' ? (
                 <video
                   src={selectedFile.url}
@@ -627,7 +621,7 @@ export default function MediaLibraryPage() {
                     type="text"
                     value={selectedFile.url}
                     readOnly
-                    className="flex-1 rounded border border-slate-700 bg-[#0F172A] px-3 py-2 text-xs text-slate-400"
+                    className="flex-1 rounded border border-slate-700 bg-navy px-3 py-2 text-xs text-slate-400"
                   />
                   <button
                     onClick={() => copyToClipboard(selectedFile.url)}

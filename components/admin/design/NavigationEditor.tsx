@@ -377,7 +377,7 @@ export default function NavigationEditor() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -397,13 +397,13 @@ export default function NavigationEditor() {
         <div className="flex gap-2">
           <button
             onClick={() => setActiveSection('header')}
-            className={`rounded-lg px-4 py-2 font-medium ${activeSection === 'header' ? 'bg-[#37AFE1] text-white' : 'bg-slate-700 text-slate-300'}`}
+            className={`rounded-lg px-4 py-2 font-medium ${activeSection === 'header' ? 'bg-cyan text-white' : 'bg-slate-700 text-slate-300'}`}
           >
             Header Navigation
           </button>
           <button
             onClick={() => setActiveSection('footer')}
-            className={`rounded-lg px-4 py-2 font-medium ${activeSection === 'footer' ? 'bg-[#37AFE1] text-white' : 'bg-slate-700 text-slate-300'}`}
+            className={`rounded-lg px-4 py-2 font-medium ${activeSection === 'footer' ? 'bg-cyan text-white' : 'bg-slate-700 text-slate-300'}`}
           >
             Footer Navigation
           </button>
@@ -411,7 +411,7 @@ export default function NavigationEditor() {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-6 py-2 text-white hover:bg-[#37AFE1]/80 disabled:opacity-50"
+          className="flex items-center gap-2 rounded-lg bg-cyan px-6 py-2 text-white hover:bg-cyan/80 disabled:opacity-50"
         >
           <Save className={`h-4 w-4 ${saving ? 'animate-spin' : ''}`} />
           {saving ? 'Saving...' : 'Save Changes'}
@@ -419,7 +419,7 @@ export default function NavigationEditor() {
       </div>
 
       {activeSection === 'header' ? (
-        <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+        <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
           <div className="mb-4 flex items-center justify-between">
             <h3 className="font-semibold text-white">Header Menu Items</h3>
             <button
@@ -433,7 +433,7 @@ export default function NavigationEditor() {
 
           <div className="space-y-3">
             {navigation.header.map((item) => (
-              <div key={item.id} className="rounded-lg bg-[#0F172A] p-4">
+              <div key={item.id} className="rounded-lg bg-navy p-4">
                 <div className="flex items-center gap-3">
                   <GripVertical className="h-4 w-4 cursor-move text-slate-500" />
                   <input
@@ -480,7 +480,7 @@ export default function NavigationEditor() {
                   )}
                   <button
                     onClick={() => addSubItem(item.id)}
-                    className="p-1.5 text-slate-400 hover:text-[#37AFE1]"
+                    className="p-1.5 text-slate-400 hover:text-cyan"
                     title="Add submenu"
                   >
                     <Plus className="h-4 w-4" />
@@ -552,13 +552,13 @@ export default function NavigationEditor() {
           {navigation.footer.columns.map((column, colIndex) => (
             <div
               key={colIndex}
-              className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6"
+              className="rounded-xl border border-slate-700/50 bg-navy p-6"
             >
               <input
                 type="text"
                 value={column.title}
                 onChange={(e) => updateFooterColumn(colIndex, e.target.value)}
-                className="mb-4 w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 font-semibold text-white"
+                className="mb-4 w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 font-semibold text-white"
                 placeholder="Column Title"
               />
               <div className="space-y-2">

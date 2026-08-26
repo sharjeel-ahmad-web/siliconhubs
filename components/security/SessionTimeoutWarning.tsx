@@ -68,8 +68,8 @@ export function SessionTimeoutWarning() {
   const seconds = remainingSeconds % 60;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="mx-4 max-w-md rounded-lg border border-[#F59E0B]/20 bg-[#1E293B] p-6 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/50 backdrop-blur-sm">
+      <div className="mx-4 max-w-md rounded-lg border border-[#F59E0B]/20 bg-navy p-6 shadow-2xl">
         {/* Warning Icon */}
         <div className="mb-4 flex justify-center">
           <div className="rounded-full bg-[#F59E0B]/10 p-3">
@@ -94,7 +94,7 @@ export function SessionTimeoutWarning() {
           <h3 className="mb-2 text-xl font-semibold text-white">
             Session Expiring Soon
           </h3>
-          <p className="mb-4 text-sm text-[#64748B]">
+          <p className="mb-4 text-sm text-slate-grey">
             Your session will expire due to inactivity. You will be
             automatically logged out in:
           </p>
@@ -107,13 +107,13 @@ export function SessionTimeoutWarning() {
         <div className="flex gap-3">
           <button
             onClick={handleLogout}
-            className="flex-1 rounded-lg bg-[#64748B] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#475569]"
+            className="flex-1 rounded-lg bg-slate-grey px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#475569]"
           >
             Logout Now
           </button>
           <button
             onClick={handleExtendSession}
-            className="flex-1 rounded-lg bg-[#2563EB] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#37AFE1]"
+            className="flex-1 rounded-lg bg-navy px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-cyan"
           >
             Stay Logged In
           </button>

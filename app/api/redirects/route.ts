@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 
 // GET - Fetch enabled redirects for middleware

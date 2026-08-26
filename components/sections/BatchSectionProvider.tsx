@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import {
   createContext,
@@ -77,7 +77,10 @@ export function BatchSectionProvider({
         if (cancelled) return;
 
         const visibilityMap: SectionVisibility = {};
-        const map = data != null && typeof data === 'object' ? (data as Record<string, unknown>) : {};
+        const map =
+          data != null && typeof data === 'object'
+            ? (data as Record<string, unknown>)
+            : {};
         sections.forEach((section) => {
           const sectionData = map[section];
           visibilityMap[section] =
@@ -100,7 +103,9 @@ export function BatchSectionProvider({
     };
 
     fetchBatch();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [page, sections]);
 
   return (

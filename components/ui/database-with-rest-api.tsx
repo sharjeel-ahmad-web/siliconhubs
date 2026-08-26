@@ -236,7 +236,7 @@ const DatabaseWithRestApi = ({
           </mask>
           {/* Blue Grad */}
           <radialGradient id="db-blue-grad" fx="1">
-            <stop offset="0%" stopColor={lightColor || '#F58122'} />
+            <stop offset="0%" stopColor={lightColor || '#fc4c00'} />
             <stop offset="100%" stopColor="transparent" />
           </radialGradient>
         </defs>
@@ -245,57 +245,57 @@ const DatabaseWithRestApi = ({
       {/* Main Box */}
       <div className="absolute bottom-10 flex w-full flex-col items-center">
         {/* bottom shadow */}
-        <div className="absolute -bottom-4 h-[100px] w-[62%] rounded-lg bg-[#F58122]/10" />
+        <div className="absolute -bottom-4 h-[100px] w-[62%] rounded-lg bg-orange/10" />
 
         {/* box title */}
-        <div className="absolute -top-3 z-20 flex items-center justify-center rounded-lg border border-[#37AFE1]/30 bg-[#101112] px-2 py-1 sm:-top-4 sm:py-1.5">
-          <SparklesIcon className="size-3 text-[#F58122]" />
+        <div className="absolute -top-3 z-20 flex items-center justify-center rounded-lg border border-cyan/30 bg-[#101112] px-2 py-1 sm:-top-4 sm:py-1.5">
+          <SparklesIcon className="size-3 text-orange" />
           <span className="ml-2 text-[10px] text-white">
             {title ? title : 'Data exchange using a customized REST API'}
           </span>
         </div>
 
         {/* box outter circle */}
-        <div className="absolute -bottom-8 z-30 grid h-[60px] w-[60px] place-items-center rounded-full border-t border-[#37AFE1]/30 bg-[#141516] text-xs font-semibold text-white">
+        <div className="absolute -bottom-8 z-30 grid h-[60px] w-[60px] place-items-center rounded-full border-t border-cyan/30 bg-[#141516] text-xs font-semibold text-white">
           {circleText ? circleText : 'N8N'}
         </div>
 
         {/* box content */}
-        <div className="relative z-10 flex h-[150px] w-full items-center justify-center overflow-hidden rounded-lg border border-[#37AFE1]/30 bg-black shadow-md">
+        <div className="relative z-10 flex h-[150px] w-full items-center justify-center overflow-hidden rounded-lg border border-cyan/30 bg-navy shadow-md">
           {/* Badges */}
-          <div className="absolute bottom-8 left-12 z-10 flex h-7 items-center gap-2 rounded-full border border-[#37AFE1]/30 bg-[#101112] px-3 text-xs text-white">
-            <HeartHandshakeIcon className="size-4 text-[#F58122]" />
+          <div className="absolute bottom-8 left-12 z-10 flex h-7 items-center gap-2 rounded-full border border-cyan/30 bg-[#101112] px-3 text-xs text-white">
+            <HeartHandshakeIcon className="size-4 text-orange" />
             <span>{buttonTexts?.first || 'Rising Dot'}</span>
           </div>
-          <div className="absolute right-16 z-10 hidden h-7 items-center gap-2 rounded-full border border-[#37AFE1]/30 bg-[#101112] px-3 text-xs text-white sm:flex">
-            <Folder className="size-4 text-[#37AFE1]" />
+          <div className="absolute right-16 z-10 hidden h-7 items-center gap-2 rounded-full border border-cyan/30 bg-[#101112] px-3 text-xs text-white sm:flex">
+            <Folder className="size-4 text-cyan" />
             <span>{buttonTexts?.second || 'Workflows'}</span>
           </div>
 
           {/* Circles */}
           <motion.div
-            className="absolute -bottom-14 h-[100px] w-[100px] rounded-full border-t border-[#F58122]/20 bg-[#F58122]/5"
+            className="absolute -bottom-14 h-[100px] w-[100px] rounded-full border-t border-orange/20 bg-orange/5"
             animate={{
               scale: [0.98, 1.02, 0.98, 1, 1, 1, 1, 1, 1],
             }}
             transition={{ duration: 2, repeat: Infinity }}
           />
           <motion.div
-            className="absolute -bottom-20 h-[145px] w-[145px] rounded-full border-t border-[#F58122]/20 bg-[#F58122]/5"
+            className="absolute -bottom-20 h-[145px] w-[145px] rounded-full border-t border-orange/20 bg-orange/5"
             animate={{
               scale: [1, 1, 1, 0.98, 1.02, 0.98, 1, 1, 1],
             }}
             transition={{ duration: 2, repeat: Infinity }}
           />
           <motion.div
-            className="absolute -bottom-[100px] h-[190px] w-[190px] rounded-full border-t border-[#37AFE1]/20 bg-[#37AFE1]/5"
+            className="absolute -bottom-[100px] h-[190px] w-[190px] rounded-full border-t border-cyan/20 bg-cyan/5"
             animate={{
               scale: [1, 1, 1, 1, 1, 0.98, 1.02, 0.98, 1, 1],
             }}
             transition={{ duration: 2, repeat: Infinity }}
           />
           <motion.div
-            className="absolute -bottom-[120px] h-[235px] w-[235px] rounded-full border-t border-[#37AFE1]/20 bg-[#37AFE1]/5"
+            className="absolute -bottom-[120px] h-[235px] w-[235px] rounded-full border-t border-cyan/20 bg-cyan/5"
             animate={{
               scale: [1, 1, 1, 1, 1, 1, 0.98, 1.02, 0.98, 1],
             }}

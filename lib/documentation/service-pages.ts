@@ -1,4 +1,4 @@
-import { ServicePageDocumentation, SectionDocumentation } from './types';
+﻿import { ServicePageDocumentation, SectionDocumentation } from './types';
 
 /**
  * Complete documentation for all 5 service pages
@@ -18,10 +18,22 @@ const createServicePageDocumentation = (
       filePath: `app/(public)/services/${slug}/page.tsx`,
       lineNumbers: 'Lines 1-100',
       editableContent: [
-        { name: 'Page title', line: '20-30', description: 'Service name and headline' },
+        {
+          name: 'Page title',
+          line: '20-30',
+          description: 'Service name and headline',
+        },
         { name: 'Subtitle', line: '35-45', description: 'Service description' },
-        { name: 'CTA buttons', line: '50-70', description: 'Primary and secondary CTAs' },
-        { name: 'Hero image', line: '75-85', description: 'Hero background or featured image' },
+        {
+          name: 'CTA buttons',
+          line: '50-70',
+          description: 'Primary and secondary CTAs',
+        },
+        {
+          name: 'Hero image',
+          line: '75-85',
+          description: 'Hero background or featured image',
+        },
       ],
       images: {
         folder: `public/media/services/${slug}`,
@@ -38,7 +50,8 @@ const createServicePageDocumentation = (
       },
       cmsPath: `/admin/pages/services-${slug}`,
       cmsEnabled: true,
-      description: 'Service page hero with title, description, and CTA. Sets the tone for the service.',
+      description:
+        'Service page hero with title, description, and CTA. Sets the tone for the service.',
     },
     {
       id: `${slug}-features`,
@@ -47,9 +60,21 @@ const createServicePageDocumentation = (
       filePath: `app/(public)/services/${slug}/page.tsx`,
       lineNumbers: 'Lines 100-250',
       editableContent: [
-        { name: 'Features array', line: '110-200', description: 'List of service features' },
-        { name: 'Feature titles', line: '110-200', description: 'Feature headings' },
-        { name: 'Feature descriptions', line: '110-200', description: 'Feature details' },
+        {
+          name: 'Features array',
+          line: '110-200',
+          description: 'List of service features',
+        },
+        {
+          name: 'Feature titles',
+          line: '110-200',
+          description: 'Feature headings',
+        },
+        {
+          name: 'Feature descriptions',
+          line: '110-200',
+          description: 'Feature details',
+        },
         { name: 'Feature icons', line: '110-200', description: 'Visual icons' },
       ],
       images: {
@@ -67,7 +92,8 @@ const createServicePageDocumentation = (
       },
       cmsPath: `/admin/pages/services-${slug}`,
       cmsEnabled: true,
-      description: 'Grid or list of key features and benefits. Highlights service value propositions.',
+      description:
+        'Grid or list of key features and benefits. Highlights service value propositions.',
     },
     {
       id: `${slug}-process`,
@@ -76,9 +102,21 @@ const createServicePageDocumentation = (
       filePath: `app/(public)/services/${slug}/page.tsx`,
       lineNumbers: 'Lines 250-350',
       editableContent: [
-        { name: 'Process steps array', line: '260-330', description: 'Step-by-step process' },
-        { name: 'Step titles', line: '260-330', description: 'Process step names' },
-        { name: 'Step descriptions', line: '260-330', description: 'What happens in each step' },
+        {
+          name: 'Process steps array',
+          line: '260-330',
+          description: 'Step-by-step process',
+        },
+        {
+          name: 'Step titles',
+          line: '260-330',
+          description: 'Process step names',
+        },
+        {
+          name: 'Step descriptions',
+          line: '260-330',
+          description: 'What happens in each step',
+        },
         { name: 'Step numbers', line: '260-330', description: 'Step ordering' },
       ],
       images: {
@@ -91,7 +129,8 @@ const createServicePageDocumentation = (
       },
       cmsPath: `/admin/pages/services-${slug}`,
       cmsEnabled: true,
-      description: 'Visual timeline showing service delivery process. Builds transparency and trust.',
+      description:
+        'Visual timeline showing service delivery process. Builds transparency and trust.',
     },
     {
       id: `${slug}-case-studies`,
@@ -100,10 +139,26 @@ const createServicePageDocumentation = (
       filePath: `app/(public)/services/${slug}/page.tsx`,
       lineNumbers: 'Lines 350-450',
       editableContent: [
-        { name: 'Case studies array', line: '360-430', description: 'Related case studies' },
-        { name: 'Project names', line: '360-430', description: 'Project titles' },
-        { name: 'Results', line: '360-430', description: 'Measurable outcomes' },
-        { name: 'Client testimonials', line: '360-430', description: 'Client quotes' },
+        {
+          name: 'Case studies array',
+          line: '360-430',
+          description: 'Related case studies',
+        },
+        {
+          name: 'Project names',
+          line: '360-430',
+          description: 'Project titles',
+        },
+        {
+          name: 'Results',
+          line: '360-430',
+          description: 'Measurable outcomes',
+        },
+        {
+          name: 'Client testimonials',
+          line: '360-430',
+          description: 'Client quotes',
+        },
       ],
       images: {
         folder: `public/media/services/${slug}/case-studies`,
@@ -120,7 +175,8 @@ const createServicePageDocumentation = (
       },
       cmsPath: `/admin/pages/services-${slug}`,
       cmsEnabled: true,
-      description: 'Showcase of relevant projects and success stories. Demonstrates expertise.',
+      description:
+        'Showcase of relevant projects and success stories. Demonstrates expertise.',
     },
     {
       id: `${slug}-pricing`,
@@ -129,10 +185,22 @@ const createServicePageDocumentation = (
       filePath: `app/(public)/services/${slug}/page.tsx`,
       lineNumbers: 'Lines 450-550',
       editableContent: [
-        { name: 'Pricing tiers', line: '460-530', description: 'Service packages' },
-        { name: 'Package names', line: '460-530', description: 'Tier names (Basic, Pro, Enterprise)' },
+        {
+          name: 'Pricing tiers',
+          line: '460-530',
+          description: 'Service packages',
+        },
+        {
+          name: 'Package names',
+          line: '460-530',
+          description: 'Tier names (Basic, Pro, Enterprise)',
+        },
         { name: 'Prices', line: '460-530', description: 'Pricing information' },
-        { name: 'Features included', line: '460-530', description: 'What\'s included in each tier' },
+        {
+          name: 'Features included',
+          line: '460-530',
+          description: "What's included in each tier",
+        },
       ],
       images: {
         folder: 'None',
@@ -144,7 +212,8 @@ const createServicePageDocumentation = (
       },
       cmsPath: `/admin/pages/services-${slug}`,
       cmsEnabled: true,
-      description: 'Pricing tiers and packages. Clear value communication and conversion opportunity.',
+      description:
+        'Pricing tiers and packages. Clear value communication and conversion opportunity.',
     },
     {
       id: `${slug}-faq`,
@@ -153,7 +222,11 @@ const createServicePageDocumentation = (
       filePath: `app/(public)/services/${slug}/page.tsx`,
       lineNumbers: 'Lines 550-650',
       editableContent: [
-        { name: 'FAQ items array', line: '560-630', description: 'Frequently asked questions' },
+        {
+          name: 'FAQ items array',
+          line: '560-630',
+          description: 'Frequently asked questions',
+        },
         { name: 'Questions', line: '560-630', description: 'FAQ questions' },
         { name: 'Answers', line: '560-630', description: 'FAQ answers' },
       ],
@@ -167,7 +240,8 @@ const createServicePageDocumentation = (
       },
       cmsPath: `/admin/pages/services-${slug}`,
       cmsEnabled: true,
-      description: 'Common questions and answers. Addresses objections and builds confidence.',
+      description:
+        'Common questions and answers. Addresses objections and builds confidence.',
     },
     {
       id: `${slug}-cta`,
@@ -176,10 +250,26 @@ const createServicePageDocumentation = (
       filePath: `app/(public)/services/${slug}/page.tsx`,
       lineNumbers: 'Lines 650-750',
       editableContent: [
-        { name: 'CTA heading', line: '660-670', description: 'Final call to action' },
-        { name: 'CTA text', line: '675-685', description: 'Compelling message' },
-        { name: 'CTA button', line: '690-700', description: 'Primary action button' },
-        { name: 'Contact info', line: '710-730', description: 'Email, phone for inquiries' },
+        {
+          name: 'CTA heading',
+          line: '660-670',
+          description: 'Final call to action',
+        },
+        {
+          name: 'CTA text',
+          line: '675-685',
+          description: 'Compelling message',
+        },
+        {
+          name: 'CTA button',
+          line: '690-700',
+          description: 'Primary action button',
+        },
+        {
+          name: 'Contact info',
+          line: '710-730',
+          description: 'Email, phone for inquiries',
+        },
       ],
       images: {
         folder: 'None',
@@ -191,7 +281,8 @@ const createServicePageDocumentation = (
       },
       cmsPath: `/admin/pages/services-${slug}`,
       cmsEnabled: true,
-      description: 'Final conversion opportunity. Encourages visitors to take action.',
+      description:
+        'Final conversion opportunity. Encourages visitors to take action.',
     },
   ];
 
@@ -207,74 +298,54 @@ const createServicePageDocumentation = (
 };
 
 export const servicePages: ServicePageDocumentation[] = [
-  createServicePageDocumentation(
-    'chatbot-development',
-    'Chatbot Development',
-    [
-      'AI-powered conversational interfaces',
-      'Natural language processing',
-      'Multi-platform integration (Web, WhatsApp, Telegram)',
-      'Custom training with business data',
-      '24/7 automated customer support',
-      'Lead generation and qualification',
-      'Analytics and reporting',
-    ]
-  ),
-  createServicePageDocumentation(
-    'n8n-automations',
-    'N8N Automations',
-    [
-      'Workflow automation',
-      'API integrations',
-      'Data synchronization',
-      'Automated reporting',
-      'Email automation',
-      'Custom triggers and actions',
-      'Visual workflow builder',
-      'Error handling and monitoring',
-    ]
-  ),
-  createServicePageDocumentation(
-    'web-design',
-    'Web Design',
-    [
-      'Custom website design',
-      'Responsive layouts',
-      'Modern UI/UX',
-      'Performance optimization',
-      'SEO-friendly structure',
-      'Accessibility compliance',
-      'Brand identity integration',
-      'Content management system',
-    ]
-  ),
-  createServicePageDocumentation(
-    'seo',
-    'SEO Services',
-    [
-      'Technical SEO audit',
-      'Keyword research and strategy',
-      'On-page optimization',
-      'Off-page SEO',
-      'Local SEO',
-      'Content optimization',
-      'Link building',
-      'Performance tracking',
-      'Competitor analysis',
-    ]
-  ),
-  createServicePageDocumentation(
-    'shopify',
-    'Shopify Development',
-    [
-      'Custom Shopify stores',
-      'Theme customization',
-      'App integration',
-      'Payment gateway setup',
-      'Product catalog management',
-      'Conversion optimization',
-      'Mobile commerce',
-      'Store migration',
-    ]
-  ),
+  createServicePageDocumentation('chatbot-development', 'Chatbot Development', [
+    'AI-powered conversational interfaces',
+    'Natural language processing',
+    'Multi-platform integration (Web, WhatsApp, Telegram)',
+    'Custom training with business data',
+    '24/7 automated customer support',
+    'Lead generation and qualification',
+    'Analytics and reporting',
+  ]),
+  createServicePageDocumentation('n8n-automations', 'N8N Automations', [
+    'Workflow automation',
+    'API integrations',
+    'Data synchronization',
+    'Automated reporting',
+    'Email automation',
+    'Custom triggers and actions',
+    'Visual workflow builder',
+    'Error handling and monitoring',
+  ]),
+  createServicePageDocumentation('web-design', 'Web Design', [
+    'Custom website design',
+    'Responsive layouts',
+    'Modern UI/UX',
+    'Performance optimization',
+    'SEO-friendly structure',
+    'Accessibility compliance',
+    'Brand identity integration',
+    'Content management system',
+  ]),
+  createServicePageDocumentation('seo', 'SEO Services', [
+    'Technical SEO audit',
+    'Keyword research and strategy',
+    'On-page optimization',
+    'Off-page SEO',
+    'Local SEO',
+    'Content optimization',
+    'Link building',
+    'Performance tracking',
+    'Competitor analysis',
+  ]),
+  createServicePageDocumentation('shopify', 'Shopify Development', [
+    'Custom Shopify stores',
+    'Theme customization',
+    'App integration',
+    'Payment gateway setup',
+    'Product catalog management',
+    'Conversion optimization',
+    'Mobile commerce',
+    'Store migration',
+  ]),
 ];

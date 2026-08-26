@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 
 // Master seed endpoint - seeds all CMS content
 // Use ?force=true to clear and re-seed all data

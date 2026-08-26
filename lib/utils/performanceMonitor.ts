@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Performance Monitoring System
  * Tracks FPS and performance metrics for adaptive quality adjustments
  */

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Adaptive Quality Engine
  * Automatically adjusts animation quality based on device capabilities and performance
  */

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Input Sanitization Utilities
  * Implements DOMPurify-based sanitization for XSS prevention
  */

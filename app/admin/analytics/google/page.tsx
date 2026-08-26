@@ -107,7 +107,7 @@ export default function GoogleAnalyticsPage() {
   if (loading) {
     return (
       <div className="flex h-96 items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -118,7 +118,7 @@ export default function GoogleAnalyticsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="flex items-center gap-3 text-3xl font-bold text-white">
-            <BarChart3 className="h-8 w-8 text-[#F58122]" />
+            <BarChart3 className="h-8 w-8 text-orange" />
             Google Analytics
           </h1>
           <p className="mt-1 text-slate-400">
@@ -130,7 +130,7 @@ export default function GoogleAnalyticsPage() {
         <div className="flex gap-2">
           <button
             onClick={() => setShowSetup(true)}
-            className="flex items-center gap-2 rounded-lg border border-slate-700 bg-[#1E293B] px-4 py-2 font-medium text-slate-400 transition-colors hover:text-white"
+            className="flex items-center gap-2 rounded-lg border border-slate-700 bg-navy px-4 py-2 font-medium text-slate-400 transition-colors hover:text-white"
           >
             <Settings className="h-4 w-4" />
             Settings
@@ -138,7 +138,7 @@ export default function GoogleAnalyticsPage() {
           <button
             onClick={() => fetchData(true)}
             disabled={refreshing}
-            className="flex items-center gap-2 rounded-lg border border-slate-700 bg-[#1E293B] px-4 py-2 font-medium text-slate-400 transition-colors hover:text-white"
+            className="flex items-center gap-2 rounded-lg border border-slate-700 bg-navy px-4 py-2 font-medium text-slate-400 transition-colors hover:text-white"
           >
             <RefreshCw
               className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`}
@@ -151,8 +151,8 @@ export default function GoogleAnalyticsPage() {
               onClick={() => setTimeRange(range)}
               className={`rounded-lg px-4 py-2 font-medium transition-colors ${
                 timeRange === range
-                  ? 'bg-[#F58122] text-white'
-                  : 'border border-slate-700 bg-[#1E293B] text-slate-400 hover:text-white'
+                  ? 'bg-orange text-white'
+                  : 'border border-slate-700 bg-navy text-slate-400 hover:text-white'
               }`}
             >
               {range === '7d'
@@ -167,8 +167,8 @@ export default function GoogleAnalyticsPage() {
 
       {/* Setup Modal */}
       {showSetup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="w-full max-w-md rounded-xl border border-slate-700 bg-[#1E293B] p-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/50">
+          <div className="w-full max-w-md rounded-xl border border-slate-700 bg-navy p-6">
             <h2 className="mb-4 text-xl font-bold text-white">
               Google Analytics Setup
             </h2>
@@ -182,13 +182,13 @@ export default function GoogleAnalyticsPage() {
                   value={propertyId}
                   onChange={(e) => setPropertyId(e.target.value)}
                   placeholder="G-XXXXXXXXXX"
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#F58122] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-orange focus:outline-none"
                 />
                 <p className="mt-1 text-xs text-slate-500">
                   Find this in GA4 → Admin → Data Streams → Your Stream
                 </p>
               </div>
-              <div className="rounded-lg border border-slate-700 bg-[#0F172A] p-4">
+              <div className="rounded-lg border border-slate-700 bg-navy p-4">
                 <h3 className="mb-2 text-sm font-medium text-white">
                   Setup Instructions:
                 </h3>
@@ -209,7 +209,7 @@ export default function GoogleAnalyticsPage() {
                 <button
                   onClick={saveSettings}
                   disabled={saving || !propertyId}
-                  className="rounded-lg bg-[#F58122] px-4 py-2 font-medium text-white disabled:opacity-50"
+                  className="rounded-lg bg-orange px-4 py-2 font-medium text-white disabled:opacity-50"
                 >
                   {saving ? 'Saving...' : 'Save Settings'}
                 </button>
@@ -221,7 +221,7 @@ export default function GoogleAnalyticsPage() {
 
       {/* Not Connected State */}
       {!data?.connected && (
-        <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-12 text-center">
+        <div className="rounded-xl border border-slate-700/50 bg-navy p-12 text-center">
           <BarChart3 className="mx-auto mb-4 h-16 w-16 text-slate-600" />
           <h3 className="mb-2 text-xl font-semibold text-white">
             Connect Google Analytics
@@ -232,7 +232,7 @@ export default function GoogleAnalyticsPage() {
           </p>
           <button
             onClick={() => setShowSetup(true)}
-            className="rounded-lg bg-[#F58122] px-6 py-3 font-medium text-white transition-colors hover:bg-[#F58122]/90"
+            className="rounded-lg bg-orange px-6 py-3 font-medium text-white transition-colors hover:bg-orange/90"
           >
             Connect Google Analytics
           </button>
@@ -260,7 +260,7 @@ export default function GoogleAnalyticsPage() {
 
           {/* Real-Time Metrics */}
           {data.realtime && (
-            <div className="rounded-xl bg-gradient-to-r from-[#F58122] to-[#F97316] p-6 text-white">
+            <div className="rounded-xl bg-gradient-to-r from-[#fc4c00] to-[#fc4c00] p-6 text-white">
               <div className="mb-4 flex items-center gap-2">
                 <div className="h-2 w-2 animate-pulse rounded-full bg-white" />
                 <h2 className="text-xl font-semibold">Real-Time</h2>
@@ -325,7 +325,7 @@ export default function GoogleAnalyticsPage() {
           <div className="grid grid-cols-2 gap-6">
             {/* Traffic Over Time */}
             {data.dailyData && (
-              <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+              <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
                 <h3 className="mb-4 text-lg font-semibold text-white">
                   Traffic Over Time
                 </h3>
@@ -345,7 +345,7 @@ export default function GoogleAnalyticsPage() {
                           initial={{ height: 0 }}
                           animate={{ height: `${height}%` }}
                           transition={{ duration: 0.5, delay: index * 0.02 }}
-                          className="w-full cursor-pointer rounded-t bg-gradient-to-t from-[#F58122] to-[#F97316] hover:from-[#F97316] hover:to-[#FB923C]"
+                          className="w-full cursor-pointer rounded-t bg-gradient-to-t from-[#fc4c00] to-[#fc4c00] hover:from-[#fc4c00] hover:to-[#FB923C]"
                         />
                         <div className="absolute -top-8 rounded bg-slate-800 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100">
                           {day.users} users
@@ -363,7 +363,7 @@ export default function GoogleAnalyticsPage() {
 
             {/* Device Breakdown */}
             {data.deviceBreakdown && (
-              <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+              <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
                 <h3 className="mb-4 text-lg font-semibold text-white">
                   Device Breakdown
                 </h3>
@@ -392,7 +392,7 @@ export default function GoogleAnalyticsPage() {
                           initial={{ width: 0 }}
                           animate={{ width: `${device.percentage}%` }}
                           transition={{ duration: 0.8 }}
-                          className="h-2 rounded-full bg-[#F58122]"
+                          className="h-2 rounded-full bg-orange"
                         />
                       </div>
                     </div>
@@ -406,7 +406,7 @@ export default function GoogleAnalyticsPage() {
           <div className="grid grid-cols-2 gap-6">
             {/* Top Pages */}
             {data.topPages && (
-              <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+              <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
                 <h3 className="mb-4 text-lg font-semibold text-white">
                   Top Pages
                 </h3>
@@ -440,7 +440,7 @@ export default function GoogleAnalyticsPage() {
 
             {/* Traffic Sources */}
             {data.topSources && (
-              <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+              <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
                 <h3 className="mb-4 text-lg font-semibold text-white">
                   Traffic Sources
                 </h3>
@@ -473,7 +473,7 @@ export default function GoogleAnalyticsPage() {
 
           {/* Countries */}
           {data.countryData && (
-            <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+            <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
               <h3 className="mb-4 text-lg font-semibold text-white">
                 Top Countries
               </h3>
@@ -481,7 +481,7 @@ export default function GoogleAnalyticsPage() {
                 {data.countryData.slice(0, 10).map((country) => (
                   <div
                     key={country.country}
-                    className="rounded-lg bg-[#0F172A] p-4 text-center"
+                    className="rounded-lg bg-navy p-4 text-center"
                   >
                     <div className="text-2xl font-bold text-white">
                       {country.users.toLocaleString()}
@@ -512,7 +512,7 @@ function StatCard({
   change?: number;
 }) {
   return (
-    <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-4">
+    <div className="rounded-xl border border-slate-700/50 bg-navy p-4">
       <div className="mb-2 flex items-center gap-2 text-slate-400">
         {icon}
         <span className="text-sm">{label}</span>

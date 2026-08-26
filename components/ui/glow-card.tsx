@@ -7,8 +7,8 @@ const GLOW_CARD_STYLES = `
   position: relative;
   --rotation: 4.2rad;
   background-image:
-    linear-gradient(var(--card-bg, #1E293B), var(--card-bg, #1E293B)),
-    linear-gradient(calc(var(--rotation, 4.2rad)), var(--card-accent, #37AFE1) 0, var(--card-bg, #1E293B) 30%, transparent 80%);
+    linear-gradient(var(--card-bg, #0a192f), var(--card-bg, #0a192f)),
+    linear-gradient(calc(var(--rotation, 4.2rad)), var(--card-accent, #06b6d4) 0, var(--card-bg, #0a192f) 30%, transparent 80%);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -36,8 +36,8 @@ export interface GlowCardProps {
 export const GlowCard: React.FC<GlowCardProps> = ({
   children,
   className = '',
-  backgroundColor = '#1E293B',
-  accentColor = '#37AFE1',
+  backgroundColor = '#0a192f',
+  accentColor = '#06b6d4',
   borderRadius = '1rem',
   borderWidth = '2px',
 }) => {

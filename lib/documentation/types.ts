@@ -1,4 +1,4 @@
-/**
+﻿/**
  * TypeScript types for CMS Documentation System
  * Used by admin documentation dashboard and HTML guide
  */
@@ -30,7 +30,10 @@ export interface CardStructure {
   fields?: string[];
 }
 
-export type SectionStatus = 'CMS Enabled' | 'Local Files Only' | 'Database-Driven';
+export type SectionStatus =
+  | 'CMS Enabled'
+  | 'Local Files Only'
+  | 'Database-Driven';
 
 export interface SectionDocumentation {
   id: string;

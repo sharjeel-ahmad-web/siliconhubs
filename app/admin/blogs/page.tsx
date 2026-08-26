@@ -190,7 +190,7 @@ export default function AdminBlogsPage() {
             resetForm();
             setShowModal(true);
           }}
-          className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-4 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+          className="flex items-center gap-2 rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80"
         >
           <Plus className="h-5 w-5" />
           New Post
@@ -205,14 +205,14 @@ export default function AdminBlogsPage() {
           placeholder="Search blogs..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full rounded-lg border border-slate-700 bg-[#1E293B] py-3 pl-10 pr-4 text-white placeholder-slate-400 focus:border-[#37AFE1] focus:outline-none"
+          className="w-full rounded-lg border border-slate-700 bg-navy py-3 pl-10 pr-4 text-white placeholder-slate-400 focus:border-cyan focus:outline-none"
         />
       </div>
 
       {/* Blog List */}
       {loading ? (
         <div className="flex justify-center py-12">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
         </div>
       ) : filteredBlogs.length === 0 ? (
         <div className="py-12 text-center text-slate-400">
@@ -223,7 +223,7 @@ export default function AdminBlogsPage() {
           {filteredBlogs.map((blog) => (
             <div
               key={blog._id}
-              className="flex items-center gap-4 rounded-xl border border-slate-700/50 bg-[#1E293B] p-4"
+              className="flex items-center gap-4 rounded-xl border border-slate-700/50 bg-navy p-4"
             >
               <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-slate-700">
                 {blog.thumbnail && (
@@ -241,14 +241,14 @@ export default function AdminBlogsPage() {
                     {blog.title}
                   </h3>
                   {blog.featured && (
-                    <Star className="h-4 w-4 fill-[#F58122] text-[#F58122]" />
+                    <Star className="h-4 w-4 fill-orange text-orange" />
                   )}
                 </div>
                 <p className="truncate text-sm text-slate-400">
                   {blog.excerpt}
                 </p>
                 <div className="mt-2 flex items-center gap-3">
-                  <span className="rounded bg-[#37AFE1]/20 px-2 py-1 text-xs text-[#37AFE1]">
+                  <span className="rounded bg-cyan/20 px-2 py-1 text-xs text-cyan">
                     {blog.category}
                   </span>
                   <span
@@ -268,8 +268,8 @@ export default function AdminBlogsPage() {
                   onClick={() => toggleFeatured(blog)}
                   className={`rounded-lg p-2 transition-colors ${
                     blog.featured
-                      ? 'bg-[#F58122]/20 text-[#F58122]'
-                      : 'bg-slate-700 text-slate-400 hover:text-[#F58122]'
+                      ? 'bg-orange/20 text-orange'
+                      : 'bg-slate-700 text-slate-400 hover:text-orange'
                   }`}
                   title={
                     blog.featured ? 'Remove from featured' : 'Mark as featured'
@@ -294,7 +294,7 @@ export default function AdminBlogsPage() {
                 </button>
                 <button
                   onClick={() => openEditModal(blog)}
-                  className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-[#37AFE1] hover:text-white"
+                  className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-cyan hover:text-white"
                 >
                   <Edit className="h-5 w-5" />
                 </button>
@@ -312,8 +312,8 @@ export default function AdminBlogsPage() {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-[#1E293B]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/70 p-4">
+          <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-navy">
             <div className="border-b border-slate-700 p-6">
               <h2 className="text-xl font-bold text-white">
                 {editingBlog ? 'Edit Blog Post' : 'Create New Blog Post'}
@@ -331,7 +331,7 @@ export default function AdminBlogsPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, title: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   required
                 />
               </div>
@@ -346,7 +346,7 @@ export default function AdminBlogsPage() {
                     setFormData({ ...formData, excerpt: e.target.value })
                   }
                   rows={2}
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="Brief description of the post..."
                 />
               </div>
@@ -361,7 +361,7 @@ export default function AdminBlogsPage() {
                     setFormData({ ...formData, content: e.target.value })
                   }
                   rows={10}
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 font-mono text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 font-mono text-sm text-white focus:border-cyan focus:outline-none"
                   placeholder="Write your blog content here... (Supports Markdown)"
                   required
                 />
@@ -378,7 +378,7 @@ export default function AdminBlogsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, thumbnail: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     placeholder="/media/blog/my-post/thumbnail.jpg"
                   />
                 </div>
@@ -392,7 +392,7 @@ export default function AdminBlogsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, coverImage: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     placeholder="/media/blog/my-post/cover.jpg"
                   />
                 </div>
@@ -408,7 +408,7 @@ export default function AdminBlogsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, category: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   >
                     {categories.map((cat) => (
                       <option key={cat} value={cat}>
@@ -427,7 +427,7 @@ export default function AdminBlogsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, author: e.target.value })
                     }
-                    className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   />
                 </div>
               </div>
@@ -442,7 +442,7 @@ export default function AdminBlogsPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, tags: e.target.value })
                   }
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                   placeholder="nextjs, react, web development"
                 />
               </div>
@@ -455,7 +455,7 @@ export default function AdminBlogsPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, featured: e.target.checked })
                     }
-                    className="h-4 w-4 rounded border-slate-600 text-[#F58122] focus:ring-[#F58122]"
+                    className="h-4 w-4 rounded border-slate-600 text-orange focus:ring-orange"
                   />
                   <span className="text-slate-300">Featured Post</span>
                 </label>
@@ -485,7 +485,7 @@ export default function AdminBlogsPage() {
                 </button>
                 <button
                   type="submit"
-                  className="rounded-lg bg-[#37AFE1] px-6 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+                  className="rounded-lg bg-cyan px-6 py-2 text-white transition-colors hover:bg-cyan/80"
                 >
                   {editingBlog ? 'Update Post' : 'Create Post'}
                 </button>

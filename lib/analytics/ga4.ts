@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Google Analytics 4 Integration
  *
  * Implements Requirements 25.1-25.10

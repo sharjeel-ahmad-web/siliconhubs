@@ -1,4 +1,4 @@
-/**
+﻿/**
  * GDPR-Compliant Cookie Consent Management
  */
 

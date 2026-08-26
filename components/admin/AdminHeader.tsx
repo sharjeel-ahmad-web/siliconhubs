@@ -104,18 +104,18 @@ export default function AdminHeader({ user }: AdminHeaderProps) {
   const getNotificationIcon = (type: string) => {
     switch (type) {
       case 'contact':
-        return <MessageSquare className="h-4 w-4 text-[#37AFE1]" />;
+        return <MessageSquare className="h-4 w-4 text-cyan" />;
       case 'user':
         return <UserPlus className="h-4 w-4 text-green-400" />;
       case 'content':
-        return <FileText className="h-4 w-4 text-[#F58122]" />;
+        return <FileText className="h-4 w-4 text-orange" />;
       default:
         return <Bell className="h-4 w-4 text-slate-400" />;
     }
   };
 
   return (
-    <header className="flex h-[73px] items-center border-b border-slate-700 bg-[#1E293B] px-6 py-4">
+    <header className="flex h-[73px] items-center border-b border-slate-700 bg-navy px-6 py-4">
       <div className="flex w-full items-center justify-between">
         {/* Search */}
         <div className="max-w-md flex-1">
@@ -124,7 +124,7 @@ export default function AdminHeader({ user }: AdminHeaderProps) {
             <input
               type="text"
               placeholder="Search..."
-              className="w-full rounded-lg border border-slate-700 bg-[#0F172A] py-2 pl-10 pr-4 text-white placeholder-slate-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#37AFE1]"
+              className="w-full rounded-lg border border-slate-700 bg-navy py-2 pl-10 pr-4 text-white placeholder-slate-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-cyan"
             />
           </div>
         </div>
@@ -147,13 +147,13 @@ export default function AdminHeader({ user }: AdminHeaderProps) {
 
             {/* Notifications Dropdown */}
             {showNotifications && (
-              <div className="absolute right-0 z-50 mt-2 w-80 overflow-hidden rounded-xl border border-slate-700 bg-[#1E293B] shadow-xl">
+              <div className="absolute right-0 z-50 mt-2 w-80 overflow-hidden rounded-xl border border-slate-700 bg-navy shadow-xl">
                 <div className="flex items-center justify-between border-b border-slate-700 p-4">
                   <h3 className="font-semibold text-white">Notifications</h3>
                   {unreadCount > 0 && (
                     <button
                       onClick={markAllAsRead}
-                      className="text-xs text-[#37AFE1] transition-colors hover:text-[#37AFE1]/80"
+                      className="text-xs text-cyan transition-colors hover:text-cyan/80"
                     >
                       Mark all as read
                     </button>
@@ -218,7 +218,7 @@ export default function AdminHeader({ user }: AdminHeaderProps) {
                 </div>
 
                 <div className="border-t border-slate-700 p-3">
-                  <button className="w-full py-2 text-center text-sm text-[#37AFE1] transition-colors hover:text-[#37AFE1]/80">
+                  <button className="w-full py-2 text-center text-sm text-cyan transition-colors hover:text-cyan/80">
                     View all notifications
                   </button>
                 </div>

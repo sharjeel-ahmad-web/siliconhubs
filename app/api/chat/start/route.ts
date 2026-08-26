@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 import { Resend } from 'resend';
 
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       messages: [
         {
           role: 'assistant',
-          content: `Hi ${name}! 👋 Welcome to Rising Dot. I'm here to help you with any questions about our services. How can I assist you today?`,
+          content: `Hi ${name}! ðŸ‘‹ Welcome to Rising Dot. I'm here to help you with any questions about our services. How can I assist you today?`,
           timestamp: new Date(),
         },
       ],
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
           subject: `New Chat Started - ${name}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #F58122;">New Live Chat Started</h2>
+              <h2 style="color: #fc4c00;">New Live Chat Started</h2>
               <p>A new visitor has started a chat on your website:</p>
               <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 20px 0;">
                 <p><strong>Name:</strong> ${name}</p>
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
               </div>
               <p>The AI assistant is currently handling the conversation. You'll be notified if they request human support.</p>
               <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/live-chat" 
-                 style="display: inline-block; background: #F58122; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; margin-top: 15px;">
+                 style="display: inline-block; background: #fc4c00; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; margin-top: 15px;">
                 View in Dashboard
               </a>
             </div>

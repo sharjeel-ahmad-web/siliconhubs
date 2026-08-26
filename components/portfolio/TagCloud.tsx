@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import {
@@ -31,12 +31,12 @@ const tagConfig: Record<
   string,
   { icon: React.ComponentType<{ className?: string }>; color: string }
 > = {
-  'Web Design': { icon: HiOutlineGlobeAlt, color: '#37AFE1' },
+  'Web Design': { icon: HiOutlineGlobeAlt, color: '#06b6d4' },
   Shopify: { icon: SiShopify, color: '#95BF47' },
-  SEO: { icon: HiOutlineChartBar, color: '#F58122' },
+  SEO: { icon: HiOutlineChartBar, color: '#fc4c00' },
   'Chatbot Development': {
     icon: HiOutlineChatBubbleLeftRight,
-    color: '#37AFE1',
+    color: '#06b6d4',
   },
   'N8N Automations': { icon: SiN8N, color: '#EA4B71' },
   WordPress: { icon: SiWordpress, color: '#21759B' },
@@ -49,8 +49,8 @@ const tagConfig: Record<
   OpenAI: { icon: SiOpenai, color: '#00A67E' },
   Analytics: { icon: SiGoogleanalytics, color: '#E37400' },
   Airtable: { icon: SiAirtable, color: '#18BFFF' },
-  SaaS: { icon: HiOutlineRocketLaunch, color: '#F58122' },
-  'AI/ML': { icon: HiOutlineCpuChip, color: '#37AFE1' },
+  SaaS: { icon: HiOutlineRocketLaunch, color: '#fc4c00' },
+  'AI/ML': { icon: HiOutlineCpuChip, color: '#06b6d4' },
 };
 
 interface Position {
@@ -328,14 +328,14 @@ export default function TagCloud({ tags }: TagCloudProps) {
       data-no-magnetic="true"
       style={{
         background:
-          'radial-gradient(circle at 30% 40%, rgba(245, 129, 34, 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(55, 175, 225, 0.1) 0%, transparent 50%)',
-        border: '1px solid rgba(55, 175, 225, 0.2)',
+          'radial-gradient(circle at 30% 40%, rgba(252, 76, 0, 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(6, 182, 212, 0.1) 0%, transparent 50%)',
+        border: '1px solid rgba(6, 182, 212, 0.2)',
       }}
     >
       {tags.map((tag, index) => {
         const cfg = tagConfig[tag] || {
           icon: HiOutlineGlobeAlt,
-          color: '#37AFE1',
+          color: '#06b6d4',
         };
         const Icon = cfg.icon;
         const color = cfg.color;

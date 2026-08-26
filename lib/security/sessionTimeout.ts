@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Session Timeout Management
  * Implements automatic session timeout after 15 minutes of inactivity
  */

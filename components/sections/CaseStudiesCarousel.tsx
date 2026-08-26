@@ -97,7 +97,8 @@ export default function CaseStudiesCarousel({
   sectionContent: sectionContentProp,
   caseStudies: caseStudiesProp,
 }: CaseStudiesCarouselProps) {
-  const hasStatic = sectionContentProp !== undefined && caseStudiesProp !== undefined;
+  const hasStatic =
+    sectionContentProp !== undefined && caseStudiesProp !== undefined;
   const contentPage = page === 'portfolio' ? 'home' : page;
   const { content: apiContent } = useSiteContent<CaseStudiesSectionContent>(
     hasStatic ? 'home' : contentPage,
@@ -108,7 +109,8 @@ export default function CaseStudiesCarousel({
     page === 'portfolio' ? defaultPortfolioCaseStudies : defaultHomeCaseStudies;
 
   const sectionContent = sectionContentProp ?? apiContent;
-  const caseStudies = caseStudiesProp ?? sectionContent?.studies ?? defaultCaseStudies;
+  const caseStudies =
+    caseStudiesProp ?? sectionContent?.studies ?? defaultCaseStudies;
 
   const eyebrow = sectionContent?.eyebrow ?? 'Case Studies';
   const title = sectionContent?.title ?? 'Results That';
@@ -118,7 +120,7 @@ export default function CaseStudiesCarousel({
     "Real projects, real impact. See how we've helped businesses transform their digital presence.";
 
   return (
-    <section className="relative overflow-hidden bg-black px-4 pb-16 pt-12 sm:px-6 md:pb-24 md:pt-16 lg:px-8">
+    <section className="relative overflow-hidden bg-navy px-4 pb-16 pt-12 sm:px-6 md:pb-24 md:pt-16 lg:px-8">
       <div className="container relative z-10 mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-12 text-center">
@@ -147,7 +149,7 @@ export default function CaseStudiesCarousel({
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+                  'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
                 backgroundSize: '300% 100%',
                 animation: 'gradient-shift 4s ease-in-out infinite',
               }}
@@ -186,15 +188,15 @@ export default function CaseStudiesCarousel({
             ))}
           </SliderContent>
 
-          <SliderBtnGroup className="absolute bottom-0 left-0 right-0 grid grid-cols-2 overflow-hidden rounded-b-2xl border-t border-white/10 bg-black/60 backdrop-blur-xl md:grid-cols-4">
+          <SliderBtnGroup className="absolute bottom-0 left-0 right-0 grid grid-cols-2 overflow-hidden rounded-b-2xl border-t border-white/10 bg-navy/60 backdrop-blur-xl md:grid-cols-4">
             {caseStudies.map((item, index) => (
               <SliderBtn
                 key={index}
                 value={item.sliderName}
                 className="cursor-pointer border-r border-white/10 p-4 text-left transition-all last:border-r-0 hover:bg-white/5 md:p-5"
-                progressBarClass="bg-gradient-to-r from-[#F58122] to-[#37AFE1] h-full"
+                progressBarClass="bg-gradient-to-r from-orange to-cyan h-full"
               >
-                <h3 className="relative mb-2 inline-flex items-center gap-2 rounded-full bg-[#F58122] px-3 py-1 text-xs font-semibold text-white">
+                <h3 className="relative mb-2 inline-flex items-center gap-2 rounded-full bg-orange px-3 py-1 text-xs font-semibold text-white">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
                   {item.title}
                 </h3>

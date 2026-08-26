@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 
 export async function GET() {
   const checks = {
@@ -13,9 +13,8 @@ export async function GET() {
   return NextResponse.json({
     status: 'ok',
     checks,
-    message: checks.NEXTAUTH_SECRET 
-      ? 'All environment variables are loaded' 
-      : '⚠️ NEXTAUTH_SECRET is missing',
+    message: checks.NEXTAUTH_SECRET
+      ? 'All environment variables are loaded'
+      : 'âš ï¸ NEXTAUTH_SECRET is missing',
   });
 }
-

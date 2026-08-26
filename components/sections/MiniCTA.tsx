@@ -26,7 +26,7 @@ export default function MiniCTA({
   showSocials = true,
 }: MiniCTAProps) {
   return (
-    <section className="bg-black px-6 py-24">
+    <section className="bg-navy px-6 py-24">
       <div className="mx-auto max-w-4xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -65,7 +65,7 @@ export default function MiniCTA({
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-12"
             >
-              <p className="mb-4 text-sm text-[#64748B]">
+              <p className="mb-4 text-sm text-slate-grey">
                 Follow us on social media
               </p>
               <SocialLinks socials={defaultSocials} />

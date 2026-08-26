@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Analytics Tracker
  *
  * Client-side utility for tracking user interactions and behavior

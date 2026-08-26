@@ -194,7 +194,7 @@ export default function MigratePage() {
                 setScanResult(null);
                 setMigrationResult(null);
               }}
-              className="flex items-center gap-2 rounded-lg bg-orange-500 px-4 py-2 text-white transition-colors hover:bg-orange-600"
+              className="bg-orange-500 hover:bg-orange-600 flex items-center gap-2 rounded-lg px-4 py-2 text-white transition-colors"
             >
               <RefreshCw className="h-4 w-4" />
               Re-migrate Files
@@ -215,7 +215,7 @@ export default function MigratePage() {
             <div
               className={`flex h-10 w-10 items-center justify-center rounded-full font-bold ${
                 currentStep >= step.num
-                  ? 'bg-[#37AFE1] text-white'
+                  ? 'bg-cyan text-white'
                   : 'bg-slate-700 text-slate-400'
               }`}
             >
@@ -240,7 +240,7 @@ export default function MigratePage() {
       <div className="grid grid-cols-2 gap-6">
         {/* Step 1: Scan */}
         <div
-          className={`rounded-xl border border-slate-700/50 bg-[#1E293B] p-6 ${currentStep !== 1 && currentStep !== 4 && 'opacity-50'}`}
+          className={`rounded-xl border border-slate-700/50 bg-navy p-6 ${currentStep !== 1 && currentStep !== 4 && 'opacity-50'}`}
         >
           <div className="mb-4 flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/20">
@@ -257,7 +257,7 @@ export default function MigratePage() {
           </div>
 
           {scanResult && (
-            <div className="mb-4 rounded-lg bg-[#0F172A] p-4">
+            <div className="mb-4 rounded-lg bg-navy p-4">
               <p className="mb-2 font-medium text-white">
                 Found {scanResult.totalFiles} files
               </p>
@@ -302,11 +302,11 @@ export default function MigratePage() {
 
         {/* Step 2: Migrate */}
         <div
-          className={`rounded-xl border border-slate-700/50 bg-[#1E293B] p-6 ${currentStep !== 2 && 'opacity-50'}`}
+          className={`rounded-xl border border-slate-700/50 bg-navy p-6 ${currentStep !== 2 && 'opacity-50'}`}
         >
           <div className="mb-4 flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-500/20">
-              <Cloud className="h-5 w-5 text-cyan-400" />
+            <div className="bg-cyan-500/20 flex h-10 w-10 items-center justify-center rounded-lg">
+              <Cloud className="text-cyan-400 h-5 w-5" />
             </div>
             <div>
               <h3 className="text-lg font-semibold text-white">
@@ -319,7 +319,7 @@ export default function MigratePage() {
           </div>
 
           {migrationResult && (
-            <div className="mb-4 rounded-lg bg-[#0F172A] p-4">
+            <div className="mb-4 rounded-lg bg-navy p-4">
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
                   <p className="text-2xl font-bold text-white">
@@ -346,7 +346,7 @@ export default function MigratePage() {
           <button
             onClick={migrateFiles}
             disabled={migrating || currentStep !== 2}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-cyan-500 px-4 py-3 text-white transition-colors hover:bg-cyan-600 disabled:opacity-50"
+            className="bg-cyan-500 hover:bg-cyan-600 flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 text-white transition-colors disabled:opacity-50"
           >
             {migrating ? (
               <>
@@ -364,7 +364,7 @@ export default function MigratePage() {
 
         {/* Step 3: Update Database */}
         <div
-          className={`rounded-xl border border-slate-700/50 bg-[#1E293B] p-6 ${currentStep !== 3 && 'opacity-50'}`}
+          className={`rounded-xl border border-slate-700/50 bg-navy p-6 ${currentStep !== 3 && 'opacity-50'}`}
         >
           <div className="mb-4 flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-500/20">
@@ -407,7 +407,7 @@ export default function MigratePage() {
 
         {/* Step 4: Complete */}
         <div
-          className={`rounded-xl border border-slate-700/50 bg-[#1E293B] p-6 ${currentStep !== 4 && 'opacity-50'}`}
+          className={`rounded-xl border border-slate-700/50 bg-navy p-6 ${currentStep !== 4 && 'opacity-50'}`}
         >
           <div className="mb-4 flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500/20">
@@ -446,7 +446,7 @@ export default function MigratePage() {
       </div>
 
       {/* Info Box */}
-      <div className="mt-6 rounded-xl border border-slate-700/50 bg-[#1E293B] p-4">
+      <div className="mt-6 rounded-xl border border-slate-700/50 bg-navy p-4">
         <div className="flex items-start gap-3">
           <AlertCircle className="mt-0.5 h-5 w-5 text-yellow-400" />
           <div>

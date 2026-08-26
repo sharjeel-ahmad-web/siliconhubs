@@ -11,14 +11,14 @@ interface Skill {
 }
 
 const defaultSkills: Skill[] = [
-  { name: 'Web Design', level: 95, color: '#2563EB' },
-  { name: 'React/Next.js', level: 90, color: '#F97316' },
-  { name: 'SEO', level: 88, color: '#2563EB' },
-  { name: 'N8N Automation', level: 92, color: '#F97316' },
-  { name: 'AI/Chatbots', level: 85, color: '#2563EB' },
-  { name: 'WordPress', level: 87, color: '#F97316' },
-  { name: 'Shopify', level: 89, color: '#2563EB' },
-  { name: 'Animation', level: 93, color: '#F97316' },
+  { name: 'Web Design', level: 95, color: '#0a192f' },
+  { name: 'React/Next.js', level: 90, color: '#fc4c00' },
+  { name: 'SEO', level: 88, color: '#0a192f' },
+  { name: 'N8N Automation', level: 92, color: '#fc4c00' },
+  { name: 'AI/Chatbots', level: 85, color: '#0a192f' },
+  { name: 'WordPress', level: 87, color: '#fc4c00' },
+  { name: 'Shopify', level: 89, color: '#0a192f' },
+  { name: 'Animation', level: 93, color: '#fc4c00' },
 ];
 
 export default function SkillVisualization() {
@@ -108,7 +108,7 @@ function SkillChart({ skill, index }: SkillChartProps) {
             cx={radius}
             cy={radius}
             r={safeR}
-            stroke="#1E293B"
+            stroke="#0a192f"
             strokeWidth={strokeWidth}
             fill="transparent"
           />

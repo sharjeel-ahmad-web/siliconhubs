@@ -106,21 +106,27 @@ export default function StackFeatureSection({
     'We leverage cutting-edge technologies to deliver scalable, high-performance solutions that drive your business forward.';
   const ctaText = content?.ctaText || 'Start Your Project';
   const ctaHrefRaw = content?.ctaHref;
-  const ctaHref = (typeof ctaHrefRaw === 'string' && ctaHrefRaw !== '') ? ctaHrefRaw : '/contact';
+  const ctaHref =
+    typeof ctaHrefRaw === 'string' && ctaHrefRaw !== ''
+      ? ctaHrefRaw
+      : '/contact';
   const secondaryCtaText = content?.secondaryCtaText || 'View Our Work';
   const secondaryCtaHrefRaw = content?.secondaryCtaHref;
-  const secondaryCtaHref = (typeof secondaryCtaHrefRaw === 'string' && secondaryCtaHrefRaw !== '') ? secondaryCtaHrefRaw : '/portfolio';
+  const secondaryCtaHref =
+    typeof secondaryCtaHrefRaw === 'string' && secondaryCtaHrefRaw !== ''
+      ? secondaryCtaHrefRaw
+      : '/portfolio';
   const centerText = content?.centerText || 'RISING';
   const iconConfigs = content?.icons || defaultIconConfigs;
 
   // Color configuration
   const colors = {
-    borderColor: content?.colors?.borderColor || '#37AFE1',
-    orbitBorderColor: content?.colors?.orbitBorderColor || '#37AFE1',
-    iconBgColor: content?.colors?.iconBgColor || '#0F172A',
-    iconBorderColor: content?.colors?.iconBorderColor || '#37AFE1',
-    gradientStart: content?.colors?.gradientStart || '#F58122',
-    gradientEnd: content?.colors?.gradientEnd || '#37AFE1',
+    borderColor: content?.colors?.borderColor || '#06b6d4',
+    orbitBorderColor: content?.colors?.orbitBorderColor || '#06b6d4',
+    iconBgColor: content?.colors?.iconBgColor || '#0a192f',
+    iconBorderColor: content?.colors?.iconBorderColor || '#06b6d4',
+    gradientStart: content?.colors?.gradientStart || '#fc4c00',
+    gradientEnd: content?.colors?.gradientEnd || '#06b6d4',
   };
   const orbitCount = 3;
   const orbitGap = 8;
@@ -141,7 +147,7 @@ export default function StackFeatureSection({
             animate={{ rotate: 360 }}
             transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
           >
-            <Sparkles className="h-3 w-3 text-[#F58122] sm:h-4 sm:w-4" />
+            <Sparkles className="h-3 w-3 text-orange sm:h-4 sm:w-4" />
           </motion.div>
           <span className="font-medium text-white/80">{eyebrow}</span>
           <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
@@ -151,7 +157,7 @@ export default function StackFeatureSection({
             {title}
           </span>{' '}
           <motion.span
-            className="bg-gradient-to-r from-[#F58122] via-[#37AFE1] to-[#F58122] bg-clip-text text-transparent"
+            className="bg-gradient-to-r from-[#fc4c00] via-[#06b6d4] to-[#fc4c00] bg-clip-text text-transparent"
             animate={{
               backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
             }}

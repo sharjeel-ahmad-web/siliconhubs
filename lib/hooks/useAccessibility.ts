@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Accessibility Hooks
  * React hooks for managing accessibility features
  */

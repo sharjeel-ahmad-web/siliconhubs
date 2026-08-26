@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Color Scheme Test | Digital Enterprise</title>
+
+    <!-- Google Fonts: Poppins for Headings, Inter for Body -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN with Full Custom Palette -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#fc4c00',        /* Vibrant Orange */
+                        secondary: '#0a192f',      /* Deep Navy Blue */
+                        cream: {
+                            DEFAULT: '#ffe8c1',    /* Warm Cream (Base BG) */
+                            light: '#ffedd7',      /* Lighter Cream (Cards) */
+                        },
+                        dark: {
+                            DEFAULT: '#000000',    /* Deep Black */
+                            grey: '#363534',       /* Dark Grey */
+                            slate: '#515161'       /* Slate Grey */
+                        },
+                        success: '#10b981',        /* Emerald Green */
+                        accent: '#06b6d4',         /* Tech Cyan */
+                        white: '#ffffff'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-cream font-sans antialiased text-dark-grey min-h-screen flex flex-col">
+
+    <!-- NAVIGATION -->
+    <nav class="container mx-auto px-6 py-6 flex justify-between items-center relative z-10">
+        <div class="font-poppins font-bold text-2xl text-dark">
+            Digital<span class="text-primary">Enterprise</span>
+        </div>
+        <!-- Navy Blue button test -->
+        <a href="#"
+            class="bg-secondary text-white font-poppins font-semibold px-6 py-2 rounded-full hover:bg-primary transition-colors shadow-lg">
+            Client Login
+        </a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="container mx-auto px-6 py-16 text-center">
+        <span
+            class="text-secondary font-poppins font-semibold tracking-widest uppercase text-sm border border-secondary/20 bg-secondary/5 px-4 py-1 rounded-full mb-6 inline-block">
+            Premium Tech Agency
+        </span>
+
+        <h1 class="font-poppins font-bold text-5xl md:text-6xl text-dark mt-4 mb-6 leading-tight">
+            Automate & Scale Your <br>
+            <span class="text-primary">Digital Enterprise</span>
+        </h1>
+
+        <p class="text-dark-slate text-lg max-w-2xl mx-auto mb-10">
+            We build high-converting storefronts, robust backend systems, and automated workflows to turn your business
+            into a scalable machine.
+        </p>
+
+        <a href="#"
+            class="bg-primary text-white font-poppins font-bold px-8 py-4 rounded-full text-lg hover:-translate-y-1 transition-transform shadow-xl shadow-primary/30 inline-flex items-center gap-2">
+            Start Your Project
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </section>
+
+    <!-- CORE SERVICES (4 Strict Services) -->
+    <section class="container mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <h2 class="font-poppins font-bold text-3xl text-dark">Our Specialized <span
+                    class="text-primary">Services</span></h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Service 1 -->
+            <div
+                class="bg-cream-light p-8 rounded-3xl border border-dark/5 hover:border-primary/30 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm text-accent">
+                    <!-- Cyan Icon -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-poppins font-bold text-xl text-dark mb-3">Digital & Social Media Marketing</h3>
+                <p class="text-sm text-dark-slate">Data-driven marketing strategies to maximize your ROI and brand
+                    visibility.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div
+                class="bg-cream-light p-8 rounded-3xl border border-dark/5 hover:border-primary/30 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm text-accent">
+                    <!-- Cyan Icon -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                </div>
+                <h3 class="font-poppins font-bold text-xl text-dark mb-3">Custom Website Development</h3>
+                <p class="text-sm text-dark-slate">Bespoke, high-performance web applications built on modern
+                    frameworks.</p>
+            </div>
+
+            <!-- Service 3 (With Success Green Highlight) -->
+            <div
+                class="bg-white p-8 rounded-3xl border border-dark/5 hover:border-success/50 hover:-translate-y-2 hover:shadow-xl hover:shadow-success/10 transition-all duration-300 relative overflow-hidden group">
+                <!-- Green Active Status Dot -->
+                <div class="absolute top-6 right-6 flex items-center gap-2">
+                    <span class="relative flex h-3 w-3">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-success"></span>
+                    </span>
+                </div>
+                <div class="w-12 h-12 bg-cream-light rounded-xl flex items-center justify-center mb-6 text-success">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-poppins font-bold text-xl text-dark mb-3">AI Automations</h3>
+                <p class="text-sm text-dark-slate">Seamless integrations with n8n and Zapier to automate your
+                    back-office.</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div
+                class="bg-cream-light p-8 rounded-3xl border border-dark/5 hover:border-primary/30 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm text-accent">
+                    <!-- Cyan Icon -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="font-poppins font-bold text-xl text-dark mb-3">Shopify & WordPress Solutions</h3>
+                <p class="text-sm text-dark-slate">Scalable e-commerce and CMS platforms tailored for high conversions.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DARK CTA SECTION (Testing Deep Navy Blue) -->
+    <section class="mt-auto bg-secondary text-white py-20 rounded-t-[3rem] shadow-2xl">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-poppins font-bold text-4xl mb-6">Ready to scale your enterprise?</h2>
+            <p class="text-white/70 mb-10 max-w-xl mx-auto">
+                Join founders who trust us to manage their technical infrastructure. Book a free consultation call
+                today.
+            </p>
+            <a href="#"
+                class="bg-primary text-white font-poppins font-bold px-8 py-4 rounded-full text-lg hover:bg-white hover:text-primary transition-colors shadow-xl inline-flex items-center gap-2">
+                Book Strategy Call
+            </a>
+        </div>
+    </section>
+
+</body>
+
+</html>

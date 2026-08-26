@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Montserrat, Inter, Fira_Code } from 'next/font/google';
+import { Montserrat, Inter, Fira_Code, Poppins } from 'next/font/google';
 import dynamic from 'next/dynamic';
 import StructuredData from '@/components/seo/StructuredData';
 import { generateOrganizationSchema } from '@/lib/seo/structuredData';
@@ -9,7 +9,9 @@ import './globals.css';
 // Dynamic imports for client-only components; .catch() avoids crash if a chunk fails to load
 const MagneticCursor = dynamic(
   () =>
-    import('@/components/MagneticCursor').catch(() => ({ default: () => null })),
+    import('@/components/MagneticCursor').catch(() => ({
+      default: () => null,
+    })),
   { ssr: false }
 );
 
@@ -38,7 +40,8 @@ const AnalyticsTracker = dynamic(
 );
 
 const ChatWidget = dynamic(
-  () => import('@/components/ChatWidget').catch(() => ({ default: () => null })),
+  () =>
+    import('@/components/ChatWidget').catch(() => ({ default: () => null })),
   { ssr: false }
 );
 
@@ -60,6 +63,13 @@ const firaCode = Fira_Code({
   subsets: ['latin'],
   weight: ['500'],
   variable: '--font-fira-code',
+  display: 'swap',
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-poppins',
   display: 'swap',
 });
 
@@ -86,7 +96,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${inter.variable} ${firaCode.variable}`}
+      className={`${montserrat.variable} ${inter.variable} ${firaCode.variable} ${poppins.variable}`}
     >
       <head>
         {/* Resource hints for performance */}
@@ -100,7 +110,7 @@ export default function RootLayout({
         {/* Organization Schema - Global */}
         <StructuredData schema={generateOrganizationSchema()} />
       </head>
-      <body className="bg-black font-inter">
+      <body className="bg-warm-cream font-inter text-dark-grey">
         <GlobalBackground />
         <MagneticCursor />
         {children}

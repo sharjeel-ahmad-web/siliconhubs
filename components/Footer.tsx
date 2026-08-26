@@ -133,7 +133,7 @@ export default function Footer() {
   ).replace('{year}', new Date().getFullYear().toString());
 
   return (
-    <footer className="border-t border-[#37AFE1]/20 bg-black">
+    <footer className="border-t border-cyan/20 bg-navy">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           {/* Brand */}
@@ -145,7 +145,7 @@ export default function Footer() {
                 className="h-16 w-auto"
               />
             </Link>
-            <p className="mt-4 font-inter text-sm leading-relaxed text-[#64748B]">
+            <p className="mt-4 font-inter text-sm leading-relaxed text-slate-grey">
               {settings.footer.description ||
                 'Premium digital solutions that transform your business through innovative technology and stunning design.'}
             </p>
@@ -164,7 +164,7 @@ export default function Footer() {
                     <li key={link.href}>
                       <Link
                         href={link.href ?? '#'}
-                        className="font-inter text-sm text-[#64748B] transition-colors hover:text-[#37AFE1]"
+                        className="font-inter text-sm text-slate-grey transition-colors hover:text-cyan"
                       >
                         {link.label}
                       </Link>
@@ -190,13 +190,13 @@ export default function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="flex-1 rounded-lg border border-[#37AFE1]/30 bg-[#1E293B] px-4 py-2 font-inter text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="flex-1 rounded-lg border border-cyan/30 bg-navy px-4 py-2 font-inter text-sm text-white focus:border-cyan focus:outline-none"
                 />
                 <ParticleWrapper>
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="rounded-lg bg-[#F58122] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#e0741d] disabled:opacity-50"
+                    className="rounded-lg bg-orange px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange/80 disabled:opacity-50"
                   >
                     {submitting ? '...' : '→'}
                   </button>
@@ -214,8 +214,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#37AFE1]/20 pt-8 md:flex-row">
-          <p className="font-inter text-sm text-[#64748B]">{copyrightText}</p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-cyan/20 pt-8 md:flex-row">
+          <p className="font-inter text-sm text-slate-grey">{copyrightText}</p>
 
           {/* Social Links */}
           {socialItems.length > 0 && (
@@ -226,7 +226,7 @@ export default function Footer() {
                   href={data.url ?? '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#F58122]/50 bg-[#1E293B] text-[#F58122] transition-colors hover:border-[#37AFE1] hover:text-[#37AFE1]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-orange/50 bg-navy text-orange transition-colors hover:border-cyan hover:text-cyan"
                   aria-label={label}
                 >
                   <Icon className="h-7 w-7" />

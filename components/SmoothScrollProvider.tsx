@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SmoothScrollProvider Component
  *
  * Initializes and provides smooth scrolling functionality globally

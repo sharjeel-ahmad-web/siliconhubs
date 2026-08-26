@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -109,7 +109,7 @@ const defaultSettings: NavigationSettings = {
     logo: '/logo.png',
     description:
       'Premium digital solutions that transform your business through innovative technology and stunning design.',
-    copyrightText: '© {year} Rising Dot Agency. All rights reserved.',
+    copyrightText: 'Â© {year} Rising Dot Agency. All rights reserved.',
     showNewsletter: true,
     columns: [
       {
@@ -155,10 +155,11 @@ const defaultSettings: NavigationSettings = {
   },
 };
 
-const navigationCache: { data: NavigationSettings | null; timestamp: number } = {
-  data: null,
-  timestamp: 0,
-};
+const navigationCache: { data: NavigationSettings | null; timestamp: number } =
+  {
+    data: null,
+    timestamp: 0,
+  };
 const NAV_CACHE_MS = 60 * 1000;
 
 export function useNavigation() {
@@ -187,26 +188,56 @@ export function useNavigation() {
           const footer = { ...defaultSettings.footer, ...(data.footer ?? {}) };
           const social = { ...defaultSettings.social, ...(data.social ?? {}) };
           // Ensure every link has a string href so <Link> never receives undefined
-          header.navLinks = (header.navLinks ?? []).map((link: { href?: string; label?: string; enabled?: boolean; order?: number; hasDropdown?: boolean }) => ({
-            ...link,
-            href: link?.href != null && link.href !== '' ? link.href : '#',
-          }));
-          header.serviceLinks = (header.serviceLinks ?? []).map((link: { href?: string; label?: string; enabled?: boolean; order?: number }) => ({
-            ...link,
-            href: link?.href != null && link.href !== '' ? link.href : '#',
-          }));
+          header.navLinks = (header.navLinks ?? []).map(
+            (link: {
+              href?: string;
+              label?: string;
+              enabled?: boolean;
+              order?: number;
+              hasDropdown?: boolean;
+            }) => ({
+              ...link,
+              href: link?.href != null && link.href !== '' ? link.href : '#',
+            })
+          );
+          header.serviceLinks = (header.serviceLinks ?? []).map(
+            (link: {
+              href?: string;
+              label?: string;
+              enabled?: boolean;
+              order?: number;
+            }) => ({
+              ...link,
+              href: link?.href != null && link.href !== '' ? link.href : '#',
+            })
+          );
           header.ctaButton = {
             ...defaultSettings.header.ctaButton,
             ...(header.ctaButton ?? {}),
-            href: header.ctaButton?.href != null && header.ctaButton.href !== '' ? header.ctaButton.href : '/contact',
+            href:
+              header.ctaButton?.href != null && header.ctaButton.href !== ''
+                ? header.ctaButton.href
+                : '/contact',
           };
-          footer.columns = (footer.columns ?? []).map((col: { title?: string; links?: { href?: string; label?: string; enabled?: boolean }[] }) => ({
-            ...col,
-            links: (col.links ?? []).map((link: { href?: string; label?: string; enabled?: boolean }) => ({
-              ...link,
-              href: link?.href != null && link.href !== '' ? link.href : '#',
-            })),
-          }));
+          footer.columns = (footer.columns ?? []).map(
+            (col: {
+              title?: string;
+              links?: { href?: string; label?: string; enabled?: boolean }[];
+            }) => ({
+              ...col,
+              links: (col.links ?? []).map(
+                (link: {
+                  href?: string;
+                  label?: string;
+                  enabled?: boolean;
+                }) => ({
+                  ...link,
+                  href:
+                    link?.href != null && link.href !== '' ? link.href : '#',
+                })
+              ),
+            })
+          );
           const merged: NavigationSettings = {
             ...defaultSettings,
             header,

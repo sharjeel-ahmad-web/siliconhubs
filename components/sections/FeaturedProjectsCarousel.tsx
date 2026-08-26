@@ -13,7 +13,10 @@ import {
   CardHoverRevealMain,
 } from '@/components/ui/reveal-on-hover';
 import { Badge } from '@/components/ui/badge';
-import { useSiteContent, toAbsoluteImagePath } from '@/lib/hooks/useSiteContent';
+import {
+  useSiteContent,
+  toAbsoluteImagePath,
+} from '@/lib/hooks/useSiteContent';
 
 interface Project {
   id: string;
@@ -70,16 +73,21 @@ function StaticCarouselHeading({
 }) {
   return (
     <div className="mb-12 text-center">
-      <div className={`mb-6 inline-flex items-center gap-3 rounded-full border border-white/[0.15] bg-white/[0.08] px-4 py-2 backdrop-blur-sm ${!eyebrow ? 'invisible' : ''}`}>
-        <span className="text-sm font-medium text-white/80">✨ {eyebrow || '\u00A0'}</span>
+      <div
+        className={`mb-6 inline-flex items-center gap-3 rounded-full border border-white/[0.15] bg-white/[0.08] px-4 py-2 backdrop-blur-sm ${!eyebrow ? 'invisible' : ''}`}
+      >
+        <span className="text-sm font-medium text-white/80">
+          ✨ {eyebrow || '\u00A0'}
+        </span>
         <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
       </div>
       <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
         <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
           {title || '\u00A0'}
         </span>
-        <span className="bg-gradient-to-r from-[#F58122] via-[#37AFE1] to-[#F58122] bg-clip-text text-transparent">
-          {' '}{titleHighlight || '\u00A0'}
+        <span className="bg-gradient-to-r from-orange via-cyan to-orange bg-clip-text text-transparent">
+          {' '}
+          {titleHighlight || '\u00A0'}
         </span>
       </h2>
       <p className="mx-auto max-w-3xl text-lg leading-relaxed text-white/60 sm:text-xl">
@@ -90,18 +98,15 @@ function StaticCarouselHeading({
 }
 
 /** Static shell: same DOM shape as CarouselView, no motion/scroll hooks, so server/first-client match. */
-function CarouselStaticShell({
-  content,
-}: {
-  content: FeaturedWorkContent;
-}) {
+function CarouselStaticShell({ content }: { content: FeaturedWorkContent }) {
   const eyebrow = content?.eyebrow ?? DEFAULT_HEADINGS.eyebrow ?? '';
   const title = content?.title ?? DEFAULT_HEADINGS.title ?? '';
-  const titleHighlight = content?.titleHighlight ?? DEFAULT_HEADINGS.titleHighlight ?? '';
+  const titleHighlight =
+    content?.titleHighlight ?? DEFAULT_HEADINGS.titleHighlight ?? '';
   const subtitle = content?.subtitle ?? DEFAULT_HEADINGS.subtitle ?? '';
 
   return (
-    <section className="relative bg-black">
+    <section className="relative bg-navy">
       <div className="px-6 py-16">
         <StaticCarouselHeading
           eyebrow={eyebrow}
@@ -110,7 +115,10 @@ function CarouselStaticShell({
           subtitle={subtitle}
         />
       </div>
-      <div className="relative h-[150vh] w-screen max-w-full" aria-hidden="true" />
+      <div
+        className="relative h-[150vh] w-screen max-w-full"
+        aria-hidden="true"
+      />
     </section>
   );
 }
@@ -125,11 +133,12 @@ function CarouselView({
 }) {
   const eyebrow = content?.eyebrow ?? DEFAULT_HEADINGS.eyebrow ?? '';
   const title = content?.title ?? DEFAULT_HEADINGS.title ?? '';
-  const titleHighlight = content?.titleHighlight ?? DEFAULT_HEADINGS.titleHighlight ?? '';
+  const titleHighlight =
+    content?.titleHighlight ?? DEFAULT_HEADINGS.titleHighlight ?? '';
   const subtitle = content?.subtitle ?? DEFAULT_HEADINGS.subtitle ?? '';
 
   return (
-    <section className="relative bg-black">
+    <section className="relative bg-navy">
       <div className="px-6 py-16">
         <StaticCarouselHeading
           eyebrow={eyebrow}
@@ -161,7 +170,7 @@ function CarouselView({
                   <div className="space-y-2">
                     <h3 className="text-sm text-white/80">Type</h3>
                     <div className="flex flex-wrap gap-2">
-                      <Badge className="rounded-full border-none bg-[#F58122] capitalize text-white">
+                      <Badge className="rounded-full border-none bg-orange capitalize text-white">
                         {slide.type}
                       </Badge>
                     </div>
@@ -172,7 +181,7 @@ function CarouselView({
                       {slide.services.map((service) => (
                         <Badge
                           key={service}
-                          className="rounded-full border border-[#37AFE1]/30 bg-[#37AFE1]/20 capitalize text-[#37AFE1]"
+                          className="rounded-full border border-cyan/30 bg-cyan/20 capitalize text-cyan"
                         >
                           {service}
                         </Badge>
@@ -192,7 +201,7 @@ function CarouselView({
 
           <ScrollXCarouselProgress
             className="mx-8 h-1 overflow-hidden rounded-full bg-white/10"
-            progressStyle="size-full bg-gradient-to-r from-[#F58122] to-[#37AFE1] rounded-full"
+            progressStyle="size-full bg-gradient-to-r from-orange to-cyan rounded-full"
           />
         </ScrollXCarouselContainer>
       </ScrollXCarousel>
@@ -245,8 +254,7 @@ function FeaturedProjectsCarouselWithData({
 
   const content = contentProp ?? apiContent ?? DEFAULT_HEADINGS;
   const displaySlides = slidesProp ?? slides;
-  const loading =
-    slidesProp === undefined && slides.length === 0;
+  const loading = slidesProp === undefined && slides.length === 0;
 
   if (slidesProp !== undefined) {
     return slidesProp && slidesProp.length > 0 ? (
@@ -256,8 +264,8 @@ function FeaturedProjectsCarouselWithData({
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center bg-black py-32">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+      <div className="flex items-center justify-center bg-navy py-32">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -267,11 +275,11 @@ function FeaturedProjectsCarouselWithData({
 
 /**
  * FeaturedProjectsCarousel - renders a horizontal scroll carousel of featured projects.
- * 
+ *
  * Usage:
  * 1. With static slides (e.g., portfolio page): Pass content and slides props
  * 2. With data fetching (e.g., home page): Don't pass slides, it will fetch from API
- * 
+ *
  * This component uses client-side only rendering to avoid hydration mismatches
  * caused by scroll-based animations and useScroll hooks.
  */
@@ -280,7 +288,8 @@ export default function FeaturedProjectsCarousel({
   slides,
 }: FeaturedProjectsCarouselProps = {}) {
   const [isClient, setIsClient] = useState(false);
-  const hasStaticSlides = typeof slides !== 'undefined' && Array.isArray(slides);
+  const hasStaticSlides =
+    typeof slides !== 'undefined' && Array.isArray(slides);
 
   // Only render on client to avoid hydration mismatches
   useEffect(() => {
@@ -295,7 +304,9 @@ export default function FeaturedProjectsCarousel({
   // When slides are provided, render the carousel directly
   if (hasStaticSlides) {
     if (slides.length === 0) return null;
-    return <CarouselView content={content ?? DEFAULT_HEADINGS} slides={slides} />;
+    return (
+      <CarouselView content={content ?? DEFAULT_HEADINGS} slides={slides} />
+    );
   }
 
   // Otherwise, use the data-fetching version

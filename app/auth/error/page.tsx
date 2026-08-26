@@ -33,7 +33,7 @@ function ErrorContent() {
 
       <Link
         href="/auth/signin"
-        className="block w-full rounded-lg bg-gradient-to-r from-[#2563EB] to-[#37AFE1] py-3 text-center font-medium text-white transition-all duration-200 hover:shadow-lg"
+        className="block w-full rounded-lg bg-gradient-to-r from-navy to-orange py-3 text-center font-medium text-white transition-all duration-200 hover:shadow-lg"
       >
         Try Again
       </Link>
@@ -49,13 +49,13 @@ function ErrorContent() {
 
 export default function AuthErrorPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#1E293B] via-[#2563EB] to-[#37AFE1] p-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-navy via-navy to-orange p-4">
       <div className="w-full max-w-md">
         <div className="rounded-2xl bg-white p-8 shadow-2xl">
           <Suspense
             fallback={
               <div className="flex items-center justify-center py-12">
-                <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+                <div className="h-8 w-8 animate-spin rounded-full border-2 border-orange/30 border-t-orange" />
               </div>
             }
           >

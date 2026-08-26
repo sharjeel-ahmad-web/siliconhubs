@@ -67,7 +67,7 @@ export default function ROICalculator({
   ctaText = 'Get Custom Quote',
   ctaHref = '/contact',
   resultLabels = defaultResultLabels,
-  accentColor = '#37AFE1',
+  accentColor = '#06b6d4',
 }: ROICalculatorProps) {
   const [values, setValues] = useState<number[]>(sliders.map((s) => s.default));
 
@@ -101,7 +101,7 @@ export default function ROICalculator({
   };
 
   return (
-    <section className="bg-black/50 px-6 py-20">
+    <section className="bg-navy/50 px-6 py-20">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-12 text-center">
@@ -122,7 +122,7 @@ export default function ROICalculator({
         <div className="grid gap-8 md:grid-cols-2">
           {/* Sliders */}
           <motion.div
-            className="rounded-2xl border border-slate-700/50 bg-[#1E293B] p-8"
+            className="rounded-2xl border border-slate-700/50 bg-navy p-8"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -164,7 +164,7 @@ export default function ROICalculator({
                     onChange={(e) =>
                       handleSliderChange(i, Number(e.target.value))
                     }
-                    className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-700 accent-[#37AFE1]"
+                    className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-700 accent-[#06b6d4]"
                     style={{ accentColor }}
                   />
                   <div className="mt-1 flex justify-between text-xs text-slate-500">
@@ -186,7 +186,7 @@ export default function ROICalculator({
 
           {/* Results */}
           <motion.div
-            className="rounded-2xl border border-slate-700/50 bg-[#1E293B] p-8"
+            className="rounded-2xl border border-slate-700/50 bg-navy p-8"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -208,7 +208,7 @@ export default function ROICalculator({
 
             <div className="space-y-6">
               {/* Current Cost */}
-              <div className="rounded-xl border border-slate-700/30 bg-[#0F172A] p-4">
+              <div className="rounded-xl border border-slate-700/30 bg-navy p-4">
                 <div className="mb-1 flex items-center gap-2 text-slate-400">
                   <DollarSign className="h-4 w-4" />
                   <span className="text-sm">{resultLabels.currentCost}</span>
@@ -253,7 +253,7 @@ export default function ROICalculator({
 
               {/* ROI and Payback */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-xl border border-slate-700/30 bg-[#0F172A] p-4">
+                <div className="rounded-xl border border-slate-700/30 bg-navy p-4">
                   <span className="text-sm text-slate-400">
                     {resultLabels.roi}
                   </span>
@@ -261,7 +261,7 @@ export default function ROICalculator({
                     {calculations.roi.toFixed(0)}%
                   </div>
                 </div>
-                <div className="rounded-xl border border-slate-700/30 bg-[#0F172A] p-4">
+                <div className="rounded-xl border border-slate-700/30 bg-navy p-4">
                   <span className="text-sm text-slate-400">
                     {resultLabels.paybackPeriod}
                   </span>

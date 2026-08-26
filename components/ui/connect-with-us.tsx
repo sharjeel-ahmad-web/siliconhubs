@@ -41,7 +41,7 @@ export default function ConnectWithUs() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-black py-16">
+    <section className="relative overflow-hidden bg-navy py-16">
       <div className="container relative z-10 mx-auto max-w-6xl px-6 text-center">
         {/* Title */}
         <motion.h2
@@ -54,7 +54,7 @@ export default function ConnectWithUs() {
             className="bg-clip-text text-transparent"
             style={{
               backgroundImage:
-                'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+                'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
               backgroundSize: '300% 100%',
               animation: 'gradient-shift 4s ease-in-out infinite',
             }}

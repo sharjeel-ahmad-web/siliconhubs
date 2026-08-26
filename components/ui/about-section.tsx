@@ -9,7 +9,7 @@ import { ParticleWrapper } from '@/components/ui/particle-button';
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-black px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+    <section className="relative overflow-hidden bg-navy px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       {/* Background glow effect */}
       <div className="pointer-events-none absolute -z-10 size-[520px] rounded-full bg-[#FBFFE1] blur-[300px]"></div>
 
@@ -32,7 +32,7 @@ export default function AboutSection() {
               animate={{ rotate: 360 }}
               transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
             >
-              <Sparkles className="h-3 w-3 text-[#F58122] sm:h-4 sm:w-4" />
+              <Sparkles className="h-3 w-3 text-orange sm:h-4 sm:w-4" />
             </motion.div>
             <span className="font-medium text-white/80">✨ Who We Are</span>
             <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
@@ -45,7 +45,7 @@ export default function AboutSection() {
             className="bg-clip-text text-transparent"
             style={{
               backgroundImage:
-                'linear-gradient(90deg, #37AFE1, #F58122, #37AFE1, #F58122)',
+                'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
               backgroundSize: '300% 100%',
               animation: 'gradient-shift 4s ease-in-out infinite',
             }}
@@ -98,7 +98,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
               >
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-[#37AFE1]/30 bg-gradient-to-br from-[#37AFE1]/20 to-[#37AFE1]/5 p-2.5">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-cyan/30 bg-gradient-to-br from-cyan/20 to-cyan/5 p-2.5">
                   <img
                     src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/flashEmoji.png"
                     alt="Lightning fast"
@@ -124,7 +124,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               >
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-[#F58122]/30 bg-gradient-to-br from-[#F58122]/20 to-[#F58122]/5 p-2.5">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-orange/30 bg-gradient-to-br from-orange/20 to-orange/5 p-2.5">
                   <img
                     src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/colorsEmoji.png"
                     alt="Beautiful design"
@@ -150,7 +150,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
               >
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-[#37AFE1]/30 bg-gradient-to-br from-[#37AFE1]/20 to-[#37AFE1]/5 p-2.5">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-cyan/30 bg-gradient-to-br from-cyan/20 to-cyan/5 p-2.5">
                   <img
                     src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/puzzelEmoji.png"
                     alt="Integration"
@@ -176,7 +176,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
               >
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-[#F58122]/30 bg-gradient-to-br from-[#F58122]/20 to-[#F58122]/5 p-2.5">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-orange/30 bg-gradient-to-br from-orange/20 to-orange/5 p-2.5">
                   <img
                     src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/brainEmoji.png"
                     alt="Accessibility"

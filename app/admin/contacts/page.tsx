@@ -72,7 +72,7 @@ export default function ContactsPage() {
 
   const statusColors = {
     new: 'bg-green-500/20 text-green-400',
-    read: 'bg-[#37AFE1]/20 text-[#37AFE1]',
+    read: 'bg-cyan/20 text-cyan',
     replied: 'bg-purple-500/20 text-purple-400',
     archived: 'bg-slate-600/50 text-slate-400',
   };
@@ -80,7 +80,7 @@ export default function ContactsPage() {
   if (loading) {
     return (
       <div className="flex h-64 items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -104,8 +104,8 @@ export default function ContactsPage() {
             onClick={() => setFilter(status)}
             className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
               filter === status
-                ? 'bg-[#37AFE1] text-white'
-                : 'border border-slate-700/50 bg-[#1E293B] text-slate-400 hover:text-white'
+                ? 'bg-cyan text-white'
+                : 'border border-slate-700/50 bg-navy text-slate-400 hover:text-white'
             }`}
           >
             {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -115,7 +115,7 @@ export default function ContactsPage() {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Contact List */}
-        <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-[#1E293B] lg:col-span-1">
+        <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-navy lg:col-span-1">
           <div className="max-h-[600px] divide-y divide-slate-700/50 overflow-y-auto">
             {contacts.length === 0 ? (
               <div className="p-8 text-center text-slate-400">
@@ -158,7 +158,7 @@ export default function ContactsPage() {
         </div>
 
         {/* Contact Detail */}
-        <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6 lg:col-span-2">
+        <div className="rounded-xl border border-slate-700/50 bg-navy p-6 lg:col-span-2">
           {selectedContact ? (
             <div className="space-y-6">
               <div className="flex items-start justify-between">
@@ -204,7 +204,7 @@ export default function ContactsPage() {
                   <Mail className="h-4 w-4" />
                   <a
                     href={`mailto:${selectedContact?.email ?? ''}`}
-                    className="hover:text-[#37AFE1]"
+                    className="hover:text-cyan"
                   >
                     {selectedContact.email}
                   </a>
@@ -214,7 +214,7 @@ export default function ContactsPage() {
                     <Phone className="h-4 w-4" />
                     <a
                       href={`tel:${selectedContact.phone}`}
-                      className="hover:text-[#37AFE1]"
+                      className="hover:text-cyan"
                     >
                       {selectedContact.phone}
                     </a>
@@ -245,7 +245,7 @@ export default function ContactsPage() {
                 <h4 className="mb-2 text-sm font-medium text-slate-500">
                   Message
                 </h4>
-                <div className="rounded-lg border border-slate-700 bg-[#0F172A] p-4">
+                <div className="rounded-lg border border-slate-700 bg-navy p-4">
                   <p className="whitespace-pre-wrap text-slate-300">
                     {selectedContact.message}
                   </p>
@@ -255,7 +255,7 @@ export default function ContactsPage() {
               <div className="flex gap-3">
                 <a
                   href={`mailto:${selectedContact?.email ?? ''}?subject=Re: Your inquiry to Rising Dot`}
-                  className="rounded-lg bg-[#37AFE1] px-4 py-2 text-white transition-colors hover:bg-[#37AFE1]/80"
+                  className="rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80"
                 >
                   Reply via Email
                 </a>

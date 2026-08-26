@@ -98,12 +98,12 @@ const defaultSectionContent: Record<
       titleHighlight: 'Digital Presence',
       subtitle: 'Premium digital solutions powered by cutting-edge technology',
       colors: {
-        cardBackground: '#1E293B',
-        cardAccentColor: '#37AFE1',
-        cardHoverAccentColor: '#F58122',
-        particleColor: '#37AFE1',
-        connectionLineStart: '#37AFE1',
-        connectionLineEnd: '#F58122',
+        cardBackground: '#0a192f',
+        cardAccentColor: '#06b6d4',
+        cardHoverAccentColor: '#fc4c00',
+        particleColor: '#06b6d4',
+        connectionLineStart: '#06b6d4',
+        connectionLineEnd: '#fc4c00',
       },
       services: [
         {
@@ -156,13 +156,13 @@ const defaultSectionContent: Record<
       titleHighlight: 'Services',
       subtitle: 'Comprehensive digital solutions tailored to your needs',
       colors: {
-        cardBackground: '#1E293B',
-        cardAccentColor: '#37AFE1',
-        cardHoverAccentColor: '#F58122',
-        particleColor: '#37AFE1',
-        featureDotColor: '#37AFE1',
-        linkColor: '#37AFE1',
-        linkHoverColor: '#F58122',
+        cardBackground: '#0a192f',
+        cardAccentColor: '#06b6d4',
+        cardHoverAccentColor: '#fc4c00',
+        particleColor: '#06b6d4',
+        featureDotColor: '#06b6d4',
+        linkColor: '#06b6d4',
+        linkHoverColor: '#fc4c00',
         borderColor: '#334155',
       },
       cards: [
@@ -271,12 +271,12 @@ const defaultSectionContent: Record<
       secondaryCtaHref: '/portfolio',
       centerText: 'RISING',
       colors: {
-        borderColor: '#37AFE1',
-        orbitBorderColor: '#37AFE1',
-        iconBgColor: '#0F172A',
-        iconBorderColor: '#37AFE1',
-        gradientStart: '#F58122',
-        gradientEnd: '#37AFE1',
+        borderColor: '#06b6d4',
+        orbitBorderColor: '#06b6d4',
+        iconBgColor: '#0a192f',
+        iconBorderColor: '#06b6d4',
+        gradientStart: '#fc4c00',
+        gradientEnd: '#06b6d4',
       },
       icons: [
         { icon: 'FaReact', color: '#61DAFB' },
@@ -332,14 +332,14 @@ const defaultSectionContent: Record<
       },
       cards: [
         {
-          bgColor: 'bg-[#37AFE1]',
+          bgColor: 'bg-cyan',
           content: {
             greeting: 'Automate your workflows with N8N',
             subtitle: 'Connect apps and services seamlessly',
           },
         },
         {
-          bgColor: 'bg-[#31A4DB]',
+          bgColor: 'bg-cyan',
           content: {
             type: 'analytics',
             greeting: 'Performance Analytics',
@@ -347,7 +347,7 @@ const defaultSectionContent: Record<
           },
         },
         {
-          bgColor: 'bg-[#F58122]',
+          bgColor: 'bg-orange',
           content: {
             type: 'projects',
             title: 'Active Workflows',
@@ -355,7 +355,7 @@ const defaultSectionContent: Record<
           },
         },
         {
-          bgColor: 'bg-[#37AFE1]',
+          bgColor: 'bg-cyan',
           content: {
             type: 'chat-history',
           },
@@ -403,10 +403,10 @@ const defaultSectionContent: Record<
         },
       ],
       nodeColors: {
-        trigger: '#2563EB',
-        action: '#37AFE1',
+        trigger: '#0a192f',
+        action: '#06b6d4',
         condition: '#F59E0B',
-        output: '#31A4DB',
+        output: '#06b6d4',
       },
     },
     beforeAfter: {
@@ -457,7 +457,7 @@ const defaultSectionContent: Record<
         second: 'Workflows',
       },
       boxTitle: 'Data exchange using a customized REST API',
-      lightColor: '#F58122',
+      lightColor: '#fc4c00',
     },
     performanceMetrics: {
       eyebrow: 'Analytics',
@@ -471,7 +471,7 @@ const defaultSectionContent: Record<
           value: '95',
           target: 95,
           unit: '%',
-          color: '#31A4DB',
+          color: '#06b6d4',
           icon: '⏱️',
         },
         {
@@ -479,7 +479,7 @@ const defaultSectionContent: Record<
           value: '80',
           target: 80,
           unit: '%',
-          color: '#2563EB',
+          color: '#0a192f',
           icon: '💰',
         },
         {
@@ -487,7 +487,7 @@ const defaultSectionContent: Record<
           value: '99',
           target: 99,
           unit: '%',
-          color: '#37AFE1',
+          color: '#06b6d4',
           icon: '✓',
         },
         {
@@ -495,7 +495,7 @@ const defaultSectionContent: Record<
           value: '10',
           target: 10,
           unit: 'x',
-          color: '#F97316',
+          color: '#fc4c00',
           icon: '📈',
         },
       ],
@@ -542,35 +542,35 @@ const defaultSectionContent: Record<
           id: 'discovery',
           name: 'Discovery',
           description: 'Research & Strategy',
-          color: '#64748B',
+          color: '#515161',
           position: 0,
         },
         {
           id: 'wireframe',
           name: 'Wireframe',
           description: 'Structure & Layout',
-          color: '#2563EB',
+          color: '#0a192f',
           position: 25,
         },
         {
           id: 'design',
           name: 'Design',
           description: 'Visual Identity',
-          color: '#37AFE1',
+          color: '#06b6d4',
           position: 50,
         },
         {
           id: 'development',
           name: 'Development',
           description: 'Build & Test',
-          color: '#F97316',
+          color: '#fc4c00',
           position: 75,
         },
         {
           id: 'launch',
           name: 'Launch',
           description: 'Deploy & Monitor',
-          color: '#31A4DB',
+          color: '#06b6d4',
           position: 100,
         },
       ],
@@ -593,26 +593,26 @@ const defaultSectionContent: Record<
       colorSchemes: [
         {
           name: 'Ocean',
-          primary: '#2563EB',
-          secondary: '#37AFE1',
-          accent: '#31A4DB',
+          primary: '#0a192f',
+          secondary: '#06b6d4',
+          accent: '#06b6d4',
         },
         {
           name: 'Sunset',
-          primary: '#F97316',
-          secondary: '#F58122',
+          primary: '#fc4c00',
+          secondary: '#fc4c00',
           accent: '#F59E0B',
         },
         {
           name: 'Sky',
-          primary: '#37AFE1',
-          secondary: '#31A4DB',
-          accent: '#2563EB',
+          primary: '#06b6d4',
+          secondary: '#06b6d4',
+          accent: '#0a192f',
         },
         {
           name: 'Fire',
-          primary: '#F58122',
-          secondary: '#F97316',
+          primary: '#fc4c00',
+          secondary: '#fc4c00',
           accent: '#F59E0B',
         },
         {
@@ -623,13 +623,13 @@ const defaultSectionContent: Record<
         },
         {
           name: 'Coral',
-          primary: '#F97316',
+          primary: '#fc4c00',
           secondary: '#FB923C',
           accent: '#FDBA74',
         },
         {
           name: 'Electric',
-          primary: '#37AFE1',
+          primary: '#06b6d4',
           secondary: '#06B6D4',
           accent: '#22D3EE',
         },
@@ -684,8 +684,8 @@ const defaultSectionContent: Record<
         "I'd be happy to assist you with that.",
         'Let me process that information for you.',
       ],
-      userMessageColor: '#2563EB',
-      aiMessageColor: '#37AFE1',
+      userMessageColor: '#0a192f',
+      aiMessageColor: '#06b6d4',
     },
     learningAnimation: {
       eyebrow: 'Neural Networks',
@@ -706,21 +706,21 @@ const defaultSectionContent: Record<
           title: 'Input Layer',
           description:
             'User messages are tokenized and converted into numerical vectors for processing.',
-          color: '#F58122',
+          color: '#fc4c00',
         },
         {
           id: 'processing',
           title: 'Hidden Layers',
           description:
             'Multiple neural layers analyze context, intent, and generate intelligent understanding.',
-          color: '#37AFE1',
+          color: '#06b6d4',
         },
         {
           id: 'output',
           title: 'Output Layer',
           description:
             'Final layer produces natural language responses tailored to user queries.',
-          color: '#31A4DB',
+          color: '#06b6d4',
         },
       ],
       stageLabels: {
@@ -736,16 +736,16 @@ const defaultSectionContent: Record<
       subtitle:
         'Track the continuous improvement of your AI chatbot over time.',
       metrics: [
-        { label: 'Current Accuracy', color: '#37AFE1', suffix: '%' },
-        { label: 'Improvement', color: '#F97316', prefix: '+', suffix: '%' },
-        { label: 'Training Epochs', color: '#31A4DB', suffix: '' },
-        { label: 'Response Time', color: '#2563EB', value: '<100ms' },
+        { label: 'Current Accuracy', color: '#06b6d4', suffix: '%' },
+        { label: 'Improvement', color: '#fc4c00', prefix: '+', suffix: '%' },
+        { label: 'Training Epochs', color: '#06b6d4', suffix: '' },
+        { label: 'Response Time', color: '#0a192f', value: '<100ms' },
       ],
       chartConfig: {
         xAxisLabel: 'Training Epochs',
         yAxisLabel: 'Accuracy (%)',
-        lineColor: '#37AFE1',
-        gridColor: '#64748B',
+        lineColor: '#06b6d4',
+        gridColor: '#515161',
       },
     },
     caseStudies: {
@@ -1041,12 +1041,12 @@ const defaultSectionContent: Record<
       ],
       categoryColors: [
         { category: 'security', color: '#EF4444' },
-        { category: 'performance', color: '#2563EB' },
-        { category: 'seo', color: '#31A4DB' },
+        { category: 'performance', color: '#0a192f' },
+        { category: 'seo', color: '#06b6d4' },
         { category: 'ecommerce', color: '#F59E0B' },
-        { category: 'content', color: '#F97316' },
-        { category: 'analytics', color: '#37AFE1' },
-        { category: 'utility', color: '#64748B' },
+        { category: 'content', color: '#fc4c00' },
+        { category: 'analytics', color: '#06b6d4' },
+        { category: 'utility', color: '#515161' },
         { category: 'backup', color: '#22C55E' },
       ],
       legendTitle: 'Plugin Categories',
@@ -1086,37 +1086,37 @@ const defaultSectionContent: Record<
           title: 'Scalable Architecture',
           desc: 'Built to grow with your business from day one',
           icon: '🚀',
-          borderColor: '#37AFE1',
+          borderColor: '#06b6d4',
         },
         {
           title: 'Cloud-Native',
           desc: 'Deployed on modern cloud infrastructure for reliability',
           icon: '☁️',
-          borderColor: '#2563EB',
+          borderColor: '#0a192f',
         },
         {
           title: 'API-First Design',
           desc: 'Seamless integrations with your existing tools',
           icon: '🔗',
-          borderColor: '#F97316',
+          borderColor: '#fc4c00',
         },
         {
           title: 'Real-Time Analytics',
           desc: 'Data-driven insights to make informed decisions',
           icon: '📊',
-          borderColor: '#31A4DB',
+          borderColor: '#06b6d4',
         },
         {
           title: 'Enterprise Security',
           desc: 'Bank-level security to protect your data',
           icon: '🔒',
-          borderColor: '#F58122',
+          borderColor: '#fc4c00',
         },
         {
           title: '24/7 Support',
           desc: 'Round-the-clock support when you need it',
           icon: '💬',
-          borderColor: '#37AFE1',
+          borderColor: '#06b6d4',
         },
       ],
     },
@@ -1130,30 +1130,30 @@ const defaultSectionContent: Record<
         {
           title: 'CRM Systems',
           desc: 'Manage customer relationships and sales pipelines effectively',
-          gradientFrom: '#F58122',
-          gradientTo: '#37AFE1',
-          borderColor: '#37AFE1',
+          gradientFrom: '#fc4c00',
+          gradientTo: '#06b6d4',
+          borderColor: '#06b6d4',
         },
         {
           title: 'Inventory Management',
           desc: 'Track stock levels, orders, and suppliers in real-time',
-          gradientFrom: '#37AFE1',
-          gradientTo: '#2563EB',
-          borderColor: '#2563EB',
+          gradientFrom: '#06b6d4',
+          gradientTo: '#0a192f',
+          borderColor: '#0a192f',
         },
         {
           title: 'Project Management',
           desc: 'Collaborate with teams and track project progress',
-          gradientFrom: '#2563EB',
-          gradientTo: '#31A4DB',
-          borderColor: '#31A4DB',
+          gradientFrom: '#0a192f',
+          gradientTo: '#06b6d4',
+          borderColor: '#06b6d4',
         },
         {
           title: 'HR & Payroll',
           desc: 'Streamline employee management and payroll processing',
-          gradientFrom: '#31A4DB',
-          gradientTo: '#F97316',
-          borderColor: '#F97316',
+          gradientFrom: '#06b6d4',
+          gradientTo: '#fc4c00',
+          borderColor: '#fc4c00',
         },
       ],
     },
@@ -1202,21 +1202,21 @@ const defaultSectionContent: Record<
           value: 124500,
           prefix: '$',
           change: 12.5,
-          color: '#37AFE1',
+          color: '#06b6d4',
           icon: 'dollar',
         },
         {
           label: 'Active Users',
           value: 8420,
           change: 8.3,
-          color: '#2563EB',
+          color: '#0a192f',
           icon: 'users',
         },
         {
           label: 'Orders Today',
           value: 342,
           change: -2.1,
-          color: '#F97316',
+          color: '#fc4c00',
           icon: 'cart',
         },
         {
@@ -1224,7 +1224,7 @@ const defaultSectionContent: Record<
           value: 23.5,
           suffix: '%',
           change: 5.7,
-          color: '#31A4DB',
+          color: '#06b6d4',
           icon: 'trending',
         },
       ],
@@ -1258,7 +1258,7 @@ const defaultSectionContent: Record<
           details:
             'We dive deep into your business requirements, analyze workflows, and identify opportunities for automation and improvement.',
           icon: 'search',
-          color: '#37AFE1',
+          color: '#06b6d4',
         },
         {
           title: 'Design',
@@ -1266,7 +1266,7 @@ const defaultSectionContent: Record<
           details:
             'Our designers create intuitive interfaces and user experiences that align with your brand and delight your users.',
           icon: 'palette',
-          color: '#2563EB',
+          color: '#0a192f',
         },
         {
           title: 'Development',
@@ -1274,7 +1274,7 @@ const defaultSectionContent: Record<
           details:
             'Our engineers build scalable, secure, and performant applications using cutting-edge technologies and best practices.',
           icon: 'code',
-          color: '#F97316',
+          color: '#fc4c00',
         },
         {
           title: 'Testing',
@@ -1282,7 +1282,7 @@ const defaultSectionContent: Record<
           details:
             'Rigorous testing across devices and scenarios ensures your application is bug-free and performs flawlessly.',
           icon: 'test',
-          color: '#31A4DB',
+          color: '#06b6d4',
         },
         {
           title: 'Launch',
@@ -1290,7 +1290,7 @@ const defaultSectionContent: Record<
           details:
             'We handle deployment, monitoring, and provide ongoing support to ensure your SaaS succeeds in the market.',
           icon: 'rocket',
-          color: '#F58122',
+          color: '#fc4c00',
         },
       ],
     },
@@ -1326,7 +1326,7 @@ const defaultSectionContent: Record<
         roi: 'Return on Investment',
         paybackPeriod: 'Payback Period',
       },
-      accentColor: '#37AFE1',
+      accentColor: '#06b6d4',
     },
     featureRequest: {
       eyebrow: 'Tell Us Your Vision',
@@ -1360,7 +1360,7 @@ const defaultSectionContent: Record<
         company: 'Company name (optional)',
         description: 'Describe your ideal SaaS solution...',
       },
-      accentColor: '#37AFE1',
+      accentColor: '#06b6d4',
     },
     techStack: {
       eyebrow: '✨ Our Tech Stack',
@@ -1402,7 +1402,7 @@ const defaultSectionContent: Record<
         'Business',
         'Tutorial',
       ],
-      activeColor: '#37AFE1',
+      activeColor: '#06b6d4',
     },
     emptyState: {
       title: 'No blog posts found in this category.',
@@ -2138,7 +2138,7 @@ export default function PageEditorPage() {
               }
             }}
             rows={6}
-            className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 font-mono text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+            className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 font-mono text-sm text-white focus:border-cyan focus:outline-none"
           />
           <p className="text-xs text-slate-500">Edit as JSON array</p>
         </div>
@@ -2161,7 +2161,7 @@ export default function PageEditorPage() {
               }
             }}
             rows={4}
-            className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 font-mono text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+            className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 font-mono text-sm text-white focus:border-cyan focus:outline-none"
           />
         </div>
       );
@@ -2184,7 +2184,7 @@ export default function PageEditorPage() {
             value={value || ''}
             onChange={(e) => onChange(e.target.value)}
             rows={3}
-            className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+            className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 text-white focus:border-cyan focus:outline-none"
           />
         </div>
       );
@@ -2199,7 +2199,7 @@ export default function PageEditorPage() {
           type="text"
           value={value || ''}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+          className="w-full rounded-lg border border-slate-700 bg-navy px-3 py-2 text-white focus:border-cyan focus:outline-none"
         />
       </div>
     );
@@ -2209,7 +2209,7 @@ export default function PageEditorPage() {
     return (
       <div className="flex min-h-full flex-col items-center justify-center">
         <p className="mb-4 text-slate-400">Page not found: {pageId}</p>
-        <Link href="/admin/pages" className="text-[#37AFE1] hover:underline">
+        <Link href="/admin/pages" className="text-cyan hover:underline">
           ← Back to Pages
         </Link>
       </div>
@@ -2219,7 +2219,7 @@ export default function PageEditorPage() {
   if (loading) {
     return (
       <div className="flex min-h-full items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -2282,7 +2282,7 @@ export default function PageEditorPage() {
           return (
             <div
               key={section.key}
-              className={`flex items-center gap-4 rounded-xl border border-slate-700/50 bg-[#1E293B] p-4 ${!isVisible ? 'opacity-60' : ''}`}
+              className={`flex items-center gap-4 rounded-xl border border-slate-700/50 bg-navy p-4 ${!isVisible ? 'opacity-60' : ''}`}
             >
               <div className="min-w-0 flex-1">
                 <div className="mb-1 flex items-center gap-2">
@@ -2332,7 +2332,7 @@ export default function PageEditorPage() {
               </button>
               <button
                 onClick={() => openEditModal(section.key)}
-                className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-[#37AFE1] hover:text-white"
+                className="rounded-lg bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-cyan hover:text-white"
               >
                 <Edit className="h-5 w-5" />
               </button>
@@ -2343,8 +2343,8 @@ export default function PageEditorPage() {
 
       {/* Edit Modal */}
       {editingSection && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-[#1E293B]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/70 p-4">
+          <div className="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-navy">
             <div className="flex items-center justify-between border-b border-slate-700 p-6">
               <div>
                 <h2 className="text-xl font-bold text-white">
@@ -2808,12 +2808,12 @@ export default function PageEditorPage() {
                       {renderFieldEditor(
                         'colors',
                         editFormData.colors || {
-                          cardBackground: '#1E293B',
-                          cardAccentColor: '#37AFE1',
-                          cardHoverAccentColor: '#F58122',
-                          particleColor: '#37AFE1',
-                          connectionLineStart: '#37AFE1',
-                          connectionLineEnd: '#F58122',
+                          cardBackground: '#0a192f',
+                          cardAccentColor: '#06b6d4',
+                          cardHoverAccentColor: '#fc4c00',
+                          particleColor: '#06b6d4',
+                          connectionLineStart: '#06b6d4',
+                          connectionLineEnd: '#fc4c00',
                         },
                         (val) => handleFieldChange('colors', val)
                       )}
@@ -2832,13 +2832,13 @@ export default function PageEditorPage() {
                       {renderFieldEditor(
                         'colors',
                         editFormData.colors || {
-                          cardBackground: '#1E293B',
-                          cardAccentColor: '#37AFE1',
-                          cardHoverAccentColor: '#F58122',
-                          particleColor: '#37AFE1',
-                          featureDotColor: '#37AFE1',
-                          linkColor: '#37AFE1',
-                          linkHoverColor: '#F58122',
+                          cardBackground: '#0a192f',
+                          cardAccentColor: '#06b6d4',
+                          cardHoverAccentColor: '#fc4c00',
+                          particleColor: '#06b6d4',
+                          featureDotColor: '#06b6d4',
+                          linkColor: '#06b6d4',
+                          linkHoverColor: '#fc4c00',
                           borderColor: '#334155',
                         },
                         (val) => handleFieldChange('colors', val)
@@ -2947,12 +2947,12 @@ export default function PageEditorPage() {
                       {renderFieldEditor(
                         'colors',
                         editFormData.colors || {
-                          borderColor: '#37AFE1',
-                          orbitBorderColor: '#37AFE1',
-                          iconBgColor: '#0F172A',
-                          iconBorderColor: '#37AFE1',
-                          gradientStart: '#F58122',
-                          gradientEnd: '#37AFE1',
+                          borderColor: '#06b6d4',
+                          orbitBorderColor: '#06b6d4',
+                          iconBgColor: '#0a192f',
+                          iconBorderColor: '#06b6d4',
+                          gradientStart: '#fc4c00',
+                          gradientEnd: '#06b6d4',
                         },
                         (val) => handleFieldChange('colors', val)
                       )}
@@ -3061,7 +3061,7 @@ export default function PageEditorPage() {
                       type="text"
                       placeholder="Field name"
                       id="newFieldName"
-                      className="flex-1 rounded-lg border border-slate-700 bg-[#0F172A] px-3 py-2 text-sm text-white focus:border-[#37AFE1] focus:outline-none"
+                      className="flex-1 rounded-lg border border-slate-700 bg-navy px-3 py-2 text-sm text-white focus:border-cyan focus:outline-none"
                     />
                     <button
                       onClick={() => {
@@ -3092,7 +3092,7 @@ export default function PageEditorPage() {
               <button
                 onClick={saveSection}
                 disabled={saving}
-                className="flex items-center gap-2 rounded-lg bg-[#37AFE1] px-6 py-2 text-white transition-colors hover:bg-[#37AFE1]/80 disabled:opacity-50"
+                className="flex items-center gap-2 rounded-lg bg-cyan px-6 py-2 text-white transition-colors hover:bg-cyan/80 disabled:opacity-50"
               >
                 {saving ? (
                   <>

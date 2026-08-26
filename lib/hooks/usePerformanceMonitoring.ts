@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Performance Monitoring Hook
  *
  * React hook for accessing Sentry performance monitoring

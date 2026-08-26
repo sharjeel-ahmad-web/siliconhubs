@@ -40,16 +40,16 @@ export default function ContactMap() {
   const [selectedMarker, setSelectedMarker] = useState<string | null>(null);
 
   return (
-    <div className="relative h-[500px] overflow-hidden rounded-2xl border border-[#64748B]/20">
+    <div className="relative h-[500px] overflow-hidden rounded-2xl border border-slate-grey/20">
       {/* Map background with custom styling */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A]">
+      <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-navy">
         {/* Grid pattern */}
         <div
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: `
-              linear-gradient(#2563EB 1px, transparent 1px),
-              linear-gradient(90deg, #2563EB 1px, transparent 1px)
+              linear-gradient(#0a192f 1px, transparent 1px),
+              linear-gradient(90deg, #0a192f 1px, transparent 1px)
             `,
             backgroundSize: '50px 50px',
           }}
@@ -59,7 +59,7 @@ export default function ContactMap() {
         <svg className="absolute inset-0 h-full w-full">
           <motion.path
             d="M 100 100 Q 200 150, 300 200 T 500 300"
-            stroke="#2563EB"
+            stroke="#0a192f"
             strokeWidth="3"
             fill="none"
             strokeDasharray="10 5"
@@ -97,7 +97,7 @@ export default function ContactMap() {
             >
               {/* Pulsing animation */}
               <motion.div
-                className="absolute inset-0 rounded-full bg-[#2563EB]"
+                className="absolute inset-0 rounded-full bg-navy"
                 animate={{
                   scale: [1, 2, 1],
                   opacity: [0.5, 0, 0.5],
@@ -110,14 +110,14 @@ export default function ContactMap() {
               />
 
               {/* Pin icon */}
-              <div className="relative flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-[#2563EB] text-xl text-white shadow-lg">
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-navy text-xl text-white shadow-lg">
                 📍
               </div>
 
               {/* Glow effect on hover */}
               {hoveredMarker === marker.id && (
                 <motion.div
-                  className="absolute inset-0 rounded-full bg-[#2563EB]"
+                  className="absolute inset-0 rounded-full bg-navy"
                   initial={{ opacity: 0, scale: 1 }}
                   animate={{ opacity: 0.3, scale: 1.5 }}
                   style={{ filter: 'blur(10px)' }}
@@ -130,10 +130,10 @@ export default function ContactMap() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="absolute left-1/2 top-full z-10 mt-2 w-64 -translate-x-1/2 rounded-lg border border-[#2563EB]/30 bg-[#1E293B] p-4 shadow-xl"
+                className="absolute left-1/2 top-full z-10 mt-2 w-64 -translate-x-1/2 rounded-lg border border-navy/30 bg-navy p-4 shadow-xl"
               >
                 <h4 className="mb-1 font-bold text-white">{marker.label}</h4>
-                <p className="text-sm text-[#64748B]">{marker.description}</p>
+                <p className="text-sm text-slate-grey">{marker.description}</p>
               </motion.div>
             )}
           </motion.div>
@@ -155,29 +155,29 @@ export default function ContactMap() {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#64748B]/30 bg-[#1E293B] text-white transition-colors hover:bg-[#2563EB]"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-grey/30 bg-navy text-white transition-colors hover:bg-navy"
         >
           +
         </motion.button>
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#64748B]/30 bg-[#1E293B] text-white transition-colors hover:bg-[#2563EB]"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-grey/30 bg-navy text-white transition-colors hover:bg-navy"
         >
           −
         </motion.button>
       </div>
 
       {/* Legend */}
-      <div className="absolute bottom-4 left-4 rounded-lg border border-[#64748B]/30 bg-[#1E293B]/90 p-4 backdrop-blur-sm">
+      <div className="absolute bottom-4 left-4 rounded-lg border border-slate-grey/30 bg-navy/90 p-4 backdrop-blur-sm">
         <h4 className="mb-2 text-sm font-semibold text-white">Legend</h4>
-        <div className="space-y-1 text-xs text-[#64748B]">
+        <div className="space-y-1 text-xs text-slate-grey">
           <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full bg-[#2563EB]" />
+            <div className="h-3 w-3 rounded-full bg-navy" />
             <span>Office Locations</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="h-1 w-3 bg-[#2563EB]" />
+            <div className="h-1 w-3 bg-navy" />
             <span>Routes</span>
           </div>
         </div>

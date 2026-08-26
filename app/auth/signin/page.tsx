@@ -79,7 +79,7 @@ function SignInForm() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full rounded-lg border border-slate-300 py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
+                  className="w-full rounded-lg border border-slate-300 py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-orange"
                   placeholder="admin@risingdot.com"
                 />
               </div>
@@ -100,7 +100,7 @@ function SignInForm() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full rounded-lg border border-slate-300 py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
+                  className="w-full rounded-lg border border-slate-300 py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-orange"
                   placeholder="••••••••"
                 />
               </div>
@@ -140,7 +140,7 @@ function SignInForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-lg bg-gradient-to-r from-[#2563EB] to-[#37AFE1] py-3 font-medium text-white transition-all duration-200 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+          className="w-full rounded-lg bg-gradient-to-r from-navy to-orange py-3 font-medium text-white transition-all duration-200 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
         >
           {loading ? 'Signing in...' : 'Sign In'}
         </button>
@@ -157,15 +157,15 @@ function SignInForm() {
 
 export default function SignInPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#1E293B] via-[#2563EB] to-[#37AFE1] p-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-navy via-navy to-orange p-4">
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="mb-8 text-center">
           <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-xl">
-            <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#37AFE1]" />
+            <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-navy to-orange" />
           </div>
           <h1 className="text-3xl font-bold text-white">Rising Dot</h1>
-          <p className="mt-2 text-blue-200">Admin Dashboard</p>
+          <p className="mt-2 text-orange/80">Admin Dashboard</p>
         </div>
 
         {/* Sign In Form */}
@@ -173,7 +173,7 @@ export default function SignInPage() {
           <Suspense
             fallback={
               <div className="flex items-center justify-center py-12">
-                <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+                <div className="h-8 w-8 animate-spin rounded-full border-2 border-orange/30 border-t-orange" />
               </div>
             }
           >

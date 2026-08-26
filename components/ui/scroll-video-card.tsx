@@ -255,7 +255,7 @@ export const ScrollVideoCard: React.FC<ScrollVideoCardProps> = ({
   return (
     <div
       ref={rootRef}
-      className={`relative overflow-x-clip bg-black ${className || ''}`}
+      className={`relative overflow-x-clip bg-navy ${className || ''}`}
       style={{ ...cssVars, ...style }}
     >
       <div
@@ -267,7 +267,7 @@ export const ScrollVideoCard: React.FC<ScrollVideoCardProps> = ({
         >
           <div
             ref={containerRef}
-            className="relative overflow-hidden rounded-[20px] bg-black shadow-2xl"
+            className="relative overflow-hidden rounded-[20px] bg-navy shadow-2xl"
             style={{ width: initialBoxSize, height: initialBoxSize }}
           >
             {renderMedia()}
@@ -275,14 +275,14 @@ export const ScrollVideoCard: React.FC<ScrollVideoCardProps> = ({
             {overlay && (
               <div
                 ref={overlayRef}
-                className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/60 p-8 text-center backdrop-blur-md"
+                className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-navy/60 p-8 text-center backdrop-blur-md"
                 style={{ clipPath: 'inset(100% 0 0 0)' }}
               >
                 <div ref={overlayContentRef} className="max-w-3xl space-y-6">
                   {overlay.caption && (
                     <div ref={overlayCaptionRef} className="mb-4">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-[#F58122]/30 bg-[#F58122]/20 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#F58122]">
-                        <span className="h-2 w-2 animate-pulse rounded-full bg-[#F58122]" />
+                      <span className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/20 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-orange">
+                        <span className="h-2 w-2 animate-pulse rounded-full bg-orange" />
                         {overlay.caption}
                       </span>
                     </div>
@@ -292,7 +292,7 @@ export const ScrollVideoCard: React.FC<ScrollVideoCardProps> = ({
                       className="bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl"
                       style={{
                         backgroundImage:
-                          'linear-gradient(90deg, #ffffff, #37AFE1, #F58122, #37AFE1, #ffffff)',
+                          'linear-gradient(90deg, #ffffff, #06b6d4, #fc4c00, #06b6d4, #ffffff)',
                         backgroundSize: '300% 100%',
                         animation: 'gradient-shift 4s ease-in-out infinite',
                       }}
@@ -300,7 +300,7 @@ export const ScrollVideoCard: React.FC<ScrollVideoCardProps> = ({
                       {overlay.heading}
                     </h3>
                   )}
-                  <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-[#F58122] to-[#37AFE1]" />
+                  <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-[#fc4c00] to-[#06b6d4]" />
                   {overlay.paragraphs?.map((p, i) => (
                     <p
                       key={i}

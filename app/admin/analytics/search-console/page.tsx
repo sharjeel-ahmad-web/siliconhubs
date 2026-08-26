@@ -136,7 +136,7 @@ export default function SearchConsolePage() {
   if (loading) {
     return (
       <div className="flex h-96 items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan/30 border-t-[#06b6d4]" />
       </div>
     );
   }
@@ -147,7 +147,7 @@ export default function SearchConsolePage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="flex items-center gap-3 text-3xl font-bold text-white">
-            <Search className="h-8 w-8 text-[#37AFE1]" />
+            <Search className="h-8 w-8 text-cyan" />
             Google Search Console
           </h1>
           <p className="mt-1 text-slate-400">
@@ -159,7 +159,7 @@ export default function SearchConsolePage() {
         <div className="flex gap-2">
           <button
             onClick={() => setShowSetup(true)}
-            className="flex items-center gap-2 rounded-lg border border-slate-700 bg-[#1E293B] px-4 py-2 font-medium text-slate-400 transition-colors hover:text-white"
+            className="flex items-center gap-2 rounded-lg border border-slate-700 bg-navy px-4 py-2 font-medium text-slate-400 transition-colors hover:text-white"
           >
             <Settings className="h-4 w-4" />
             Settings
@@ -167,7 +167,7 @@ export default function SearchConsolePage() {
           <button
             onClick={() => fetchData(true)}
             disabled={refreshing}
-            className="flex items-center gap-2 rounded-lg border border-slate-700 bg-[#1E293B] px-4 py-2 font-medium text-slate-400 transition-colors hover:text-white"
+            className="flex items-center gap-2 rounded-lg border border-slate-700 bg-navy px-4 py-2 font-medium text-slate-400 transition-colors hover:text-white"
           >
             <RefreshCw
               className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`}
@@ -180,8 +180,8 @@ export default function SearchConsolePage() {
               onClick={() => setTimeRange(range)}
               className={`rounded-lg px-4 py-2 font-medium transition-colors ${
                 timeRange === range
-                  ? 'bg-[#37AFE1] text-white'
-                  : 'border border-slate-700 bg-[#1E293B] text-slate-400 hover:text-white'
+                  ? 'bg-cyan text-white'
+                  : 'border border-slate-700 bg-navy text-slate-400 hover:text-white'
               }`}
             >
               {range === '7d'
@@ -196,8 +196,8 @@ export default function SearchConsolePage() {
 
       {/* Setup Modal */}
       {showSetup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="w-full max-w-md rounded-xl border border-slate-700 bg-[#1E293B] p-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/50">
+          <div className="w-full max-w-md rounded-xl border border-slate-700 bg-navy p-6">
             <h2 className="mb-4 text-xl font-bold text-white">
               Search Console Setup
             </h2>
@@ -211,13 +211,13 @@ export default function SearchConsolePage() {
                   value={siteUrl}
                   onChange={(e) => setSiteUrl(e.target.value)}
                   placeholder="https://yourdomain.com"
-                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-2 text-white focus:border-[#37AFE1] focus:outline-none"
+                  className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                 />
                 <p className="mt-1 text-xs text-slate-500">
                   Enter your verified Search Console property URL
                 </p>
               </div>
-              <div className="rounded-lg border border-slate-700 bg-[#0F172A] p-4">
+              <div className="rounded-lg border border-slate-700 bg-navy p-4">
                 <h3 className="mb-2 text-sm font-medium text-white">
                   Setup Instructions:
                 </h3>
@@ -238,7 +238,7 @@ export default function SearchConsolePage() {
                 <button
                   onClick={saveSettings}
                   disabled={saving || !siteUrl}
-                  className="rounded-lg bg-[#37AFE1] px-4 py-2 font-medium text-white disabled:opacity-50"
+                  className="rounded-lg bg-cyan px-4 py-2 font-medium text-white disabled:opacity-50"
                 >
                   {saving ? 'Saving...' : 'Save Settings'}
                 </button>
@@ -250,7 +250,7 @@ export default function SearchConsolePage() {
 
       {/* Not Connected State */}
       {!data?.connected && (
-        <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-12 text-center">
+        <div className="rounded-xl border border-slate-700/50 bg-navy p-12 text-center">
           <Search className="mx-auto mb-4 h-16 w-16 text-slate-600" />
           <h3 className="mb-2 text-xl font-semibold text-white">
             Connect Search Console
@@ -261,7 +261,7 @@ export default function SearchConsolePage() {
           </p>
           <button
             onClick={() => setShowSetup(true)}
-            className="rounded-lg bg-[#37AFE1] px-6 py-3 font-medium text-white transition-colors hover:bg-[#37AFE1]/90"
+            className="rounded-lg bg-cyan px-6 py-3 font-medium text-white transition-colors hover:bg-cyan/90"
           >
             Connect Search Console
           </button>
@@ -293,14 +293,14 @@ export default function SearchConsolePage() {
                 label="Total Clicks"
                 value={data.overview.totalClicks.toLocaleString()}
                 change={data.overview.clicksChange}
-                color="text-[#37AFE1]"
+                color="text-cyan"
               />
               <StatCard
                 icon={<Eye className="h-5 w-5" />}
                 label="Total Impressions"
                 value={data.overview.totalImpressions.toLocaleString()}
                 change={data.overview.impressionsChange}
-                color="text-[#F58122]"
+                color="text-orange"
               />
               <StatCard
                 icon={<TrendingUp className="h-5 w-5" />}
@@ -319,7 +319,7 @@ export default function SearchConsolePage() {
 
           {/* Performance Chart */}
           {data.dailyData && (
-            <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+            <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
               <h3 className="mb-4 text-lg font-semibold text-white">
                 Search Performance
               </h3>
@@ -345,13 +345,13 @@ export default function SearchConsolePage() {
                         initial={{ height: 0 }}
                         animate={{ height: `${impressionsHeight}%` }}
                         transition={{ duration: 0.5, delay: index * 0.02 }}
-                        className="w-full rounded-t bg-[#F58122]/30"
+                        className="w-full rounded-t bg-orange/30"
                       />
                       <motion.div
                         initial={{ height: 0 }}
                         animate={{ height: `${clicksHeight}%` }}
                         transition={{ duration: 0.5, delay: index * 0.02 }}
-                        className="w-full rounded-t bg-[#37AFE1]"
+                        className="w-full rounded-t bg-cyan"
                       />
                       <div className="absolute -top-16 z-10 whitespace-nowrap rounded bg-slate-800 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100">
                         <div>{day.clicks} clicks</div>
@@ -367,11 +367,11 @@ export default function SearchConsolePage() {
               </div>
               <div className="mt-4 flex justify-center gap-4">
                 <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded bg-[#37AFE1]" />
+                  <div className="h-3 w-3 rounded bg-cyan" />
                   <span className="text-sm text-slate-400">Clicks</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded bg-[#F58122]/30" />
+                  <div className="h-3 w-3 rounded bg-orange/30" />
                   <span className="text-sm text-slate-400">Impressions</span>
                 </div>
               </div>
@@ -379,13 +379,13 @@ export default function SearchConsolePage() {
           )}
 
           {/* Tabs for Queries/Pages */}
-          <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-[#1E293B]">
+          <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-navy">
             <div className="flex border-b border-slate-700">
               <button
                 onClick={() => setActiveTab('queries')}
                 className={`flex-1 px-6 py-4 font-medium transition-colors ${
                   activeTab === 'queries'
-                    ? 'border-b-2 border-[#37AFE1] bg-[#0F172A] text-white'
+                    ? 'border-b-2 border-cyan bg-navy text-white'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -396,7 +396,7 @@ export default function SearchConsolePage() {
                 onClick={() => setActiveTab('pages')}
                 className={`flex-1 px-6 py-4 font-medium transition-colors ${
                   activeTab === 'pages'
-                    ? 'border-b-2 border-[#37AFE1] bg-[#0F172A] text-white'
+                    ? 'border-b-2 border-cyan bg-navy text-white'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -429,7 +429,7 @@ export default function SearchConsolePage() {
                           className="border-b border-slate-700/50 last:border-0"
                         >
                           <td className="py-3 text-white">{query.query}</td>
-                          <td className="py-3 text-right font-semibold text-[#37AFE1]">
+                          <td className="py-3 text-right font-semibold text-cyan">
                             {query.clicks.toLocaleString()}
                           </td>
                           <td className="py-3 text-right text-slate-400">
@@ -473,7 +473,7 @@ export default function SearchConsolePage() {
                           <td className="max-w-[300px] truncate py-3 text-white">
                             {page.page}
                           </td>
-                          <td className="py-3 text-right font-semibold text-[#37AFE1]">
+                          <td className="py-3 text-right font-semibold text-cyan">
                             {page.clicks.toLocaleString()}
                           </td>
                           <td className="py-3 text-right text-slate-400">
@@ -498,7 +498,7 @@ export default function SearchConsolePage() {
           <div className="grid grid-cols-2 gap-6">
             {/* Device Performance */}
             {data.devicePerformance && (
-              <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+              <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
                 <h3 className="mb-4 text-lg font-semibold text-white">
                   Device Performance
                 </h3>
@@ -538,7 +538,7 @@ export default function SearchConsolePage() {
 
             {/* Indexing Status */}
             {data.indexingStatus && (
-              <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+              <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
                 <h3 className="mb-4 text-lg font-semibold text-white">
                   Indexing Status
                 </h3>
@@ -568,7 +568,7 @@ export default function SearchConsolePage() {
 
           {/* Crawl Errors */}
           {data.crawlErrors && data.crawlErrors.length > 0 && (
-            <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
+            <div className="rounded-xl border border-slate-700/50 bg-navy p-6">
               <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-white">
                 <AlertTriangle className="h-5 w-5 text-yellow-500" />
                 Crawl Issues
@@ -619,7 +619,7 @@ function StatCard({
   color?: string;
 }) {
   return (
-    <div className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-4">
+    <div className="rounded-xl border border-slate-700/50 bg-navy p-4">
       <div className="mb-2 flex items-center gap-2 text-slate-400">
         {icon}
         <span className="text-sm">{label}</span>
