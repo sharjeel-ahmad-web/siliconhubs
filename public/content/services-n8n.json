@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "eyebrow": "Workflow Automation",
+    "title": "N8N Automation, Efficiency Amplified",
+    "highlightedWord": "N8N",
+    "highlightedWord2": "Efficiency",
+    "subtitle": "Transform manual workflows into intelligent automation systems. Connect apps, sync data, and automate repetitive tasks with powerful N8N workflows.",
+    "ctaButton": {
+      "label": "Start Automating",
+      "href": "/contact"
+    },
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "video": {
+    "eyebrow": "See Automation In Action",
+    "title": "Watch How We Build",
+    "titleHighlight": "Powerful Workflows",
+    "subtitle": "Experience our automation process and see the intelligent N8N workflows we create for our clients.",
+    "videoSrc": "/media/services/n8n-automations/video/hero-video.mp4",
+    "ctaText": "Start Automating",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "workflowBuilder": {
+    "eyebrow": "Visual Builder",
+    "title": "Interactive Workflow",
+    "titleHighlight": "Builder",
+    "subtitle": "Design and visualize your automation workflows with our intuitive builder.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "beforeAfter": {
+    "eyebrow": "Comparison",
+    "title": "Manual vs",
+    "titleHighlight": "Automated",
+    "subtitle": "See the dramatic difference between manual processes and automated workflows.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "performanceMetrics": {
+    "eyebrow": "Analytics",
+    "title": "Performance",
+    "titleHighlight": "Impact",
+    "subtitle": "Track the measurable impact of automation on your business operations.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "apiIntegration": {
+    "eyebrow": "Connectivity",
+    "title": "API",
+    "titleHighlight": "Integration",
+    "subtitle": "Connect any system with our powerful REST API integrations.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "caseStudies": {
+    "eyebrow": "Automation Success Stories",
+    "title": "Workflows That",
+    "titleHighlight": "Scale",
+    "subtitle": "See how we've helped businesses automate repetitive tasks and boost efficiency.",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "cta": {
+    "title": "Ready to Automate Your Workflows?",
+    "subtitle": "Let's build powerful N8N automations that save time and boost efficiency",
+    "ctaText": "Start Automating",
+    "ctaHref": "/contact",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "stackFeature": {
+    "eyebrow": "✨ Our Tech Stack",
+    "title": "Build Your",
+    "titleHighlight": "Digital Empire",
+    "subtitle": "We leverage cutting-edge technologies to deliver scalable, high-performance solutions.",
+    "ctaText": "Start Your Project",
+    "ctaHref": "/contact",
+    "secondaryCtaText": "View Our Work",
+    "secondaryCtaHref": "/portfolio",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  }
+}

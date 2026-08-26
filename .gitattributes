@@ -1,0 +1,3 @@
+# Mark generated Framer components as linguist-generated
+components/framer/hero-3-d.jsx linguist-generated=true
+components/framer/styles.css linguist-generated=true

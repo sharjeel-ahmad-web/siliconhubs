@@ -1,0 +1,27 @@
+{
+  "_note": "This manifest file is automatically generated during build process",
+  "generatedAt": "2024-12-21T10:30:00.000Z",
+  "pages": [
+    {
+      "name": "home",
+      "file": "home.json",
+      "sections": 3
+    },
+    {
+      "name": "about",
+      "file": "about.json",
+      "sections": 3
+    },
+    {
+      "name": "services-webdesign",
+      "file": "services-webdesign.json",
+      "sections": 2
+    },
+    {
+      "name": "blog",
+      "file": "blog.json",
+      "sections": 3
+    }
+  ],
+  "totalSections": 11
+}

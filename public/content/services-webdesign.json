@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "eyebrow": "Web Design Services",
+    "title": "Beautiful Websites That Convert",
+    "subtitle": "Custom web design solutions tailored to your brand and business goals",
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  },
+  "features": {
+    "title": "What We Offer",
+    "features": [
+      {
+        "title": "Responsive Design",
+        "description": "Your website will look perfect on all devices"
+      },
+      {
+        "title": "Modern UI/UX",
+        "description": "Intuitive interfaces that users love"
+      },
+      {
+        "title": "Fast Loading",
+        "description": "Optimized for speed and performance"
+      }
+    ],
+    "_visible": true,
+    "_updatedAt": "2024-12-21T10:00:00.000Z"
+  }
+}
