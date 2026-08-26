@@ -19,7 +19,7 @@ const NullComponent = () => null;
 const CleanHero = dynamic(
   () => import('@/modules/public/sections/CleanHero').catch(() => ({ default: NullComponent })),
   {
-    ssr: false,
+
     loading: () => (
       <section
         className="flex min-h-screen items-center justify-center"
@@ -35,7 +35,7 @@ const CleanHero = dynamic(
 const Connect = dynamic(
   () => import('@/modules/public/sections/Connect').catch(() => ({ default: NullComponent })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex items-center justify-center bg-black py-20">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#06b6d4]/30 border-t-[#06b6d4]" />
@@ -51,7 +51,7 @@ const HolographicContact = dynamic(
       default: NullComponent,
     })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex min-h-screen items-center justify-center bg-[#0A0F1E] py-20">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-purple-500/30 border-t-purple-500" />
@@ -67,7 +67,7 @@ const PortfolioGallery = dynamic(
       default: NullComponent,
     })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex items-center justify-center bg-black py-20">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#06b6d4]/30 border-t-[#06b6d4]" />
@@ -83,7 +83,7 @@ const ServicesShowcase = dynamic(
       default: NullComponent,
     })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex items-center justify-center bg-black py-20">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#06b6d4]/30 border-t-[#06b6d4]" />
@@ -99,7 +99,7 @@ const HolographicTeam = dynamic(
       default: NullComponent,
     })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex min-h-screen items-center justify-center bg-[#0A0F1E] py-12">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-purple-500/30 border-t-purple-500" />
@@ -115,7 +115,7 @@ const TechStackMarquee = dynamic(
       default: NullComponent,
     })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex items-center justify-center bg-black py-16 md:py-24">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#06b6d4]/30 border-t-[#06b6d4]" />
@@ -128,7 +128,7 @@ const TechStackMarquee = dynamic(
 const AboutSection = dynamic(
   () => import('@/modules/public/sections/AboutSection').catch(() => ({ default: NullComponent })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex items-center justify-center bg-black py-20">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#06b6d4]/30 border-t-[#06b6d4]" />
@@ -144,7 +144,7 @@ const CaseStudiesCarousel = dynamic(
       default: NullComponent,
     })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex items-center justify-center bg-black py-20 md:py-32">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#fc4c00]/30 border-t-[#fc4c00]" />
@@ -160,7 +160,7 @@ const PremiumTestimonials = dynamic(
       .then((mod) => ({ default: mod.PremiumTestimonials }))
       .catch(() => ({ default: NullComponent })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex items-center justify-center bg-gradient-to-br from-black via-[#0F172A] to-black py-32">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#fc4c00]/30 border-t-[#fc4c00]" />
@@ -173,7 +173,7 @@ const PremiumTestimonials = dynamic(
 const BlogSection = dynamic(
   () => import('@/modules/public/sections/BlogSection').catch(() => ({ default: NullComponent })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex items-center justify-center bg-black py-24">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#06b6d4]/30 border-t-[#06b6d4]" />
@@ -189,7 +189,7 @@ const BentoGridSection = dynamic(
       default: NullComponent,
     })),
   {
-    ssr: false,
+
     loading: () => (
       <section className="flex items-center justify-center bg-black py-20">
         <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#06b6d4]/30 border-t-[#06b6d4]" />
