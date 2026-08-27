@@ -30,7 +30,7 @@ export default async function AdminLayout({
 
   return (
     <SessionProvider>
-      <div className="flex h-screen bg-[#0F172A]">
+      <div className="admin-shell flex h-screen bg-[#FFF4E6]">
         <AdminSidebar user={safeUser} />
         <div className="flex flex-1 flex-col overflow-hidden">
           <AdminHeader user={safeUser} />

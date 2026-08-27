@@ -16,6 +16,7 @@ const staticPages = [
   { path: '/services/wordpress', priority: 0.8, changefreq: 'weekly' },
   { path: '/services/shopify', priority: 0.8, changefreq: 'weekly' },
   { path: '/services/seo', priority: 0.8, changefreq: 'weekly' },
+  { path: '/services/digital-marketing', priority: 0.8, changefreq: 'weekly' },
   { path: '/services/saas', priority: 0.8, changefreq: 'weekly' },
   { path: '/portfolio', priority: 0.7, changefreq: 'weekly' },
   { path: '/blog', priority: 0.7, changefreq: 'daily' },

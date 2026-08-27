@@ -52,10 +52,16 @@ const defaultNavigation = {
       { href: '/services/shopify', label: 'Shopify', enabled: true, order: 4 },
       { href: '/services/seo', label: 'SEO', enabled: true, order: 5 },
       {
+        href: '/services/digital-marketing',
+        label: 'Digital Marketing',
+        enabled: true,
+        order: 6,
+      },
+      {
         href: '/services/saas',
         label: 'SaaS Solutions',
         enabled: true,
-        order: 6,
+        order: 7,
       },
     ],
   },

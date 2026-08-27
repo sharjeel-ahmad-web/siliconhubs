@@ -41,7 +41,11 @@ interface NavItem {
 
 const navigation: NavItem[] = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-  { name: 'Documentation', href: '/admin/pages/documentation', icon: BookOpen },
+  {
+    name: 'Documentation',
+    href: '/admin/pages/documentation',
+    icon: BookOpen,
+  },
   { name: 'Content Manager', href: '/admin/content', icon: FileText },
   {
     name: 'Pages',
@@ -50,7 +54,11 @@ const navigation: NavItem[] = [
       { name: 'All Pages', href: '/admin/pages', icon: FileText },
       { name: 'Home', href: '/admin/pages/home', icon: FileText },
       { name: 'About', href: '/admin/pages/about', icon: FileText },
-      { name: 'Portfolio', href: '/admin/pages/portfolio', icon: FileText },
+      {
+        name: 'Portfolio',
+        href: '/admin/pages/portfolio',
+        icon: FileText,
+      },
       { name: 'Contact', href: '/admin/pages/contact', icon: FileText },
       { name: 'Blog', href: '/admin/pages/blog', icon: FileText },
       {
@@ -99,7 +107,11 @@ const navigation: NavItem[] = [
   { name: 'Blog Posts', href: '/admin/blogs', icon: FileText },
   { name: 'Services', href: '/admin/services', icon: Briefcase },
   { name: 'Team Members', href: '/admin/team', icon: Users },
-  { name: 'Testimonials', href: '/admin/testimonials', icon: MessageSquare },
+  {
+    name: 'Testimonials',
+    href: '/admin/testimonials',
+    icon: MessageSquare,
+  },
   { name: 'Contacts', href: '/admin/contacts', icon: MessageSquare },
   {
     name: 'Analytics',
@@ -163,9 +175,11 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
     if (item.href) {
       return pathname === item.href || pathname.startsWith(item.href + '/');
     }
+
     if (item.children) {
       return item.children.some((child) => isItemActive(child));
     }
+
     return false;
   };
 
@@ -174,6 +188,11 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
     const hasChildren = item.children && item.children.length > 0;
     const isExpanded = expandedItems.includes(item.name);
     const isActive = item.href ? pathname === item.href : false;
+
+    const hasActiveChild = item.children
+      ? item.children.some((child) => isItemActive(child))
+      : false;
+
     const paddingLeft = depth === 0 ? 'pl-4' : depth === 1 ? 'pl-8' : 'pl-12';
 
     if (hasChildren) {
@@ -182,21 +201,36 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
           <button
             onClick={() => toggleExpand(item.name)}
             className={`
-              flex w-full items-center justify-between ${paddingLeft} rounded-lg py-3 pr-4
-              text-slate-300 transition-all
-              duration-200 hover:bg-slate-700/50 hover:text-white
+              flex w-full items-center justify-between
+              ${paddingLeft}
+              admin-nav-item
+              rounded-xl py-3
+              pr-4 transition-all
+              duration-300
+              ${
+                hasActiveChild
+                  ? 'bg-[#F7E3C6] text-[#14213D]'
+                  : 'text-[#363534] hover:bg-[#FFEDD7] hover:text-[#14213D]'
+              }
             `}
           >
             <div className="flex items-center space-x-3">
-              <Icon className="h-5 w-5" />
+              <Icon
+                className={`h-5 w-5 ${
+                  hasActiveChild ? 'text-[#F4511E]' : 'text-[#515161]'
+                }`}
+              />
+
               <span className="font-medium">{item.name}</span>
             </div>
+
             {isExpanded ? (
-              <ChevronDown className="h-4 w-4" />
+              <ChevronDown className="h-4 w-4 text-[#F4511E]" />
             ) : (
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4 text-[#515161]" />
             )}
           </button>
+
           {isExpanded && (
             <div className="mt-1 space-y-1">
               {item.children!.map((child) => renderNavItem(child, depth + 1))}
@@ -211,16 +245,25 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
         key={item.name}
         href={item.href || '#'}
         className={`
-          flex items-center space-x-3 ${paddingLeft} rounded-lg py-2.5 pr-4
-          transition-all duration-200
+          flex items-center space-x-3
+          ${paddingLeft}
+          admin-nav-item
+          rounded-xl py-2.5
+          pr-4 transition-all
+          duration-300
           ${
             isActive
-              ? 'bg-[#2563EB] text-white shadow-lg shadow-blue-500/20'
-              : 'text-slate-300 hover:bg-slate-700/50 hover:text-white'
+              ? 'bg-[#F4511E] text-white shadow-lg shadow-[#F4511E]/20'
+              : 'text-[#363534] hover:bg-[#FFEDD7] hover:text-[#14213D]'
           }
         `}
       >
-        <Icon className="h-4 w-4" />
+        <Icon
+          className={`h-4 w-4 transition-colors duration-300 ${
+            isActive ? 'text-white' : 'text-[#515161]'
+          }`}
+        />
+
         <span className={`font-medium ${depth > 0 ? 'text-sm' : ''}`}>
           {item.name}
         </span>
@@ -229,40 +272,48 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
   };
 
   return (
-    <aside className="flex w-64 flex-col bg-[#1E293B] text-white">
+    <aside className="flex w-64 flex-col border-r border-[#E8D8C5] bg-[#FFF4E6] text-[#14213D]">
       {/* Logo */}
-      <div className="flex h-[73px] items-center border-b border-slate-700 px-6 py-4">
+      <div className="flex h-24 items-center border-b border-[#E8D8C5] px-6 py-3">
         <div>
           <Link href="/admin" className="flex items-center">
             <img
               src="/adminlogo.png"
               alt="SiliconHubs"
-              className="h-10 w-auto"
+              className="h-16 w-auto object-contain"
             />
           </Link>
-          <p className="mt-0.5 text-xs text-slate-400">Admin Dashboard</p>
+
+          <p className="mt-0.5 text-xs text-[#515161]">Admin Dashboard</p>
         </div>
       </div>
 
       {/* Navigation */}
       <nav
         className="scrollbar-hide flex-1 space-y-1 overflow-y-auto p-4"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        style={{
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+        }}
       >
         {filteredNavigation.map((item) => renderNavItem(item))}
       </nav>
 
       {/* User Info */}
-      <div className="border-t border-slate-700 p-4">
+      <div className="border-t border-[#E8D8C5] p-4">
         <div className="flex items-center space-x-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#2563EB] to-[#37AFE1]">
-            <span className="text-sm font-bold">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F4511E] shadow-lg shadow-[#F4511E]/20">
+            <span className="text-sm font-bold text-white">
               {user.name.charAt(0).toUpperCase()}
             </span>
           </div>
+
           <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-medium">{user.name}</p>
-            <p className="truncate text-xs capitalize text-slate-400">
+            <p className="truncate text-sm font-semibold text-[#14213D]">
+              {user.name}
+            </p>
+
+            <p className="truncate text-xs capitalize text-[#515161]">
               {user.role}
             </p>
           </div>

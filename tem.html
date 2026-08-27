@@ -1,0 +1,1572 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SiliconHubs Admin Dashboard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      /* =====================================================
+       ROOT COLORS
+    ===================================================== */
+
+      :root {
+        --cream: #fff4e3;
+        --cream-light: #fff8ef;
+        --cream-card: #fff9f1;
+        --cream-accent: #ffe8c1;
+
+        --orange: #fc4c00;
+        --orange-dark: #e94300;
+        --orange-light: #ff6a2a;
+        --orange-soft: #fff0dc;
+
+        --dark: #24201c;
+        --heading: #17233f;
+        --text: #655e57;
+        --muted: #8c8278;
+
+        --border: #ebdcc9;
+
+        --white: #ffffff;
+
+        --shadow: 0 10px 30px rgba(67, 45, 25, 0.07);
+
+        --shadow-orange: 0 12px 28px rgba(252, 76, 0, 0.2);
+
+        --radius: 18px;
+      }
+
+      /* =====================================================
+       RESET
+    ===================================================== */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: var(--cream);
+        color: var(--dark);
+        min-height: 100vh;
+      }
+
+      button,
+      input {
+        font-family: inherit;
+      }
+
+      button {
+        border: none;
+        cursor: pointer;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* =====================================================
+       DASHBOARD LAYOUT
+    ===================================================== */
+
+      .dashboard {
+        display: flex;
+        min-height: 100vh;
+        background:
+          radial-gradient(
+            circle at 80% 0%,
+            rgba(252, 76, 0, 0.045),
+            transparent 28%
+          ),
+          var(--cream);
+      }
+
+      /* =====================================================
+       SIDEBAR
+    ===================================================== */
+
+      .sidebar {
+        width: 350px;
+        min-height: 100vh;
+
+        background: linear-gradient(180deg, #fff9f2 0%, #fff5e9 100%);
+
+        border-right: 1px solid var(--border);
+
+        display: flex;
+        flex-direction: column;
+
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+
+        z-index: 100;
+      }
+
+      /* LOGO */
+
+      .logo-area {
+        height: 135px;
+
+        padding: 30px 28px;
+
+        border-bottom: 1px solid var(--border);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-mark {
+        width: 32px;
+        height: 32px;
+
+        border-radius: 9px;
+
+        background: linear-gradient(135deg, var(--orange), #ff7137);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+
+        font-weight: 800;
+
+        box-shadow: 0 7px 18px rgba(252, 76, 0, 0.22);
+      }
+
+      .logo-text {
+        font-size: 17px;
+        font-weight: 800;
+        color: var(--dark);
+        letter-spacing: -0.5px;
+      }
+
+      .logo-text span {
+        color: var(--orange);
+      }
+
+      .admin-label {
+        margin-top: 10px;
+        font-size: 13px;
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      /* NAVIGATION */
+
+      .navigation {
+        flex: 1;
+
+        padding: 22px 16px;
+
+        overflow-y: auto;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+
+        gap: 14px;
+
+        width: 100%;
+
+        padding: 14px 16px;
+
+        margin-bottom: 5px;
+
+        border-radius: 13px;
+
+        color: #413c38;
+
+        font-size: 15px;
+        font-weight: 600;
+
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease,
+          color 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .nav-item svg {
+        width: 19px;
+        height: 19px;
+        stroke-width: 1.9;
+      }
+
+      .nav-item:hover {
+        background: var(--orange-soft);
+        color: var(--orange);
+
+        transform: translateX(4px);
+      }
+
+      .nav-item.active {
+        background: linear-gradient(135deg, #fc4c00, #ff6425);
+
+        color: white;
+
+        box-shadow: 0 10px 24px rgba(252, 76, 0, 0.2);
+      }
+
+      .nav-item.active:hover {
+        transform: translateY(-1px);
+        color: white;
+      }
+
+      .nav-arrow {
+        margin-left: auto;
+        opacity: 0.7;
+      }
+
+      /* USER */
+
+      .user-area {
+        padding: 18px;
+
+        border-top: 1px solid var(--border);
+
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .avatar {
+        width: 46px;
+        height: 46px;
+
+        border-radius: 50%;
+
+        background: linear-gradient(135deg, var(--orange), #ff7137);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        font-size: 16px;
+        font-weight: 800;
+
+        box-shadow: 0 8px 20px rgba(252, 76, 0, 0.18);
+      }
+
+      .user-name {
+        font-weight: 700;
+        color: var(--heading);
+        font-size: 14px;
+      }
+
+      .user-role {
+        color: var(--muted);
+        font-size: 12px;
+        margin-top: 3px;
+      }
+
+      /* =====================================================
+       MAIN AREA
+    ===================================================== */
+
+      .main {
+        margin-left: 350px;
+        width: calc(100% - 350px);
+      }
+
+      /* =====================================================
+       HEADER
+    ===================================================== */
+
+      .header {
+        height: 103px;
+
+        padding: 18px 34px;
+
+        border-bottom: 1px solid var(--border);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background: rgba(255, 248, 239, 0.86);
+
+        backdrop-filter: blur(18px);
+
+        position: sticky;
+        top: 0;
+
+        z-index: 50;
+      }
+
+      /* SEARCH */
+
+      .search {
+        position: relative;
+        width: 630px;
+      }
+
+      .search svg {
+        position: absolute;
+
+        left: 18px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        width: 22px;
+        height: 22px;
+
+        color: #596071;
+      }
+
+      .search input {
+        width: 100%;
+
+        height: 68px;
+
+        border: 1px solid var(--border);
+
+        border-radius: 17px;
+
+        background: white;
+
+        padding: 0 20px 0 56px;
+
+        font-size: 20px;
+
+        color: var(--dark);
+
+        outline: none;
+
+        box-shadow: 0 4px 14px rgba(40, 30, 20, 0.035);
+
+        transition: all 0.25s ease;
+      }
+
+      .search input::placeholder {
+        color: #918980;
+      }
+
+      .search input:focus {
+        border-color: rgba(252, 76, 0, 0.5);
+
+        box-shadow:
+          0 0 0 4px rgba(252, 76, 0, 0.08),
+          0 8px 24px rgba(40, 30, 20, 0.05);
+      }
+
+      /* HEADER ACTIONS */
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .icon-button {
+        width: 48px;
+        height: 48px;
+
+        border-radius: 13px;
+
+        background: transparent;
+
+        color: #596071;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+
+        transition: all 0.25s ease;
+      }
+
+      .icon-button:hover {
+        background: var(--orange-soft);
+        color: var(--orange);
+
+        transform: translateY(-2px);
+      }
+
+      .notification {
+        position: absolute;
+
+        right: 3px;
+        top: 1px;
+
+        min-width: 21px;
+        height: 21px;
+
+        padding: 0 5px;
+
+        border-radius: 50px;
+
+        background: var(--orange);
+
+        color: white;
+
+        font-size: 10px;
+        font-weight: 800;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-shadow: 0 4px 10px rgba(252, 76, 0, 0.3);
+      }
+
+      /* SIGN OUT */
+
+      .sign-out {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 12px 16px;
+
+        border-radius: 12px;
+
+        background: transparent;
+
+        color: #596071;
+
+        font-size: 16px;
+        font-weight: 700;
+
+        transition: all 0.25s ease;
+      }
+
+      .sign-out:hover {
+        color: var(--orange);
+        background: var(--orange-soft);
+      }
+
+      /* =====================================================
+       CONTENT
+    ===================================================== */
+
+      .content {
+        padding: 34px;
+      }
+
+      /* WELCOME */
+
+      .welcome h1 {
+        font-size: 42px;
+
+        line-height: 1.1;
+
+        color: var(--heading);
+
+        letter-spacing: -1.5px;
+
+        font-weight: 800;
+      }
+
+      .welcome p {
+        margin-top: 9px;
+
+        color: var(--text);
+
+        font-size: 18px;
+      }
+
+      /* =====================================================
+       SECTION HEADER
+    ===================================================== */
+
+      .section-header {
+        margin-top: 40px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .section-title {
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--dark);
+      }
+
+      .section-subtitle {
+        margin-top: 5px;
+
+        font-size: 16px;
+
+        color: var(--text);
+      }
+
+      /* =====================================================
+       REFRESH BUTTON
+    ===================================================== */
+
+      .refresh-button {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+
+        padding: 12px 18px;
+
+        border-radius: 13px;
+
+        background: linear-gradient(180deg, #fffdfc, #fff4e8);
+
+        border: 1px solid var(--border);
+
+        color: var(--dark);
+
+        font-size: 14px;
+        font-weight: 700;
+
+        box-shadow: 0 5px 15px rgba(60, 40, 20, 0.05);
+
+        transition: all 0.25s ease;
+      }
+
+      .refresh-button:hover {
+        color: white;
+
+        border-color: var(--orange);
+
+        background: var(--orange);
+
+        box-shadow: var(--shadow-orange);
+
+        transform: translateY(-2px);
+      }
+
+      .refresh-button svg {
+        width: 17px;
+      }
+
+      /* =====================================================
+       STAT CARDS
+    ===================================================== */
+
+      .stats-grid {
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 24px;
+
+        margin-top: 28px;
+      }
+
+      .stat-card {
+        position: relative;
+
+        overflow: hidden;
+
+        padding: 25px;
+
+        min-height: 195px;
+
+        border-radius: var(--radius);
+
+        border: 1px solid var(--border);
+
+        background: linear-gradient(145deg, #fffdfc, #fff3e2);
+
+        box-shadow: var(--shadow);
+
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-7px);
+
+        border-color: rgba(252, 76, 0, 0.35);
+
+        box-shadow: 0 18px 40px rgba(64, 43, 22, 0.1);
+      }
+
+      /* CARD DECORATION */
+
+      .stat-card::after {
+        content: '';
+
+        position: absolute;
+
+        width: 140px;
+        height: 140px;
+
+        right: -50px;
+        top: -50px;
+
+        border-radius: 50%;
+
+        background: rgba(252, 76, 0, 0.06);
+
+        transition: transform 0.5s ease;
+      }
+
+      .stat-card:hover::after {
+        transform: scale(1.4);
+      }
+
+      .stat-content {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .stat-name {
+        color: var(--text);
+
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .stat-value {
+        margin-top: 14px;
+
+        color: var(--dark);
+
+        font-size: 39px;
+
+        line-height: 1;
+
+        font-weight: 800;
+
+        letter-spacing: -1px;
+      }
+
+      .stat-change {
+        margin-top: 14px;
+
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        color: var(--muted);
+
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .orange-dot {
+        width: 8px;
+        height: 8px;
+
+        border-radius: 50%;
+
+        background: var(--orange);
+
+        box-shadow: 0 0 0 4px rgba(252, 76, 0, 0.08);
+      }
+
+      /* ICON */
+
+      .stat-icon {
+        width: 58px;
+        height: 58px;
+
+        border-radius: 16px;
+
+        background: linear-gradient(135deg, var(--orange), var(--orange-light));
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+
+        box-shadow: 0 12px 22px rgba(252, 76, 0, 0.2);
+
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover .stat-icon {
+        transform: rotate(5deg) scale(1.08);
+
+        box-shadow: 0 15px 30px rgba(252, 76, 0, 0.3);
+      }
+
+      .stat-icon.dark {
+        background: linear-gradient(135deg, #29251f, #3a342d);
+
+        box-shadow: 0 12px 22px rgba(30, 25, 20, 0.15);
+      }
+
+      /* =====================================================
+       LOWER GRID
+    ===================================================== */
+
+      .lower-grid {
+        display: grid;
+
+        grid-template-columns: 1.65fr 1fr;
+
+        gap: 24px;
+
+        margin-top: 28px;
+      }
+
+      .panel {
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius);
+
+        background: linear-gradient(145deg, #fffdfc, #fff0dc);
+
+        box-shadow: var(--shadow);
+
+        padding: 28px;
+
+        overflow: hidden;
+      }
+
+      .panel-title {
+        color: var(--heading);
+
+        font-size: 24px;
+        font-weight: 800;
+      }
+
+      /* =====================================================
+       ACTIVITY
+    ===================================================== */
+
+      .activity-list {
+        margin-top: 25px;
+      }
+
+      .activity {
+        display: flex;
+        align-items: center;
+
+        gap: 15px;
+
+        padding: 15px 10px;
+
+        border-bottom: 1px solid rgba(235, 220, 201, 0.7);
+
+        transition: all 0.2s ease;
+      }
+
+      .activity:hover {
+        background: rgba(255, 255, 255, 0.4);
+
+        border-radius: 12px;
+
+        transform: translateX(4px);
+      }
+
+      .activity:last-child {
+        border-bottom: none;
+      }
+
+      .activity-icon {
+        width: 48px;
+        height: 48px;
+
+        border-radius: 13px;
+
+        background: #ffe7c2;
+
+        color: var(--dark);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-shrink: 0;
+      }
+
+      .activity-text {
+        font-size: 14px;
+        color: var(--text);
+      }
+
+      .activity-text strong {
+        color: var(--heading);
+      }
+
+      .activity-time {
+        margin-top: 5px;
+
+        font-size: 12px;
+
+        color: var(--muted);
+      }
+
+      /* =====================================================
+       QUICK ACTIONS
+    ===================================================== */
+
+      .quick-actions {
+        margin-top: 25px;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 13px;
+      }
+
+      .quick-button {
+        position: relative;
+
+        overflow: hidden;
+
+        width: 100%;
+
+        min-height: 64px;
+
+        padding: 0 22px;
+
+        border-radius: 14px;
+
+        background: linear-gradient(135deg, var(--orange), #ff6022);
+
+        color: white;
+
+        display: flex;
+        align-items: center;
+
+        gap: 14px;
+
+        font-size: 17px;
+        font-weight: 700;
+
+        box-shadow: 0 10px 22px rgba(252, 76, 0, 0.18);
+
+        transition: all 0.3s ease;
+      }
+
+      .quick-button::before {
+        content: '';
+
+        position: absolute;
+
+        width: 0;
+        height: 100%;
+
+        left: 0;
+        top: 0;
+
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.18),
+          transparent
+        );
+
+        transition: width 0.4s ease;
+      }
+
+      .quick-button:hover::before {
+        width: 100%;
+      }
+
+      .quick-button:hover {
+        transform: translateY(-4px) scale(1.01);
+
+        box-shadow: 0 16px 32px rgba(252, 76, 0, 0.27);
+      }
+
+      .quick-button.dark {
+        background: linear-gradient(135deg, #29251f, #3a342d);
+
+        box-shadow: 0 10px 22px rgba(35, 30, 25, 0.15);
+      }
+
+      .quick-button.dark:hover {
+        box-shadow: 0 16px 30px rgba(35, 30, 25, 0.23);
+      }
+
+      .quick-button svg {
+        width: 22px;
+        height: 22px;
+
+        position: relative;
+        z-index: 2;
+      }
+
+      .quick-button span {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* =====================================================
+       FLOATING CHAT
+    ===================================================== */
+
+      .floating-chat {
+        position: fixed;
+
+        right: 28px;
+        bottom: 28px;
+
+        width: 62px;
+        height: 62px;
+
+        border-radius: 50%;
+
+        background: linear-gradient(135deg, #fc4c00, #ff712f);
+
+        color: white;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-shadow: 0 14px 30px rgba(252, 76, 0, 0.3);
+
+        z-index: 200;
+
+        transition: all 0.3s ease;
+      }
+
+      .floating-chat:hover {
+        transform: translateY(-6px) rotate(-5deg);
+
+        box-shadow: 0 20px 40px rgba(252, 76, 0, 0.38);
+      }
+
+      .floating-chat svg {
+        width: 27px;
+        height: 27px;
+      }
+
+      /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+      @media (max-width: 1300px) {
+        .sidebar {
+          width: 280px;
+        }
+
+        .main {
+          margin-left: 280px;
+          width: calc(100% - 280px);
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .search {
+          width: 500px;
+        }
+      }
+
+      @media (max-width: 1000px) {
+        .sidebar {
+          width: 85px;
+        }
+
+        .logo-text,
+        .admin-label,
+        .nav-item span,
+        .nav-arrow,
+        .user-name,
+        .user-role {
+          display: none;
+        }
+
+        .logo-area {
+          align-items: center;
+          padding: 20px 10px;
+        }
+
+        .nav-item {
+          justify-content: center;
+          padding: 14px;
+        }
+
+        .user {
+          justify-content: center;
+        }
+
+        .main {
+          margin-left: 85px;
+          width: calc(100% - 85px);
+        }
+
+        .search {
+          width: 55%;
+        }
+
+        .lower-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .header {
+          padding: 14px 18px;
+        }
+
+        .search {
+          width: 100%;
+        }
+
+        .header-actions {
+          gap: 4px;
+        }
+
+        .sign-out span {
+          display: none;
+        }
+
+        .content {
+          padding: 22px 18px;
+        }
+
+        .welcome h1 {
+          font-size: 31px;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-header {
+          align-items: flex-start;
+          gap: 15px;
+        }
+
+        .refresh-button {
+          padding: 10px;
+        }
+
+        .refresh-button span {
+          display: none;
+        }
+
+        .panel {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+      <aside class="sidebar">
+        <!-- Logo -->
+        <div class="logo-area">
+          <div class="logo">
+            <div class="logo-mark">S</div>
+
+            <div class="logo-text">silicon<span>hubs</span></div>
+          </div>
+
+          <div class="admin-label">Admin Dashboard</div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+          <a href="#" class="nav-item active">
+            <i data-lucide="layout-dashboard"></i>
+
+            <span>Dashboard</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="book-open"></i>
+
+            <span>Documentation</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="file-text"></i>
+
+            <span>Content Manager</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="files"></i>
+
+            <span>Pages</span>
+
+            <i class="nav-arrow" data-lucide="chevron-right"></i>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="file-text"></i>
+
+            <span>Blog Posts</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="briefcase-business"></i>
+
+            <span>Services</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="users"></i>
+
+            <span>Team Members</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="message-square"></i>
+
+            <span>Testimonials</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="mail"></i>
+
+            <span>Contacts</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="bar-chart-3"></i>
+
+            <span>Analytics</span>
+
+            <i class="nav-arrow" data-lucide="chevron-right"></i>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="globe"></i>
+
+            <span>SEO & Marketing</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="palette"></i>
+
+            <span>Design</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="navigation"></i>
+
+            <span>Navigation</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="message-circle"></i>
+
+            <span>Live Chat</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i data-lucide="layers"></i>
+
+            <span>Media Library</span>
+          </a>
+        </nav>
+
+        <!-- User -->
+        <div class="user-area">
+          <div class="user">
+            <div class="avatar">A</div>
+
+            <div>
+              <div class="user-name">Admin</div>
+
+              <div class="user-role">Administrator</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+      <main class="main">
+        <!-- HEADER -->
+
+        <header class="header">
+          <!-- Search -->
+          <div class="search">
+            <i data-lucide="search"></i>
+
+            <input type="text" placeholder="Search..." />
+          </div>
+
+          <!-- Actions -->
+
+          <div class="header-actions">
+            <button class="icon-button">
+              <i data-lucide="bell"></i>
+
+              <span class="notification"> 2 </span>
+            </button>
+
+            <button class="sign-out">
+              <i data-lucide="log-out"></i>
+
+              <span> Sign Out </span>
+            </button>
+          </div>
+        </header>
+
+        <!-- CONTENT -->
+
+        <section class="content">
+          <!-- Welcome -->
+
+          <div class="welcome">
+            <h1>Welcome back, Admin</h1>
+
+            <p>Here's what's happening with your website today.</p>
+          </div>
+
+          <!-- Section -->
+
+          <div class="section-header">
+            <div>
+              <div class="section-title">Overview</div>
+
+              <div class="section-subtitle">
+                Monitor your agency performance
+              </div>
+            </div>
+
+            <button class="refresh-button" onclick="refreshDashboard(this)">
+              <i data-lucide="refresh-cw"></i>
+
+              <span> Refresh </span>
+            </button>
+          </div>
+
+          <!-- =================================================
+           STATS
+      ================================================== -->
+
+          <div class="stats-grid">
+            <!-- Project -->
+
+            <div class="stat-card">
+              <div class="stat-content">
+                <div>
+                  <div class="stat-name">Total Projects</div>
+
+                  <div class="stat-value">0</div>
+
+                  <div class="stat-change">
+                    <span class="orange-dot"></span>
+
+                    Portfolio items
+                  </div>
+                </div>
+
+                <div class="stat-icon">
+                  <i data-lucide="layers"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Messages -->
+
+            <div class="stat-card">
+              <div class="stat-content">
+                <div>
+                  <div class="stat-name">Contact Messages</div>
+
+                  <div class="stat-value">0</div>
+
+                  <div class="stat-change">
+                    <span class="orange-dot"></span>
+
+                    0 new
+                  </div>
+                </div>
+
+                <div class="stat-icon dark">
+                  <i data-lucide="message-square"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Services -->
+
+            <div class="stat-card">
+              <div class="stat-content">
+                <div>
+                  <div class="stat-name">Services</div>
+
+                  <div class="stat-value">0</div>
+
+                  <div class="stat-change">
+                    <span class="orange-dot"></span>
+
+                    Active services
+                  </div>
+                </div>
+
+                <div class="stat-icon">
+                  <i data-lucide="briefcase-business"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Views -->
+
+            <div class="stat-card">
+              <div class="stat-content">
+                <div>
+                  <div class="stat-name">Page Views</div>
+
+                  <div class="stat-value">0</div>
+
+                  <div class="stat-change">
+                    <span class="orange-dot"></span>
+
+                    0 active now
+                  </div>
+                </div>
+
+                <div class="stat-icon dark">
+                  <i data-lucide="eye"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =================================================
+           LOWER SECTION
+      ================================================== -->
+
+          <div class="lower-grid">
+            <!-- Recent Activity -->
+
+            <div class="panel">
+              <div class="panel-title">Recent Activity</div>
+
+              <div class="activity-list">
+                <div class="activity">
+                  <div class="activity-icon">
+                    <i data-lucide="file-text"></i>
+                  </div>
+
+                  <div>
+                    <div class="activity-text">
+                      <strong> John Doe </strong>
+
+                      updated
+
+                      <strong> Homepage Hero Section </strong>
+                    </div>
+
+                    <div class="activity-time">2 hours ago</div>
+                  </div>
+                </div>
+
+                <div class="activity">
+                  <div class="activity-icon">
+                    <i data-lucide="user-plus"></i>
+                  </div>
+
+                  <div>
+                    <div class="activity-text">
+                      <strong> Sarah Wilson </strong>
+
+                      joined as
+
+                      <strong> Editor </strong>
+                    </div>
+
+                    <div class="activity-time">4 hours ago</div>
+                  </div>
+                </div>
+
+                <div class="activity">
+                  <div class="activity-icon">
+                    <i data-lucide="briefcase"></i>
+                  </div>
+
+                  <div>
+                    <div class="activity-text">
+                      <strong> Admin </strong>
+
+                      created a new
+
+                      <strong> project </strong>
+                    </div>
+
+                    <div class="activity-time">Yesterday</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+
+            <div class="panel">
+              <div class="panel-title">Quick Actions</div>
+
+              <div class="quick-actions">
+                <button class="quick-button">
+                  <i data-lucide="file-plus"></i>
+
+                  <span> New Blog Post </span>
+                </button>
+
+                <button class="quick-button dark">
+                  <i data-lucide="briefcase-business"></i>
+
+                  <span> Add New Service </span>
+                </button>
+
+                <button class="quick-button">
+                  <i data-lucide="folder-plus"></i>
+
+                  <span> Add Portfolio Project </span>
+                </button>
+
+                <button class="quick-button dark">
+                  <i data-lucide="image-plus"></i>
+
+                  <span> Upload Media </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- FLOATING CHAT -->
+
+      <button class="floating-chat">
+        <i data-lucide="message-circle"></i>
+      </button>
+    </div>
+
+    <script>
+      /* =====================================================
+     INITIALIZE ICONS
+  ===================================================== */
+
+      lucide.createIcons();
+
+      /* =====================================================
+     NAVIGATION ACTIVE STATE
+  ===================================================== */
+
+      document.querySelectorAll('.nav-item').forEach((item) => {
+        item.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          document.querySelectorAll('.nav-item').forEach((nav) => {
+            nav.classList.remove('active');
+          });
+
+          this.classList.add('active');
+        });
+      });
+
+      /* =====================================================
+     REFRESH BUTTON
+  ===================================================== */
+
+      function refreshDashboard(button) {
+        const icon = button.querySelector('svg');
+
+        button.style.pointerEvents = 'none';
+
+        icon.style.transition = 'transform 0.8s ease';
+
+        icon.style.transform = 'rotate(360deg)';
+
+        setTimeout(() => {
+          icon.style.transform = 'rotate(0deg)';
+
+          button.style.pointerEvents = 'auto';
+        }, 800);
+      }
+
+      /* =====================================================
+     CARD MOUSE EFFECT
+  ===================================================== */
+
+      document.querySelectorAll('.stat-card').forEach((card) => {
+        card.addEventListener('mousemove', function (e) {
+          const rect = this.getBoundingClientRect();
+
+          const x = e.clientX - rect.left;
+
+          const y = e.clientY - rect.top;
+
+          const rotateX = (y / rect.height - 0.5) * -3;
+
+          const rotateY = (x / rect.width - 0.5) * 3;
+
+          this.style.transform = `translateY(-7px)
+           perspective(700px)
+           rotateX(${rotateX}deg)
+           rotateY(${rotateY}deg)`;
+        });
+
+        card.addEventListener('mouseleave', function () {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+
+      /* =====================================================
+     QUICK ACTION FEEDBACK
+  ===================================================== */
+
+      document.querySelectorAll('.quick-button').forEach((button) => {
+        button.addEventListener('click', function () {
+          const original = this.innerHTML;
+
+          this.innerHTML = `
+          <i data-lucide="check"></i>
+          <span>Action Ready</span>
+        `;
+
+          lucide.createIcons();
+
+          setTimeout(() => {
+            this.innerHTML = original;
+
+            lucide.createIcons();
+          }, 1200);
+        });
+      });
+    </script>
+  </body>
+</html>

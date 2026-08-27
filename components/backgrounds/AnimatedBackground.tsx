@@ -4,6 +4,11 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import './AnimatedBackground.css';
 
+// SiliconHubs color palette:
+// Base: Warm Cream (#FFE8C1) and Light Cream (#FFEDD7)
+// Accent: Vibrant Orange (#FC4C00)
+// Typography: Deep Black (#000000), Dark Grey (#363534), Slate (#515161)
+
 // Catch chunk load errors (e.g. webpack factory undefined) so the hero still renders
 const HeroParticles = dynamic(
   () =>
@@ -21,35 +26,18 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`animated-background-container ${className}`}>
-      {/* Main centered background image - Planet/Sphere */}
+    <div
+      className={`animated-background-container ${className}`}
+      style={{ backgroundColor: '#ffe8c1' /* Warm Cream Base */ }}
+    >
+      {/* Hero background video */}
       <div className="background-main">
-        <img
-          src="https://framerusercontent.com/images/xdaPXOEtPIASFiIeYk976HyJA.svg?width=1440&height=818"
-          alt="Main background"
-          className="background-image"
-        />
+        <video autoPlay loop muted playsInline className="background-video">
+          <source src="/media/home/hero/herosection.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      {/* Left light image */}
-      <div className="light-left">
-        <img
-          src="https://framerusercontent.com/images/UKLIsmbXPgsNWAAoMY12jQuP2ZI.svg?width=853&height=730"
-          alt="Left light"
-          className="light-image"
-        />
-      </div>
-
-      {/* Right light image */}
-      <div className="light-right">
-        <img
-          src="https://framerusercontent.com/images/NTKgB6h2Q6llqcAO5km5305uDk0.svg?width=804&height=730"
-          alt="Right light"
-          className="light-image"
-        />
-      </div>
-
-      {/* Main particles - loaded in separate chunk to avoid webpack bundling issues */}
+      {/* Main particles - loaded in a separate chunk */}
       <HeroParticles />
     </div>
   );

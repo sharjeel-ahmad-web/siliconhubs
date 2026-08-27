@@ -15,6 +15,7 @@ const pagesToAnalyze = [
   { path: '/services/wordpress', title: 'WordPress' },
   { path: '/services/shopify', title: 'Shopify' },
   { path: '/services/seo', title: 'SEO Services' },
+  { path: '/services/digital-marketing', title: 'Digital Marketing' },
   { path: '/services/saas', title: 'SaaS Solutions' },
 ];
 

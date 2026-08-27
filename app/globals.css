@@ -99,6 +99,228 @@
 }
 
 @layer utilities {
+  /* Admin dashboard palette: warm cream surfaces with orange actions. */
+  .admin-shell {
+    --admin-main-background: #fff4e6;
+    --admin-secondary-cream: #ffedd7;
+    --admin-soft-beige: #f7e3c6;
+    --admin-primary-orange: #f4511e;
+    --admin-orange-hover: #d84315;
+    --admin-deep-navy: #14213d;
+    --admin-secondary-text: #5f6368;
+    --admin-border: #e8d8c5;
+    color: var(--admin-deep-navy);
+    background:
+      radial-gradient(
+        circle at 80% 0%,
+        rgba(244, 81, 30, 0.045),
+        transparent 28%
+      ),
+      var(--admin-main-background);
+  }
+
+  .admin-shell .admin-nav-item {
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .admin-shell .admin-nav-item:not(.bg-\[\#F4511E\]):hover {
+    background-color: #fff0dc !important;
+    color: var(--admin-primary-orange) !important;
+    transform: translateX(4px);
+  }
+
+  .admin-shell .admin-nav-item.bg-\[\#F4511E\] {
+    background: linear-gradient(135deg, #f4511e, #ff6425) !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 24px rgba(244, 81, 30, 0.2);
+  }
+
+  .admin-shell .admin-nav-item.bg-\[\#F4511E\]:hover {
+    color: #ffffff !important;
+    transform: translateY(-1px);
+  }
+
+  .admin-shell .admin-nav-item.bg-\[\#F4511E\] * {
+    color: #ffffff !important;
+  }
+
+  .admin-shell .admin-icon-button {
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      color 0.25s ease;
+  }
+
+  .admin-shell .admin-icon-button:hover {
+    background-color: #fff0dc !important;
+    color: var(--admin-primary-orange) !important;
+    transform: translateY(-2px);
+  }
+
+  /* Keep the Digital Marketing service page on the light brand theme. */
+  .digital-marketing-page .bg-black {
+    background-color: #fff4e6 !important;
+  }
+
+  .digital-marketing-page .bg-white\/\[0\.08\],
+  .digital-marketing-page .bg-black\/60 {
+    background-color: #ffedd7 !important;
+  }
+
+  .digital-marketing-page .border-white\/\[0\.15\],
+  .digital-marketing-page .border-white\/10 {
+    border-color: #e8d8c5 !important;
+  }
+
+  .digital-marketing-page .text-white\/80,
+  .digital-marketing-page .text-white\/60,
+  .digital-marketing-page .text-white {
+    color: #14213d !important;
+  }
+
+  .digital-marketing-page .bg-gradient-to-t {
+    background-image: linear-gradient(
+      to top,
+      rgba(20, 33, 61, 0.25),
+      transparent
+    ) !important;
+  }
+
+  .digital-marketing-page .bg-clip-text {
+    background-image: none !important;
+    color: #14213d !important;
+  }
+
+  .digital-marketing-page .text-orange {
+    color: #f4511e !important;
+  }
+
+  /* Apply the light SiliconHubs palette across homepage section surfaces. */
+  .home-page section.bg-black,
+  .home-page section.bg-navy,
+  .home-page section[class~='bg-[#0A0F1E]'] {
+    background-color: #fff4e6 !important;
+  }
+
+  .home-page section[class~='bg-light-cream'],
+  .home-page section[class~='bg-warm-cream'] {
+    background-color: #ffedd7 !important;
+  }
+
+  .home-page section.bg-black > div,
+  .home-page section.bg-navy > div {
+    color: #14213d;
+  }
+
+  .home-page .border-white\/10,
+  .home-page .border-white\/20,
+  .home-page .border-slate-800\/50 {
+    border-color: #e54e0e !important;
+  }
+
+  .home-page .bg-navy\/30,
+  .home-page .bg-navy\/50,
+  .home-page .bg-black\/60 {
+    background-color: #ffedd7 !important;
+  }
+
+  .home-page .text-slate-300,
+  .home-page .text-slate-400,
+  .home-page .text-slate-500 {
+    color: #5f6368 !important;
+  }
+
+  .home-page .text-cyan,
+  .home-page [class~='text-[#37AFE1]'],
+  .home-page [class~='text-[#31A4DB]'] {
+    color: #ff8a5b !important;
+  }
+
+  .home-page .text-orange,
+  .home-page [class~='text-[#F58122]'],
+  .home-page [class~='text-[#F97316]'] {
+    color: #ff8a5b !important;
+  }
+
+  .home-page .hover\:text-cyan:hover,
+  .home-page .hover\:text-orange:hover,
+  .home-page [class~='hover:text-[#37AFE1]']:hover {
+    color: #f4511e !important;
+  }
+
+  .home-page .bg-cyan\/10,
+  .home-page .bg-cyan\/20,
+  .home-page [class~='bg-[#37AFE1]/10'] {
+    background-color: #f7e3c6 !important;
+  }
+
+  .admin-shell .bg-navy,
+  .admin-shell [class~='bg-[#0F172A]'],
+  .admin-shell [class~='bg-[#1E293B]'] {
+    background-color: var(--admin-secondary-cream) !important;
+  }
+
+  .admin-shell .bg-slate-700,
+  .admin-shell .bg-slate-600,
+  .admin-shell [class~='bg-slate-700/50'],
+  .admin-shell [class~='bg-slate-700/30'] {
+    background-color: var(--admin-soft-beige) !important;
+  }
+
+  .admin-shell .text-white,
+  .admin-shell [class~='text-white/90'],
+  .admin-shell [class~='text-white/80'],
+  .admin-shell [class~='text-white/60'] {
+    color: var(--admin-deep-navy) !important;
+  }
+
+  .admin-shell .text-slate-300,
+  .admin-shell .text-slate-400,
+  .admin-shell .text-slate-500,
+  .admin-shell .text-slate-600,
+  .admin-shell [class~='text-slate-300'] {
+    color: var(--admin-secondary-text) !important;
+  }
+
+  .admin-shell .border-slate-700,
+  .admin-shell .border-slate-600,
+  .admin-shell [class~='border-slate-700/50'] {
+    border-color: var(--admin-border) !important;
+  }
+
+  .admin-shell .bg-orange,
+  .admin-shell [class~='bg-[#2563EB]'] {
+    background-color: var(--admin-primary-orange) !important;
+  }
+
+  .admin-shell .hover\:bg-slate-700:hover,
+  .admin-shell .hover\:bg-slate-700\/50:hover {
+    background-color: var(--admin-orange-hover) !important;
+  }
+
+  .admin-shell button:not(:disabled):hover {
+    background-color: var(--admin-secondary-cream) !important;
+    color: #ffffff !important;
+  }
+
+  .admin-shell button:not(:disabled):hover * {
+    color: #ffffff !important;
+  }
+
+  .admin-shell .text-orange,
+  .admin-shell .text-cyan {
+    color: var(--admin-primary-orange) !important;
+  }
+
+  .admin-shell .border-cyan,
+  .admin-shell .border-orange {
+    border-color: var(--admin-border) !important;
+  }
+
   /* CSS Modules support for complex animations */
   .animation-container {
     position: relative;

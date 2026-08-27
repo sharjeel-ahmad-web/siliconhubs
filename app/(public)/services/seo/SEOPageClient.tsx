@@ -15,6 +15,7 @@ import ServiceCTA from '@/components/sections/ServiceCTA';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { useSiteContent } from '@/lib/hooks/useSiteContent';
 import { withDefaults, ensureCtaButton } from '@/lib/cms-content';
+import WebsiteSeoTester from '@/components/services/seo/WebsiteSeoTester';
 
 const StackFeatureSection = dynamic(
   () => import('@/components/ui/stack-feature-section'),
@@ -429,16 +430,23 @@ export default function SEOPageClient() {
   const heroMerged = withDefaults(defaultHeroContent, heroContent ?? undefined);
   const hero = {
     ...heroMerged,
-    ctaButton: ensureCtaButton(defaultHeroContent.ctaButton, heroContent?.ctaButton),
+    ctaButton: ensureCtaButton(
+      defaultHeroContent.ctaButton,
+      heroContent?.ctaButton
+    ),
   };
-  const video = withDefaults(defaultVideoContent, videoContent ?? undefined, ['ctaHref']);
+  const video = withDefaults(defaultVideoContent, videoContent ?? undefined, [
+    'ctaHref',
+  ]);
   const serpRanking = serpRankingContent ?? defaultSerpRankingContent;
   const keywordCloud = keywordCloudContent ?? defaultKeywordCloudContent;
   const trafficGrowth = trafficGrowthContent ?? defaultTrafficGrowthContent;
   const competitorAnalysis =
     competitorAnalysisContent ?? defaultCompetitorAnalysisContent;
   const caseStudies = caseStudiesContent ?? defaultCaseStudiesContent;
-  const cta = withDefaults(defaultCTAContent, ctaContent ?? undefined, ['ctaHref']);
+  const cta = withDefaults(defaultCTAContent, ctaContent ?? undefined, [
+    'ctaHref',
+  ]);
 
   return (
     <main className="min-h-screen bg-black">
@@ -485,6 +493,8 @@ export default function SEOPageClient() {
         ctaText={video.ctaText}
         ctaHref={video.ctaHref}
       />
+
+      <WebsiteSeoTester />
 
       {/* SERP Ranking Section - Uses CMS content with fallback */}
       <section className="px-6 py-24">
@@ -587,4 +597,3 @@ export default function SEOPageClient() {
     </main>
   );
 }
-

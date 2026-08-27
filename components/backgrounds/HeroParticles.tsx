@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 
@@ -14,7 +14,7 @@ const particleOptions = {
         area: 1000,
       },
     },
-    color: { value: '#ffffff' },
+    color: { value: '#fc4c00' },
     shape: { type: 'circle' as const },
     opacity: {
       value: 0.6,
@@ -61,15 +61,7 @@ export default function HeroParticles() {
     });
   }, []);
 
-  const particlesLoaded = useCallback(async () => {}, []);
-
   if (!isReady) return null;
 
-  return (
-    <Particles
-      id="particles-main"
-      loaded={particlesLoaded}
-      options={particleOptions}
-    />
-  );
+  return <Particles id="particles-main" options={particleOptions} />;
 }

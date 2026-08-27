@@ -15,14 +15,6 @@ const mongoOptions = {
   socketTimeoutMS: 30000,
 };
 
-declare global {
-  namespace NodeJS {
-    interface Global {
-      _mongoClientPromise?: Promise<MongoClient>;
-    }
-  }
-}
-
 function getClientPromise(): Promise<MongoClient> {
   if (isBuildPhase || !uri) {
     return Promise.reject(
@@ -32,7 +24,9 @@ function getClientPromise(): Promise<MongoClient> {
     );
   }
 
-  const g = global;
+  const g = globalThis as typeof globalThis & {
+    _mongoClientPromise?: Promise<MongoClient>;
+  };
   if (!g._mongoClientPromise) {
     const client = new MongoClient(uri, mongoOptions);
     g._mongoClientPromise = client.connect();

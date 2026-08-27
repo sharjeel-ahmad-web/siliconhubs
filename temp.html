@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicon Hubs - Build. Automate. Scale.</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0a192f',
+                        navyLight: '#112240',
+                        orange: '#fc4c00',
+                        cream: '#ffe8c1',
+                        cyan: '#06b6d4',
+                        slate: '#515161'
+                    },
+                    fontFamily: {
+                        heading: ['"Space Grotesk"', 'sans-serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-navy text-gray-300 font-body antialiased selection:bg-orange selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-navy/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-heading font-bold cursor-pointer">
+                <span class="text-white">silicon</span><span class="text-orange">hubs</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#" class="hover:text-orange transition-colors">Services</a>
+                <a href="#" class="hover:text-orange transition-colors">Showcase</a>
+                <a href="#" class="hover:text-orange transition-colors">About</a>
+            </div>
+            <button class="bg-orange text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-orange/90 transition shadow-[0_0_15px_rgba(252,76,0,0.3)] hover:shadow-[0_0_25px_rgba(252,76,0,0.6)]">
+                Get Started
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-40 pb-20 px-6 min-h-screen flex flex-col items-center justify-center text-center overflow-hidden">
+        <!-- Background Glows -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan/20 rounded-full blur-[100px] -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange/10 rounded-full blur-[100px] -z-10"></div>
+        
+        <div class="inline-block px-4 py-1.5 rounded-full border border-orange/30 bg-orange/10 text-orange text-xs font-semibold uppercase tracking-wider mb-6">
+            Enterprise Tech Solutions
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-bold font-heading text-white leading-tight max-w-4xl mb-6">
+            Design That Powers <br> 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange to-cyan">Business Growth</span>
+        </h1>
+        
+        <p class="text-lg text-gray-400 max-w-2xl mb-10">
+            Silicon Hubs is your central node for custom Next.js development, Shopify builds, and AI-driven automated workflows.
+        </p>
+        
+        <div class="flex gap-4">
+            <button class="bg-orange text-white px-8 py-3.5 rounded-full font-semibold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(252,76,0,0.3)]">
+                Book a Consultation
+            </button>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="py-24 px-6 bg-navyLight border-t border-white/5">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold font-heading text-white mb-4">Premium <span class="text-cyan">Digital Solutions</span></h2>
+            <p class="text-slate text-lg">Build. Automate. Scale.</p>
+        </div>
+        
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-navy p-8 rounded-2xl border border-white/5 hover:border-orange/50 transition-colors group shadow-lg">
+                <h3 class="text-xl font-bold text-white mb-3 font-heading">Web Development</h3>
+                <p class="text-sm text-gray-400">High-performance Next.js and React web applications built for scale.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-navy p-8 rounded-2xl border border-white/5 hover:border-cyan/50 transition-colors group shadow-lg">
+                <h3 class="text-xl font-bold text-white mb-3 font-heading">AI Automations</h3>
+                <p class="text-sm text-gray-400">Make.com and n8n workflows that save hundreds of manual hours.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-navy p-8 rounded-2xl border border-white/5 hover:border-orange/50 transition-colors group shadow-lg">
+                <h3 class="text-xl font-bold text-white mb-3 font-heading">E-Commerce Builds</h3>
+                <p class="text-sm text-gray-400">Enterprise Shopify solutions optimized for massive conversions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 bg-[#020813] py-12 px-6 text-center">
+        <h2 class="text-3xl font-bold font-heading text-white mb-6">Ready to scale your business?</h2>
+        <button class="bg-orange text-white px-10 py-3 rounded-full font-bold hover:bg-orange/90 transition shadow-[0_0_15px_rgba(252,76,0,0.4)] mb-10">
+            Start Your Project
+        </button>
+        <p class="text-sm text-slate">&copy; 2026 Silicon Hubs. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -128,7 +128,7 @@ function MagneticNavLink({
           rotate: isHovered ? -3 : 0,
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="relative px-4 py-2 text-sm font-medium text-white/90 transition-colors duration-200 hover:text-white"
+        className="relative px-4 py-2 text-sm font-medium text-[#14213D] transition-colors duration-200 hover:text-[#F4511E]"
       >
         {content}
       </motion.button>
@@ -151,7 +151,7 @@ function MagneticNavLink({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative block px-4 py-2 text-sm font-medium text-white/90 transition-colors duration-200 hover:text-white"
+        className="relative block px-4 py-2 text-sm font-medium text-[#14213D] transition-colors duration-200 hover:text-[#F4511E]"
       >
         {content}
       </Link>
@@ -223,11 +223,12 @@ export default function Header() {
         <nav
           className="relative flex items-center gap-1.5 rounded-full px-5 py-3 backdrop-blur-2xl"
           style={{
-            background: 'rgba(10, 25, 47, 0.6)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            background: 'rgba(255, 248, 239, 0.94)',
+            border: '1px solid rgba(232, 216, 197, 0.95)',
             boxShadow: `
-              0 4px 30px rgba(0, 0, 0, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.05)
+              0 4px 30px rgba(67, 45, 25, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8),
+              0 0 24px rgba(244, 81, 30, 0.08)
             `,
             width: 'auto',
             minWidth: 'max-content',
@@ -236,7 +237,7 @@ export default function Header() {
           {/* Logo */}
           <Logo href="/" className="px-2 py-1" />
 
-          <div className="mx-1 hidden h-6 w-px shrink-0 bg-white/10 md:block" />
+          <div className="mx-1 hidden h-6 w-px shrink-0 bg-[#E8D8C5] md:block" />
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-1 md:flex">
@@ -285,8 +286,8 @@ export default function Header() {
                     <div
                       className="w-56 overflow-hidden rounded-2xl backdrop-blur-xl"
                       style={{
-                        background: 'rgba(10, 25, 47, 0.95)',
-                        border: '1px solid rgba(6, 182, 212, 0.2)',
+                        background: 'rgba(255, 249, 241, 0.98)',
+                        border: '1px solid rgba(232, 216, 197, 0.95)',
                         boxShadow:
                           '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(6, 182, 212, 0.1)',
                       }}
@@ -296,7 +297,7 @@ export default function Header() {
                           <Link
                             key={service.href ?? service.label}
                             href={service.href ?? '#'}
-                            className="block rounded-xl px-4 py-2.5 text-sm text-white/80 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                            className="block rounded-xl px-4 py-2.5 text-sm text-[#14213D] transition-all duration-200 hover:bg-[#FFEDD7] hover:text-[#F4511E]"
                             onClick={() => setIsServicesOpen(false)}
                           >
                             {service.label}
@@ -310,7 +311,7 @@ export default function Header() {
             ))}
           </div>
 
-          <div className="mx-1 hidden h-6 w-px bg-white/10 md:block" />
+          <div className="mx-1 hidden h-6 w-px bg-[#E8D8C5] md:block" />
 
           {/* CTA Button - only show if enabled */}
           {settings?.header?.ctaButton?.enabled && (
@@ -331,7 +332,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="ml-2 rounded-full p-2 text-white transition-colors hover:bg-white/10 md:hidden"
+            className="ml-2 rounded-full p-2 text-[#14213D] transition-colors hover:bg-[#FFEDD7] md:hidden"
             aria-label="Toggle menu"
           >
             <svg
@@ -367,9 +368,10 @@ export default function Header() {
               : 'pointer-events-none invisible -translate-y-4 opacity-0'
           }`}
           style={{
-            background: 'rgba(10, 25, 47, 0.95)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+            background: 'rgba(255, 249, 241, 0.98)',
+            border: '1px solid rgba(232, 216, 197, 0.95)',
+            boxShadow:
+              '0 20px 40px rgba(67, 45, 25, 0.12), 0 0 30px rgba(244, 81, 30, 0.08)',
           }}
         >
           <div className="flex flex-col gap-1 p-4">
@@ -379,7 +381,7 @@ export default function Header() {
                   <>
                     <button
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
-                      className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                      className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-[#14213D] transition-all duration-200 hover:bg-[#FFEDD7] hover:text-[#F4511E]"
                     >
                       {link.label}
                       <svg
@@ -404,7 +406,7 @@ export default function Header() {
                           <Link
                             key={service.href ?? service.label}
                             href={service.href ?? '#'}
-                            className="rounded-lg px-4 py-2 text-sm text-white/60 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                            className="rounded-lg px-4 py-2 text-sm text-[#5F6368] transition-all duration-200 hover:bg-[#FFEDD7] hover:text-[#F4511E]"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {service.label}
@@ -418,8 +420,8 @@ export default function Header() {
                     href={link.href ?? '#'}
                     className={`relative block rounded-xl px-4 py-3 transition-all duration-200 ${
                       pathname === (link.href ?? '#')
-                        ? 'bg-white/10 text-white'
-                        : 'text-white/90 hover:bg-white/5 hover:text-white'
+                        ? 'bg-[#F7E3C6] text-[#14213D]'
+                        : 'text-[#14213D] hover:bg-[#FFEDD7] hover:text-[#F4511E]'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

@@ -19,12 +19,14 @@ export default function DashboardStats() {
 
   const fetchStats = async (showRefresh = false) => {
     if (showRefresh) setRefreshing(true);
+
     try {
       // Fetch both stats and analytics in parallel
       const [statsRes, analyticsRes] = await Promise.all([
         fetch('/api/admin/stats'),
         fetch('/api/admin/analytics?range=7d'),
       ]);
+
       const statsData = await statsRes.json();
       const analyticsData = await analyticsRes.json();
 
@@ -51,42 +53,70 @@ export default function DashboardStats() {
       value: stats?.projects || 0,
       change: 'Portfolio items',
       icon: Layers,
-      color: 'bg-[#2563EB]',
+
+      // Cream + Orange theme
+      iconBg: 'bg-[#FC4C00]',
+      iconShadow: 'shadow-orange-500/20',
     },
     {
       name: 'Contact Messages',
       value: stats?.contacts || 0,
       change: `${stats?.newContacts || 0} new`,
       icon: MessageSquare,
-      color: 'bg-[#37AFE1]',
+
+      iconBg: 'bg-[#24201C]',
+      iconShadow: 'shadow-black/10',
     },
     {
       name: 'Services',
       value: stats?.services || 0,
       change: 'Active services',
       icon: Briefcase,
-      color: 'bg-[#F97316]',
+
+      iconBg: 'bg-[#FC4C00]',
+      iconShadow: 'shadow-orange-500/20',
     },
     {
       name: 'Page Views',
       value: stats?.pageViews?.toLocaleString() || 0,
       change: `${stats?.activeUsers || 0} active now`,
       icon: Eye,
-      color: 'bg-[#31A4DB]',
+
+      iconBg: 'bg-[#24201C]',
+      iconShadow: 'shadow-black/10',
     },
   ];
 
+  /*
+   * Loading State
+   */
   if (loading) {
     return (
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {[1, 2, 3, 4].map((i) => (
           <div
             key={i}
-            className="animate-pulse rounded-xl border border-slate-700/50 bg-[#1E293B] p-6"
+            className="
+              animate-pulse
+              rounded-2xl
+              border border-[#E8D8C4]
+              bg-[#FFF4E3]
+              p-6
+              shadow-sm
+            "
           >
-            <div className="mb-4 h-4 w-24 rounded bg-slate-700" />
-            <div className="mb-2 h-8 w-16 rounded bg-slate-700" />
-            <div className="h-3 w-20 rounded bg-slate-700" />
+            {/* Icon skeleton */}
+            <div className="mb-5 flex justify-between">
+              <div className="h-4 w-28 rounded-md bg-[#E8D8C4]" />
+
+              <div className="h-12 w-12 rounded-xl bg-[#E8D8C4]" />
+            </div>
+
+            {/* Number skeleton */}
+            <div className="mb-3 h-9 w-20 rounded-md bg-[#E8D8C4]" />
+
+            {/* Text skeleton */}
+            <div className="h-3 w-28 rounded-md bg-[#E8D8C4]" />
           </div>
         ))}
       </div>
@@ -94,41 +124,166 @@ export default function DashboardStats() {
   }
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-end">
+    <div className="space-y-5">
+      {/* Header / Refresh */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-lg font-bold text-[#24201C]">Overview</h2>
+
+          <p className="mt-0.5 text-sm text-[#6B625A]">
+            Monitor your agency performance
+          </p>
+        </div>
+
         <button
           onClick={() => fetchStats(true)}
           disabled={refreshing}
-          className="flex items-center gap-2 rounded-lg bg-slate-700 px-3 py-1.5 text-sm text-slate-300 transition-colors hover:bg-slate-600 disabled:opacity-50"
+          className="
+            hover:shadow-orange-500/20
+            group
+            flex
+            items-center
+            gap-2
+            rounded-xl
+            border
+            border-[#E8D8C4]
+            bg-[#FFF4E3]
+            px-4
+            py-2
+            text-sm
+            font-semibold
+            text-[#36322E]
+            shadow-sm
+            transition-all
+            duration-200
+            hover:border-[#FC4C00]
+            hover:bg-[#FC4C00]
+            hover:text-white
+            hover:shadow-lg
+            disabled:cursor-not-allowed
+            disabled:opacity-50
+          "
         >
           <RefreshCw
-            className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`}
+            className={`
+              h-4 w-4
+              transition-transform
+              ${refreshing ? 'animate-spin' : 'group-hover:rotate-180'}
+            `}
           />
+
           {refreshing ? 'Refreshing...' : 'Refresh'}
         </button>
       </div>
+
+      {/* Statistics Cards */}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {statItems.map((stat) => {
           const Icon = stat.icon;
+
           return (
             <div
               key={stat.name}
-              className="rounded-xl border border-slate-700/50 bg-[#1E293B] p-6 transition-colors hover:border-slate-600"
+              className="
+                hover:shadow-orange-900/10
+                group
+                relative
+                overflow-hidden
+                rounded-2xl
+                border
+                border-[#E8D8C4]
+                bg-[#FFF4E3]
+                p-6
+                shadow-sm
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:border-[#FC4C00]/40
+                hover:shadow-xl
+              "
             >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-slate-400">
+              {/* Decorative background */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-12
+                  -top-12
+                  h-32
+                  w-32
+                  rounded-full
+                  bg-[#FC4C00]/5
+                  transition-transform
+                  duration-500
+                  group-hover:scale-150
+                "
+              />
+
+              <div className="relative flex items-center justify-between">
+                {/* Text */}
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-[#6B625A]">
                     {stat.name}
                   </p>
-                  <p className="mt-2 text-3xl font-bold text-white">
+
+                  <p
+                    className="
+                      mt-2
+                      text-3xl
+                      font-extrabold
+                      tracking-tight
+                      text-[#24201C]
+                    "
+                  >
                     {stat.value}
                   </p>
-                  <p className="mt-1 text-sm text-slate-500">{stat.change}</p>
+
+                  <div className="mt-2 flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#FC4C00]" />
+
+                    <p className="text-sm font-medium text-[#8A7E72]">
+                      {stat.change}
+                    </p>
+                  </div>
                 </div>
-                <div className={`${stat.color} rounded-lg p-3`}>
+
+                {/* Icon */}
+                <div
+                  className={`
+                    ${stat.iconBg}
+                    ${stat.iconShadow}
+                    flex
+                    h-12
+                    w-12
+                    flex-shrink-0
+                    items-center
+                    justify-center
+                    rounded-xl
+                    shadow-lg
+                    transition-all
+                    duration-300
+                    group-hover:rotate-3
+                    group-hover:scale-110
+                  `}
+                >
                   <Icon className="h-6 w-6 text-white" />
                 </div>
               </div>
+
+              {/* Bottom Accent */}
+              <div
+                className="
+                  absolute
+                  bottom-0
+                  left-0
+                  h-1
+                  w-0
+                  bg-[#FC4C00]
+                  transition-all
+                  duration-300
+                  group-hover:w-full
+                "
+              />
             </div>
           );
         })}

@@ -237,7 +237,7 @@ export default function Home() {
       {/* WebSite Schema for homepage */}
       <StructuredData schema={generateWebSiteSchema()} />
       <BatchSectionProvider page="home" sections={HOME_SECTIONS}>
-        <main className="min-h-screen bg-warm-cream">
+        <main className="home-page min-h-screen bg-[#FFF4E6] text-[#14213D]">
           <OptimizedSectionWrapper section="hero">
             <CleanHero />
           </OptimizedSectionWrapper>

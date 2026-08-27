@@ -13,6 +13,7 @@ import {
   Code,
   Palette,
   Workflow,
+  TrendingUp,
   RefreshCw,
   Save,
 } from 'lucide-react';
@@ -78,6 +79,13 @@ const servicePages = [
     icon: SearchIcon,
     description: 'Search engine optimization page',
     sections: 8,
+  },
+  {
+    id: 'services-digital-marketing',
+    label: 'Digital Marketing',
+    icon: TrendingUp,
+    description: 'Digital marketing service page',
+    sections: 5,
   },
   {
     id: 'services-shopify',

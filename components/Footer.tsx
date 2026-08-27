@@ -133,7 +133,7 @@ export default function Footer() {
   ).replace('{year}', new Date().getFullYear().toString());
 
   return (
-    <footer className="border-t border-cyan/20 bg-navy">
+    <footer className="border-t border-[#E8D8C5] bg-[#FFF4E6] text-[#14213D]">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           {/* Brand */}
@@ -154,7 +154,7 @@ export default function Footer() {
           {/* Dynamic Footer Columns */}
           {settings.footer.columns.map((column, index) => (
             <div key={index}>
-              <h3 className="mb-4 font-montserrat font-semibold text-white">
+              <h3 className="mb-4 font-montserrat font-semibold text-[#14213D]">
                 {column.title}
               </h3>
               <ul className="space-y-3">
@@ -164,7 +164,7 @@ export default function Footer() {
                     <li key={link.href}>
                       <Link
                         href={link.href ?? '#'}
-                        className="font-inter text-sm text-slate-grey transition-colors hover:text-cyan"
+                        className="font-inter text-sm text-[#5F6368] transition-colors hover:text-[#F4511E]"
                       >
                         {link.label}
                       </Link>
@@ -177,10 +177,10 @@ export default function Footer() {
           {/* Newsletter - only show if enabled */}
           {settings.footer.showNewsletter && (
             <div>
-              <h3 className="mb-4 font-montserrat font-semibold text-white">
+              <h3 className="mb-4 font-montserrat font-semibold text-[#14213D]">
                 Stay Updated
               </h3>
-              <p className="mb-4 font-inter text-sm text-[#64748B]">
+              <p className="mb-4 font-inter text-sm text-[#5F6368]">
                 Subscribe to our newsletter for the latest updates.
               </p>
               <form onSubmit={handleSubscribe} className="flex gap-2">
@@ -190,7 +190,7 @@ export default function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="flex-1 rounded-lg border border-cyan/30 bg-navy px-4 py-2 font-inter text-sm text-white focus:border-cyan focus:outline-none"
+                  className="flex-1 rounded-lg border border-[#E8D8C5] bg-[#FFEDD7] px-4 py-2 font-inter text-sm text-[#14213D] focus:border-[#F4511E] focus:outline-none"
                 />
                 <ParticleWrapper>
                   <button
@@ -214,8 +214,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-cyan/20 pt-8 md:flex-row">
-          <p className="font-inter text-sm text-slate-grey">{copyrightText}</p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#E8D8C5] pt-8 md:flex-row">
+          <p className="font-inter text-sm text-[#5F6368]">{copyrightText}</p>
 
           {/* Social Links */}
           {socialItems.length > 0 && (
@@ -226,7 +226,7 @@ export default function Footer() {
                   href={data.url ?? '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-orange/50 bg-navy text-orange transition-colors hover:border-cyan hover:text-cyan"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#F4511E]/50 bg-[#FFEDD7] text-[#F4511E] transition-colors hover:border-[#D84315] hover:text-[#D84315]"
                   aria-label={label}
                 >
                   <Icon className="h-7 w-7" />

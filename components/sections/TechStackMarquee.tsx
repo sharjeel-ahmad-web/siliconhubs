@@ -80,13 +80,13 @@ export default function TechStackMarquee() {
 
           {/* Sliding logos - CSS animation version */}
           <div className="mt-14 overflow-hidden py-4 [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
-            <div className="flex gap-12 tech-stack-scroll">
+            <div className="tech-stack-scroll flex gap-12">
               {logos.map((logo) => (
                 <img
                   key={logo.name}
                   src={logo.src}
                   alt={logo.name}
-                  className="pointer-events-none h-8 select-none opacity-70 brightness-0 invert transition-opacity hover:opacity-100 md:h-10 flex-shrink-0"
+                  className="pointer-events-none h-8 flex-shrink-0 select-none opacity-70 brightness-0 invert transition-opacity hover:opacity-100 md:h-10"
                   loading="lazy"
                 />
               ))}
@@ -96,7 +96,7 @@ export default function TechStackMarquee() {
                   key={`${logo.name}-duplicate`}
                   src={logo.src}
                   alt={logo.name}
-                  className="pointer-events-none h-8 select-none opacity-70 brightness-0 invert transition-opacity hover:opacity-100 md:h-10 flex-shrink-0"
+                  className="pointer-events-none h-8 flex-shrink-0 select-none opacity-70 brightness-0 invert transition-opacity hover:opacity-100 md:h-10"
                   loading="lazy"
                 />
               ))}
@@ -104,20 +104,25 @@ export default function TechStackMarquee() {
           </div>
         </div>
 
-        <div 
-          className="relative -mt-32 h-96 w-full overflow-hidden" 
-          style={{ maskImage: 'radial-gradient(50% 50%, white, transparent)' }}
+        <div
+          className="relative -mt-32 h-96 w-full overflow-hidden"
+          style={{
+            maskImage:
+              'radial-gradient(closest-side at 50% 50%, white, transparent)',
+          }}
         >
-          <div 
-            className="absolute inset-0 opacity-40" 
-            style={{ background: 'radial-gradient(circle at bottom center, #37AFE1, transparent 70%)' }} 
+          <div
+            className="absolute inset-0 opacity-40"
+            style={{
+              background:
+                'radial-gradient(circle at bottom center, #37AFE1, transparent 70%)',
+            }}
           />
           <div className="absolute -left-1/2 top-1/2 z-10 aspect-[1/0.7] w-[200%] rounded-[100%] border-t border-[#37AFE1]/20 bg-transparent" />
 
           <Sparkles
             density={1200}
-            className="absolute inset-x-0 bottom-0 h-full w-full"
-            style={{ maskImage: 'radial-gradient(50% 50%, white, transparent 85%)' }}
+            className="absolute inset-x-0 bottom-0 h-full w-full [mask-image:radial-gradient(closest-side_at_50%_50%,white,transparent_85%)]"
             color="#37AFE1"
           />
         </div>
