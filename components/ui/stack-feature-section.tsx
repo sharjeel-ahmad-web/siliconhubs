@@ -116,7 +116,7 @@ export default function StackFeatureSection({
     typeof secondaryCtaHrefRaw === 'string' && secondaryCtaHrefRaw !== ''
       ? secondaryCtaHrefRaw
       : '/portfolio';
-  const centerText = content?.centerText || 'RISING';
+  const centerText = content?.centerText || 'SILICONHUBS';
   const iconConfigs = content?.icons || defaultIconConfigs;
 
   // Color configuration

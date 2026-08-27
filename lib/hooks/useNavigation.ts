@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -109,7 +109,7 @@ const defaultSettings: NavigationSettings = {
     logo: '/logo.png',
     description:
       'Premium digital solutions that transform your business through innovative technology and stunning design.',
-    copyrightText: 'Â© {year} Rising Dot Agency. All rights reserved.',
+    copyrightText: 'Â© {year} SiliconHubs. All rights reserved.',
     showNewsletter: true,
     columns: [
       {

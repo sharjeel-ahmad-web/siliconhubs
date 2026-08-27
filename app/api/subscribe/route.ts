@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 
 // POST - Public newsletter subscription endpoint
@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     }
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Check for existing subscriber
     const existing = await db.collection('subscribers').findOne({

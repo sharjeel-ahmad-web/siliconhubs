@@ -12,7 +12,7 @@ interface PageContent {
 export async function POST(request: NextRequest) {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Fetch all site content
     const content = await db

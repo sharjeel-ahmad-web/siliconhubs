@@ -12,7 +12,7 @@ export async function PUT(
     const { status, name, tags } = body;
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const updateData: any = { updatedAt: new Date() };
     if (status !== undefined) updateData.status = status;
@@ -51,7 +51,7 @@ export async function DELETE(
 ) {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const result = await db.collection('subscribers').deleteOne({
       _id: new ObjectId(params.id),

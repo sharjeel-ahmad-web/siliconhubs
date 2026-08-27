@@ -102,7 +102,7 @@ const defaultSettings: NavigationSettings = {
   footer: {
     logo: '/logo.png',
     description: '',
-    copyrightText: '© {year} Rising Dot Agency. All rights reserved.',
+    copyrightText: '© {year} SiliconHubs. All rights reserved.',
     showNewsletter: true,
     columns: [],
   },

@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 
 // Files will be uploaded preserving the full folder structure from /public
-// e.g., /public/media/home/team/alex.png -> rising-dot/media/home/team/alex
+// e.g., /public/media/home/team/alex.png -> siliconhubs/media/home/team/alex
 
 // Supported file extensions for upload
 const SUPPORTED_EXTENSIONS = [
@@ -79,11 +79,11 @@ function getCloudinaryPath(localPath: string): {
   // Get the folder path (everything except the filename)
   const folderParts = pathParts.slice(0, -1);
 
-  // Build the Cloudinary folder path - prefix with rising-dot
+  // Build the Cloudinary folder path - prefix with siliconhubs
   const cloudinaryFolder =
     folderParts.length > 0
-      ? `rising-dot/${folderParts.join('/')}`
-      : 'rising-dot';
+      ? `siliconhubs/${folderParts.join('/')}`
+      : 'siliconhubs';
 
   return {
     folder: cloudinaryFolder,
@@ -180,7 +180,7 @@ export async function POST(request: Request) {
 
       // Save URL mapping to database for reference
       const client = await clientPromise;
-      const db = client.db('rising-dot');
+      const db = client.db('siliconhubs');
 
       await db.collection('settings').updateOne(
         { key: 'cloudinary_migration' },
@@ -217,7 +217,7 @@ export async function POST(request: Request) {
     if (action === 'update-database') {
       // Update all database records to use Cloudinary URLs
       const client = await clientPromise;
-      const db = client.db('rising-dot');
+      const db = client.db('siliconhubs');
 
       // Get the URL mapping
       const migrationData = await db
@@ -348,7 +348,7 @@ export async function POST(request: Request) {
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const migrationData = await db
       .collection('settings')

@@ -1,6 +1,6 @@
 /**
  * Property-Based Tests for Spring Physics System
- * Feature: rising-dot-website, Property 3: Spring Physics Consistency
+ * Feature: siliconhubs, Property 3: Spring Physics Consistency
  * Validates: Requirements 2.1, 2.2, 31.1-31.5
  */
 

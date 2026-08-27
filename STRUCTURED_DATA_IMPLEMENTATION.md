@@ -7,7 +7,7 @@
 
 ## 📋 Overview
 
-Structured data (JSON-LD) has been successfully implemented across the Rising Dot Agency website to enhance SEO and enable rich snippets in search results.
+Structured data (JSON-LD) has been successfully implemented across the SiliconHubs website to enhance SEO and enable rich snippets in search results.
 
 ---
 
@@ -291,7 +291,7 @@ const serviceSchema = generateServiceSchema({
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export default function MyPage() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://risingdot.agency';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
   
   return (
     <>

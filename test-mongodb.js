@@ -3,7 +3,7 @@ require('dotenv').config({ path: '.env.local' });
 const { MongoClient } = require('mongodb');
 
 const uri = process.env.MONGODB_URI;
-const dbName = process.env.MONGODB_DB || 'rising-dot';
+const dbName = process.env.MONGODB_DB || 'siliconhubs';
 
 if (!uri) {
   console.error('❌ MONGODB_URI not found in .env.local');

@@ -129,7 +129,7 @@ export default function Footer() {
   // Get copyright text with year replacement
   const copyrightText = (
     settings.footer.copyrightText ||
-    '© {year} Rising Dot Agency. All rights reserved.'
+    '© {year} SiliconHubs. All rights reserved.'
   ).replace('{year}', new Date().getFullYear().toString());
 
   return (
@@ -141,7 +141,7 @@ export default function Footer() {
             <Link href="/" className="inline-block">
               <img
                 src={settings.footer.logo || '/logo.png'}
-                alt="Rising Dot"
+                alt="SiliconHubs"
                 className="h-16 w-auto"
               />
             </Link>

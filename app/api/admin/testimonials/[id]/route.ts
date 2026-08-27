@@ -10,7 +10,7 @@ export async function GET(
   try {
     const { id } = await params;
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const testimonial = await db
       .collection('testimonials')
@@ -43,7 +43,7 @@ export async function PUT(
     const body = await request.json();
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const updateData: Record<string, any> = {
       updatedAt: new Date(),
@@ -100,7 +100,7 @@ export async function DELETE(
   try {
     const { id } = await params;
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const result = await db
       .collection('testimonials')

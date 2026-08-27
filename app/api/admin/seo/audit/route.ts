@@ -4,7 +4,7 @@ import clientPromise from '@/lib/db/mongodb';
 // Simulated page data for audit
 const pageData: Record<string, any> = {
   '/': {
-    title: 'Rising Dot Agency | Digital Excellence Delivered',
+    title: 'SiliconHubs | Digital Excellence Delivered',
     description:
       'We craft stunning websites, powerful automations, and intelligent chatbots that transform your digital presence.',
     h1Count: 1,
@@ -15,17 +15,17 @@ const pageData: Record<string, any> = {
     wordCount: 850,
   },
   '/about': {
-    title: 'About Us | Rising Dot Agency',
-    description: 'Meet the team behind Rising Dot Agency.',
+    title: 'About Us | SiliconHubs',
+    description: 'Meet the team behind SiliconHubs.',
     h1Count: 1,
-    h1Values: ['About Rising Dot Agency'],
+    h1Values: ['About SiliconHubs'],
     images: { total: 5, withAlt: 5 },
     internalLinks: 8,
     externalLinks: 0,
     wordCount: 620,
   },
   '/services': {
-    title: 'Our Services | Rising Dot Agency',
+    title: 'Our Services | SiliconHubs',
     description:
       'Comprehensive digital solutions including web design, chatbot development, and more.',
     h1Count: 1,
@@ -36,7 +36,7 @@ const pageData: Record<string, any> = {
     wordCount: 780,
   },
   '/portfolio': {
-    title: 'Portfolio | Rising Dot Agency',
+    title: 'Portfolio | SiliconHubs',
     description: 'Explore our portfolio of successful projects.',
     h1Count: 1,
     h1Values: ['Our Work'],
@@ -46,8 +46,8 @@ const pageData: Record<string, any> = {
     wordCount: 450,
   },
   '/contact': {
-    title: 'Contact Us | Rising Dot Agency',
-    description: 'Get in touch with Rising Dot Agency.',
+    title: 'Contact Us | SiliconHubs',
+    description: 'Get in touch with SiliconHubs.',
     h1Count: 1,
     h1Values: ['Contact Us'],
     images: { total: 2, withAlt: 2 },
@@ -56,7 +56,7 @@ const pageData: Record<string, any> = {
     wordCount: 280,
   },
   '/blog': {
-    title: 'Blog | Rising Dot Agency',
+    title: 'Blog | SiliconHubs',
     description:
       'Insights and tips about web development and digital marketing.',
     h1Count: 1,
@@ -259,7 +259,7 @@ function auditPage(path: string, data: any) {
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const audits = await db.collection('seoAudit').find({}).toArray();
     return NextResponse.json(audits);
@@ -279,7 +279,7 @@ export async function POST(request: NextRequest) {
     const { page } = body;
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const pagesToAudit = page ? [page] : Object.keys(pageData);
     const results = pagesToAudit.map((p) =>

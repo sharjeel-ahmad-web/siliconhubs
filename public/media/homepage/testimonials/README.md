@@ -56,7 +56,7 @@ Use client name or company:
      "name": "John Smith",
      "position": "CEO",
      "company": "Acme Corp",
-     "quote": "Rising Dot transformed our business...",
+     "quote": "SiliconHubs transformed our business...",
      "image": "/media/homepage/testimonials/client-john-smith.jpg",
      "rating": 5
    }

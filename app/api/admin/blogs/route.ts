@@ -6,7 +6,7 @@ import { BlogPost } from '@/lib/db/models';
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const blogs = await db
       .collection('blogs')
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Generate slug from title
     const slug = body.title
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
       content: body.content || '',
       thumbnail: body.thumbnail || '/media/blog/default-thumbnail.jpg',
       coverImage: body.coverImage || '',
-      author: body.author || 'Rising Dot Team',
+      author: body.author || 'SiliconHubs Team',
       category: body.category || 'General',
       tags: body.tags || [],
       featured: body.featured || false,

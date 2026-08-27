@@ -324,7 +324,7 @@ describe('SmoothScroll', () => {
 
   /**
    * Property-Based Tests
-   * Feature: rising-dot-website, Property 5: Scroll Velocity Skew Relationship
+   * Feature: siliconhubs, Property 5: Scroll Velocity Skew Relationship
    * Validates: Requirements 2.4, 6.2, 33.6, 37.6
    */
   describe('Property 5: Scroll Velocity Skew Relationship', () => {

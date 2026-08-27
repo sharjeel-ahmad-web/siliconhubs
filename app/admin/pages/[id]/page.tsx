@@ -31,7 +31,7 @@ const defaultSectionContent: Record<
   about: {
     hero: {
       eyebrow: 'Who We Are',
-      title: 'About Rising Dot',
+      title: 'About SiliconHubs',
       subtitle:
         "We're a team of passionate developers, designers, and strategists dedicated to creating exceptional digital experiences that drive results.",
       ctaLabel: 'Meet Our Team',
@@ -40,7 +40,7 @@ const defaultSectionContent: Record<
     showreel: {
       videoUrl: '/media/about/agency-showreel/videos/showreel.mp4',
       caption: 'OUR VISION',
-      heading: 'Rising Together in the World of Digital Dots',
+      heading: 'SiliconHubs in the World of Digital Dots',
       paragraphs: [
         'We transform ideas into exceptional digital experiences that drive real business results.',
         "From stunning web designs to powerful automations, we're your partner in digital growth.",
@@ -49,7 +49,7 @@ const defaultSectionContent: Record<
     team: {
       eyebrow: 'Meet the Team',
       title: 'The Minds Behind',
-      titleHighlight: 'Rising Dot',
+      titleHighlight: 'SiliconHubs',
       socialText: 'Follow us on social media',
     },
     skills: {
@@ -85,7 +85,7 @@ const defaultSectionContent: Record<
   home: {
     hero: {
       eyebrow: 'Digital Excellence Delivered',
-      title: 'Rising Dot Agency',
+      title: 'SiliconHubs',
       subtitle:
         'We craft stunning websites, powerful automations, and intelligent chatbots that transform your digital presence.',
       ctaText: 'Get Started',
@@ -225,7 +225,7 @@ const defaultSectionContent: Record<
       subtitle: 'Feel free to reach out to us!',
       ctaText: 'Book a call',
       ctaLink: '/contact',
-      email: 'contact@risingdot.agency',
+      email: 'contact@siliconhubs.agency',
       whatsapp: '+1234567890',
       services: ['Chatbots', 'N8N Automation', 'Web Development', 'Shopify'],
     },
@@ -234,7 +234,7 @@ const defaultSectionContent: Record<
       title: 'Trusted by',
       titleHighlight: 'Industry Leaders',
       subtitle:
-        'Join businesses already transforming their digital presence with Rising Starter.',
+        'Join businesses already transforming their digital presence with SiliconHubs.',
       stats: [
         { number: '500+', label: 'Happy Clients' },
         { number: '98%', label: 'Satisfaction Rate' },
@@ -269,7 +269,7 @@ const defaultSectionContent: Record<
       ctaHref: '/contact',
       secondaryCtaText: 'View Our Work',
       secondaryCtaHref: '/portfolio',
-      centerText: 'RISING',
+      centerText: 'SILICONHUBS',
       colors: {
         borderColor: '#06b6d4',
         orbitBorderColor: '#06b6d4',
@@ -453,7 +453,7 @@ const defaultSectionContent: Record<
         fourth: 'Deliver',
       },
       buttonTexts: {
-        first: 'Rising Dot',
+        first: 'SiliconHubs',
         second: 'Workflows',
       },
       boxTitle: 'Data exchange using a customized REST API',

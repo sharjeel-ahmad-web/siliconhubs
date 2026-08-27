@@ -5,7 +5,7 @@ import clientPromise from '@/lib/db/mongodb';
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const redirects = await db
       .collection('seoRedirects')
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     }
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Check for duplicate source
     const existing = await db.collection('seoRedirects').findOne({ source });

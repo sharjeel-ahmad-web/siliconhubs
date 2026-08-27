@@ -22,7 +22,7 @@ const defaultTestimonials = [
     company: 'TechFlow',
     avatar: '/media/home/testimonials/sarah-chen.jpg',
     rating: 5,
-    text: "Rising Starter transformed our entire digital presence. We've seen a 300% increase in organic traffic and our conversion rates have never been better. The team's expertise is unmatched.",
+    text: "SiliconHubs transformed our entire digital presence. We've seen a 300% increase in organic traffic and our conversion rates have never been better. The team's expertise is unmatched.",
     results: ['300% traffic increase', '45% conversion boost', '24/7 support'],
   },
   {
@@ -44,7 +44,7 @@ const defaultTestimonials = [
     company: 'ScaleUp',
     avatar: '/media/home/testimonials/elena-rodriguez.jpg',
     rating: 5,
-    text: 'From N8N workflow automation to Shopify store optimization, Rising Starter handles everything. Our team can finally focus on strategy instead of repetitive tasks.',
+    text: 'From N8N workflow automation to Shopify store optimization, SiliconHubs handles everything. Our team can finally focus on strategy instead of repetitive tasks.',
     results: ['200+ hours saved', 'Full automation', 'Team productivity'],
   },
   {
@@ -62,7 +62,7 @@ const defaultTestimonials = [
     company: 'InnovateCorp',
     avatar: '/media/home/testimonials/lisa-thompson.jpg',
     rating: 5,
-    text: 'Exceptional SEO and web design that actually delivers results. The implementation was smooth, and we saw improvements within weeks. Highly recommend Rising Starter.',
+    text: 'Exceptional SEO and web design that actually delivers results. The implementation was smooth, and we saw improvements within weeks. Highly recommend SiliconHubs.',
     results: ['Page 1 rankings', 'Smooth integration', 'High ROI'],
   },
 ];
@@ -89,7 +89,7 @@ export function PremiumTestimonials() {
   const titleHighlight = sectionContent?.titleHighlight || 'Industry Leaders';
   const subtitle =
     sectionContent?.subtitle ||
-    'Join businesses already transforming their digital presence with Rising Starter.';
+    'Join businesses already transforming their digital presence with SiliconHubs.';
   const stats = sectionContent?.stats || [
     { number: '500+', label: 'Happy Clients' },
     { number: '98%', label: 'Satisfaction Rate' },

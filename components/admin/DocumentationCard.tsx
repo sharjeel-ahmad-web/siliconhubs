@@ -210,7 +210,7 @@ export default function DocumentationCard({ section }: DocumentationCardProps) {
       {/* Actions */}
       <div className="flex flex-wrap gap-2">
         <a
-          href={`https://github.com/achagames6-web/rising-dot-agency/blob/main/${section.filePath}`}
+          href={`https://github.com/achagames6-web/siliconhubs/blob/main/${section.filePath}`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 rounded-lg border border-slate-600 bg-slate-700/30 px-3 py-1.5 text-xs font-medium text-slate-300 transition-colors hover:bg-slate-700/50"

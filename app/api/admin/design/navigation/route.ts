@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 
-const DB_NAME = 'rising-dot';
+const DB_NAME = 'siliconhubs';
 
 // GET - Fetch navigation settings
 export async function GET() {

@@ -1,4 +1,4 @@
-﻿import Groq from 'groq-sdk';
+import Groq from 'groq-sdk';
 import fs from 'fs';
 import path from 'path';
 
@@ -21,7 +21,7 @@ function getKnowledgeBase(): string {
   }
 }
 
-const SYSTEM_PROMPT = `You are a helpful customer support assistant for Rising Dot Agency, a premium digital agency. 
+const SYSTEM_PROMPT = `You are a helpful customer support assistant for SiliconHubs, a premium digital agency. 
 
 Your role is to:
 1. Answer questions about our services, pricing, and process
@@ -39,7 +39,7 @@ Here is our agency information:
 
 {KNOWLEDGE_BASE}
 
-Remember: You represent Rising Dot Agency. Be professional, helpful, and friendly.`;
+Remember: You represent SiliconHubs. Be professional, helpful, and friendly.`;
 
 export interface ChatMessage {
   role: 'user' | 'assistant' | 'system';
@@ -106,7 +106,7 @@ export async function getChatResponse(
     console.error('Groq API error:', error);
     return {
       response:
-        "I'm sorry, I'm experiencing some technical difficulties. Please try again in a moment, or feel free to contact us directly at contact@risingdot.com",
+        "I'm sorry, I'm experiencing some technical difficulties. Please try again in a moment, or feel free to contact us directly at contact@siliconhubs.com",
       wantsHuman: false,
     };
   }

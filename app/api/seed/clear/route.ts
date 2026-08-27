@@ -1,11 +1,11 @@
-﻿import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 
 // Clear all seeded CMS content
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const results: Record<string, number> = {};
 

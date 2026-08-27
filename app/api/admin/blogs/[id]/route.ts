@@ -9,7 +9,7 @@ export async function GET(
 ) {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const blog = await db
       .collection('blogs')
@@ -37,7 +37,7 @@ export async function PUT(
   try {
     const body = await request.json();
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Generate slug from title if title changed
     const slug = body.title
@@ -95,7 +95,7 @@ export async function DELETE(
 ) {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const result = await db
       .collection('blogs')

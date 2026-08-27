@@ -40,12 +40,12 @@ export default function SettingsPage() {
   } | null>(null);
 
   // General Settings
-  const [siteName, setSiteName] = useState('Rising Dot Agency');
+  const [siteName, setSiteName] = useState('SiliconHubs');
   const [siteDescription, setSiteDescription] = useState(
     'Digital Excellence Delivered'
   );
-  const [siteUrl, setSiteUrl] = useState('https://risingdot.agency');
-  const [contactEmail, setContactEmail] = useState('hello@risingdot.agency');
+  const [siteUrl, setSiteUrl] = useState('https://siliconhubs.agency');
+  const [contactEmail, setContactEmail] = useState('hello@siliconhubs.agency');
   const [contactPhone, setContactPhone] = useState('+1 (555) 123-4567');
   const [address, setAddress] = useState(
     '123 Digital Street, Tech City, TC 12345'
@@ -56,7 +56,7 @@ export default function SettingsPage() {
 
   // SEO Settings
   const [metaTitle, setMetaTitle] = useState(
-    'Rising Dot Agency | Digital Excellence Delivered'
+    'SiliconHubs | Digital Excellence Delivered'
   );
   const [metaDescription, setMetaDescription] = useState(
     'We create stunning digital experiences that drive results. Web design, development, and digital marketing services.'
@@ -71,17 +71,17 @@ export default function SettingsPage() {
 
   // Social Media Settings
   const [facebookUrl, setFacebookUrl] = useState(
-    'https://facebook.com/risingdot'
+    'https://facebook.com/siliconhubs'
   );
-  const [twitterUrl, setTwitterUrl] = useState('https://twitter.com/risingdot');
+  const [twitterUrl, setTwitterUrl] = useState('https://twitter.com/siliconhubs');
   const [instagramUrl, setInstagramUrl] = useState(
-    'https://instagram.com/risingdot'
+    'https://instagram.com/siliconhubs'
   );
   const [linkedinUrl, setLinkedinUrl] = useState(
-    'https://linkedin.com/company/risingdot'
+    'https://linkedin.com/company/siliconhubs'
   );
   const [youtubeUrl, setYoutubeUrl] = useState('');
-  const [githubUrl, setGithubUrl] = useState('https://github.com/risingdot');
+  const [githubUrl, setGithubUrl] = useState('https://github.com/siliconhubs');
 
   // Notification Settings
   const [emailNotifications, setEmailNotifications] = useState(true);
@@ -133,13 +133,13 @@ export default function SettingsPage() {
 
           // Load general settings
           if (data.general) {
-            setSiteName(data.general.siteName || 'Rising Dot Agency');
+            setSiteName(data.general.siteName || 'SiliconHubs');
             setSiteDescription(
               data.general.siteDescription || 'Digital Excellence Delivered'
             );
-            setSiteUrl(data.general.siteUrl || 'https://risingdot.agency');
+            setSiteUrl(data.general.siteUrl || 'https://siliconhubs.agency');
             setContactEmail(
-              data.general.contactEmail || 'hello@risingdot.agency'
+              data.general.contactEmail || 'hello@siliconhubs.agency'
             );
             setContactPhone(data.general.contactPhone || '+1 (555) 123-4567');
             setAddress(
@@ -1130,7 +1130,7 @@ export default function SettingsPage() {
                             </li>
                             <li>Click "Create New App" → "From scratch"</li>
                             <li>
-                              Name your app (e.g., "Rising Dot Notifications")
+                              Name your app (e.g., "SiliconHubs Notifications")
                               and select your workspace
                             </li>
                             <li>
@@ -1725,7 +1725,7 @@ export default function SettingsPage() {
                             Database Status
                           </p>
                           <p className="text-sm text-slate-400">
-                            MongoDB Atlas - rising-dot cluster
+                            MongoDB Atlas - siliconhubs cluster
                           </p>
                         </div>
                       </div>
@@ -1745,7 +1745,7 @@ export default function SettingsPage() {
                       <div>
                         <p className="text-xs text-slate-500">Database Name</p>
                         <p className="font-mono text-sm text-slate-300">
-                          risingdot
+                          siliconhubs
                         </p>
                       </div>
                     </div>

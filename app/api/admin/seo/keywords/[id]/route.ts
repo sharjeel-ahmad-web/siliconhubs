@@ -12,7 +12,7 @@ export async function PUT(
     const { currentRank } = body;
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Get current keyword to save history
     const existing = await db.collection('seoKeywords').findOne({
@@ -65,7 +65,7 @@ export async function DELETE(
 ) {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const result = await db.collection('seoKeywords').deleteOne({
       _id: new ObjectId(params.id),

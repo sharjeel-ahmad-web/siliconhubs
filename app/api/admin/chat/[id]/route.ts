@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ObjectId } from 'mongodb';
 import clientPromise from '@/lib/db/mongodb';
 
-const DB_NAME = 'rising-dot';
+const DB_NAME = 'siliconhubs';
 
 // GET - Fetch single conversation with all messages
 export async function GET(

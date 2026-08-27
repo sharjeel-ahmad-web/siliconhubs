@@ -63,7 +63,7 @@ const defaultNavigation = {
     logo: '/logo.png',
     description:
       'Premium digital solutions that transform your business through innovative technology and stunning design.',
-    copyrightText: '© {year} Rising Dot Agency. All rights reserved.',
+    copyrightText: '© {year} SiliconHubs. All rights reserved.',
     showNewsletter: true,
     columns: [
       {

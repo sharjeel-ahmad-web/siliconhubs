@@ -13,11 +13,11 @@ Ensure these variables exist (no quotes around the URI):
 
 ```env
 MONGODB_URI=mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority
-MONGODB_DB=rising-dot
+MONGODB_DB=siliconhubs
 ```
 
 - **MONGODB_URI** – Required. If missing, API routes that use `connectDB()` will throw.
-- **MONGODB_DB** – Optional; defaults to `rising-dot` in `lib/db/mongodb.ts`.
+- **MONGODB_DB** – Optional; defaults to `siliconhubs` in `lib/db/mongodb.ts`.
 
 ### 1.2 DB helper location and usage
 
@@ -45,7 +45,7 @@ const uri = process.env.MONGODB_URI;
 if (!uri) { console.error('MONGODB_URI missing'); process.exit(1); }
 const client = new MongoClient(uri);
 client.connect().then(() => {
-  return client.db(process.env.MONGODB_DB || 'rising-dot').collection('teamMembers').find({}).toArray();
+  return client.db(process.env.MONGODB_DB || 'siliconhubs').collection('teamMembers').find({}).toArray();
 }).then(arr => { console.log('teamMembers count:', arr.length); process.exit(0); })
   .catch(err => { console.error(err); process.exit(1); });
 "
@@ -169,7 +169,7 @@ If you need a **separate** batch endpoint that returns team + testimonials + blo
 |-------------------|------------------------------------------|
 | DB helper         | `lib/db/mongodb.ts`                      |
 | Connect in APIs   | `const db = await connectDB();`          |
-| DB name           | `process.env.MONGODB_DB` or `rising-dot` |
+| DB name           | `process.env.MONGODB_DB` or `siliconhubs` |
 | Team              | Collection `teamMembers`                 |
 | Testimonials      | Collection `testimonials`                |
 | Blogs             | Collection `blogs`                       |
@@ -183,7 +183,7 @@ If you need a **separate** batch endpoint that returns team + testimonials + blo
 
 1. **Restart dev server** after changing `.env.local`.
 2. **Terminal logs:** All the routes above use `console.error('[api/...]', error)`. Check the terminal (not the browser) for Mongo errors.
-3. **MongoDB Compass / mongosh:** Connect with the same `MONGODB_URI`, select DB `rising-dot` (or your `MONGODB_DB`), and check:
+3. **MongoDB Compass / mongosh:** Connect with the same `MONGODB_URI`, select DB `siliconhubs` (or your `MONGODB_DB`), and check:
    - `teamMembers.find({ published: true })`
    - `testimonials.find({ published: true })`
    - `blogs.find({ published: true })`

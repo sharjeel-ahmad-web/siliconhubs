@@ -189,9 +189,9 @@
 
 **Steps:**
 1. Go to https://search.google.com/search-console
-2. Add your property (risingdot.agency)
+2. Add your property (siliconhubs.agency)
 3. Verify ownership (DNS, HTML file, or meta tag)
-4. Submit sitemap: `https://risingdot.agency/sitemap.xml`
+4. Submit sitemap: `https://siliconhubs.agency/sitemap.xml`
 
 **What You'll Get:**
 - Search performance data

@@ -11,7 +11,7 @@ export async function PUT(
     const body = await request.json();
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const updateData: any = { updatedAt: new Date() };
     const allowedFields = [
@@ -62,7 +62,7 @@ export async function DELETE(
 ) {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const result = await db.collection('seoLeadMagnets').deleteOne({
       _id: new ObjectId(params.id),

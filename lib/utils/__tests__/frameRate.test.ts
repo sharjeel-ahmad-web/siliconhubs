@@ -1,6 +1,6 @@
 /**
  * Property-Based Tests for Frame Rate Maintenance
- * Feature: rising-dot-website, Property 12: Frame Rate Maintenance
+ * Feature: siliconhubs, Property 12: Frame Rate Maintenance
  * Validates: Requirements 21.8, 21.9, 40.6, 40.7
  */
 

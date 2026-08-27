@@ -1,10 +1,10 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { ObjectId } from 'mongodb';
 import clientPromise from '@/lib/db/mongodb';
 import { getChatResponse, ChatMessage } from '@/lib/groq';
 import { Resend } from 'resend';
 
-const DB_NAME = 'rising-dot';
+const DB_NAME = 'siliconhubs';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
 
         if (notificationEmail) {
           await resend.emails.send({
-            from: 'Rising Dot <onboarding@resend.dev>',
+            from: 'SiliconHubs <onboarding@resend.dev>',
             to: notificationEmail,
             subject: `ðŸ”” Human Support Requested - ${conversation.visitorName}`,
             html: `

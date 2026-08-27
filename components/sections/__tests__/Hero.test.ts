@@ -1,9 +1,9 @@
 /**
- * Feature: rising-dot-website, Property 1: Hero Animation Sequence Timing
+ * Feature: siliconhubs, Property 1: Hero Animation Sequence Timing
  * Validates: Requirements 3.2, 3.3, 3.4
  *
  * Property: For any page load on the homepage, the particle system SHALL converge
- * to form the Rising Dot logo within 1500ms, followed by text scramble animation
+ * to form the SiliconHubs logo within 1500ms, followed by text scramble animation
  * completing within 1.5 seconds, and particle burst emission occurring within the
  * specified timing sequence.
  */

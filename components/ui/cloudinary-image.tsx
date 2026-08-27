@@ -59,13 +59,13 @@ function getCloudinaryUrl(
   }
 
   // Convert local path to Cloudinary public ID
-  // /team/alex.png -> rising-dot/team/alex
-  // /media/portfolio/project-1/thumbnail.jpg -> rising-dot/media/portfolio/project-1/thumbnail
+  // /team/alex.png -> siliconhubs/team/alex
+  // /media/portfolio/project-1/thumbnail.jpg -> siliconhubs/media/portfolio/project-1/thumbnail
   let publicId = src
     .replace(/^\//, '') // Remove leading slash
     .replace(/\.[^/.]+$/, ''); // Remove file extension
 
-  publicId = `rising-dot/${publicId}`;
+  publicId = `siliconhubs/${publicId}`;
 
   return buildCloudinaryUrl(publicId, options);
 }

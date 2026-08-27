@@ -236,7 +236,7 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
           <Link href="/admin" className="flex items-center">
             <img
               src="/adminlogo.png"
-              alt="Rising Dot"
+              alt="SiliconHubs"
               className="h-10 w-auto"
             />
           </Link>

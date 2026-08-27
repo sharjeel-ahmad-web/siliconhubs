@@ -1,4 +1,4 @@
--- Rising Dot Agency Database Schema
+-- SiliconHubs Database Schema
 
 -- Users table for authentication
 CREATE TABLE IF NOT EXISTS users (

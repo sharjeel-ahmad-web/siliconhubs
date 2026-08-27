@@ -56,7 +56,7 @@ function getCloudinaryVideoUrl(
     .replace(/^\//, '') // Remove leading slash
     .replace(/\.[^/.]+$/, ''); // Remove file extension
 
-  publicId = `rising-dot/${publicId}`;
+  publicId = `siliconhubs/${publicId}`;
 
   const { width, height, quality = 'auto', format = 'auto' } = options;
 
@@ -81,7 +81,7 @@ function getVideoPoster(src: string, width?: number): string {
   let publicId = src.replace(/^\//, '').replace(/\.[^/.]+$/, '');
 
   if (!isCloudinaryUrl(src)) {
-    publicId = `rising-dot/${publicId}`;
+    publicId = `siliconhubs/${publicId}`;
   }
 
   const transformations = ['so_0', 'f_jpg']; // Start at 0 seconds, output as jpg

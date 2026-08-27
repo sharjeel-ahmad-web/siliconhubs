@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
     const config = await request.json();
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     await db
       .collection('seoConfig')

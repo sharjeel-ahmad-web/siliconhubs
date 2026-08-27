@@ -5,7 +5,7 @@ import clientPromise from '@/lib/db/mongodb';
 export async function POST() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const now = new Date();
 

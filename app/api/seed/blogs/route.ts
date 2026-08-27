@@ -1,4 +1,4 @@
-﻿import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 
 const placeholderBlogs = [
@@ -37,7 +37,7 @@ Next.js 14 is a game-changer for web development. Start building your next proje
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop',
     coverImage:
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=600&fit=crop',
-    author: 'Rising Dot Team',
+    author: 'SiliconHubs Team',
     category: 'Development',
     tags: ['nextjs', 'react', 'web development'],
     featured: true,
@@ -88,7 +88,7 @@ Great design is about solving problems while delighting users. Keep learning and
       'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
     coverImage:
       'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop',
-    author: 'Rising Dot Team',
+    author: 'SiliconHubs Team',
     category: 'Design',
     tags: ['ui design', 'ux design', 'trends'],
     featured: false,
@@ -144,7 +144,7 @@ Automation is no longer optional. Start automating today with n8n!`,
       'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=600&fit=crop',
     coverImage:
       'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=1200&h=600&fit=crop',
-    author: 'Rising Dot Team',
+    author: 'SiliconHubs Team',
     category: 'Technology',
     tags: ['automation', 'n8n', 'productivity'],
     featured: false,
@@ -208,7 +208,7 @@ SEO is a marathon, not a sprint. Stay consistent and focus on providing value.`,
       'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&h=600&fit=crop',
     coverImage:
       'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1200&h=600&fit=crop',
-    author: 'Rising Dot Team',
+    author: 'SiliconHubs Team',
     category: 'Marketing',
     tags: ['seo', 'digital marketing', 'google'],
     featured: false,
@@ -223,7 +223,7 @@ SEO is a marathon, not a sprint. Stay consistent and focus on providing value.`,
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Check if blogs already exist
     const existingCount = await db.collection('blogs').countDocuments();

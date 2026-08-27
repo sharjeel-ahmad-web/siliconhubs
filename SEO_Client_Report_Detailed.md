@@ -1,5 +1,5 @@
 # SEO Implementation — Detailed Client Report  
-**Rising Dot Agency Website**  
+**SiliconHubs Website**  
 **Prepared for:** [Client name]  
 **Date:** [Current date]  
 **Subject:** SEO and technical setup work completed (plain-language overview)

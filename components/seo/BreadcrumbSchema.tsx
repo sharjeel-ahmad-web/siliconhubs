@@ -12,7 +12,7 @@ interface BreadcrumbSchemaProps {
 
 export default function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
   // Always include homepage as first item
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://risingdot.agency';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
   const breadcrumbItems: BreadcrumbItem[] = [
     { name: 'Home', url: baseUrl },
     ...items,

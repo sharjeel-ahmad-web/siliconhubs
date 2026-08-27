@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 import { v2 as cloudinary } from 'cloudinary';
 
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
     }
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const now = new Date();
     const newTestimonial = {

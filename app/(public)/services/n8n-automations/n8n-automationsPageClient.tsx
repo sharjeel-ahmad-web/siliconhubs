@@ -384,7 +384,7 @@ const defaultApiIntegrationContent: ApiIntegrationContent = {
     fourth: 'Deliver',
   },
   buttonTexts: {
-    first: 'Rising Dot',
+    first: 'SiliconHubs',
     second: 'Workflows',
   },
   boxTitle: 'Seamless data flow with REST API automation',

@@ -1,4 +1,4 @@
-# Project Analysis Report: Rising Dot Agency
+# Project Analysis Report: SiliconHubs
 
 ## 1. Project Stack Analysis
 
@@ -124,7 +124,7 @@
    Allow: /
    Disallow: /admin/
    Disallow: /api/
-   Sitemap: https://risingdot.agency/sitemap.xml
+   Sitemap: https://siliconhubs.agency/sitemap.xml
    ```
 
 2. **Implement Server-Side Metadata**
@@ -447,6 +447,6 @@
 ---
 
 **Report Generated**: $(date)
-**Project**: Rising Dot Agency Website
+**Project**: SiliconHubs Website
 **Framework**: Next.js 14.2.33
 

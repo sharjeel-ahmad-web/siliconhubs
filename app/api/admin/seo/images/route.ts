@@ -5,7 +5,7 @@ import clientPromise from '@/lib/db/mongodb';
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const images = await db.collection('seoImages').find({}).toArray();
     return NextResponse.json(images);
@@ -32,7 +32,7 @@ export async function PUT(request: NextRequest) {
     }
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const now = new Date();
     for (const update of updates) {

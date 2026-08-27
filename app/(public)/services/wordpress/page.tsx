@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 // Server Component - SEO optimized
 export default function WordPressPage() {
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://risingdot.agency';
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
 
   // Generate Service schema
   const serviceSchema = generateServiceSchema({

@@ -2,7 +2,7 @@ import clientPromise from '@/lib/db/mongodb';
 
 async function seedAriseHeroContent() {
   const client = await clientPromise;
-  const db = client.db('rising-dot');
+  const db = client.db('siliconhubs');
   const collection = db.collection('siteContent');
 
   const heroContent = {
@@ -10,7 +10,7 @@ async function seedAriseHeroContent() {
     section: 'hero',
     content: {
       eyebrow: 'Digital Excellence Delivered',
-      title: 'Rising Dot Agency',
+      title: 'SiliconHubs',
       subtitle:
         'We craft stunning websites, powerful automations, and intelligent chatbots that transform your digital presence.',
       ctaText: 'Get Started',

@@ -5,7 +5,7 @@ import clientPromise from '@/lib/db/mongodb';
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const magnets = await db
       .collection('seoLeadMagnets')
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
     }
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const now = new Date();
     const magnet = {

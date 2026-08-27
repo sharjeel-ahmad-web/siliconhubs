@@ -19,7 +19,7 @@
 - User-agent: * (all search engines)
 - Allow: / (all public pages)
 - Disallow: /admin/, /api/, /auth/ (private routes)
-- Sitemap: https://risingdot.agency/sitemap.xml
+- Sitemap: https://siliconhubs.agency/sitemap.xml
 ```
 
 **Access:** http://localhost:3000/robots.txt

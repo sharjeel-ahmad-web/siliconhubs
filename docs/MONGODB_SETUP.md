@@ -23,7 +23,7 @@ then the app cannot reach MongoDB.
 3. **Use this in `.env.local`:**
    ```env
    MONGODB_URI=mongodb://127.0.0.1:27017
-   MONGODB_DB=rising-dot
+   MONGODB_DB=siliconhubs
    ```
    Using `127.0.0.1` instead of `localhost` can avoid IPv6 issues on Windows.
 
@@ -39,7 +39,7 @@ then the app cannot reach MongoDB.
 4. In `.env.local`:
    ```env
    MONGODB_URI=mongodb+srv://your-user:your-password@your-cluster.xxxxx.mongodb.net/?retryWrites=true&w=majority
-   MONGODB_DB=rising-dot
+   MONGODB_DB=siliconhubs
    ```
 5. Restart the Next.js dev server.
 

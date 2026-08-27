@@ -5,7 +5,7 @@ import clientPromise from '@/lib/db/mongodb';
 export async function POST() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Simulated duplicate content detection
     // In production, you would compare actual page content using similarity algorithms
@@ -36,7 +36,7 @@ export async function POST() {
           { url: '/', title: 'Homepage', similarity: 62 },
         ],
         contentPreview:
-          'Rising Dot Agency is a full-service digital agency specializing in web development, automation, and AI solutions. We help businesses transform their digital presence...',
+          'SiliconHubs is a full-service digital agency specializing in web development, automation, and AI solutions. We help businesses transform their digital presence...',
       },
     ];
 

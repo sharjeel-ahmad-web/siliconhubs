@@ -254,7 +254,7 @@ export default function ContactsPage() {
 
               <div className="flex gap-3">
                 <a
-                  href={`mailto:${selectedContact?.email ?? ''}?subject=Re: Your inquiry to Rising Dot`}
+                  href={`mailto:${selectedContact?.email ?? ''}?subject=Re: Your inquiry to SiliconHubs`}
                   className="rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80"
                 >
                   Reply via Email

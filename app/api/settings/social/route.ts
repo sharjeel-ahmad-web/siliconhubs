@@ -1,15 +1,15 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 
-const DB_NAME = 'rising-dot';
+const DB_NAME = 'siliconhubs';
 
 const defaultLinks = {
-  facebook: 'https://facebook.com/risingdot',
-  twitter: 'https://twitter.com/risingdot',
-  instagram: 'https://instagram.com/risingdot',
-  linkedin: 'https://linkedin.com/company/risingdot',
+  facebook: 'https://facebook.com/siliconhubs',
+  twitter: 'https://twitter.com/siliconhubs',
+  instagram: 'https://instagram.com/siliconhubs',
+  linkedin: 'https://linkedin.com/company/siliconhubs',
   youtube: '',
-  github: 'https://github.com/risingdot',
+  github: 'https://github.com/siliconhubs',
 };
 
 // GET - Fetch social links

@@ -9,17 +9,17 @@ const linksToCheck = [
   { url: '/contact', foundOn: '/', type: 'internal' as const },
   { url: '/blog', foundOn: '/', type: 'internal' as const },
   {
-    url: 'https://facebook.com/risingdot',
+    url: 'https://facebook.com/siliconhubs',
     foundOn: '/',
     type: 'external' as const,
   },
   {
-    url: 'https://twitter.com/risingdot',
+    url: 'https://twitter.com/siliconhubs',
     foundOn: '/',
     type: 'external' as const,
   },
   {
-    url: 'https://linkedin.com/company/risingdot',
+    url: 'https://linkedin.com/company/siliconhubs',
     foundOn: '/',
     type: 'external' as const,
   },
@@ -29,9 +29,9 @@ const linksToCheck = [
 export async function POST() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
     const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL || 'https://risingdot.agency';
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
 
     const brokenLinks: any[] = [];
     const now = new Date();

@@ -1,4 +1,4 @@
-﻿import { MetadataRoute } from 'next';
+import { MetadataRoute } from 'next';
 import clientPromise from '@/lib/db/mongodb';
 
 // Static pages configuration
@@ -24,7 +24,7 @@ const staticPages = [
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://risingdot.agency';
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
   const now = new Date();
 
   // Start with static pages
@@ -45,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Try to fetch dynamic content from MongoDB
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Add blog posts
     try {

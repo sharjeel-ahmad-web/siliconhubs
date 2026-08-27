@@ -60,7 +60,7 @@ async function generateStaticContent() {
     console.log('📡 Connecting to MongoDB...');
     client = new MongoClient(MONGODB_URI);
     await client.connect();
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
     console.log('✅ Connected to MongoDB\n');
 
     // Fetch all site content (exclude blogs - they remain dynamic)

@@ -92,7 +92,7 @@ export async function uploadToCloudinary(
   options: UploadOptions = {}
 ): Promise<UploadResult> {
   const {
-    folder = 'rising-dot',
+    folder = 'siliconhubs',
     publicId,
     resourceType = 'auto',
     transformation,
@@ -194,7 +194,7 @@ export async function listCloudinaryFiles(
 }
 
 // Get upload signature for client-side uploads
-export function getUploadSignature(folder: string = 'rising-dot'): {
+export function getUploadSignature(folder: string = 'siliconhubs'): {
   signature: string;
   timestamp: number;
   cloudName: string;

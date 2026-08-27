@@ -12,7 +12,7 @@ export async function PUT(
     const { source, destination, type, enabled } = body;
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const updateData: any = { updatedAt: new Date() };
     if (source !== undefined) updateData.source = source;
@@ -55,7 +55,7 @@ export async function DELETE(
 ) {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const result = await db.collection('seoRedirects').deleteOne({
       _id: new ObjectId(params.id),

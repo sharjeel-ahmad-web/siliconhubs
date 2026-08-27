@@ -31,10 +31,10 @@ export async function POST(request: NextRequest) {
     const { excludePatterns = [], customUrls = [] } = config;
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL || 'https://risingdot.agency';
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
     const now = new Date().toISOString();
 
     // Collect all URLs

@@ -1,12 +1,12 @@
-# Rising Dot Agency
+# SiliconHubs
 
 A modern, high-performance web development agency website built with Next.js 14, featuring stunning animations, CMS integration, and a comprehensive admin dashboard.
 
-![Rising Dot - Homepage](./public/readme/main.jpg)
+![SiliconHubs - Homepage](./public/readme/main.jpg)
 
 ## Overview
 
-Rising Dot Agency is a full-featured agency website showcasing web development, design, SEO, chatbot development, and automation services. Built with cutting-edge technologies, it delivers a premium user experience with smooth animations, responsive design, and optimized performance.
+SiliconHubs is a full-featured agency website showcasing web development, design, SEO, chatbot development, and automation services. Built with cutting-edge technologies, it delivers a premium user experience with smooth animations, responsive design, and optimized performance.
 
 ## Features
 
@@ -64,8 +64,8 @@ Built-in SEO tools including keyword cloud visualization, importance scoring, an
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/rising-dot-agency.git
-cd rising-dot-agency
+git clone https://github.com/your-org/siliconhubs.git
+cd siliconhubs
 
 # Install dependencies
 npm install
@@ -85,7 +85,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 ```env
 # Database
 MONGODB_URI=mongodb://localhost:27017
-MONGODB_DB=rising-dot
+MONGODB_DB=siliconhubs
 
 # Authentication
 NEXTAUTH_SECRET=your-secret-key

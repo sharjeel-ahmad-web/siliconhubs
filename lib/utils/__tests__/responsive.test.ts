@@ -1,6 +1,6 @@
 /**
  * Property-Based Tests for Responsive Design System
- * Feature: rising-dot-website, Property 10: Responsive Particle Count Adaptation
+ * Feature: siliconhubs, Property 10: Responsive Particle Count Adaptation
  * Validates: Requirements 20.1, 20.2, 20.3
  */
 

@@ -1,13 +1,13 @@
 /**
  * Property-Based Tests for Security Features
- * Feature: rising-dot-website
+ * Feature: siliconhubs
  */
 
 import { describe, it, expect } from '@jest/globals';
 import * as fc from 'fast-check';
 
 /**
- * Feature: rising-dot-website, Property 18: TLS Encryption
+ * Feature: siliconhubs, Property 18: TLS Encryption
  * Validates: Requirements 24.1
  *
  * For any data transmission, the connection SHALL use TLS 1.3 or higher encryption protocol.
@@ -92,7 +92,7 @@ function validateTLSVersion(version: string): boolean {
 }
 
 /**
- * Feature: rising-dot-website, Property 17: Input Sanitization
+ * Feature: siliconhubs, Property 17: Input Sanitization
  * Validates: Requirements 24.2
  *
  * For any form submission, all user inputs SHALL be sanitized using DOMPurify

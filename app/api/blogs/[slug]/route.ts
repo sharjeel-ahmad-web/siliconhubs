@@ -8,7 +8,7 @@ export async function GET(
 ) {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const blog = await db
       .collection('blogs')

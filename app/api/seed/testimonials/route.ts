@@ -1,4 +1,4 @@
-﻿import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 
 const initialTestimonials = [
@@ -8,7 +8,7 @@ const initialTestimonials = [
     company: 'TechFlow Solutions',
     avatar: '/media/home/testimonials/sarah-chen.jpg',
     rating: 5,
-    text: "Rising Starter transformed our entire digital presence. We've seen a 300% increase in organic traffic and our conversion rates have never been better. The team's expertise is unmatched.",
+    text: "SiliconHubs transformed our entire digital presence. We've seen a 300% increase in organic traffic and our conversion rates have never been better. The team's expertise is unmatched.",
     results: ['300% traffic increase', '45% conversion boost', '24/7 support'],
     featured: true,
     order: 1,
@@ -34,7 +34,7 @@ const initialTestimonials = [
     company: 'ScaleUp Co',
     avatar: '/media/home/testimonials/elena-rodriguez.jpg',
     rating: 5,
-    text: 'From N8N workflow automation to Shopify store optimization, Rising Starter handles everything. Our team can finally focus on strategy instead of repetitive tasks.',
+    text: 'From N8N workflow automation to Shopify store optimization, SiliconHubs handles everything. Our team can finally focus on strategy instead of repetitive tasks.',
     results: ['200+ hours saved', 'Full automation', 'Team productivity'],
     featured: false,
     order: 3,
@@ -56,7 +56,7 @@ const initialTestimonials = [
     company: 'InnovateCorp',
     avatar: '/media/home/testimonials/lisa-thompson.jpg',
     rating: 5,
-    text: 'Exceptional SEO and web design that actually delivers results. The implementation was smooth, and we saw improvements within weeks. Highly recommend Rising Starter.',
+    text: 'Exceptional SEO and web design that actually delivers results. The implementation was smooth, and we saw improvements within weeks. Highly recommend SiliconHubs.',
     results: ['Page 1 rankings', 'Smooth integration', 'High ROI'],
     featured: false,
     order: 5,
@@ -66,7 +66,7 @@ const initialTestimonials = [
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
     const collection = db.collection('testimonials');
 
     const existingCount = await collection.countDocuments();

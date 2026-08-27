@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     const section = searchParams.get('section');
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const query: Record<string, string> = {};
     if (page) query.page = page;
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
     }
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const now = new Date();
     const newContent: Omit<SiteContent, '_id'> = {

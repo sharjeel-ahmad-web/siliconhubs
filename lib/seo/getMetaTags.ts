@@ -1,4 +1,4 @@
-﻿import clientPromise from '@/lib/db/mongodb';
+import clientPromise from '@/lib/db/mongodb';
 import { Metadata } from 'next';
 
 interface PageMeta {
@@ -17,67 +17,67 @@ interface PageMeta {
 
 const defaultMeta: Record<string, Partial<PageMeta>> = {
   '/': {
-    title: 'Rising Dot Agency | Digital Excellence Delivered',
+    title: 'SiliconHubs | Digital Excellence Delivered',
     description:
       'We craft stunning websites, powerful automations, and intelligent chatbots that transform your digital presence.',
   },
   '/about': {
-    title: 'About Us | Rising Dot Agency',
+    title: 'About Us | SiliconHubs',
     description:
-      'Meet the team behind Rising Dot Agency. We are passionate developers, designers, and strategists dedicated to creating exceptional digital experiences.',
+      'Meet the team behind SiliconHubs. We are passionate developers, designers, and strategists dedicated to creating exceptional digital experiences.',
   },
   '/services': {
-    title: 'Our Services | Rising Dot Agency',
+    title: 'Our Services | SiliconHubs',
     description:
       'Comprehensive digital solutions including web design, chatbot development, N8N automations, WordPress, Shopify, and SEO services.',
   },
   '/portfolio': {
-    title: 'Our Work | Rising Dot Agency',
+    title: 'Our Work | SiliconHubs',
     description:
       'Explore our portfolio of successful projects and see how we have helped businesses transform their digital presence.',
   },
   '/contact': {
-    title: 'Contact Us | Rising Dot Agency',
+    title: 'Contact Us | SiliconHubs',
     description:
-      'Get in touch with Rising Dot Agency. Let us discuss your project and how we can help you achieve your digital goals.',
+      'Get in touch with SiliconHubs. Let us discuss your project and how we can help you achieve your digital goals.',
   },
   '/blog': {
-    title: 'Blog | Rising Dot Agency',
+    title: 'Blog | SiliconHubs',
     description:
-      'Insights, tips, and news about web development, automation, AI, and digital marketing from the Rising Dot team.',
+      'Insights, tips, and news about web development, automation, AI, and digital marketing from the SiliconHubs team.',
   },
   '/services/chatbot-development': {
-    title: 'AI Chatbot Development Services | Rising Dot Agency',
+    title: 'AI Chatbot Development Services | SiliconHubs',
     description:
       'Custom AI chatbot development services. Build intelligent chatbots with natural language processing, GPT integration, and automation capabilities.',
   },
   '/services/n8n-automations': {
-    title: 'N8N Automation Services | Rising Dot Agency',
+    title: 'N8N Automation Services | SiliconHubs',
     description:
       'Professional N8N workflow automation services. Automate business processes, integrate systems, and streamline operations with powerful no-code automations.',
   },
   '/services/web-design': {
-    title: 'Web Design Services | Rising Dot Agency',
+    title: 'Web Design Services | SiliconHubs',
     description:
       'Premium web design services. Create stunning, responsive websites with modern UI/UX design, custom development, and conversion optimization.',
   },
   '/services/wordpress': {
-    title: 'WordPress Development Services | Rising Dot Agency',
+    title: 'WordPress Development Services | SiliconHubs',
     description:
       'Expert WordPress development and customization services. Build custom themes, plugins, and optimize WordPress sites for performance and SEO.',
   },
   '/services/shopify': {
-    title: 'Shopify Development Services | Rising Dot Agency',
+    title: 'Shopify Development Services | SiliconHubs',
     description:
       'Professional Shopify store development and optimization. Create high-converting e-commerce stores with custom themes, apps, and integrations.',
   },
   '/services/seo': {
-    title: 'SEO Services | Rising Dot Agency',
+    title: 'SEO Services | SiliconHubs',
     description:
       'Comprehensive SEO services to improve search rankings, increase organic traffic, and boost online visibility. Technical SEO, content optimization, and analytics.',
   },
   '/services/saas': {
-    title: 'SaaS Development Services | Rising Dot Agency',
+    title: 'SaaS Development Services | SiliconHubs',
     description:
       'Custom SaaS application development. Build scalable, secure, and user-friendly software-as-a-service platforms with modern technology stacks.',
   },
@@ -85,18 +85,18 @@ const defaultMeta: Record<string, Partial<PageMeta>> = {
 
 export async function getMetaTags(path: string): Promise<Metadata> {
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://risingdot.agency';
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
 
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const meta = (await db
       .collection('seoMeta')
       .findOne({ path })) as PageMeta | null;
     const defaults = defaultMeta[path] || {};
 
-    const title = meta?.title || defaults.title || 'Rising Dot Agency';
+    const title = meta?.title || defaults.title || 'SiliconHubs';
     const description = meta?.description || defaults.description || '';
     const ogTitle = meta?.ogTitle || title;
     const ogDescription = meta?.ogDescription || description;
@@ -115,7 +115,7 @@ export async function getMetaTags(path: string): Promise<Metadata> {
         title: ogTitle,
         description: ogDescription,
         url: canonicalUrl,
-        siteName: 'Rising Dot Agency',
+        siteName: 'SiliconHubs',
         images: [
           {
             url: ogImage,
@@ -143,7 +143,7 @@ export async function getMetaTags(path: string): Promise<Metadata> {
     // Return defaults on error
     const defaults = defaultMeta[path] || {};
     return {
-      title: defaults.title || 'Rising Dot Agency',
+      title: defaults.title || 'SiliconHubs',
       description: defaults.description || '',
     };
   }

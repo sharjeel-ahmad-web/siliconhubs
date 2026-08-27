@@ -43,20 +43,6 @@ const nextConfig = {
     ],
   },
 
-  // Webpack: disable cache in development to prevent corruption
-  webpack: (config, { dev, isServer }) => {
-    config.infrastructureLogging = {
-      level: 'error',
-    };
-    
-    // FIX: Disable webpack cache in development to prevent corruption
-    if (dev) {
-      config.cache = false;
-    }
-    
-    return config;
-  },
-
   // Rewrite missing media to existing assets (avoids 404 when CMS references saas-dashboard.mp4)
   async rewrites() {
     return [

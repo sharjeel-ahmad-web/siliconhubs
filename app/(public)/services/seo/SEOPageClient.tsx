@@ -229,7 +229,7 @@ const defaultSerpRankingContent: SERPRankingContent = {
   ],
   yourRankingsLabel: 'Your Rankings',
   competitorsLabel: 'Competitors',
-  siteDomain: 'risingdot.agency',
+  siteDomain: 'siliconhubs.agency',
 };
 
 const defaultKeywordCloudContent: KeywordCloudContent = {
@@ -302,7 +302,7 @@ const defaultCompetitorAnalysisContent: CompetitorAnalysisContent = {
   titleHighlight: 'Advantage',
   subtitle: 'Outrank your competitors and capture more market share.',
   yourSite: {
-    name: 'Rising Dot',
+    name: 'SiliconHubs',
     rank: 1,
     traffic: 18000,
     keywords: 250,

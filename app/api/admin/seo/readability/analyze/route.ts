@@ -135,7 +135,7 @@ function analyzeReadability(page: string, data: any) {
 export async function POST() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const results = Object.entries(pageContent).map(([page, data]) =>
       analyzeReadability(page, data)

@@ -1,9 +1,9 @@
 /**
  * Property-Based Tests for Magnetic Cursor System
- * Feature: rising-dot-website, Property 6: Cursor Lerp Interpolation
+ * Feature: siliconhubs, Property 6: Cursor Lerp Interpolation
  * Validates: Requirements 3.2, 38.2, 38.6
  *
- * Feature: rising-dot-website, Property 13: Magnetic Zone Detection
+ * Feature: siliconhubs, Property 13: Magnetic Zone Detection
  * Validates: Requirements 3.3, 38.4, 38.5
  */
 

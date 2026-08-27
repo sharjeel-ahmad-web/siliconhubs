@@ -1,6 +1,6 @@
 {
   "hero": {
-    "eyebrow": "Welcome to Rising Dot",
+    "eyebrow": "Welcome to SiliconHubs",
     "title": "Web Development & Design Agency",
     "subtitle": "We create stunning, high-performance websites that drive results",
     "ctaText": "Get Started",
@@ -36,7 +36,7 @@
     "_updatedAt": "2024-12-21T10:00:00.000Z"
   },
   "about": {
-    "title": "About Rising Dot",
+    "title": "About SiliconHubs",
     "content": "We're a passionate team of designers and developers dedicated to creating exceptional digital experiences.",
     "stats": [
       { "value": "100+", "label": "Projects Completed" },

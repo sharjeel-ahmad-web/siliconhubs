@@ -265,7 +265,7 @@ const DatabaseWithRestApi = ({
           {/* Badges */}
           <div className="absolute bottom-8 left-12 z-10 flex h-7 items-center gap-2 rounded-full border border-cyan/30 bg-[#101112] px-3 text-xs text-white">
             <HeartHandshakeIcon className="size-4 text-orange" />
-            <span>{buttonTexts?.first || 'Rising Dot'}</span>
+            <span>{buttonTexts?.first || 'SiliconHubs'}</span>
           </div>
           <div className="absolute right-16 z-10 hidden h-7 items-center gap-2 rounded-full border border-cyan/30 bg-[#101112] px-3 text-xs text-white sm:flex">
             <Folder className="size-4 text-cyan" />

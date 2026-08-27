@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -12,12 +12,12 @@ export interface SocialLinks {
 }
 
 const defaultLinks: SocialLinks = {
-  facebook: 'https://facebook.com/risingdot',
-  twitter: 'https://twitter.com/risingdot',
-  instagram: 'https://instagram.com/risingdot',
-  linkedin: 'https://linkedin.com/company/risingdot',
+  facebook: 'https://facebook.com/siliconhubs',
+  twitter: 'https://twitter.com/siliconhubs',
+  instagram: 'https://instagram.com/siliconhubs',
+  linkedin: 'https://linkedin.com/company/siliconhubs',
   youtube: '',
-  github: 'https://github.com/risingdot',
+  github: 'https://github.com/siliconhubs',
 };
 
 export function useSocialLinks() {

@@ -10,7 +10,7 @@ In **`.env.local`**:
 
 ```env
 MONGODB_URI=mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority
-MONGODB_DB=rising-dot
+MONGODB_DB=siliconhubs
 ```
 
 Use your real credentials. **Restart `npm run dev`** after changing env.

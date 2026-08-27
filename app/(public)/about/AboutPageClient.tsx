@@ -114,7 +114,7 @@ export default function AboutPageClient() {
         <OptimizedSectionWrapper section="hero">
           <Hero1
             eyebrow={heroContent?.eyebrow || 'Who We Are'}
-            title={heroContent?.title || 'About Rising Dot'}
+            title={heroContent?.title || 'About SiliconHubs'}
             subtitle={
               heroContent?.subtitle ||
               "We're a team of passionate developers, designers, and strategists dedicated to creating exceptional digital experiences that drive results."

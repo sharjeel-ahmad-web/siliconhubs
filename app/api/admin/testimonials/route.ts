@@ -6,7 +6,7 @@ import { Testimonial } from '@/lib/db/models';
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const testimonials = await db
       .collection<Testimonial>('testimonials')
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     }
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const now = new Date();
     const newTestimonial: Omit<Testimonial, '_id'> = {

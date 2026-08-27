@@ -38,7 +38,7 @@ async function addIndexes() {
   try {
     await client.connect();
     console.log('✅ Connected to MongoDB\n');
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // 1. Site Content Collection Indexes
     console.log('📝 Adding indexes to siteContent collection...');

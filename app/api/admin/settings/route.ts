@@ -11,7 +11,7 @@ export async function GET(request: Request) {
     const key = searchParams.get('key');
 
     const client = await clientPromise;
-    const db = client.db('risingdot');
+    const db = client.db('siliconhubs');
     const collection = db.collection<Settings>('settings');
 
     if (key) {
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     }
 
     const client = await clientPromise;
-    const db = client.db('risingdot');
+    const db = client.db('siliconhubs');
     const collection = db.collection<Settings>('settings');
 
     await collection.updateOne(
@@ -81,7 +81,7 @@ export async function PUT(request: Request) {
     }
 
     const client = await clientPromise;
-    const db = client.db('risingdot');
+    const db = client.db('siliconhubs');
     const collection = db.collection<Settings>('settings');
 
     const operations = Object.entries(settings).map(([key, value]) => ({

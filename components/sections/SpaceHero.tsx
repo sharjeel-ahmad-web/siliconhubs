@@ -35,7 +35,7 @@ export default function SpaceHero({ typewriterSpeed = 80 }: SpaceHeroProps) {
 
   // Default values
   const eyebrow = heroContent?.eyebrow || 'Digital Excellence Delivered';
-  const title = heroContent?.title || 'Rising Dot Agency';
+  const title = heroContent?.title || 'SiliconHubs';
   const subtitle =
     heroContent?.subtitle ||
     'We craft stunning websites, powerful automations, and intelligent chatbots that transform your digital presence.';
@@ -136,7 +136,7 @@ export default function SpaceHero({ typewriterSpeed = 80 }: SpaceHeroProps) {
         style={{ y: starsY }}
       />
 
-      {/* Large Glowing Planet/Orb - Rising Dot Colors - z-5 */}
+      {/* Large Glowing Planet/Orb - SiliconHubs Colors - z-5 */}
       <motion.div
         className="absolute right-1/4 top-20 h-[600px] w-[600px] md:h-[800px] md:w-[800px]"
         style={{ y: planetY }}

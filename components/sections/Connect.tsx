@@ -33,7 +33,7 @@ export default function Connect() {
   const subtitle = connectContent?.subtitle || 'Feel free to reach out to us!';
   const ctaText = connectContent?.ctaText || 'Book a call';
   const ctaLink = connectContent?.ctaLink || '/contact';
-  const email = connectContent?.email || 'contact@risingdot.agency';
+  const email = connectContent?.email || 'contact@siliconhubs.agency';
   const whatsapp = connectContent?.whatsapp || '+1234567890';
   const services = connectContent?.services || [
     'Chatbots',

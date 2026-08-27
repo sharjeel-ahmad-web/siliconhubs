@@ -1,4 +1,4 @@
-﻿import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 
 const initialTeamMembers = [
@@ -43,7 +43,7 @@ const initialTeamMembers = [
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
     const collection = db.collection('teamMembers');
 
     const existingCount = await collection.countDocuments();

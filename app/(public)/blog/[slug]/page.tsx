@@ -29,7 +29,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const blog = await db
       .collection<BlogPost>('blogs')
@@ -37,16 +37,16 @@ export async function generateMetadata({
 
     if (!blog) {
       return {
-        title: 'Blog Post Not Found | Rising Dot Agency',
+        title: 'Blog Post Not Found | SiliconHubs',
         description: 'The blog post you are looking for does not exist.',
       };
     }
 
     const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL || 'https://risingdot.agency';
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
 
     return {
-      title: `${blog.title} | Rising Dot Agency Blog`,
+      title: `${blog.title} | SiliconHubs Blog`,
       description: blog.excerpt || blog.content.substring(0, 160),
       keywords: blog.tags?.join(', ') || '',
       authors: [{ name: blog.author }],
@@ -81,7 +81,7 @@ export async function generateMetadata({
   } catch (error) {
     console.error('Error generating metadata:', error);
     return {
-      title: 'Blog Post | Rising Dot Agency',
+      title: 'Blog Post | SiliconHubs',
       description: 'Read our latest blog post.',
     };
   }
@@ -95,7 +95,7 @@ export default async function SingleBlogPage({
 }) {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const blog = await db
       .collection<BlogPost>('blogs')
@@ -106,7 +106,7 @@ export default async function SingleBlogPage({
     }
 
     const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL || 'https://risingdot.agency';
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
     const blogUrl = `${baseUrl}/blog/${blog.slug}`;
 
     // Generate Article schema

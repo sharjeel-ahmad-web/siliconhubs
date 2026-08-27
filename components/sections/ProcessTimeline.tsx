@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import RadialOrbitalTimeline from '@/components/ui/radial-orbital-timeline';
 
-// Process timeline data for Rising Dot Agency
+// Process timeline data for SiliconHubs
 const processData = [
   {
     id: 1,

@@ -303,7 +303,7 @@ function ProjectPopup({
   );
 }
 
-export default function RisingVortex() {
+export default function SiliconHubsVortex() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [selectedProject, setSelectedProject] = useState<
     (typeof projects)[0] | null

@@ -209,7 +209,7 @@ export default function SocialPreview() {
             <div className="mb-1 flex items-center gap-2">
               <img src="/favicon.ico" alt="" className="h-7 w-7 rounded-full" />
               <div>
-                <p className="text-sm text-[#202124]">Rising Dot Agency</p>
+                <p className="text-sm text-[#202124]">SiliconHubs</p>
                 <p className="text-xs text-[#4d5156]">https://{displayUrl}</p>
               </div>
             </div>

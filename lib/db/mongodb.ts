@@ -1,11 +1,11 @@
-﻿import { MongoClient, Db } from 'mongodb';
+import { MongoClient, Db } from 'mongodb';
 
 const isBuildPhase =
   process.env.NEXT_PHASE === 'phase-production-build' ||
   process.env.NEXT_PHASE === 'phase-export';
 
 const uri = process.env.MONGODB_URI || '';
-const dbName = process.env.MONGODB_DB || 'rising-dot';
+const dbName = process.env.MONGODB_DB || 'siliconhubs';
 
 const mongoOptions = {
   maxPoolSize: 50,

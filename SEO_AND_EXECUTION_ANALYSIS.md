@@ -137,7 +137,7 @@ The project needs these environment variables to run:
 ```env
 # MongoDB (Primary Database)
 MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database
-MONGODB_DB=rising-dot
+MONGODB_DB=siliconhubs
 
 # NextAuth (Authentication)
 NEXTAUTH_SECRET=your-secret-key-here

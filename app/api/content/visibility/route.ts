@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 import { SiteContent } from '@/lib/db/models';
 
@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
     }
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const content = await db
       .collection<SiteContent>('siteContent')

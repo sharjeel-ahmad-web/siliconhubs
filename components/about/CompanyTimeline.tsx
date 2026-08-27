@@ -17,7 +17,7 @@ const defaultMilestones: Milestone[] = [
     year: '2018',
     title: 'Company Founded',
     description:
-      'Rising Dot Agency was born with a vision to revolutionize digital experiences.',
+      'SiliconHubs was born with a vision to revolutionize digital experiences.',
     era: 'foundation',
     icon: '🚀',
   },

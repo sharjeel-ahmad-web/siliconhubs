@@ -9,7 +9,7 @@ const initialContent = [
     section: 'hero',
     content: {
       eyebrow: 'Digital Excellence Delivered',
-      title: 'Rising Dot Agency',
+      title: 'SiliconHubs',
       subtitle:
         'We craft stunning websites, powerful automations, and intelligent chatbots that transform your digital presence.',
       ctaText: 'Get Started',
@@ -273,7 +273,7 @@ const initialContent = [
       title: 'Trusted by',
       titleHighlight: 'Industry Leaders',
       subtitle:
-        'Join businesses already transforming their digital presence with Rising Starter.',
+        'Join businesses already transforming their digital presence with SiliconHubs.',
       stats: [
         { number: '500+', label: 'Happy Clients' },
         { number: '98%', label: 'Satisfaction Rate' },
@@ -317,7 +317,7 @@ const initialContent = [
       ctaHref: '/contact',
       secondaryCtaText: 'View Our Work',
       secondaryCtaHref: '/portfolio',
-      centerText: 'RISING',
+      centerText: 'SILICONHUBS',
       colors: {
         borderColor: '#06b6d4',
         orbitBorderColor: '#06b6d4',
@@ -366,7 +366,7 @@ const initialContent = [
       subtitle: 'Feel free to reach out to us!',
       ctaText: 'Book a call',
       ctaLink: '/contact',
-      email: 'contact@risingdot.agency',
+      email: 'contact@siliconhubs.agency',
       whatsapp: '+1234567890',
       services: ['Chatbots', 'N8N Automation', 'Web Development', 'Shopify'],
     },
@@ -410,7 +410,7 @@ const initialContent = [
     section: 'hero',
     content: {
       eyebrow: 'Who We Are',
-      title: 'About Rising Dot',
+      title: 'About SiliconHubs',
       subtitle:
         "We're a team of passionate developers, designers, and strategists dedicated to creating exceptional digital experiences that drive results.",
       ctaLabel: 'Meet Our Team',
@@ -423,7 +423,7 @@ const initialContent = [
     content: {
       videoUrl: '/media/about/agency-showreel/videos/showreel.mp4',
       caption: 'OUR VISION',
-      heading: 'Rising Together in the World of Digital Dots',
+      heading: 'SiliconHubs in the World of Digital Dots',
       paragraphs: [
         'We transform ideas into exceptional digital experiences that drive real business results.',
         "From stunning web designs to powerful automations, we're your partner in digital growth.",
@@ -473,7 +473,7 @@ const initialContent = [
           year: '2018',
           title: 'Company Founded',
           description:
-            'Rising Dot Agency was born with a vision to revolutionize digital experiences.',
+            'SiliconHubs was born with a vision to revolutionize digital experiences.',
           era: 'foundation',
           icon: '🚀',
         },
@@ -539,7 +539,7 @@ const initialContent = [
           id: '1',
           name: 'Reception Area',
           description:
-            'Welcome to Rising Dot! Our modern reception area sets the tone for innovation.',
+            'Welcome to SiliconHubs! Our modern reception area sets the tone for innovation.',
           image: '🏢',
           hotspots: [
             {
@@ -690,7 +690,7 @@ const initialContent = [
     content: {
       title: 'Contact',
       titleHighlight: 'Information',
-      email: 'hello@risingdot.agency',
+      email: 'hello@siliconhubs.agency',
       phone: '+1 (555) 123-4567',
       address: '123 Innovation Street\nTech District, CA 94102',
       hours: 'Monday - Friday: 9:00 AM - 6:00 PM\nSaturday - Sunday: Closed',
@@ -1560,7 +1560,7 @@ const initialContent = [
       ],
       yourRankingsLabel: 'Your Rankings',
       competitorsLabel: 'Competitors',
-      siteDomain: 'risingdot.agency',
+      siteDomain: 'siliconhubs.agency',
     },
   },
   {
@@ -1643,7 +1643,7 @@ const initialContent = [
       titleHighlight: 'Advantage',
       subtitle: 'Outrank your competitors and capture more market share.',
       yourSite: {
-        name: 'Rising Dot',
+        name: 'SiliconHubs',
         rank: 1,
         traffic: 18000,
         keywords: 250,
@@ -3082,7 +3082,7 @@ const initialContent = [
         fourth: 'Deliver',
       },
       buttonTexts: {
-        first: 'Rising Dot',
+        first: 'SiliconHubs',
         second: 'Workflows',
       },
       boxTitle: 'Data exchange using a customized REST API',
@@ -3568,7 +3568,7 @@ const initialContent = [
 export async function GET(request: Request) {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
     const collection = db.collection('siteContent');
 
     // Check for force parameter to re-seed

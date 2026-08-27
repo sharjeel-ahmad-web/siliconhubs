@@ -29,7 +29,7 @@ export default function Hero({ typewriterSpeed = 80 }: HeroProps) {
 
   // Default values
   const eyebrow = heroContent?.eyebrow || 'Digital Excellence Delivered';
-  const title = heroContent?.title || 'Rising Dot Agency';
+  const title = heroContent?.title || 'SiliconHubs';
   const subtitle =
     heroContent?.subtitle ||
     'We craft stunning websites, powerful automations, and intelligent chatbots that transform your digital presence.';

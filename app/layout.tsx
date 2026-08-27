@@ -74,7 +74,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Rising Dot Agency',
+  title: 'SiliconHubs',
   description:
     'Premium digital solutions provider specializing in N8N Automations, Chatbot Development, Web Design, WordPress, Shopify, and SEO services.',
   icons: {

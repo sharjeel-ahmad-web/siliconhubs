@@ -116,7 +116,7 @@ export default function ContactPageClient() {
                 <div>
                   <h3 className="mb-1 font-semibold text-white">Email</h3>
                   <p className="text-[#64748B]">
-                    {infoContent?.email || 'hello@risingdot.agency'}
+                    {infoContent?.email || 'hello@siliconhubs.agency'}
                   </p>
                 </div>
               </motion.div>

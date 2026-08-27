@@ -80,7 +80,7 @@ function SignInForm() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   className="w-full rounded-lg border border-slate-300 py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-orange"
-                  placeholder="admin@risingdot.com"
+                  placeholder="admin@siliconhubs.com"
                 />
               </div>
             </div>
@@ -164,7 +164,7 @@ export default function SignInPage() {
           <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-xl">
             <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-navy to-orange" />
           </div>
-          <h1 className="text-3xl font-bold text-white">Rising Dot</h1>
+          <h1 className="text-3xl font-bold text-white">SiliconHubs</h1>
           <p className="mt-2 text-orange/80">Admin Dashboard</p>
         </div>
 

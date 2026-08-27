@@ -1,8 +1,8 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 import { Resend } from 'resend';
 
-const DB_NAME = 'rising-dot';
+const DB_NAME = 'siliconhubs';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       messages: [
         {
           role: 'assistant',
-          content: `Hi ${name}! ðŸ‘‹ Welcome to Rising Dot. I'm here to help you with any questions about our services. How can I assist you today?`,
+          content: `Hi ${name}! ðŸ‘‹ Welcome to SiliconHubs. I'm here to help you with any questions about our services. How can I assist you today?`,
           timestamp: new Date(),
         },
       ],
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
 
       if (notificationEmail) {
         await resend.emails.send({
-          from: 'Rising Dot <onboarding@resend.dev>',
+          from: 'SiliconHubs <onboarding@resend.dev>',
           to: notificationEmail,
           subject: `New Chat Started - ${name}`,
           html: `

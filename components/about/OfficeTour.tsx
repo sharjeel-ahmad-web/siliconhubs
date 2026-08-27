@@ -25,7 +25,7 @@ const defaultTourStops: TourStop[] = [
     id: '1',
     name: 'Reception Area',
     description:
-      'Welcome to Rising Dot! Our modern reception area sets the tone for innovation.',
+      'Welcome to SiliconHubs! Our modern reception area sets the tone for innovation.',
     image: '🏢',
     hotspots: [
       {

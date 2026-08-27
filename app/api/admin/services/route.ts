@@ -6,7 +6,7 @@ import { Service } from '@/lib/db/models';
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const services = await db
       .collection<Service>('services')
@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
     }
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Generate slug if not provided
     const serviceSlug =

@@ -1,4 +1,4 @@
-﻿import speakeasy from 'speakeasy';
+import speakeasy from 'speakeasy';
 import QRCode from 'qrcode';
 import { query } from '@/lib/db/connection';
 
@@ -13,8 +13,8 @@ export async function generateTwoFactorSecret(
   email: string
 ): Promise<{ secret: string; qrCode: string }> {
   const secret = speakeasy.generateSecret({
-    name: `Rising Dot Agency (${email})`,
-    issuer: 'Rising Dot Agency',
+    name: `SiliconHubs (${email})`,
+    issuer: 'SiliconHubs',
   });
 
   const qrCode = await QRCode.toDataURL(secret.otpauth_url || '');

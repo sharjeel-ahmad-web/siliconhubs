@@ -1,10 +1,10 @@
-﻿/**
+/**
  * Structured Data (JSON-LD) Schema Generator
  * Generates Schema.org compliant JSON-LD for SEO
  */
 
 const getBaseUrl = () =>
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://risingdot.agency';
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
 
 export interface OrganizationSchema {
   '@context': string;
@@ -120,7 +120,7 @@ export function generateOrganizationSchema(
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Rising Dot Agency',
+    name: 'SiliconHubs',
     url: baseUrl,
     logo: `${baseUrl}/logo.png`,
     description:
@@ -128,14 +128,14 @@ export function generateOrganizationSchema(
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'hello@risingdot.agency',
+      email: 'hello@siliconhubs.agency',
       ...options?.contactPoint,
     },
     sameAs: [
       // Add your social media URLs here
-      // 'https://facebook.com/risingdot',
-      // 'https://twitter.com/risingdot',
-      // 'https://linkedin.com/company/risingdot',
+      // 'https://facebook.com/siliconhubs',
+      // 'https://twitter.com/siliconhubs',
+      // 'https://linkedin.com/company/siliconhubs',
     ],
     address: {
       '@type': 'PostalAddress',
@@ -157,7 +157,7 @@ export function generateWebSiteSchema(
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Rising Dot Agency',
+    name: 'SiliconHubs',
     url: baseUrl,
     description:
       'Premium digital solutions provider specializing in N8N Automations, Chatbot Development, Web Design, WordPress, Shopify, and SEO services.',
@@ -171,7 +171,7 @@ export function generateWebSiteSchema(
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Rising Dot Agency',
+      name: 'SiliconHubs',
     },
     ...options,
   };
@@ -232,7 +232,7 @@ export function generateArticleSchema(article: {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Rising Dot Agency',
+      name: 'SiliconHubs',
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/logo.png`,
@@ -265,7 +265,7 @@ export function generateServiceSchema(service: {
     description: service.description,
     provider: {
       '@type': 'Organization',
-      name: 'Rising Dot Agency',
+      name: 'SiliconHubs',
       url: baseUrl,
     },
     areaServed: service.areaServed || 'Worldwide',
@@ -302,7 +302,7 @@ export function generateLocalBusinessSchema(
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Rising Dot Agency',
+    name: 'SiliconHubs',
     image: `${baseUrl}/logo.png`,
     address: {
       '@type': 'PostalAddress',

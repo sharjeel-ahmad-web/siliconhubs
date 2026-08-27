@@ -40,7 +40,7 @@ export default function FallbackHero() {
                   'linear-gradient(135deg, #06b6d4 0%, #fc4c00 100%)',
               }}
             >
-              Rising Dot Agency
+              SiliconHubs
             </span>
           </h1>
 

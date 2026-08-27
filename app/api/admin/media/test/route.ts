@@ -47,12 +47,12 @@ export async function GET() {
       console.error('Search error:', e);
     }
 
-    // Test 5: Try with rising-dot prefix
+    // Test 5: Try with siliconhubs prefix
     let prefixResults: any[] = [];
     try {
       const prefixResult = await cloudinary.api.resources({
         type: 'upload',
-        prefix: 'rising-dot',
+        prefix: 'siliconhubs',
         resource_type: 'image',
         max_results: 50,
       });

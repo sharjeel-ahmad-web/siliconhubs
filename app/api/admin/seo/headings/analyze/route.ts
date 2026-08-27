@@ -18,7 +18,7 @@ const pageHeadings: Record<string, any> = {
   '/about': {
     title: 'About',
     headings: [
-      { tag: 'H1', text: 'About Rising Dot Agency', level: 1 },
+      { tag: 'H1', text: 'About SiliconHubs', level: 1 },
       { tag: 'H2', text: 'Our Story', level: 2 },
       { tag: 'H2', text: 'Our Mission', level: 2 },
       { tag: 'H2', text: 'Meet the Team', level: 2 },
@@ -119,7 +119,7 @@ function analyzeHeadings(page: string, data: any) {
 export async function POST() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const results = Object.entries(pageHeadings).map(([page, data]) =>
       analyzeHeadings(page, data)

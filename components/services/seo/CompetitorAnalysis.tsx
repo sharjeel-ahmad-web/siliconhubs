@@ -23,7 +23,7 @@ export interface CompetitorAnalysisProps {
 }
 
 const defaultYourSite: Competitor = {
-  name: 'Rising Dot',
+  name: 'SiliconHubs',
   rank: 1,
   traffic: 18000,
   keywords: 250,
@@ -173,7 +173,7 @@ export function CompetitorAnalysis({
       <div className="relative z-10 mb-8 space-y-4">
         {allSites.map((site, index) => {
           const percentage = (site[selectedMetric] / maxValue) * 100;
-          const isYourSite = site.name === 'Rising Dot';
+          const isYourSite = site.name === 'SiliconHubs';
 
           return (
             <motion.div

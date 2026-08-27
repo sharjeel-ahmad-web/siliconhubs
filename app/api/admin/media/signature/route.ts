@@ -5,7 +5,7 @@ import { getUploadSignature } from '@/lib/cloudinary';
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const folder = searchParams.get('folder') || 'rising-dot';
+    const folder = searchParams.get('folder') || 'siliconhubs';
 
     const signatureData = getUploadSignature(folder);
 

@@ -1,6 +1,6 @@
 /**
  * Property-Based Tests for Performance Budget System
- * Feature: rising-dot-website, Property 11: Performance Budget Compliance
+ * Feature: siliconhubs, Property 11: Performance Budget Compliance
  * Validates: Requirements 21.4, 21.5, 21.6, 40.1, 40.2, 40.3
  */
 

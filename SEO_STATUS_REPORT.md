@@ -1,7 +1,7 @@
-# SEO Status Report - Rising Dot Agency
+# SEO Status Report - SiliconHubs
 
 **Generated:** $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")  
-**Project:** Rising Dot Agency  
+**Project:** SiliconHubs  
 **Framework:** Next.js 14.2.33
 
 ---

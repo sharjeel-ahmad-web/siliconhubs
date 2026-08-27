@@ -106,7 +106,7 @@ export default function MediaLibraryPage() {
     const uploadPromises = Array.from(fileList).map(async (file) => {
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('folder', currentFolder || 'rising-dot');
+      formData.append('folder', currentFolder || 'siliconhubs');
 
       const response = await fetch('/api/admin/media/upload', {
         method: 'POST',

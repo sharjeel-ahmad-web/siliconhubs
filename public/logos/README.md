@@ -1,7 +1,7 @@
 # Company Logos
 
 ## Purpose
-Rising Dot Agency logos and brand assets in various formats and sizes.
+SiliconHubs logos and brand assets in various formats and sizes.
 
 ## Logo Variants Needed
 
@@ -82,7 +82,7 @@ Rising Dot Agency logos and brand assets in various formats and sizes.
 
 ## Clear Space
 Maintain minimum clear space around logo:
-- **Minimum:** Equal to height of "R" in Rising
+- **Minimum:** Equal to height of "R" in SiliconHubs
 - **Recommended:** 2x the height of "R"
 - Keep free of text, graphics, other logos
 
@@ -179,7 +179,7 @@ Examples:
 ## Legal & Trademark
 
 ### ⚠️ Important:
-- Logo is trademark of Rising Dot Agency
+- Logo is trademark of SiliconHubs
 - Unauthorized use prohibited
 - Don't modify or redistribute
 - Follow brand guidelines
@@ -187,5 +187,5 @@ Examples:
 
 ## Contact
 For logo usage questions or requests:
-- Email: brand@risingdot.agency
+- Email: brand@siliconhubs.agency
 - Reference brand guidelines document

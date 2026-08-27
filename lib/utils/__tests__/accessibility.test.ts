@@ -1,9 +1,9 @@
 /**
  * Property-Based Tests for Accessibility System
- * Feature: rising-dot-website, Property 14: Heading Hierarchy Preservation
- * Feature: rising-dot-website, Property 15: Focus Indicator Visibility
- * Feature: rising-dot-website, Property 19: ARIA Label Presence
- * Feature: rising-dot-website, Property 16: Core Web Vitals Compliance
+ * Feature: siliconhubs, Property 14: Heading Hierarchy Preservation
+ * Feature: siliconhubs, Property 15: Focus Indicator Visibility
+ * Feature: siliconhubs, Property 19: ARIA Label Presence
+ * Feature: siliconhubs, Property 16: Core Web Vitals Compliance
  * Validates: Requirements 22.1, 22.2, 22.4, 21.1, 21.2, 21.3
  */
 

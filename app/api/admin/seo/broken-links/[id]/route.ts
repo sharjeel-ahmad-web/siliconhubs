@@ -12,7 +12,7 @@ export async function PUT(
     const { fixed } = body;
 
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     const result = await db
       .collection('seoBrokenLinks')

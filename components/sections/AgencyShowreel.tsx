@@ -35,7 +35,7 @@ export default function AgencyShowreel() {
       overlay={{
         caption: content?.caption || 'OUR VISION',
         heading:
-          content?.heading || 'Rising Together in the World of Digital Dots',
+          content?.heading || 'SiliconHubs in the World of Digital Dots',
         paragraphs: content?.paragraphs || [
           'We transform ideas into exceptional digital experiences that drive real business results.',
           "From stunning web designs to powerful automations, we're your partner in digital growth.",

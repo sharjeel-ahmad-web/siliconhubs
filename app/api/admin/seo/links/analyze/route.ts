@@ -95,7 +95,7 @@ const simulatedLinks: Record<
 export async function POST() {
   try {
     const client = await clientPromise;
-    const db = client.db('rising-dot');
+    const db = client.db('siliconhubs');
 
     // Build link structure
     const links = pagesToAnalyze.map((page) => {

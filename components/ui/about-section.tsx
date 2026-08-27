@@ -75,7 +75,7 @@ export default function AboutSection() {
               className="mx-auto w-full max-w-full rounded-2xl border border-white/10 object-cover shadow-2xl"
               style={{ maxHeight: '500px', height: '400px' }}
               src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?q=80&w=830&h=500&auto=format&fit=crop"
-              alt="Rising Dot Agency workspace"
+              alt="SiliconHubs workspace"
             />
           </motion.div>
 

@@ -80,7 +80,7 @@ export function SERPRanking({
   subtitle = 'Watch your keywords climb to the top of search results',
   yourRankingsLabel = 'Your Rankings',
   competitorsLabel = 'Competitors',
-  siteDomain = 'risingdot.agency',
+  siteDomain = 'siliconhubs.agency',
 }: SERPRankingProps) {
   const [animationStarted, setAnimationStarted] = useState(false);
   const [hoveredKeyword, setHoveredKeyword] = useState<string | null>(null);
