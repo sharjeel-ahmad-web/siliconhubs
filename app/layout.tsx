@@ -1,49 +1,10 @@
 import type { Metadata } from 'next';
 import { Montserrat, Inter, Fira_Code, Poppins } from 'next/font/google';
-import dynamic from 'next/dynamic';
 import StructuredData from '@/components/seo/StructuredData';
 import { generateOrganizationSchema } from '@/lib/seo/structuredData';
+import ClientLayoutBody from './components/ClientLayoutBody';
 import '@/components/framer/styles.css';
 import './globals.css';
-
-// Dynamic imports for client-only components; .catch() avoids crash if a chunk fails to load
-const MagneticCursor = dynamic(
-  () =>
-    import('@/components/MagneticCursor').catch(() => ({
-      default: () => null,
-    })),
-  { ssr: false }
-);
-
-const GlobalBackground = dynamic(
-  () =>
-    import('@/components/GlobalBackground').catch(() => ({
-      default: () => null,
-    })),
-  { ssr: false }
-);
-
-const CookieConsent = dynamic(
-  () =>
-    import('@/components/security/CookieConsent')
-      .then((mod) => ({ default: mod.CookieConsent }))
-      .catch(() => ({ default: () => null })),
-  { ssr: false }
-);
-
-const AnalyticsTracker = dynamic(
-  () =>
-    import('@/components/analytics/AnalyticsTracker').catch(() => ({
-      default: () => null,
-    })),
-  { ssr: false }
-);
-
-const ChatWidget = dynamic(
-  () =>
-    import('@/components/ChatWidget').catch(() => ({ default: () => null })),
-  { ssr: false }
-);
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -111,12 +72,7 @@ export default function RootLayout({
         <StructuredData schema={generateOrganizationSchema()} />
       </head>
       <body className="bg-warm-cream font-inter text-dark-grey">
-        <GlobalBackground />
-        <MagneticCursor />
-        {children}
-        <CookieConsent />
-        <AnalyticsTracker />
-        <ChatWidget />
+        <ClientLayoutBody>{children}</ClientLayoutBody>
       </body>
     </html>
   );

@@ -73,7 +73,9 @@ export default function SettingsPage() {
   const [facebookUrl, setFacebookUrl] = useState(
     'https://facebook.com/siliconhubs'
   );
-  const [twitterUrl, setTwitterUrl] = useState('https://twitter.com/siliconhubs');
+  const [twitterUrl, setTwitterUrl] = useState(
+    'https://twitter.com/siliconhubs'
+  );
   const [instagramUrl, setInstagramUrl] = useState(
     'https://instagram.com/siliconhubs'
   );

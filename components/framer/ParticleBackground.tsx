@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import Particles, { initParticlesEngine } from '@tsparticles/react';
+import { Particles } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 
 export default function ParticleBackground() {
@@ -9,9 +9,7 @@ export default function ParticleBackground() {
   const id = useId();
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
+    loadSlim().then(() => {
       setIsReady(true);
     });
   }, []);
