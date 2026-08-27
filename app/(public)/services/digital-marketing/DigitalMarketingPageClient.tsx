@@ -9,6 +9,7 @@ import {
   TrendingUp,
   Users,
 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import {
   ServicesHeroSection,
   ServiceItem,
@@ -144,12 +145,18 @@ export default function DigitalMarketingPageClient() {
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            {[
-              ['01', 'Discover', Search],
-              ['02', 'Engage', Users],
-              ['03', 'Convert', Target],
-              ['04', 'Retain', TrendingUp],
-            ].map(([step, label, Icon]) => (
+            {(
+              [
+                { step: '01', label: 'Discover', Icon: Search },
+                { step: '02', label: 'Engage', Icon: Users },
+                { step: '03', label: 'Convert', Icon: Target },
+                { step: '04', label: 'Retain', Icon: TrendingUp },
+              ] satisfies Array<{
+                step: string;
+                label: string;
+                Icon: LucideIcon;
+              }>
+            ).map(({ step, label, Icon }) => (
               <div
                 key={String(label)}
                 className="rounded-2xl border border-[#E8D8C5] bg-warm-cream p-5"
