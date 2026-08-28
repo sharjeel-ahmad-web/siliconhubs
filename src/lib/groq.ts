@@ -2,10 +2,6 @@ import Groq from 'groq-sdk';
 import fs from 'fs';
 import path from 'path';
 
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
-});
-
 // Load agency knowledge base
 function getKnowledgeBase(): string {
   try {
@@ -84,9 +80,13 @@ export async function getChatResponse(
   }
 
   try {
+    const groq = new Groq({
+      apiKey: process.env.GROQ_API_KEY,
+    });
+
     const chatMessages: ChatMessage[] = [
       { role: 'system', content: systemPrompt },
-      ...messages.slice(-10), // Keep last 10 messages for context
+      ...messages.slice(-10),
       { role: 'user', content: userMessage },
     ];
 

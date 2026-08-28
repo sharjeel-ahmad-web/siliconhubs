@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { ObjectId } from 'mongodb';
 import clientPromise from '@/lib/db/mongodb';
@@ -5,9 +7,9 @@ import { getChatResponse, ChatMessage } from '@/lib/groq';
 import { Resend } from 'resend';
 
 const DB_NAME = 'silicon-hubs';
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const { conversationId, message } = await request.json();
 
@@ -141,6 +143,7 @@ export async function POST(request: NextRequest) {
 
 // GET - Fetch messages for a conversation (for polling)
 export async function GET(request: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const { searchParams } = new URL(request.url);
     const conversationId = searchParams.get('conversationId');
