@@ -9,7 +9,7 @@ import { Resend } from 'resend';
 const DB_NAME = 'silicon-hubs';
 
 export async function POST(request: NextRequest) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key');
   try {
     const { conversationId, message } = await request.json();
 
@@ -143,7 +143,7 @@ export async function POST(request: NextRequest) {
 
 // GET - Fetch messages for a conversation (for polling)
 export async function GET(request: NextRequest) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key');
   try {
     const { searchParams } = new URL(request.url);
     const conversationId = searchParams.get('conversationId');
