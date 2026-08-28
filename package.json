@@ -7,7 +7,7 @@
     "dev:clean": "rimraf .next && next dev",
     "clean": "rimraf .next",
     "generate:content": "tsx scripts/generate-content.ts",
-    "prebuild": "npm run generate:content",
+    "skip-prebuild": "npm run generate:content",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
