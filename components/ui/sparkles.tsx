@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import { Particles } from '@tsparticles/react';
+import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 
 interface SparklesProps {
@@ -36,7 +36,9 @@ export function Sparkles({
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    loadSlim().then(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
       setIsReady(true);
     });
   }, []);

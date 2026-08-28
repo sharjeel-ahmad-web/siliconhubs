@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Particles } from '@tsparticles/react';
+import { Particles, initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 
 const particleOptions = {
@@ -54,7 +54,9 @@ export default function HeroParticles() {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    loadSlim().then(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
       setIsReady(true);
     });
   }, []);
