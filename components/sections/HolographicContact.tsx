@@ -8,7 +8,7 @@ import { StarButton } from '@/components/ui/star-button';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { useSiteContent } from '@/lib/hooks/useSiteContent';
 
-// Custom Dropdown Component
+// Custom Dropdown Component (Updated for Light Theme)
 interface DropdownOption {
   value: string;
   label: string;
@@ -49,13 +49,17 @@ function CustomDropdown({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex min-w-[180px] cursor-pointer items-center gap-2 border-b-2 border-cyan/50 bg-transparent px-2 py-1 text-cyan outline-none transition-colors hover:border-orange focus:border-orange"
+        className="flex min-w-[180px] cursor-pointer items-center gap-2 border-b-2 border-[#0a192f]/30 bg-transparent px-2 py-1 text-[#fc4c00] outline-none transition-colors hover:border-[#fc4c00] focus:border-[#fc4c00]"
       >
-        <span className={value ? 'text-cyan' : 'text-slate-grey/50'}>
+        <span
+          className={
+            value ? 'font-bold text-[#fc4c00]' : 'font-medium text-[#0a192f]/40'
+          }
+        >
           {selectedLabel}
         </span>
         <svg
-          className={`h-4 w-4 text-cyan transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`h-4 w-4 text-[#0a192f] transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -77,10 +81,10 @@ function CustomDropdown({
             transition={{ duration: 0.2 }}
             className="absolute left-0 top-full z-50 mt-2 min-w-full overflow-hidden rounded-lg"
             style={{
-              backgroundColor: '#0a192f',
-              border: '1px solid #06b6d4',
+              backgroundColor: '#ffedd7', // Light creamy dropdown bg
+              border: '1px solid rgba(10, 25, 47, 0.1)',
               boxShadow:
-                '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(6, 182, 212, 0.2)',
+                '0 10px 40px rgba(10, 25, 47, 0.1), 0 0 20px rgba(252, 76, 0, 0.05)',
             }}
           >
             {options.map((option) => (
@@ -91,8 +95,10 @@ function CustomDropdown({
                   onChange(option.value);
                   setIsOpen(false);
                 }}
-                className={`w-full px-4 py-3 text-left text-base transition-colors hover:bg-cyan/20 ${
-                  value === option.value ? 'bg-cyan/30 text-cyan' : 'text-white'
+                className={`w-full px-4 py-3 text-left text-base font-medium transition-colors hover:bg-[#fc4c00]/10 ${
+                  value === option.value
+                    ? 'bg-[#fc4c00]/10 text-[#fc4c00]'
+                    : 'text-[#0a192f]'
                 }`}
               >
                 {option.label}
@@ -218,7 +224,7 @@ export default function HolographicContact() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     rendererRef.current = renderer;
 
-    // Globe points
+    // Globe points - Updated to Deep Navy (0x0a192f)
     const globeRadius = 1.5;
     const pointsGeometry = new THREE.BufferGeometry();
     const pointsCount = 3000;
@@ -237,10 +243,10 @@ export default function HolographicContact() {
       new THREE.BufferAttribute(positions, 3)
     );
     const pointsMaterial = new THREE.PointsMaterial({
-      color: 0x37afe1,
+      color: 0x0a192f, // Deep Navy points
       size: 0.02,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.35, // Slightly less transparent for light background
     });
     const globePoints = new THREE.Points(pointsGeometry, pointsMaterial);
     scene.add(globePoints);
@@ -254,20 +260,20 @@ export default function HolographicContact() {
       globeRadius
     );
 
-    // HQ Beacon (pulsing)
+    // HQ Beacon (pulsing) - Updated to Orange (0xfc4c00)
     const beaconGeometry = new THREE.SphereGeometry(0.05, 16, 16);
     const beaconMaterial = new THREE.MeshBasicMaterial({
-      color: 0xf58122,
+      color: 0xfc4c00, // Vibrant Orange
       transparent: true,
     });
     const beacon = new THREE.Mesh(beaconGeometry, beaconMaterial);
     beacon.position.copy(pakistanPos);
     markerGroup.add(beacon);
 
-    // Pulse ring
+    // Pulse ring - Updated to Orange (0xfc4c00)
     const ringGeometry = new THREE.RingGeometry(0.06, 0.08, 32);
     const ringMaterial = new THREE.MeshBasicMaterial({
-      color: 0xf58122,
+      color: 0xfc4c00, // Vibrant Orange
       transparent: true,
       opacity: 0.5,
       side: THREE.DoubleSide,
@@ -284,17 +290,17 @@ export default function HolographicContact() {
       const arcPoints = createArcPoints(pakistanPos, cityPos);
       const arcGeometry = new THREE.BufferGeometry().setFromPoints(arcPoints);
       const arcMaterial = new THREE.LineBasicMaterial({
-        color: 0x37afe1,
+        color: 0xfc4c00, // Orange connections
         transparent: true,
-        opacity: 0.6,
+        opacity: 0.4,
       });
       const arc = new THREE.Line(arcGeometry, arcMaterial);
       arcGroup.add(arc);
 
-      // City marker
+      // City marker - Updated to Navy (0x0a192f)
       const cityMarker = new THREE.Mesh(
         new THREE.SphereGeometry(0.03, 8, 8),
-        new THREE.MeshBasicMaterial({ color: 0x31a4db })
+        new THREE.MeshBasicMaterial({ color: 0x0a192f })
       );
       cityMarker.position.copy(cityPos);
       markerGroup.add(cityMarker);
@@ -382,16 +388,20 @@ export default function HolographicContact() {
   );
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-navy py-16">
+    /* Main Background: Warm Cream (#ffe8c1) */
+    <section className="relative min-h-screen overflow-hidden bg-[#ffe8c1] py-16">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <SectionHeading
-          eyebrow={eyebrow}
-          title={title}
-          titleHighlight={titleHighlight}
-          subtitle={subtitle}
-        />
+        {/* Headings */}
+        <div className="text-[#0a192f]">
+          <SectionHeading
+            eyebrow={eyebrow}
+            title={title}
+            titleHighlight={titleHighlight}
+            subtitle={subtitle}
+          />
+        </div>
 
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
           {/* Globe */}
           <motion.div
             ref={containerRef}
@@ -403,8 +413,10 @@ export default function HolographicContact() {
           >
             <canvas ref={canvasRef} className="h-full w-full" />
             <div className="absolute bottom-4 left-4 flex items-center gap-2">
-              <div className="h-3 w-3 animate-pulse rounded-full bg-orange" />
-              <span className="text-sm text-slate-grey">Global Reach</span>
+              <div className="h-3 w-3 animate-pulse rounded-full bg-[#fc4c00]" />
+              <span className="text-sm font-semibold text-[#0a192f]/70">
+                Global Reach
+              </span>
             </div>
           </motion.div>
 
@@ -418,9 +430,10 @@ export default function HolographicContact() {
           >
             {isSubmitted ? (
               <div className="py-12 text-center">
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-cyan/20">
+                {/* Success Emerald Icon */}
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#10b981]/10">
                   <svg
-                    className="h-10 w-10 text-cyan"
+                    className="h-10 w-10 text-[#10b981]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -428,23 +441,24 @@ export default function HolographicContact() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={3}
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
                 </div>
-                <h3 className="mb-2 text-2xl font-bold text-white">
+                <h3 className="mb-2 text-3xl font-extrabold text-[#0a192f]">
                   Message Sent!
                 </h3>
-                <p className="text-slate-grey">
+                <p className="font-medium text-[#0a192f]/70">
                   We&apos;ll get back to you within 24 hours.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="font-inter text-xl leading-relaxed text-white md:text-2xl">
+                {/* Form Base Text: Navy */}
+                <div className="font-inter text-xl font-medium leading-relaxed text-[#0a192f] md:text-2xl">
                   <p className="mb-6">
-                    Hi, my name is{' '}
+                    Hi, my name is {/* Inputs: Orange */}
                     <input
                       type="text"
                       value={formData.name}
@@ -453,7 +467,7 @@ export default function HolographicContact() {
                       }
                       placeholder="Your Name"
                       required
-                      className="min-w-[150px] border-b-2 border-cyan/50 bg-transparent px-2 py-1 text-cyan placeholder-slate-grey/50 outline-none transition-colors focus:border-orange"
+                      className="min-w-[150px] border-b-2 border-[#0a192f]/30 bg-transparent px-2 py-1 font-bold text-[#fc4c00] placeholder-[#0a192f]/30 outline-none transition-colors focus:border-[#fc4c00]"
                     />
                     {formData.company && ' from '}
                     <input
@@ -463,7 +477,7 @@ export default function HolographicContact() {
                         handleInputChange('company', e.target.value)
                       }
                       placeholder="Company (optional)"
-                      className="min-w-[150px] border-b-2 border-cyan/50 bg-transparent px-2 py-1 text-cyan placeholder-slate-grey/50 outline-none transition-colors focus:border-orange"
+                      className="min-w-[200px] border-b-2 border-[#0a192f]/30 bg-transparent px-2 py-1 font-bold text-[#fc4c00] placeholder-[#0a192f]/30 outline-none transition-colors focus:border-[#fc4c00]"
                     />
                   </p>
 
@@ -477,7 +491,7 @@ export default function HolographicContact() {
                       }
                       placeholder="your@email.com"
                       required
-                      className="min-w-[200px] border-b-2 border-cyan/50 bg-transparent px-2 py-1 text-cyan placeholder-slate-grey/50 outline-none transition-colors focus:border-orange"
+                      className="min-w-[220px] border-b-2 border-[#0a192f]/30 bg-transparent px-2 py-1 font-bold text-[#fc4c00] placeholder-[#0a192f]/30 outline-none transition-colors focus:border-[#fc4c00]"
                     />
                   </p>
 
@@ -523,16 +537,17 @@ export default function HolographicContact() {
                       placeholder="Tell us about your project..."
                       required
                       rows={3}
-                      className="mt-2 w-full resize-none rounded-xl border-2 border-cyan/30 bg-transparent px-4 py-3 text-base text-cyan placeholder-slate-grey/50 outline-none transition-colors focus:border-orange"
+                      className="mt-4 w-full resize-none rounded-xl border-2 border-[#0a192f]/10 bg-white/50 px-4 py-3 text-base font-semibold text-[#0a192f] placeholder-[#0a192f]/40 shadow-sm outline-none transition-colors focus:border-[#fc4c00]"
                     />
                   </p>
                 </div>
 
                 <ParticleWrapper className="w-full">
+                  {/* Primary Orange Button */}
                   <StarButton
                     type="submit"
                     disabled={isSubmitting}
-                    className="h-14 w-full text-base font-semibold transition-transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="h-14 w-full !bg-[#fc4c00] text-base font-bold text-white transition-transform hover:scale-105 hover:!bg-[#0a192f] disabled:cursor-not-allowed disabled:opacity-50"
                     duration={2.5}
                   >
                     {isSubmitting ? (

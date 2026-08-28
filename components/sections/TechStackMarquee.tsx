@@ -35,23 +35,24 @@ export default function TechStackMarquee() {
   const titleHighlight = content?.titleHighlight || 'Used by Leaders.';
 
   return (
-    <section className="relative overflow-hidden bg-black px-4 pb-12 pt-16 sm:px-6 md:pb-16 md:pt-20 lg:px-8">
-      {/* Blue ambient glow - subtle at 0.3 opacity */}
+    /* Main Background: Warm Cream (#ffe8c1) */
+    <section className="relative overflow-hidden bg-[#ffe8c1] px-4 pb-12 pt-16 sm:px-6 md:pb-16 md:pt-20 lg:px-8">
+      {/* Orange ambient glow - subtle to match cream bg */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(circle at 50% 50%, rgba(55, 175, 225, 0.3) 0%, transparent 70%)',
-          opacity: 0.3,
+            'radial-gradient(circle at 50% 50%, rgba(252, 76, 0, 0.15) 0%, transparent 70%)',
+          opacity: 0.8,
         }}
       />
 
-      {/* Additional blue tint overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[#37AFE1]/5 to-transparent" />
+      {/* Additional warm tint overlay */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[#fc4c00]/5 to-transparent" />
 
       <div className="container relative z-10 mx-auto max-w-7xl">
-        <div className="mx-auto w-full max-w-3xl">
-          {/* Standard Badge - matches all other sections */}
+        <div className="mx-auto w-full max-w-3xl text-center">
+          {/* Standard Badge - Light Mode Updated */}
           <motion.div
             className="mb-4 flex justify-center sm:mb-6"
             initial={{ opacity: 0, y: -20 }}
@@ -59,24 +60,30 @@ export default function TechStackMarquee() {
             viewport={{ once: true }}
           >
             <motion.div
-              className="inline-flex items-center gap-2 rounded-full border border-white/[0.15] bg-white/[0.08] px-4 py-2 text-xs backdrop-blur-sm sm:gap-3 sm:px-5 sm:text-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-[#0a192f]/10 bg-white/50 px-4 py-2 text-xs shadow-sm backdrop-blur-sm sm:gap-3 sm:px-5 sm:text-sm"
               whileHover={{
                 scale: 1.05,
-                borderColor: 'rgba(255, 255, 255, 0.3)',
+                borderColor: 'rgba(252, 76, 0, 0.3)',
               }}
             >
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
               >
-                <SparklesIcon className="h-3 w-3 text-[#F58122] sm:h-4 sm:w-4" />
+                <SparklesIcon className="h-3 w-3 text-[#fc4c00] sm:h-4 sm:w-4" />
               </motion.div>
-              <span className="font-medium text-white/80">✨ Tech Stack</span>
-              <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
+              {/* Badge Text: Navy Blue */}
+              <span className="font-semibold text-[#0a192f]">
+                ✨ Tech Stack
+              </span>
+              <div className="h-2 w-2 animate-pulse rounded-full bg-[#10b981]" />
             </motion.div>
           </motion.div>
 
-          <SectionHeading title={title} titleHighlight={titleHighlight} />
+          {/* Note: Ensure your SectionHeading component is configured to render dark text on light backgrounds */}
+          <div className="text-[#0a192f]">
+            <SectionHeading title={title} titleHighlight={titleHighlight} />
+          </div>
 
           {/* Sliding logos - CSS animation version */}
           <div className="mt-14 overflow-hidden py-4 [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
@@ -86,7 +93,8 @@ export default function TechStackMarquee() {
                   key={logo.name}
                   src={logo.src}
                   alt={logo.name}
-                  className="pointer-events-none h-8 flex-shrink-0 select-none opacity-70 brightness-0 invert transition-opacity hover:opacity-100 md:h-10"
+                  /* Removed 'invert' so logos stay dark, added brightness-0 to make them pure dark/black for contrast */
+                  className="pointer-events-none h-8 flex-shrink-0 select-none opacity-60 brightness-0 transition-opacity hover:scale-105 hover:opacity-100 md:h-10"
                   loading="lazy"
                 />
               ))}
@@ -96,7 +104,7 @@ export default function TechStackMarquee() {
                   key={`${logo.name}-duplicate`}
                   src={logo.src}
                   alt={logo.name}
-                  className="pointer-events-none h-8 flex-shrink-0 select-none opacity-70 brightness-0 invert transition-opacity hover:opacity-100 md:h-10"
+                  className="pointer-events-none h-8 flex-shrink-0 select-none opacity-60 brightness-0 transition-opacity hover:scale-105 hover:opacity-100 md:h-10"
                   loading="lazy"
                 />
               ))}
@@ -104,6 +112,7 @@ export default function TechStackMarquee() {
           </div>
         </div>
 
+        {/* Bottom Sparkles Section - Changed to Orange (#fc4c00) */}
         <div
           className="relative -mt-32 h-96 w-full overflow-hidden"
           style={{
@@ -112,18 +121,18 @@ export default function TechStackMarquee() {
           }}
         >
           <div
-            className="absolute inset-0 opacity-40"
+            className="absolute inset-0 opacity-30"
             style={{
               background:
-                'radial-gradient(circle at bottom center, #37AFE1, transparent 70%)',
+                'radial-gradient(circle at bottom center, #fc4c00, transparent 70%)',
             }}
           />
-          <div className="absolute -left-1/2 top-1/2 z-10 aspect-[1/0.7] w-[200%] rounded-[100%] border-t border-[#37AFE1]/20 bg-transparent" />
+          <div className="absolute -left-1/2 top-1/2 z-10 aspect-[1/0.7] w-[200%] rounded-[100%] border-t border-[#fc4c00]/30 bg-transparent" />
 
           <Sparkles
-            density={1200}
+            density={800}
             className="absolute inset-x-0 bottom-0 h-full w-full [mask-image:radial-gradient(closest-side_at_50%_50%,white,transparent_85%)]"
-            color="#37AFE1"
+            color="#fc4c00"
           />
         </div>
       </div>

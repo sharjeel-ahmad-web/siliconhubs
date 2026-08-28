@@ -136,16 +136,57 @@ export default function Footer() {
     <footer className="border-t border-[#E8D8C5] bg-[#FFF4E6] text-[#14213D]">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-          {/* Brand */}
+          {/* Brand & Logo Section */}
           <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="inline-block">
-              <img
-                src={settings.footer.logo || '/logo.png'}
-                alt="SiliconHubs"
-                className="h-16 w-auto"
-              />
+            <Link href="/" className="flex items-center gap-2">
+              {/* Pure SVG Icon for Silicon Hubs */}
+              <svg
+                viewBox="0 0 200 200"
+                className="h-10 w-10 flex-shrink-0"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <mask id="footer-logo-mask">
+                    <rect width="200" height="200" fill="white" />
+                    <circle cx="100" cy="100" r="18" fill="black" />
+                  </mask>
+                  <clipPath id="footer-logo-clip">
+                    <rect x="0" y="20" width="200" height="160" />
+                  </clipPath>
+                </defs>
+                <g
+                  clipPath="url(#footer-logo-clip)"
+                  mask="url(#footer-logo-mask)"
+                >
+                  <g transform="rotate(30, 100, 100)">
+                    <rect
+                      x="100"
+                      y="-50"
+                      width="46"
+                      height="150"
+                      rx="23"
+                      fill="#14213D"
+                    />
+                    <rect
+                      x="54"
+                      y="100"
+                      width="46"
+                      height="150"
+                      rx="23"
+                      fill="#F4511E"
+                    />
+                  </g>
+                </g>
+              </svg>
+
+              {/* Styled Logo Text */}
+              <span className="font-sans text-3xl font-extrabold tracking-tight">
+                <span className="text-[#14213D]">silicon</span>
+                <span className="text-[#F4511E]">hubs</span>
+              </span>
             </Link>
-            <p className="mt-4 font-inter text-sm leading-relaxed text-slate-grey">
+            <p className="mt-4 font-inter text-sm leading-relaxed text-[#5F6368]">
               {settings.footer.description ||
                 'Premium digital solutions that transform your business through innovative technology and stunning design.'}
             </p>
@@ -196,7 +237,7 @@ export default function Footer() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="rounded-lg bg-orange px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange/80 disabled:opacity-50"
+                    className="rounded-lg bg-[#F4511E] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#D84315] disabled:opacity-50"
                   >
                     {submitting ? '...' : '→'}
                   </button>
@@ -204,7 +245,7 @@ export default function Footer() {
               </form>
               {message && (
                 <p
-                  className={`mt-2 font-inter text-xs ${message.type === 'success' ? 'text-green-400' : 'text-red-400'}`}
+                  className={`mt-2 font-inter text-xs ${message.type === 'success' ? 'text-green-600' : 'text-red-500'}`}
                 >
                   {message.text}
                 </p>

@@ -76,22 +76,25 @@ export default function SimpleCTA() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-navy px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-      {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-cyan/5 to-transparent" />
+    /* Main Background: Warm Cream (#ffe8c1) */
+    <section className="relative overflow-hidden bg-[#ffe8c1] px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+      {/* Background gradient - Subtle Navy tint */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[#0a192f]/5 to-transparent" />
+
+      {/* Background Orbs */}
       <div className="absolute inset-0">
         <div
-          className="absolute left-1/4 top-1/4 h-[600px] w-[600px] rounded-full opacity-20 blur-[100px]"
+          className="absolute left-1/4 top-1/4 h-[600px] w-[600px] rounded-full opacity-30 blur-[100px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(10, 25, 47, 0.15) 0%, transparent 70%)', // Subtle Navy
           }}
         />
         <div
-          className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] rounded-full opacity-20 blur-[100px]"
+          className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] rounded-full opacity-30 blur-[100px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(252, 76, 0, 0.4) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(252, 76, 0, 0.15) 0%, transparent 70%)', // Subtle Orange
           }}
         />
       </div>
@@ -104,7 +107,7 @@ export default function SimpleCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {/* Badge - responsive */}
+          {/* Badge - Responsive Light Mode */}
           <motion.div
             className="mb-4 flex justify-center sm:mb-6"
             initial={{ opacity: 0, y: -20 }}
@@ -112,25 +115,26 @@ export default function SimpleCTA() {
             viewport={{ once: true }}
           >
             <motion.div
-              className="inline-flex items-center gap-2 rounded-full border border-white/[0.15] bg-white/[0.08] px-4 py-2 text-xs backdrop-blur-sm sm:gap-3 sm:px-5 sm:text-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-[#0a192f]/10 bg-white/50 px-4 py-2 text-xs shadow-sm backdrop-blur-sm sm:gap-3 sm:px-5 sm:text-sm"
               whileHover={{
                 scale: 1.05,
-                borderColor: 'rgba(255, 255, 255, 0.3)',
+                borderColor: 'rgba(252, 76, 0, 0.3)',
               }}
             >
-              <span className="font-medium text-white/80">{eyebrow}</span>
+              {/* Badge Text: Navy */}
+              <span className="font-semibold text-[#0a192f]">{eyebrow}</span>
             </motion.div>
           </motion.div>
 
-          {/* Title - responsive */}
-          <motion.h2 className="mb-3 text-3xl font-bold sm:mb-4 sm:text-4xl md:mb-6 md:text-5xl">
-            <span className="text-white">{title} </span>
+          {/* Title - Deep Navy Base & Orange Highlight */}
+          <motion.h2 className="mb-3 text-3xl font-extrabold sm:mb-4 sm:text-4xl md:mb-6 md:text-5xl">
+            <span className="text-[#0a192f]">{title} </span>
             <span
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
-                backgroundSize: '300% 100%',
+                  'linear-gradient(90deg, #fc4c00, #ff9e5c, #fc4c00)',
+                backgroundSize: '200% 100%',
                 animation: 'gradient-shift 4s ease-in-out infinite',
               }}
             >
@@ -138,13 +142,14 @@ export default function SimpleCTA() {
             </span>
           </motion.h2>
 
-          {/* Subtitle - responsive */}
-          <motion.p className="mb-6 text-base text-gray-400 sm:mb-8 sm:text-lg md:text-xl">
+          {/* Subtitle - Navy */}
+          <motion.p className="mb-6 text-base font-medium text-[#0a192f]/80 sm:mb-8 sm:text-lg md:text-xl">
             {subtitle}
           </motion.p>
 
           <div className="mb-12" />
 
+          {/* Action Buttons */}
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <ParticleWrapper>
               <motion.div
@@ -153,7 +158,7 @@ export default function SimpleCTA() {
               >
                 <Link href={ctaLink ?? '/'}>
                   <StarButton
-                    className="h-10 px-6 text-sm font-semibold sm:h-12 sm:px-8 sm:text-base"
+                    className="h-10 !bg-[#fc4c00] px-6 text-sm font-bold text-white hover:!bg-[#0a192f] sm:h-12 sm:px-8 sm:text-base"
                     duration={2.5}
                   >
                     {ctaText}
@@ -170,7 +175,7 @@ export default function SimpleCTA() {
                 <Link href={secondaryCtaLink ?? '/portfolio'}>
                   <StarButton
                     variant="secondary"
-                    className="h-10 px-6 text-sm font-semibold sm:h-12 sm:px-8 sm:text-base"
+                    className="h-10 !border-[#0a192f]/20 !bg-transparent px-6 text-sm font-bold !text-[#0a192f] hover:!bg-[#0a192f] hover:!text-white sm:h-12 sm:px-8 sm:text-base"
                     duration={3}
                   >
                     {secondaryCtaText}
@@ -180,7 +185,7 @@ export default function SimpleCTA() {
             </ParticleWrapper>
           </div>
 
-          {/* Stats */}
+          {/* Stats - Orange Numbers & Navy Text */}
           <div className="mt-20 grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat, index) => (
               <motion.div
@@ -191,17 +196,17 @@ export default function SimpleCTA() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="mb-2 text-3xl font-bold text-white md:text-4xl">
+                <div className="mb-2 text-3xl font-extrabold text-[#fc4c00] md:text-4xl">
                   {stat.number}
                 </div>
-                <div className="text-sm text-slate-grey md:text-base">
+                <div className="text-sm font-semibold text-[#0a192f]/70 md:text-base">
                   {stat.label}
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Social Icons - Direct on Page Background */}
+          {/* Social Icons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -210,7 +215,7 @@ export default function SimpleCTA() {
             className="mt-8 flex justify-center sm:mt-10 md:mt-12"
           >
             <div>
-              <p className="mb-6 text-center text-sm text-slate-grey">
+              <p className="mb-6 text-center text-sm font-semibold text-[#0a192f]/70">
                 Follow us on social media
               </p>
               <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
@@ -220,10 +225,11 @@ export default function SimpleCTA() {
                     <a
                       key={social.name}
                       href={social.href ?? '#'}
-                      className={`social-icon ${social.hoverClass}`}
+                      className={`social-icon group ${social.hoverClass}`}
                     >
                       <div className="icon-container-small">
-                        <IconComponent className="h-4 w-4 text-white" />
+                        {/* Default icon color Navy, changes to white on hover via CSS */}
+                        <IconComponent className="h-4 w-4 text-[#0a192f] transition-colors group-hover:text-white" />
                       </div>
                       <span className="icon-label-small">{social.name}</span>
                     </a>
@@ -235,7 +241,7 @@ export default function SimpleCTA() {
         </motion.div>
       </div>
 
-      {/* Social Media Styles */}
+      {/* Social Media Styles - Updated for Light Theme */}
       <style jsx>{`
         @keyframes gradient-shift {
           0%,
@@ -266,11 +272,12 @@ export default function SimpleCTA() {
           position: relative;
           justify-content: center;
           align-items: center;
-          background: rgba(255, 255, 255, 0.05);
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+          /* Light theme base background */
+          background: rgba(10, 25, 47, 0.05);
+          box-shadow: 0 4px 12px rgba(10, 25, 47, 0.05);
           backdrop-filter: blur(4px);
           -webkit-backdrop-filter: blur(4px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(10, 25, 47, 0.1);
         }
 
         .social-icon:hover .icon-container-small {
@@ -284,11 +291,17 @@ export default function SimpleCTA() {
 
         .icon-label-small {
           margin-top: 6px;
-          color: white;
-          font-weight: 500;
+          color: #0a192f;
+          font-weight: 600;
           font-size: 0.75rem;
-          opacity: 0.7;
+          opacity: 0.6;
           transition: all 0.3s ease;
+        }
+
+        /* Ensure icon SVG changes to white when hovered on light theme */
+        .social-icon:hover .icon-container-small :global(svg) {
+          color: white !important;
+          fill: white !important; /* Adding fill just in case */
         }
 
         /* Platform-specific hover colors */
@@ -301,52 +314,62 @@ export default function SimpleCTA() {
             #d6249f 60%,
             #285aeb 90%
           );
-          box-shadow: 0 0 15px rgba(225, 48, 108, 0.6);
+          box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
+          border-color: transparent;
         }
 
         .social-icon.facebook:hover .icon-container-small {
           background: #1877f2;
-          box-shadow: 0 0 15px rgba(24, 119, 242, 0.6);
+          box-shadow: 0 0 15px rgba(24, 119, 242, 0.4);
+          border-color: transparent;
         }
 
         .social-icon.twitter:hover .icon-container-small {
           background: #1da1f2;
-          box-shadow: 0 0 15px rgba(29, 161, 242, 0.6);
+          box-shadow: 0 0 15px rgba(29, 161, 242, 0.4);
+          border-color: transparent;
         }
 
         .social-icon.tiktok:hover .icon-container-small {
           background: #000000;
-          box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+          border-color: transparent;
         }
 
         .social-icon.youtube:hover .icon-container-small {
           background: #ff0000;
-          box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+          box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+          border-color: transparent;
         }
 
         .social-icon.linkedin:hover .icon-container-small {
           background: #0077b5;
-          box-shadow: 0 0 15px rgba(0, 119, 181, 0.6);
+          box-shadow: 0 0 15px rgba(0, 119, 181, 0.4);
+          border-color: transparent;
         }
 
         .social-icon.telegram:hover .icon-container-small {
           background: #0088cc;
-          box-shadow: 0 0 15px rgba(0, 136, 204, 0.6);
+          box-shadow: 0 0 15px rgba(0, 136, 204, 0.4);
+          border-color: transparent;
         }
 
         .social-icon.discord:hover .icon-container-small {
           background: #7289da;
-          box-shadow: 0 0 15px rgba(114, 137, 218, 0.6);
+          box-shadow: 0 0 15px rgba(114, 137, 218, 0.4);
+          border-color: transparent;
         }
 
         .social-icon.pinterest:hover .icon-container-small {
           background: #e60023;
-          box-shadow: 0 0 15px rgba(230, 0, 35, 0.6);
+          box-shadow: 0 0 15px rgba(230, 0, 35, 0.4);
+          border-color: transparent;
         }
 
         .social-icon.github:hover .icon-container-small {
           background: #333333;
-          box-shadow: 0 0 15px rgba(51, 51, 51, 0.6);
+          box-shadow: 0 0 15px rgba(51, 51, 51, 0.4);
+          border-color: transparent;
         }
 
         .social-icon:hover svg {

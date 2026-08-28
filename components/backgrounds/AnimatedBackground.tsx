@@ -33,7 +33,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
       {/* Hero background video */}
       <div className="background-main">
         <video autoPlay loop muted playsInline className="background-video">
-          <source src="/media/home/hero/herosection.mp4" type="video/mp4" />
+          <source src="/media/home/hero/herosection1.mp4" type="video/mp4" />
         </video>
       </div>
 

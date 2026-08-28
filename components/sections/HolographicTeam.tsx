@@ -247,20 +247,20 @@ function TeamCard({
           damping: 25,
         }}
       >
-        {/* Glass card container */}
+        {/* Glass card container - Light Creamy (#ffedd7) */}
         <div
           className="relative h-full w-full overflow-hidden rounded-3xl"
           style={{
-            background: 'rgba(15, 23, 42, 0.4)',
+            background: 'rgba(255, 237, 215, 0.8)', // Light cream transparent
             backdropFilter: 'blur(20px)',
-            border: `2px solid ${isHovered ? '#fc4c00' : 'rgba(6, 182, 212, 0.5)'}`,
+            border: `2px solid ${isHovered ? '#fc4c00' : 'rgba(10, 25, 47, 0.1)'}`, // Orange on hover, subtle Navy otherwise
             boxShadow: isHovered
-              ? '0 0 60px rgba(252, 76, 0, 0.6), inset 0 0 40px rgba(252, 76, 0, 0.1)'
-              : '0 0 30px rgba(6, 182, 212, 0.3), inset 0 0 20px rgba(6, 182, 212, 0.05)',
+              ? '0 0 40px rgba(252, 76, 0, 0.3), inset 0 0 40px rgba(252, 76, 0, 0.1)'
+              : '0 10px 30px rgba(10, 25, 47, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.5)',
             transition: 'all 0.4s ease',
           }}
         >
-          {/* Holographic image */}
+          {/* Holographic image - tailored for light theme */}
           <div className="relative h-full w-full">
             <Image
               src={
@@ -275,8 +275,8 @@ function TeamCard({
               style={{
                 filter: isHovered
                   ? 'none'
-                  : 'grayscale(100%) brightness(0.7) contrast(1.2)',
-                mixBlendMode: isHovered ? 'normal' : 'screen',
+                  : 'grayscale(100%) contrast(1.1) brightness(0.9)',
+                mixBlendMode: isHovered ? 'normal' : 'multiply', // Multiply works best on light backgrounds
                 transition: 'all 0.5s ease',
               }}
               unoptimized
@@ -285,7 +285,7 @@ function TeamCard({
             {/* Hologram effects (only when not hovered) */}
             {!isHovered && (
               <>
-                {/* Scanlines */}
+                {/* Scanlines - Navy tinted */}
                 <div
                   className="pointer-events-none absolute inset-0"
                   style={{
@@ -293,38 +293,27 @@ function TeamCard({
                       0deg,
                       transparent,
                       transparent 2px,
-                      rgba(6, 182, 212, 0.1) 2px,
-                      rgba(6, 182, 212, 0.1) 4px
+                      rgba(10, 25, 47, 0.05) 2px,
+                      rgba(10, 25, 47, 0.05) 4px
                     )`,
                     animation: 'scanlines 8s linear infinite',
                   }}
                 />
 
-                {/* RGB shift */}
+                {/* Navy & Orange tint overlay for the hologram effect */}
                 <div
                   className="pointer-events-none absolute inset-0"
                   style={{
-                    background: `
-                      linear-gradient(90deg, rgba(255,0,0,0.1) 0%, transparent 5%, transparent 95%, rgba(0,255,255,0.1) 100%),
-                      linear-gradient(0deg, rgba(0,255,0,0.1) 0%, transparent 5%, transparent 95%, rgba(255,0,255,0.1) 100%)
-                    `,
-                  }}
-                />
-
-                {/* Cyan/Blue tint overlay */}
-                <div
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background: 'rgba(6, 182, 212, 0.2)',
+                    background: 'rgba(252, 76, 0, 0.05)',
                     mixBlendMode: 'color',
                   }}
                 />
 
-                {/* Glitch effect */}
+                {/* Glitch effect - Subtle Orange */}
                 <motion.div
                   className="pointer-events-none absolute inset-0"
                   style={{
-                    background: 'rgba(252, 76, 0, 0.3)',
+                    background: 'rgba(252, 76, 0, 0.15)',
                     clipPath: 'inset(40% 0 50% 0)',
                   }}
                   animate={{
@@ -334,7 +323,7 @@ function TeamCard({
                       'inset(60% 0 30% 0)',
                       'inset(40% 0 50% 0)',
                     ],
-                    x: [0, -5, 5, 0],
+                    x: [0, -3, 3, 0],
                   }}
                   transition={{
                     duration: 0.2,
@@ -345,21 +334,21 @@ function TeamCard({
               </>
             )}
 
-            {/* Gradient overlay */}
+            {/* Gradient overlay - Light cream fade */}
             <div
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  'linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 50%)',
+                  'linear-gradient(to top, rgba(255, 237, 215, 1) 0%, transparent 40%)',
               }}
             />
           </div>
 
-          {/* Electric cyan glow edge */}
+          {/* Electric Orange glow edge */}
           <div
             className="pointer-events-none absolute inset-0 rounded-3xl"
             style={{
-              boxShadow: `inset 0 0 20px ${isHovered ? 'rgba(252, 76, 0, 0.8)' : 'rgba(6, 182, 212, 0.4)'}`,
+              boxShadow: `inset 0 0 20px ${isHovered ? 'rgba(252, 76, 0, 0.4)' : 'transparent'}`,
               transition: 'box-shadow 0.4s ease',
             }}
           />
@@ -369,20 +358,21 @@ function TeamCard({
         <div
           className={`absolute left-0 right-0 text-center ${isMobile ? '-bottom-16' : '-bottom-20'}`}
         >
+          {/* Name - Orange text */}
           <motion.h3
-            className={`mb-2 font-bold text-white ${isMobile ? 'text-lg' : isTablet ? 'text-xl' : 'text-2xl'}`}
+            className={`mb-1 font-bold text-[#fc4c00] ${isMobile ? 'text-lg' : isTablet ? 'text-xl' : 'text-2xl'}`}
             style={{
-              textShadow: '0 0 20px rgba(6, 182, 212, 0.8)',
               fontFamily: 'monospace',
               letterSpacing: '0.05em',
             }}
           >
-            {member.name}
+            {scrambledName}
           </motion.h3>
+          {/* Role - Navy text */}
           <motion.p
-            className={`font-medium ${isMobile ? 'text-xs' : 'text-sm'}`}
+            className={`font-semibold ${isMobile ? 'text-xs' : 'text-sm'}`}
             style={{
-              background: 'linear-gradient(90deg, #06b6d4, #fc4c00)',
+              background: 'linear-gradient(90deg, #0a192f, #363534)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               fontFamily: 'monospace',
@@ -390,7 +380,7 @@ function TeamCard({
               textTransform: 'uppercase',
             }}
           >
-            {member.role}
+            {scrambledRole}
           </motion.p>
         </div>
       </motion.div>
@@ -548,29 +538,30 @@ export default function HolographicTeam() {
   }, [isMobile]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-navy py-16">
+    /* Main Background: Warm Cream (#ffe8c1) */
+    <section className="relative min-h-screen overflow-hidden bg-[#ffe8c1] py-16">
       {/* Background */}
       <div className="absolute inset-0">
-        {/* Grid pattern */}
+        {/* Grid pattern - Navy colored */}
         <div
-          className={`absolute inset-0 ${isMobile ? 'opacity-10' : 'opacity-20'}`}
+          className={`absolute inset-0 ${isMobile ? 'opacity-[0.03]' : 'opacity-[0.05]'}`}
           style={{
             backgroundImage: `
-              linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
+              linear-gradient(rgba(10, 25, 47, 1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(10, 25, 47, 1) 1px, transparent 1px)
             `,
             backgroundSize: isMobile ? '30px 30px' : '50px 50px',
           }}
         />
 
-        {/* Gradient orbs */}
+        {/* Gradient orbs - Navy & Orange */}
         <motion.div
           className={`absolute rounded-full ${isMobile ? 'h-[300px] w-[300px]' : isTablet ? 'h-[400px] w-[400px]' : 'h-[600px] w-[600px]'}`}
           style={{
             top: '20%',
             left: isMobile ? '-20%' : '10%',
             background:
-              'radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(10, 25, 47, 0.08) 0%, transparent 70%)', // Subtle Navy glow
             filter: 'blur(60px)',
           }}
           animate={{
@@ -589,7 +580,7 @@ export default function HolographicTeam() {
             bottom: '20%',
             right: isMobile ? '-20%' : '10%',
             background:
-              'radial-gradient(circle, rgba(252, 76, 0, 0.15) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(252, 76, 0, 0.12) 0%, transparent 70%)', // Vibrant Orange glow
             filter: 'blur(60px)',
           }}
           animate={{
@@ -604,8 +595,10 @@ export default function HolographicTeam() {
         />
       </div>
 
-      {/* Header */}
-      <div className={`relative z-10 ${isMobile ? '-mb-8 px-4' : '-mb-12'}`}>
+      {/* Header - Enforce Navy text for headings if SectionHeading doesn't handle it */}
+      <div
+        className={`relative z-10 text-[#0a192f] ${isMobile ? '-mb-8 px-4' : '-mb-12'}`}
+      >
         <SectionHeading
           eyebrow={eyebrow}
           title={title}
@@ -651,10 +644,10 @@ export default function HolographicTeam() {
             className={`rounded-full transition-all duration-300 ${isMobile ? 'h-2 w-2' : 'h-3 w-3'}`}
             style={{
               background:
-                index === activeIndex ? '#fc4c00' : 'rgba(6, 182, 212, 0.3)',
+                index === activeIndex ? '#fc4c00' : 'rgba(10, 25, 47, 0.2)', // Orange active, Navy inactive
               boxShadow:
                 index === activeIndex
-                  ? '0 0 20px rgba(252, 76, 0, 0.8)'
+                  ? '0 0 15px rgba(252, 76, 0, 0.5)'
                   : 'none',
             }}
             animate={{
@@ -676,12 +669,12 @@ export default function HolographicTeam() {
         ))}
       </div>
 
-      {/* Instructions */}
+      {/* Instructions - Navy Text */}
       <div
         className={`relative z-10 text-center ${isMobile ? 'mt-8' : 'mt-12'}`}
       >
         <p
-          className={`font-mono text-slate-grey ${isMobile ? 'px-4 text-xs' : 'text-sm'}`}
+          className={`font-mono font-semibold text-[#0a192f]/70 ${isMobile ? 'px-4 text-xs' : 'text-sm'}`}
         >
           {isMobile
             ? 'Swipe to navigate • Auto-advance enabled'
