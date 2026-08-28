@@ -1,7 +1,7 @@
 import { getCurrentUser } from '@/lib/auth/session';
-import DashboardStats from '@/modules/admin/components/DashboardStats';
-import RecentActivity from '@/modules/admin/components/RecentActivity';
-import QuickActions from '@/modules/admin/components/QuickActions';
+import DashboardStats from '@/modules/core/components/admin/DashboardStats';
+import RecentActivity from '@/modules/core/components/admin/RecentActivity';
+import QuickActions from '@/modules/core/components/admin/QuickActions';
 
 export default async function AdminDashboard() {
   const user = await getCurrentUser();

@@ -1,46 +1,10 @@
 import type { Metadata } from 'next';
 import { Poppins, Inter } from 'next/font/google';
-import dynamic from 'next/dynamic';
 import StructuredData from '@/modules/core/components/seo/StructuredData';
 import { generateOrganizationSchema } from '@/lib/seo/structuredData';
+import ClientLayout from './client-layout';
 import '@/modules/core/components/framer/styles.css';
 import './globals.css';
-
-// Dynamic imports for client-only components; .catch() avoids crash if a chunk fails to load
-const MagneticCursor = dynamic(
-  () =>
-    import('@/modules/core/components/MagneticCursor').catch(() => ({ default: () => null })),
-  { ssr: false }
-);
-
-const GlobalBackground = dynamic(
-  () =>
-    import('@/modules/core/components/GlobalBackground').catch(() => ({
-      default: () => null,
-    })),
-  { ssr: false }
-);
-
-const CookieConsent = dynamic(
-  () =>
-    import('@/modules/core/components/security/CookieConsent')
-      .then((mod) => ({ default: mod.CookieConsent }))
-      .catch(() => ({ default: () => null })),
-  { ssr: false }
-);
-
-const AnalyticsTracker = dynamic(
-  () =>
-    import('@/modules/core/components/analytics/AnalyticsTracker').catch(() => ({
-      default: () => null,
-    })),
-  { ssr: false }
-);
-
-const ChatWidget = dynamic(
-  () => import('@/modules/public/components/ChatWidget').catch(() => ({ default: () => null })),
-  { ssr: false }
-);
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -94,12 +58,7 @@ export default function RootLayout({
         <StructuredData schema={generateOrganizationSchema()} />
       </head>
       <body className="bg-black font-inter">
-        <GlobalBackground />
-        <MagneticCursor />
-        {children}
-        <CookieConsent />
-        <AnalyticsTracker />
-        <ChatWidget />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

@@ -11,7 +11,7 @@ import {
   SiTypescript,
   SiFigma,
   SiStripe,
-  SiOpenai,
+  SiAnthropic,
   SiGoogleanalytics,
   SiAirtable,
 } from 'react-icons/si';
@@ -46,7 +46,7 @@ const tagConfig: Record<
   TypeScript: { icon: SiTypescript, color: '#3178C6' },
   Figma: { icon: SiFigma, color: '#F24E1E' },
   Stripe: { icon: SiStripe, color: '#635BFF' },
-  OpenAI: { icon: SiOpenai, color: '#00A67E' },
+  OpenAI: { icon: SiAnthropic, color: '#9D5BD2' },
   Analytics: { icon: SiGoogleanalytics, color: '#E37400' },
   Airtable: { icon: SiAirtable, color: '#18BFFF' },
   SaaS: { icon: HiOutlineRocketLaunch, color: '#fc4c00' },

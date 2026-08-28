@@ -1,4 +1,4 @@
-import ServiceEditor from '@/modules/admin/components/ServiceEditor';
+import ServiceEditor from '@/modules/core/components/admin/ServiceEditor';
 
 export default function EditServicePage({
   params,

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import PageDocumentation from '@/modules/admin/components/PageDocumentation';
+import PageDocumentation from '@/modules/core/components/admin/PageDocumentation';
 import { homepageSections } from '@/lib/documentation/homepage-sections';
 import { servicePages } from '@/lib/documentation/service-pages';
 import { PageDocumentation as PageDoc } from '@/lib/documentation/types';
@@ -24,7 +24,7 @@ export default function DocumentationPage() {
         {/* Page Header */}
         <div className="mb-8">
           <h1 className="mb-2 text-4xl font-bold text-white">
-            📚 CMS Documentation Dashboard
+            ðŸ“š CMS Documentation Dashboard
           </h1>
           <p className="text-lg text-slate-400">
             Complete guide to all website sections and where to edit content
@@ -78,7 +78,7 @@ export default function DocumentationPage() {
         {/* Footer Info */}
         <div className="mt-12 rounded-xl border border-slate-700/50 bg-[#1E293B] p-6">
           <h3 className="mb-4 text-lg font-semibold text-white">
-            📖 About This Documentation
+            ðŸ“– About This Documentation
           </h3>
           <div className="space-y-2 text-sm text-slate-400">
             <p>
@@ -95,7 +95,7 @@ export default function DocumentationPage() {
               dynamic content managed through database (e.g., blog posts).
             </p>
             <p className="mt-4 border-t border-slate-700 pt-4 text-slate-500">
-              💡 <strong>Tip:</strong> Use the filters to quickly find sections by
+              ðŸ’¡ <strong>Tip:</strong> Use the filters to quickly find sections by
               their management type. Click "View in GitHub" to see the actual code,
               or "Edit via CMS" to update content directly.
             </p>

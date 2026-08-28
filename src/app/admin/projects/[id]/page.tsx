@@ -1,4 +1,4 @@
-import ProjectEditor from '@/modules/admin/components/ProjectEditor';
+import ProjectEditor from '@/modules/core/components/admin/ProjectEditor';
 
 export default function EditProjectPage({
   params,

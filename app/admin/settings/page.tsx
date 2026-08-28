@@ -16,12 +16,6 @@ import {
   Phone,
   MapPin,
   Clock,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube,
-  Github,
   RefreshCw,
   Download,
   Upload,
@@ -29,6 +23,14 @@ import {
   HardDrive,
   Zap,
 } from 'lucide-react';
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+  FaYoutube,
+  FaGithub,
+} from 'react-icons/fa';
 
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState('general');
@@ -852,7 +854,7 @@ export default function SettingsPage() {
                 <div className="space-y-4">
                   <div>
                     <label className="mb-1 block text-sm font-medium text-slate-300">
-                      <Facebook className="mr-2 inline h-4 w-4 text-blue-500" />
+                      <FaFacebook className="mr-2 inline h-4 w-4 text-blue-500" />
                       Facebook
                     </label>
                     <input
@@ -865,7 +867,7 @@ export default function SettingsPage() {
                   </div>
                   <div>
                     <label className="mb-1 block text-sm font-medium text-slate-300">
-                      <Twitter className="mr-2 inline h-4 w-4 text-sky-400" />
+                      <FaTwitter className="mr-2 inline h-4 w-4 text-sky-400" />
                       Twitter / X
                     </label>
                     <input
@@ -878,7 +880,7 @@ export default function SettingsPage() {
                   </div>
                   <div>
                     <label className="mb-1 block text-sm font-medium text-slate-300">
-                      <Instagram className="mr-2 inline h-4 w-4 text-pink-500" />
+                      <FaInstagram className="mr-2 inline h-4 w-4 text-pink-500" />
                       Instagram
                     </label>
                     <input
@@ -891,7 +893,7 @@ export default function SettingsPage() {
                   </div>
                   <div>
                     <label className="mb-1 block text-sm font-medium text-slate-300">
-                      <Linkedin className="mr-2 inline h-4 w-4 text-blue-600" />
+                      <FaLinkedin className="mr-2 inline h-4 w-4 text-blue-600" />
                       LinkedIn
                     </label>
                     <input
@@ -904,7 +906,7 @@ export default function SettingsPage() {
                   </div>
                   <div>
                     <label className="mb-1 block text-sm font-medium text-slate-300">
-                      <Youtube className="mr-2 inline h-4 w-4 text-red-500" />
+                      <FaYoutube className="mr-2 inline h-4 w-4 text-red-500" />
                       YouTube
                     </label>
                     <input
@@ -917,7 +919,7 @@ export default function SettingsPage() {
                   </div>
                   <div>
                     <label className="mb-1 block text-sm font-medium text-slate-300">
-                      <Github className="mr-2 inline h-4 w-4 text-slate-300" />
+                      <FaGithub className="mr-2 inline h-4 w-4 text-slate-300" />
                       GitHub
                     </label>
                     <input

@@ -1,8 +1,8 @@
 import { redirect } from 'next/navigation';
 import { getCurrentUser } from '@/lib/auth/session';
-import AdminSidebar from '@/modules/admin/components/AdminSidebar';
-import AdminHeader from '@/modules/admin/components/AdminHeader';
-import SessionProvider from '@/modules/admin/components/SessionProvider';
+import AdminSidebar from '@/modules/core/components/admin/AdminSidebar';
+import AdminHeader from '@/modules/core/components/admin/AdminHeader';
+import SessionProvider from '@/modules/core/components/admin/SessionProvider';
 import { SessionTimeoutWarning } from '@/modules/core/components/security/SessionTimeoutWarning';
 
 export default async function AdminLayout({

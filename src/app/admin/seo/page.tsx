@@ -25,28 +25,28 @@ import {
 } from 'lucide-react';
 
 // Existing components
-import MetaTagsEditor from '@/modules/admin/components/seo/MetaTagsEditor';
-import SitemapGenerator from '@/modules/admin/components/seo/SitemapGenerator';
-import RedirectManager from '@/modules/admin/components/seo/RedirectManager';
-import SubscribersManager from '@/modules/admin/components/seo/SubscribersManager';
-import RobotsEditor from '@/modules/admin/components/seo/RobotsEditor';
-import SchemaMarkupGenerator from '@/modules/admin/components/seo/SchemaMarkupGenerator';
-import KeywordTracker from '@/modules/admin/components/seo/KeywordTracker';
-import InternalLinkAnalyzer from '@/modules/admin/components/seo/InternalLinkAnalyzer';
-import BrokenLinkChecker from '@/modules/admin/components/seo/BrokenLinkChecker';
-import SEOAudit from '@/modules/admin/components/seo/SEOAudit';
-import SocialPreview from '@/modules/admin/components/seo/SocialPreview';
-import UTMBuilder from '@/modules/admin/components/seo/UTMBuilder';
+import MetaTagsEditor from '@/modules/core/components/admin/seo/MetaTagsEditor';
+import SitemapGenerator from '@/modules/core/components/admin/seo/SitemapGenerator';
+import RedirectManager from '@/modules/core/components/admin/seo/RedirectManager';
+import SubscribersManager from '@/modules/core/components/admin/seo/SubscribersManager';
+import RobotsEditor from '@/modules/core/components/admin/seo/RobotsEditor';
+import SchemaMarkupGenerator from '@/modules/core/components/admin/seo/SchemaMarkupGenerator';
+import KeywordTracker from '@/modules/core/components/admin/seo/KeywordTracker';
+import InternalLinkAnalyzer from '@/modules/core/components/admin/seo/InternalLinkAnalyzer';
+import BrokenLinkChecker from '@/modules/core/components/admin/seo/BrokenLinkChecker';
+import SEOAudit from '@/modules/core/components/admin/seo/SEOAudit';
+import SocialPreview from '@/modules/core/components/admin/seo/SocialPreview';
+import UTMBuilder from '@/modules/core/components/admin/seo/UTMBuilder';
 
 // New components
-import PageSpeedInsights from '@/modules/admin/components/seo/PageSpeedInsights';
-import ImageAltManager from '@/modules/admin/components/seo/ImageAltManager';
-import HeadingAnalyzer from '@/modules/admin/components/seo/HeadingAnalyzer';
-import ContentReadability from '@/modules/admin/components/seo/ContentReadability';
-import DuplicateContentDetector from '@/modules/admin/components/seo/DuplicateContentDetector';
-import HreflangManager from '@/modules/admin/components/seo/HreflangManager';
-import CrawlBudgetMonitor from '@/modules/admin/components/seo/CrawlBudgetMonitor';
-import LeadMagnetManager from '@/modules/admin/components/seo/LeadMagnetManager';
+import PageSpeedInsights from '@/modules/core/components/admin/seo/PageSpeedInsights';
+import ImageAltManager from '@/modules/core/components/admin/seo/ImageAltManager';
+import HeadingAnalyzer from '@/modules/core/components/admin/seo/HeadingAnalyzer';
+import ContentReadability from '@/modules/core/components/admin/seo/ContentReadability';
+import DuplicateContentDetector from '@/modules/core/components/admin/seo/DuplicateContentDetector';
+import HreflangManager from '@/modules/core/components/admin/seo/HreflangManager';
+import CrawlBudgetMonitor from '@/modules/core/components/admin/seo/CrawlBudgetMonitor';
+import LeadMagnetManager from '@/modules/core/components/admin/seo/LeadMagnetManager';
 
 type TabType =
   | 'meta'

@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 import { Plus, Shield, Activity } from 'lucide-react';
-import UsersList from '@/modules/admin/components/UsersList';
-import UserEditor from '@/modules/admin/components/UserEditor';
-import TwoFactorManager from '@/modules/admin/components/TwoFactorManager';
-import PermissionMatrix from '@/modules/admin/components/PermissionMatrix';
-import ActivityLogViewer from '@/modules/admin/components/ActivityLogViewer';
+import UsersList from '@/modules/core/components/admin/UsersList';
+import UserEditor from '@/modules/core/components/admin/UserEditor';
+import TwoFactorManager from '@/modules/core/components/admin/TwoFactorManager';
+import PermissionMatrix from '@/modules/core/components/admin/PermissionMatrix';
+import ActivityLogViewer from '@/modules/core/components/admin/ActivityLogViewer';
 
 interface User {
   id: number;

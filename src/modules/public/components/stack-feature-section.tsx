@@ -20,7 +20,7 @@ import {
   SiVercel,
   SiTypescript,
   SiTailwindcss,
-  SiOpenai,
+  SiAnthropic,
   SiN8N,
   SiStripe,
   SiSupabase,
@@ -43,7 +43,7 @@ const iconMap: Record<
   SiVercel,
   SiTypescript,
   SiTailwindcss,
-  SiOpenai,
+  SiAnthropic,
   SiN8N,
   SiStripe,
   SiSupabase,
@@ -60,7 +60,7 @@ const defaultIconConfigs = [
   { icon: 'SiTailwindcss', color: '#06B6D4' },
   { icon: 'FaWordpress', color: '#21759B' },
   { icon: 'FaShopify', color: '#7AB55C' },
-  { icon: 'SiOpenai', color: '#10A37F' },
+  { icon: 'SiAnthropic', color: '#9D5BD2' },
   { icon: 'SiN8N', color: '#EA4B71' },
   { icon: 'FaGoogle', color: '#DB4437' },
   { icon: 'FaSlack', color: '#4A154B' },
@@ -106,10 +106,16 @@ export default function StackFeatureSection({
     'We leverage cutting-edge technologies to deliver scalable, high-performance solutions that drive your business forward.';
   const ctaText = content?.ctaText || 'Start Your Project';
   const ctaHrefRaw = content?.ctaHref;
-  const ctaHref = (typeof ctaHrefRaw === 'string' && ctaHrefRaw !== '') ? ctaHrefRaw : '/contact';
+  const ctaHref =
+    typeof ctaHrefRaw === 'string' && ctaHrefRaw !== ''
+      ? ctaHrefRaw
+      : '/contact';
   const secondaryCtaText = content?.secondaryCtaText || 'View Our Work';
   const secondaryCtaHrefRaw = content?.secondaryCtaHref;
-  const secondaryCtaHref = (typeof secondaryCtaHrefRaw === 'string' && secondaryCtaHrefRaw !== '') ? secondaryCtaHrefRaw : '/portfolio';
+  const secondaryCtaHref =
+    typeof secondaryCtaHrefRaw === 'string' && secondaryCtaHrefRaw !== ''
+      ? secondaryCtaHrefRaw
+      : '/portfolio';
   const centerText = content?.centerText || 'RISING';
   const iconConfigs = content?.icons || defaultIconConfigs;
 

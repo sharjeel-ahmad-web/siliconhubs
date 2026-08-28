@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import { Palette, Menu, Code } from 'lucide-react';
 
-import ThemeSettings from '@/modules/admin/components/design/ThemeSettings';
-import NavigationEditor from '@/modules/admin/components/design/NavigationEditor';
-import CustomCodeInjection from '@/modules/admin/components/design/CustomCodeInjection';
+import ThemeSettings from '@/modules/core/components/admin/design/ThemeSettings';
+import NavigationEditor from '@/modules/core/components/admin/design/NavigationEditor';
+import CustomCodeInjection from '@/modules/core/components/admin/design/CustomCodeInjection';
 
 type TabType = 'theme' | 'navigation' | 'code';
 
