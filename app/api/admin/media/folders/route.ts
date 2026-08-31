@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
-import cloudinary from '@/lib/cloudinary';
+import cloudinary, { reconfigureFromSettings } from '@/lib/cloudinary';
 
 // GET - List all folders from Cloudinary
 export async function GET(request: Request) {
   try {
+    await reconfigureFromSettings();
     const { searchParams } = new URL(request.url);
     const parentFolder = searchParams.get('folder') || '';
 

@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
-import { uploadToCloudinary } from '@/lib/cloudinary';
+import { uploadToCloudinary, reconfigureFromSettings } from '@/lib/cloudinary';
 
 export async function POST(request: Request) {
   try {
+    await reconfigureFromSettings();
     const formData = await request.formData();
     const file = formData.get('file') as File;
     const folder = (formData.get('folder') as string) || 'silicon-hubs';

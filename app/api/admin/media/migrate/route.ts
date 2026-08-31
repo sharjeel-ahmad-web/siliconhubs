@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { uploadToCloudinary } from '@/lib/cloudinary';
+import { uploadToCloudinary, reconfigureFromSettings } from '@/lib/cloudinary';
 import clientPromise from '@/lib/db/mongodb';
 import fs from 'fs';
 import path from 'path';
@@ -102,6 +102,7 @@ function getResourceType(filePath: string): 'image' | 'video' | 'raw' {
 
 export async function POST(request: Request) {
   try {
+    await reconfigureFromSettings();
     const { action } = await request.json();
 
     if (action === 'scan') {

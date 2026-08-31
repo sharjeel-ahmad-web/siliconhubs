@@ -1,15 +1,10 @@
 import { NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
-
-// Configure Cloudinary
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+import { reconfigureFromSettings } from '@/lib/cloudinary';
 
 export async function GET() {
   try {
+    await reconfigureFromSettings();
     // Test 1: Get account usage to verify credentials work
     const usage = await cloudinary.api.usage();
 

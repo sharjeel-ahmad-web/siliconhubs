@@ -110,6 +110,7 @@ export default function SettingsPage() {
   const [stripeSecretKey, setStripeSecretKey] = useState('');
   const [cloudinaryCloudName, setCloudinaryCloudName] = useState('');
   const [cloudinaryApiKey, setCloudinaryApiKey] = useState('');
+  const [cloudinaryApiSecret, setCloudinaryApiSecret] = useState('');
 
   // Maintenance
   const [maintenanceMode, setMaintenanceMode] = useState(false);
@@ -149,6 +150,13 @@ export default function SettingsPage() {
             setAddress(
               data.general.address || '123 Digital Street, Tech City, TC 12345'
             );
+          }
+
+          // Load cloudinary settings
+          if (data.cloudinary) {
+            setCloudinaryCloudName(data.cloudinary.cloudinaryCloudName || '');
+            setCloudinaryApiKey(data.cloudinary.cloudinaryApiKey || '');
+            setCloudinaryApiSecret(data.cloudinary.cloudinaryApiSecret || '');
           }
         }
       } catch (error) {
@@ -194,6 +202,20 @@ export default function SettingsPage() {
             contactEmail,
             contactPhone,
             address,
+          },
+        }),
+      });
+
+      // Save cloudinary settings
+      await fetch('/api/admin/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: 'cloudinary',
+          value: {
+            cloudinaryCloudName,
+            cloudinaryApiKey,
+            cloudinaryApiSecret,
           },
         }),
       });
@@ -1384,7 +1406,7 @@ export default function SettingsPage() {
                       </p>
                       <p className="text-xs text-slate-400">
                         Emails are sent to:{' '}
-                        <span className="text-white">achagames6@gmail.com</span>
+                        <span className="text-white">{contactEmail || 'Not configured'}</span>
                       </p>
                     </div>
                     <div>
@@ -1496,6 +1518,18 @@ export default function SettingsPage() {
                           type="password"
                           value={cloudinaryApiKey}
                           onChange={(e) => setCloudinaryApiKey(e.target.value)}
+                          placeholder="xxxxxxxxxx"
+                          className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="mb-1 block text-sm font-medium text-slate-300">
+                          API Secret
+                        </label>
+                        <input
+                          type="password"
+                          value={cloudinaryApiSecret}
+                          onChange={(e) => setCloudinaryApiSecret(e.target.value)}
                           placeholder="xxxxxxxxxx"
                           className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                         />
@@ -2063,9 +2097,21 @@ export default function SettingsPage() {
                 </div>
               </div>
             )}
-          </div>
-        </div>
-      </div>
+                      </div>
+                      <div>
+                        <label className="mb-1 block text-sm font-medium text-slate-300">
+                          API Secret
+                        </label>
+                        <input
+                          type="password"
+                          value={cloudinaryApiSecret}
+                          onChange={(e) => setCloudinaryApiSecret(e.target.value)}
+                          placeholder="xxxxxxxxxx"
+                          className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
+                        />
+                      </div>
+                    </div>
+                  </div>
     </div>
   );
 }

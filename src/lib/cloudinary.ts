@@ -1,6 +1,7 @@
 import { v2 as cloudinary } from 'cloudinary';
+import clientPromise from '@/lib/db/mongodb';
 
-// Configure Cloudinary
+// Configure Cloudinary from environment variables by default
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -8,6 +9,47 @@ cloudinary.config({
 });
 
 export default cloudinary;
+
+let cachedSettings: { cloud_name?: string; api_key?: string; api_secret?: string } | null = null;
+
+export async function reconfigureFromSettings(): Promise<void> {
+  try {
+    const client = await clientPromise;
+    const db = client.db('siliconhubs');
+    const setting = await db.collection('settings').findOne({ key: 'cloudinary' });
+
+    if (setting?.value) {
+      const v = setting.value as Record<string, string>;
+      cachedSettings = {
+        cloud_name: v.cloudinaryCloudName || process.env.CLOUDINARY_CLOUD_NAME,
+        api_key: v.cloudinaryApiKey || process.env.CLOUDINARY_API_KEY,
+        api_secret: v.cloudinaryApiSecret || process.env.CLOUDINARY_API_SECRET,
+      };
+    } else {
+      cachedSettings = null;
+    }
+
+    cloudinary.config({
+      cloud_name: cachedSettings?.cloud_name || process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: cachedSettings?.api_key || process.env.CLOUDINARY_API_KEY,
+      api_secret: cachedSettings?.api_secret || process.env.CLOUDINARY_API_SECRET,
+    });
+  } catch {
+    // ignore DB errors; keep env-based config
+  }
+}
+
+function getCloudName(): string {
+  return cachedSettings?.cloud_name || process.env.CLOUDINARY_CLOUD_NAME || '';
+}
+
+function getApiKey(): string {
+  return cachedSettings?.api_key || process.env.CLOUDINARY_API_KEY || '';
+}
+
+function getApiSecret(): string {
+  return cachedSettings?.api_secret || process.env.CLOUDINARY_API_SECRET || '';
+}
 
 // Helper to generate optimized image URL
 export function getOptimizedImageUrl(
@@ -38,7 +80,7 @@ export function getOptimizedImageUrl(
 
   const transformString = transformations.join(',');
 
-  return `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/${transformString}/${publicId}`;
+  return `https://res.cloudinary.com/${getCloudName()}/image/upload/${transformString}/${publicId}`;
 }
 
 // Helper to generate optimized video URL
@@ -62,7 +104,7 @@ export function getOptimizedVideoUrl(
 
   const transformString = transformations.join(',');
 
-  return `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/video/upload/${transformString}/${publicId}`;
+  return `https://res.cloudinary.com/${getCloudName()}/video/upload/${transformString}/${publicId}`;
 }
 
 // Upload options interface
@@ -156,7 +198,6 @@ export async function listCloudinaryFiles(
 
     // Use search API to find files in specific folder
     if (folder) {
-      // Search for files in this specific folder (not subfolders)
       const searchExpression = `folder="${folder}" AND resource_type:${resourceType}`;
 
       do {
@@ -170,14 +211,12 @@ export async function listCloudinaryFiles(
         nextCursor = result.next_cursor;
       } while (nextCursor && allResources.length < maxResults);
     } else {
-      // Get root level files (files without a folder)
       const result = await cloudinary.api.resources({
         type: 'upload',
         resource_type: resourceType,
         max_results: maxResults,
       });
 
-      // Filter to only root-level files (no folder in public_id)
       allResources = (result.resources || []).filter(
         (r: any) => !r.public_id.includes('/')
       );
@@ -204,14 +243,14 @@ export function getUploadSignature(folder: string = 'silicon-hubs'): {
   const timestamp = Math.round(new Date().getTime() / 1000);
   const signature = cloudinary.utils.api_sign_request(
     { timestamp, folder },
-    process.env.CLOUDINARY_API_SECRET!
+    getApiSecret()
   );
 
   return {
     signature,
     timestamp,
-    cloudName: process.env.CLOUDINARY_CLOUD_NAME!,
-    apiKey: process.env.CLOUDINARY_API_KEY!,
+    cloudName: getCloudName(),
+    apiKey: getApiKey(),
     folder,
   };
 }

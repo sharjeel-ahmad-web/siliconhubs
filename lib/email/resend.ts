@@ -11,8 +11,7 @@ interface ContactEmailData {
 }
 
 export async function sendContactNotification(data: ContactEmailData) {
-  // Using Resend account email for testing (until domain is verified)
-  const adminEmail = 'achagames6@gmail.com';
+  const adminEmail = process.env.CHAT_NOTIFICATION_EMAIL || process.env.ADMIN_EMAIL;
 
   try {
     const { error } = await resend.emails.send({

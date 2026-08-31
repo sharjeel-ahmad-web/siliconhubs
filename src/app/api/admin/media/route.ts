@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
-import { listCloudinaryFiles, deleteFromCloudinary } from '@/lib/cloudinary';
+import { listCloudinaryFiles, deleteFromCloudinary, reconfigureFromSettings } from '@/lib/cloudinary';
 import cloudinary from '@/lib/cloudinary';
 
 // GET - List all media files
 export async function GET(request: Request) {
   try {
+    await reconfigureFromSettings();
     const { searchParams } = new URL(request.url);
     const folder = searchParams.get('folder') || '';
     const type = (searchParams.get('type') as 'image' | 'video') || 'image';

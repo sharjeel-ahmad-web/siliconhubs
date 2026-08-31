@@ -7,9 +7,32 @@ import MiniCTA from '@/components/sections/MiniCTA';
 import { Hero1 } from '@/components/ui/hero-1';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { useSiteContent } from '@/lib/hooks/useSiteContent';
+import { useState, useEffect } from 'react';
 
 export default function ContactPageClient() {
-  // Fetch CMS content for each section
+  const [contactEmail, setContactEmail] = useState('');
+  const [contactPhone, setContactPhone] = useState('');
+  const [address, setAddress] = useState('');
+
+  useEffect(() => {
+    async function loadSettings() {
+      try {
+        const res = await fetch('/api/admin/settings');
+        if (res.ok) {
+          const data = await res.json();
+          if (data?.general) {
+            if (data.general.contactEmail) setContactEmail(data.general.contactEmail);
+            if (data.general.contactPhone) setContactPhone(data.general.contactPhone);
+            if (data.general.address) setAddress(data.general.address);
+          }
+        }
+      } catch {
+        // ignore
+      }
+    }
+    loadSettings();
+  }, []);
+
   const { content: heroContent } = useSiteContent<{
     eyebrow?: string;
     title?: string;
@@ -121,7 +144,7 @@ export default function ContactPageClient() {
                 <div>
                   <h3 className="mb-1 font-bold text-[#fc4c00]">Email</h3>
                   <p className="font-medium text-[#0a192f]/80">
-                    {infoContent?.email || 'hello@siliconhubs.agency'}
+                    {contactEmail || infoContent?.email || 'hello@siliconhubs.agency'}
                   </p>
                 </div>
               </motion.div>
@@ -137,7 +160,7 @@ export default function ContactPageClient() {
                 <div>
                   <h3 className="mb-1 font-bold text-[#fc4c00]">Phone</h3>
                   <p className="font-medium text-[#0a192f]/80">
-                    {infoContent?.phone || '+1 (555) 123-4567'}
+                    {contactPhone || infoContent?.phone || '+1 (555) 123-4567'}
                   </p>
                 </div>
               </motion.div>
@@ -153,7 +176,7 @@ export default function ContactPageClient() {
                 <div>
                   <h3 className="mb-1 font-bold text-[#fc4c00]">Office</h3>
                   <p className="whitespace-pre-line font-medium leading-relaxed text-[#0a192f]/80">
-                    {infoContent?.address ||
+                    {address || infoContent?.address ||
                       '123 Innovation Street\nTech District, CA 94102'}
                   </p>
                 </div>

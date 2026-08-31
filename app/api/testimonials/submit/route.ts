@@ -1,17 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 import { v2 as cloudinary } from 'cloudinary';
-
-// Configure Cloudinary
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+import { reconfigureFromSettings } from '@/lib/cloudinary';
 
 // POST - Submit a new testimonial (public endpoint)
 export async function POST(request: NextRequest) {
   try {
+    await reconfigureFromSettings();
     const formData = await request.formData();
 
     const name = formData.get('name') as string;
