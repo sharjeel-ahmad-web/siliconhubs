@@ -26,6 +26,7 @@ interface ServicesHeroSectionProps {
   services?: ServiceItem[];
   ctaLabel?: string;
   ctaHref?: string;
+  variant?: 'default' | 'digital-marketing';
 }
 
 export function ServicesHeroSection({
@@ -38,10 +39,13 @@ export function ServicesHeroSection({
   services = [],
   ctaLabel = 'Get Started',
   ctaHref = '/contact',
+  variant = 'default',
 }: ServicesHeroSectionProps) {
   const timelineRef = useRef<HTMLDivElement>(null);
   const safeServices: ServiceItem[] =
     services != null && Array.isArray(services) ? services : [];
+
+  const isDigitalMarketing = variant === 'digital-marketing';
 
   const revealVariants = {
     visible: (i: number) => ({
@@ -60,13 +64,15 @@ export function ServicesHeroSection({
     },
   };
 
-  // Split title to insert highlighted words with animated gradient
   const renderTitle = () => {
     if (!highlightedWord) return title;
 
+    const gradientColors = isDigitalMarketing
+      ? 'linear-gradient(90deg, #fc4c00, #ff9e5c, #fc4c00)'
+      : 'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)';
+
     const animatedGradientStyle = {
-      backgroundImage:
-        'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
+      backgroundImage: gradientColors,
       backgroundSize: '300% 100%',
       animation: 'gradient-shift 4s ease-in-out infinite',
     };
@@ -99,8 +105,30 @@ export function ServicesHeroSection({
     );
   };
 
+  const heroBackground = isDigitalMarketing ? 'bg-navy' : 'bg-navy';
+
+  const cardBaseClasses = isDigitalMarketing
+    ? 'group relative aspect-[4/3] cursor-default overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-orange/50 hover:shadow-2xl hover:shadow-orange/20'
+    : 'group relative aspect-video cursor-default overflow-hidden rounded-xl border border-white/10 backdrop-blur-sm transition-all hover:border-cyan/50';
+
+  const overlayClasses = isDigitalMarketing
+    ? 'absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent transition-all duration-500 group-hover:from-navy/80 group-hover:via-navy/30'
+    : 'absolute inset-0 rounded-xl bg-navy/40 transition-colors duration-300 group-hover:bg-navy/30';
+
+  const titleClasses = isDigitalMarketing
+    ? 'text-base font-semibold capitalize leading-tight text-white drop-shadow-lg md:text-lg xl:text-xl'
+    : 'text-sm font-medium capitalize leading-[140%] text-white md:text-lg xl:text-xl 2xl:text-xl';
+
+  const descriptionClasses = isDigitalMarketing
+    ? 'mt-2 text-xs leading-relaxed text-gray-300 opacity-0 transition-all duration-500 group-hover:opacity-100 md:text-sm'
+    : 'mt-1 text-xs text-gray-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:text-sm';
+
+  const badgeClasses = isDigitalMarketing
+    ? 'absolute left-3 top-3 rounded-full bg-orange/90 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm transition-all duration-300 group-hover:bg-orange'
+    : '';
+
   return (
-    <main ref={timelineRef} className="bg-navy">
+    <main ref={timelineRef} className={heroBackground}>
       <div className="mx-auto min-h-screen max-w-screen-2xl px-4 pb-5 pt-28">
         <article className="mx-auto w-fit max-w-2xl space-y-6 text-center xl:max-w-4xl 2xl:max-w-5xl">
           {/* Eyebrow */}
@@ -111,9 +139,17 @@ export function ServicesHeroSection({
               animationNum={1}
               timelineRef={timelineRef}
               customVariants={revealVariants}
-              className="mx-auto flex w-fit items-center gap-1 rounded-full border-2 border-cyan/30 bg-cyan/20 py-0.5 pl-0.5 pr-3 text-xs"
+              className={`mx-auto flex w-fit items-center gap-1 rounded-full border-2 px-3 py-1 text-xs ${
+                isDigitalMarketing
+                  ? 'border-orange/30 bg-orange/20'
+                  : 'border-cyan/30 bg-cyan/20'
+              }`}
             >
-              <div className="rounded-full bg-cyan px-2 py-1 text-xs font-medium text-white">
+              <div
+                className={`rounded-full px-2 py-1 text-xs font-medium text-white ${
+                  isDigitalMarketing ? 'bg-orange' : 'bg-cyan'
+                }`}
+              >
                 New
               </div>
               <p className="inline-block text-xs text-white sm:text-base">
@@ -166,7 +202,9 @@ export function ServicesHeroSection({
             <ParticleWrapper>
               <Link href={ctaHref ?? '/contact'}>
                 <StarButton
-                  className="h-12 px-6 text-sm font-semibold transition-transform hover:scale-105"
+                  className={`h-12 px-6 text-sm font-semibold transition-transform hover:scale-105 ${
+                    isDigitalMarketing ? 'bg-orange hover:bg-orange/90' : ''
+                  }`}
                   duration={2.5}
                 >
                   {ctaLabel}
@@ -176,8 +214,12 @@ export function ServicesHeroSection({
           </TimelineContent>
         </article>
 
-        {/* Services Grid - guard so .map is never called on non-array */}
-        <div className="grid grid-cols-2 gap-6 pt-20 md:grid-cols-3">
+        {/* Services Grid */}
+        <div
+          className={`grid grid-cols-2 gap-6 pt-20 md:grid-cols-3 ${
+            isDigitalMarketing ? 'lg:grid-cols-4' : ''
+          }`}
+        >
           {(safeServices ?? []).map((service, index) => (
             <TimelineContent
               as="div"
@@ -185,7 +227,7 @@ export function ServicesHeroSection({
               timelineRef={timelineRef}
               key={service.id}
               customVariants={revealVariants}
-              className="group relative aspect-video cursor-default overflow-hidden rounded-xl border border-white/10 backdrop-blur-sm transition-all hover:border-cyan/50"
+              className={cardBaseClasses}
             >
               <figure className="relative h-full w-full">
                 <Image
@@ -193,22 +235,31 @@ export function ServicesHeroSection({
                   alt={service.name}
                   width={400}
                   height={300}
-                  className="h-full w-full rounded-xl object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </figure>
-              {/* Dark overlay */}
-              <div className="absolute inset-0 rounded-xl bg-navy/40 transition-colors duration-300 group-hover:bg-navy/30" />
-              <ProgressiveBlur
-                className="pointer-events-none absolute bottom-0 left-0 h-[50%] w-full"
-                blurIntensity={0.5}
-              />
-              <div className="absolute bottom-2 left-2 px-2 py-1 sm:px-4 sm:py-2">
-                <h3 className="text-sm font-medium capitalize leading-[140%] text-white md:text-lg xl:text-xl 2xl:text-xl">
-                  {service.name}
-                </h3>
-                <p className="mt-1 text-xs text-gray-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:text-sm">
-                  {service.description}
-                </p>
+              {/* Overlay */}
+              <div className={overlayClasses} />
+              {/* Progressive blur at bottom for default variant */}
+              {!isDigitalMarketing && (
+                <ProgressiveBlur
+                  className="pointer-events-none absolute bottom-0 left-0 h-[50%] w-full"
+                  blurIntensity={0.5}
+                />
+              )}
+              {/* Badge for digital marketing variant */}
+              {isDigitalMarketing && (
+                <div className={badgeClasses}>{service.name.split(' ')[0]}</div>
+              )}
+              <div
+                className={`absolute bottom-2 left-2 px-2 py-1 sm:px-4 sm:py-2 ${
+                  isDigitalMarketing
+                    ? 'bottom-4 left-4 right-4'
+                    : 'bottom-2 left-2'
+                }`}
+              >
+                <h3 className={titleClasses}>{service.name}</h3>
+                <p className={descriptionClasses}>{service.description}</p>
               </div>
             </TimelineContent>
           ))}

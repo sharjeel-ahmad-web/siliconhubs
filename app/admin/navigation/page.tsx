@@ -97,14 +97,86 @@ const defaultSettings: NavigationSettings = {
       { href: '/about', label: 'About', enabled: true, order: 4 },
       { href: '/contact', label: 'Contact', enabled: true, order: 5 },
     ],
-    serviceLinks: [],
+    serviceLinks: [
+      {
+        href: '/services/n8n-automations',
+        label: 'N8N Automations',
+        enabled: true,
+        order: 0,
+      },
+      {
+        href: '/services/chatbot-development',
+        label: 'Chatbot Development',
+        enabled: true,
+        order: 1,
+      },
+      {
+        href: '/services/web-design',
+        label: 'Web Design',
+        enabled: true,
+        order: 2,
+      },
+      {
+        href: '/services/wordpress',
+        label: 'WordPress',
+        enabled: true,
+        order: 3,
+      },
+      { href: '/services/shopify', label: 'Shopify', enabled: true, order: 4 },
+      { href: '/services/seo', label: 'SEO', enabled: true, order: 5 },
+      {
+        href: '/services/digital-marketing',
+        label: 'Digital Marketing',
+        enabled: true,
+        order: 6,
+      },
+      {
+        href: '/services/saas',
+        label: 'SaaS Solutions',
+        enabled: true,
+        order: 7,
+      },
+    ],
   },
   footer: {
     logo: '/logo.png',
     description: '',
     copyrightText: '© {year} SiliconHubs. All rights reserved.',
     showNewsletter: true,
-    columns: [],
+    columns: [
+      {
+        title: 'Services',
+        links: [
+          {
+            href: '/services/n8n-automations',
+            label: 'N8N Automations',
+            enabled: true,
+          },
+          {
+            href: '/services/chatbot-development',
+            label: 'Chatbot Development',
+            enabled: true,
+          },
+          { href: '/services/web-design', label: 'Web Design', enabled: true },
+          { href: '/services/wordpress', label: 'WordPress', enabled: true },
+          { href: '/services/shopify', label: 'Shopify', enabled: true },
+          { href: '/services/seo', label: 'SEO', enabled: true },
+          {
+            href: '/services/digital-marketing',
+            label: 'Digital Marketing',
+            enabled: true,
+          },
+        ],
+      },
+      {
+        title: 'Company',
+        links: [
+          { href: '/about', label: 'About Us', enabled: true },
+          { href: '/portfolio', label: 'Portfolio', enabled: true },
+          { href: '/contact', label: 'Contact', enabled: true },
+        ],
+      },
+    ],
   },
   social: {
     facebook: { url: '', enabled: true },

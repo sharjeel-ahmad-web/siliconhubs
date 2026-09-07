@@ -89,6 +89,11 @@ const defaultNavigation = {
           { href: '/services/wordpress', label: 'WordPress', enabled: true },
           { href: '/services/shopify', label: 'Shopify', enabled: true },
           { href: '/services/seo', label: 'SEO', enabled: true },
+          {
+            href: '/services/digital-marketing',
+            label: 'Digital Marketing',
+            enabled: true,
+          },
         ],
       },
       {
