@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 
 // Files will be uploaded preserving the full folder structure from /public
-// e.g., /public/media/home/team/alex.png -> siliconhubs/media/home/team/alex
+// e.g., /public/media/home/team/sharjeel.png -> siliconhubs/media/home/team/alex
 
 // Supported file extensions for upload
 const SUPPORTED_EXTENSIONS = [

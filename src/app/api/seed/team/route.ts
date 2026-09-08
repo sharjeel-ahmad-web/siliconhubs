@@ -5,7 +5,7 @@ const initialTeamMembers = [
   {
     name: 'Alex Chen',
     role: 'Founder & CEO',
-    image: '/team/alex.png',
+    image: '/team/sharjeel.png',
     order: 1,
   },
   {

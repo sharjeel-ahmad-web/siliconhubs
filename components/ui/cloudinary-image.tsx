@@ -59,7 +59,7 @@ function getCloudinaryUrl(
   }
 
   // Convert local path to Cloudinary public ID
-  // /team/alex.png -> siliconhubs/team/alex
+  // /team/sharjeel.png -> siliconhubs/team/alex
   // /media/portfolio/project-1/thumbnail.jpg -> siliconhubs/media/portfolio/project-1/thumbnail
   let publicId = src
     .replace(/^\//, '') // Remove leading slash
