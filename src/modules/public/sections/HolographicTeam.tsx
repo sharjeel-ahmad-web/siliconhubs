@@ -5,10 +5,6 @@ import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useVelocity } from 'framer-motion';
 import { SectionHeading } from '@/modules/public/components/section-heading';
 import { useTeamMembers, useSiteContent } from '@/lib/hooks/useSiteContent';
-import {
-  getCloudinaryUrl,
-  isExternalUrl,
-} from '@/modules/public/components/cloudinary-image';
 
 const defaultTeamMembers = [
   { id: 1, name: 'Alex Chen', role: 'Founder & CEO', image: '/team/alex.png' },
@@ -263,11 +259,7 @@ function TeamCard({
           {/* Holographic image */}
           <div className="relative h-full w-full">
             <Image
-              src={
-                isExternalUrl(member.image)
-                  ? member.image
-                  : getCloudinaryUrl(member.image, { width: 400, height: 600 })
-              }
+              src={member.image}
               alt={member.name}
               fill
               className="pointer-events-none select-none object-cover"
@@ -279,7 +271,6 @@ function TeamCard({
                 mixBlendMode: isHovered ? 'normal' : 'screen',
                 transition: 'all 0.5s ease',
               }}
-              unoptimized
             />
 
             {/* Hologram effects (only when not hovered) */}
@@ -428,7 +419,7 @@ export default function HolographicTeam() {
           id: i + 1,
           name: m.name,
           role: m.role,
-          image: m.image,
+          image: defaultTeamMembers[i]?.image || m.image,
         }))
       : defaultTeamMembers;
 
@@ -548,9 +539,7 @@ export default function HolographicTeam() {
   }, [isMobile]);
 
   return (
-    <section
-      className="relative min-h-screen overflow-hidden bg-black py-16"
-    >
+    <section className="relative min-h-screen overflow-hidden bg-black py-16">
       {/* Background */}
       <div className="absolute inset-0">
         {/* Grid pattern */}

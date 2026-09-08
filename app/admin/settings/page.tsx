@@ -47,8 +47,8 @@ export default function SettingsPage() {
     'Digital Excellence Delivered'
   );
   const [siteUrl, setSiteUrl] = useState('https://siliconhubs.agency');
-  const [contactEmail, setContactEmail] = useState('hello@siliconhubs.agency');
-  const [contactPhone, setContactPhone] = useState('+1 (555) 123-4567');
+  const [contactEmail, setContactEmail] = useState('contact@siliconhubs.com');
+  const [contactPhone, setContactPhone] = useState('+923174662728');
   const [address, setAddress] = useState(
     '123 Digital Street, Tech City, TC 12345'
   );
@@ -144,9 +144,9 @@ export default function SettingsPage() {
             );
             setSiteUrl(data.general.siteUrl || 'https://siliconhubs.agency');
             setContactEmail(
-              data.general.contactEmail || 'hello@siliconhubs.agency'
+              data.general.contactEmail || 'contact@siliconhubs.com'
             );
-            setContactPhone(data.general.contactPhone || '+1 (555) 123-4567');
+            setContactPhone(data.general.contactPhone || '+923174662728');
             setAddress(
               data.general.address || '123 Digital Street, Tech City, TC 12345'
             );
@@ -1406,7 +1406,9 @@ export default function SettingsPage() {
                       </p>
                       <p className="text-xs text-slate-400">
                         Emails are sent to:{' '}
-                        <span className="text-white">{contactEmail || 'Not configured'}</span>
+                        <span className="text-white">
+                          {contactEmail || 'Not configured'}
+                        </span>
                       </p>
                     </div>
                     <div>
@@ -1529,7 +1531,9 @@ export default function SettingsPage() {
                         <input
                           type="password"
                           value={cloudinaryApiSecret}
-                          onChange={(e) => setCloudinaryApiSecret(e.target.value)}
+                          onChange={(e) =>
+                            setCloudinaryApiSecret(e.target.value)
+                          }
                           placeholder="xxxxxxxxxx"
                           className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                         />
@@ -2097,21 +2101,21 @@ export default function SettingsPage() {
                 </div>
               </div>
             )}
-                      </div>
-                      <div>
-                        <label className="mb-1 block text-sm font-medium text-slate-300">
-                          API Secret
-                        </label>
-                        <input
-                          type="password"
-                          value={cloudinaryApiSecret}
-                          onChange={(e) => setCloudinaryApiSecret(e.target.value)}
-                          placeholder="xxxxxxxxxx"
-                          className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
-                        />
-                      </div>
-                    </div>
-                  </div>
+          </div>
+          <div>
+            <label className="mb-1 block text-sm font-medium text-slate-300">
+              API Secret
+            </label>
+            <input
+              type="password"
+              value={cloudinaryApiSecret}
+              onChange={(e) => setCloudinaryApiSecret(e.target.value)}
+              placeholder="xxxxxxxxxx"
+              className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -21,8 +21,10 @@ export default function ContactPageClient() {
         if (res.ok) {
           const data = await res.json();
           if (data?.general) {
-            if (data.general.contactEmail) setContactEmail(data.general.contactEmail);
-            if (data.general.contactPhone) setContactPhone(data.general.contactPhone);
+            if (data.general.contactEmail)
+              setContactEmail(data.general.contactEmail);
+            if (data.general.contactPhone)
+              setContactPhone(data.general.contactPhone);
             if (data.general.address) setAddress(data.general.address);
           }
         }
@@ -144,7 +146,9 @@ export default function ContactPageClient() {
                 <div>
                   <h3 className="mb-1 font-bold text-[#fc4c00]">Email</h3>
                   <p className="font-medium text-[#0a192f]/80">
-                    {contactEmail || infoContent?.email || 'hello@siliconhubs.agency'}
+                    {contactEmail ||
+                      infoContent?.email ||
+                      'contact@siliconhubs.com'}
                   </p>
                 </div>
               </motion.div>
@@ -160,7 +164,7 @@ export default function ContactPageClient() {
                 <div>
                   <h3 className="mb-1 font-bold text-[#fc4c00]">Phone</h3>
                   <p className="font-medium text-[#0a192f]/80">
-                    {contactPhone || infoContent?.phone || '+1 (555) 123-4567'}
+                    {contactPhone || infoContent?.phone || '+923174662728'}
                   </p>
                 </div>
               </motion.div>
@@ -176,7 +180,8 @@ export default function ContactPageClient() {
                 <div>
                   <h3 className="mb-1 font-bold text-[#fc4c00]">Office</h3>
                   <p className="whitespace-pre-line font-medium leading-relaxed text-[#0a192f]/80">
-                    {address || infoContent?.address ||
+                    {address ||
+                      infoContent?.address ||
                       '123 Innovation Street\nTech District, CA 94102'}
                   </p>
                 </div>

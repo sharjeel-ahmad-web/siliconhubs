@@ -47,8 +47,8 @@ export default function SettingsPage() {
     'Digital Excellence Delivered'
   );
   const [siteUrl, setSiteUrl] = useState('https://siliconhubs.agency');
-  const [contactEmail, setContactEmail] = useState('hello@siliconhubs.agency');
-  const [contactPhone, setContactPhone] = useState('+1 (555) 123-4567');
+  const [contactEmail, setContactEmail] = useState('contact@siliconhubs.com');
+  const [contactPhone, setContactPhone] = useState('+923174662728');
   const [address, setAddress] = useState(
     '123 Digital Street, Tech City, TC 12345'
   );
@@ -75,7 +75,9 @@ export default function SettingsPage() {
   const [facebookUrl, setFacebookUrl] = useState(
     'https://facebook.com/siliconhubs'
   );
-  const [twitterUrl, setTwitterUrl] = useState('https://twitter.com/siliconhubs');
+  const [twitterUrl, setTwitterUrl] = useState(
+    'https://twitter.com/siliconhubs'
+  );
   const [instagramUrl, setInstagramUrl] = useState(
     'https://instagram.com/siliconhubs'
   );
@@ -142,9 +144,9 @@ export default function SettingsPage() {
             );
             setSiteUrl(data.general.siteUrl || 'https://siliconhubs.agency');
             setContactEmail(
-              data.general.contactEmail || 'hello@siliconhubs.agency'
+              data.general.contactEmail || 'contact@siliconhubs.com'
             );
-            setContactPhone(data.general.contactPhone || '+1 (555) 123-4567');
+            setContactPhone(data.general.contactPhone || '+923174662728');
             setAddress(
               data.general.address || '123 Digital Street, Tech City, TC 12345'
             );
@@ -537,8 +539,8 @@ export default function SettingsPage() {
                     {/* Google Analytics */}
                     <div className="mb-4 rounded-lg border border-slate-700 bg-[#0F172A] p-4">
                       <div className="mb-3 flex items-center gap-3">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500/20">
-                          <Search className="h-4 w-4 text-orange-400" />
+                        <div className="bg-orange-500/20 flex h-8 w-8 items-center justify-center rounded-lg">
+                          <Search className="text-orange-400 h-4 w-4" />
                         </div>
                         <div>
                           <p className="font-medium text-white">
@@ -636,8 +638,8 @@ export default function SettingsPage() {
                     {/* Google Tag Manager */}
                     <div className="rounded-lg border border-slate-700 bg-[#0F172A] p-4">
                       <div className="mb-3 flex items-center gap-3">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-500/20">
-                          <Zap className="h-4 w-4 text-cyan-400" />
+                        <div className="bg-cyan-500/20 flex h-8 w-8 items-center justify-center rounded-lg">
+                          <Zap className="text-cyan-400 h-4 w-4" />
                         </div>
                         <div>
                           <p className="font-medium text-white">
@@ -1408,7 +1410,9 @@ export default function SettingsPage() {
                       </p>
                       <p className="text-xs text-slate-400">
                         Emails are sent to:{' '}
-                        <span className="text-white">{contactEmail || 'Not configured'}</span>
+                        <span className="text-white">
+                          {contactEmail || 'Not configured'}
+                        </span>
                       </p>
                     </div>
                     <div>
@@ -1485,8 +1489,8 @@ export default function SettingsPage() {
 
                   <div className="rounded-lg border border-slate-700 bg-[#0F172A] p-4">
                     <div className="mb-4 flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500/20">
-                        <HardDrive className="h-5 w-5 text-orange-400" />
+                      <div className="bg-orange-500/20 flex h-10 w-10 items-center justify-center rounded-lg">
+                        <HardDrive className="text-orange-400 h-5 w-5" />
                       </div>
                       <div>
                         <p className="font-medium text-white">
@@ -1531,7 +1535,9 @@ export default function SettingsPage() {
                         <input
                           type="password"
                           value={cloudinaryApiSecret}
-                          onChange={(e) => setCloudinaryApiSecret(e.target.value)}
+                          onChange={(e) =>
+                            setCloudinaryApiSecret(e.target.value)
+                          }
                           placeholder="xxxxxxxxxx"
                           className="w-full rounded-lg border border-slate-700 bg-[#1E293B] px-4 py-2 text-white focus:border-[#06b6d4] focus:outline-none"
                         />

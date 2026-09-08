@@ -21,8 +21,10 @@ export default function ContactPageClient() {
         if (res.ok) {
           const data = await res.json();
           if (data?.general) {
-            if (data.general.contactEmail) setContactEmail(data.general.contactEmail);
-            if (data.general.contactPhone) setContactPhone(data.general.contactPhone);
+            if (data.general.contactEmail)
+              setContactEmail(data.general.contactEmail);
+            if (data.general.contactPhone)
+              setContactPhone(data.general.contactPhone);
             if (data.general.address) setAddress(data.general.address);
           }
         }
@@ -139,7 +141,9 @@ export default function ContactPageClient() {
                 <div>
                   <h3 className="mb-1 font-semibold text-white">Email</h3>
                   <p className="text-[#64748B]">
-                    {contactEmail || infoContent?.email || 'hello@siliconhubs.agency'}
+                    {contactEmail ||
+                      infoContent?.email ||
+                      'contact@siliconhubs.com'}
                   </p>
                 </div>
               </motion.div>
@@ -154,7 +158,7 @@ export default function ContactPageClient() {
                 <div>
                   <h3 className="mb-1 font-semibold text-white">Phone</h3>
                   <p className="text-[#64748B]">
-                    {contactPhone || infoContent?.phone || '+1 (555) 123-4567'}
+                    {contactPhone || infoContent?.phone || '+923174662728'}
                   </p>
                 </div>
               </motion.div>
@@ -169,7 +173,8 @@ export default function ContactPageClient() {
                 <div>
                   <h3 className="mb-1 font-semibold text-white">Office</h3>
                   <p className="whitespace-pre-line text-[#64748B]">
-                    {address || infoContent?.address ||
+                    {address ||
+                      infoContent?.address ||
                       '123 Innovation Street\nTech District, CA 94102'}
                   </p>
                 </div>
@@ -221,4 +226,3 @@ export default function ContactPageClient() {
     </div>
   );
 }
-

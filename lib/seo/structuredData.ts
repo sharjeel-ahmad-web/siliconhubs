@@ -128,7 +128,7 @@ export function generateOrganizationSchema(
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'hello@siliconhubs.agency',
+      email: 'contact@siliconhubs.com',
       ...options?.contactPoint,
     },
     sameAs: [

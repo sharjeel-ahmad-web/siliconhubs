@@ -690,8 +690,8 @@ const initialContent = [
     content: {
       title: 'Contact',
       titleHighlight: 'Information',
-      email: 'hello@siliconhubs.agency',
-      phone: '+1 (555) 123-4567',
+      email: 'contact@siliconhubs.com',
+      phone: '+923174662728',
       address: '123 Innovation Street\nTech District, CA 94102',
       hours: 'Monday - Friday: 9:00 AM - 6:00 PM\nSaturday - Sunday: Closed',
     },

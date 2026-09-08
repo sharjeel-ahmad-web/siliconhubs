@@ -5,10 +5,6 @@ import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useVelocity } from 'framer-motion';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { useTeamMembers, useSiteContent } from '@/lib/hooks/useSiteContent';
-import {
-  getCloudinaryUrl,
-  isExternalUrl,
-} from '@/components/ui/cloudinary-image';
 
 const defaultTeamMembers = [
   {
@@ -268,11 +264,7 @@ function TeamCard({
           {/* Holographic image - tailored for light theme */}
           <div className="relative h-full w-full">
             <Image
-              src={
-                isExternalUrl(member.image)
-                  ? member.image
-                  : getCloudinaryUrl(member.image, { width: 400, height: 600 })
-              }
+              src={member.image}
               alt={member.name}
               fill
               className="pointer-events-none select-none object-cover"
@@ -280,11 +272,10 @@ function TeamCard({
               style={{
                 filter: isHovered
                   ? 'none'
-                  : 'grayscale(100%) contrast(1.1) brightness(0.9)',
-                mixBlendMode: isHovered ? 'normal' : 'multiply', // Multiply works best on light backgrounds
+                  : 'grayscale(100%) brightness(0.7) contrast(1.2)',
+                mixBlendMode: isHovered ? 'normal' : 'screen',
                 transition: 'all 0.5s ease',
               }}
-              unoptimized
             />
 
             {/* Hologram effects (only when not hovered) */}
@@ -423,7 +414,7 @@ export default function HolographicTeam() {
           id: i + 1,
           name: m.name,
           role: m.role,
-          image: m.image,
+          image: defaultTeamMembers[i]?.image || m.image,
         }))
       : defaultTeamMembers;
 
