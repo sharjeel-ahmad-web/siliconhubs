@@ -35,17 +35,17 @@ const galleryData: PortfolioItem[] = [
     result: 'Conversion-Focused Experience',
     span: 'col-span-1',
   },
-  {
-    id: 2,
-    src: 'https://ix-marketing.imgix.net/focalpoint.png?q=80&w=1470&auto=format&fit=crop',
-    alt: 'SaaS Dashboard Design',
-    category: 'WEB APPLICATION',
-    title: 'Scalable SaaS Platform',
-    description:
-      'A powerful and intuitive dashboard experience built to make complex data and workflows easier to manage.',
-    result: 'Simplified User Experience',
-    span: 'sm:col-span-2',
-  },
+  // {
+  //   id: 2,
+  //   src: 'https://ix-marketing.imgix.net/focalpoint.png?q=80&w=1470&auto=format&fit=crop',
+  //   alt: 'SaaS Dashboard Design',
+  //   category: 'WEB APPLICATION',
+  //   title: 'Scalable SaaS Platform',
+  //   description:
+  //     'A powerful and intuitive dashboard experience built to make complex data and workflows easier to manage.',
+  //   result: 'Simplified User Experience',
+  //   span: 'sm:col-span-2',
+  // },
   {
     id: 3,
     src: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1470&auto=format&fit=crop',

@@ -51,6 +51,10 @@ export default function MediaLibraryPage() {
   const [dragActive, setDragActive] = useState(false);
   const [currentFolder, setCurrentFolder] = useState<string>('');
   const [subfolders, setSubfolders] = useState<CloudinaryFolder[]>([]);
+  const [notice, setNotice] = useState<{
+    type: 'error' | 'success';
+    text: string;
+  } | null>(null);
 
   // Fetch folders from Cloudinary
   const fetchFolders = useCallback(async (folder: string = '') => {
@@ -60,7 +64,15 @@ export default function MediaLibraryPage() {
         `/api/admin/media/folders?folder=${encodeURIComponent(folder)}`
       );
       const data = await response.json();
-      setSubfolders(data.folders || []);
+      if (!response.ok) {
+        setSubfolders([]);
+        setNotice({
+          type: 'error',
+          text: `Failed to load folders: ${data.error || data.details || 'Unknown error'}`,
+        });
+      } else {
+        setSubfolders(data.folders || []);
+      }
     } catch (error) {
       console.error('Error fetching folders:', error);
       setSubfolders([]);
@@ -77,10 +89,19 @@ export default function MediaLibraryPage() {
         `/api/admin/media?type=${mediaType}&folder=${encodeURIComponent(currentFolder)}`
       );
       const data = await response.json();
-      setFiles(data.files || []);
+      if (!response.ok) {
+        setFiles([]);
+        setNotice({
+          type: 'error',
+          text: `Failed to load media: ${data.error || data.details || 'Unknown error'}`,
+        });
+      } else {
+        setFiles(data.files || []);
+      }
     } catch (error) {
       console.error('Error fetching media:', error);
       setFiles([]);
+      setNotice({ type: 'error', text: 'Failed to fetch media files' });
     } finally {
       setLoading(false);
     }
@@ -103,25 +124,53 @@ export default function MediaLibraryPage() {
 
   const handleUpload = async (fileList: FileList) => {
     setUploading(true);
+    setNotice(null);
     const uploadPromises = Array.from(fileList).map(async (file) => {
       const formData = new FormData();
       formData.append('file', file);
       formData.append('folder', currentFolder || 'siliconhubs');
 
-      const response = await fetch('/api/admin/media/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      return response.json();
+      try {
+        const response = await fetch('/api/admin/media/upload', {
+          method: 'POST',
+          body: formData,
+        });
+        const data = await response.json();
+        return { ok: response.ok, name: file.name, data };
+      } catch (error) {
+        return {
+          ok: false,
+          name: file.name,
+          data: { error: `Network error: ${String(error)}` },
+        };
+      }
     });
 
     try {
-      await Promise.all(uploadPromises);
+      const results = await Promise.all(uploadPromises);
+      const failed = results.filter((r) => !r.ok);
+      const succeeded = results.length - failed.length;
+
+      if (failed.length > 0) {
+        const sample = failed[0];
+        setNotice({
+          type: 'error',
+          text: `${failed.length} of ${results.length} file(s) failed${
+            sample.data?.error ? ` — ${sample.name}: ${sample.data.error}` : ''
+          }`,
+        });
+      } else if (results.length > 0) {
+        setNotice({
+          type: 'success',
+          text: `${succeeded} file(s) uploaded successfully`,
+        });
+      }
+
       fetchMedia();
       fetchFolders(currentFolder);
     } catch (error) {
       console.error('Upload error:', error);
+      setNotice({ type: 'error', text: `Upload failed: ${String(error)}` });
     } finally {
       setUploading(false);
     }
@@ -142,9 +191,17 @@ export default function MediaLibraryPage() {
         if (selectedFile?.publicId === publicId) {
           setSelectedFile(null);
         }
+        setNotice({ type: 'success', text: 'File deleted successfully' });
+      } else {
+        const data = await response.json();
+        setNotice({
+          type: 'error',
+          text: `Delete failed: ${data.error || 'Unknown error'}`,
+        });
       }
     } catch (error) {
       console.error('Delete error:', error);
+      setNotice({ type: 'error', text: `Delete failed: ${String(error)}` });
     }
   };
 
@@ -219,6 +276,37 @@ export default function MediaLibraryPage() {
           </label>
         </div>
       </div>
+
+      {/* Notice / Error Banner */}
+      {notice && (
+        <div
+          className={`mb-4 flex items-start gap-3 rounded-lg border px-4 py-3 ${
+            notice.type === 'error'
+              ? 'border-red-500/50 bg-red-500/10'
+              : 'border-green-500/50 bg-green-500/10'
+          }`}
+        >
+          {notice.type === 'error' ? (
+            <X className="mt-0.5 h-4 w-4 text-red-400" />
+          ) : (
+            <Check className="mt-0.5 h-4 w-4 text-green-400" />
+          )}
+          <p
+            className={`flex-1 text-sm ${
+              notice.type === 'error' ? 'text-red-300' : 'text-green-300'
+            }`}
+          >
+            {notice.text}
+          </p>
+          <button
+            onClick={() => setNotice(null)}
+            className="rounded bg-slate-700/50 p-1 text-slate-400 transition-colors hover:bg-slate-700 hover:text-white"
+            aria-label="Dismiss"
+          >
+            <X className="h-3.5 w-3.5" />
+          </button>
+        </div>
+      )}
 
       {/* Breadcrumb Navigation */}
       <div className="mb-4 flex items-center gap-2 rounded-lg border border-slate-700/50 bg-navy p-3">

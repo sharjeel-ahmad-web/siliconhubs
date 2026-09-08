@@ -10,13 +10,19 @@ cloudinary.config({
 
 export default cloudinary;
 
-let cachedSettings: { cloud_name?: string; api_key?: string; api_secret?: string } | null = null;
+let cachedSettings: {
+  cloud_name?: string;
+  api_key?: string;
+  api_secret?: string;
+} | null = null;
 
 export async function reconfigureFromSettings(): Promise<void> {
   try {
     const client = await clientPromise;
     const db = client.db('siliconhubs');
-    const setting = await db.collection('settings').findOne({ key: 'cloudinary' });
+    const setting = await db
+      .collection('settings')
+      .findOne({ key: 'cloudinary' });
 
     if (setting?.value) {
       const v = setting.value as Record<string, string>;
@@ -30,12 +36,20 @@ export async function reconfigureFromSettings(): Promise<void> {
     }
 
     cloudinary.config({
-      cloud_name: cachedSettings?.cloud_name || process.env.CLOUDINARY_CLOUD_NAME,
+      cloud_name:
+        cachedSettings?.cloud_name || process.env.CLOUDINARY_CLOUD_NAME,
       api_key: cachedSettings?.api_key || process.env.CLOUDINARY_API_KEY,
-      api_secret: cachedSettings?.api_secret || process.env.CLOUDINARY_API_SECRET,
+      api_secret:
+        cachedSettings?.api_secret || process.env.CLOUDINARY_API_SECRET,
     });
   } catch {
-    // ignore DB errors; keep env-based config
+    // MongoDB unavailable — ensure env-based config is applied
+    cachedSettings = null;
+    cloudinary.config({
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+    });
   }
 }
 
@@ -150,9 +164,9 @@ export async function uploadToCloudinary(
     uploadOptions.public_id = publicId;
   }
 
-  // If file is a Buffer, convert to base64 data URI
+  // If file is a Buffer, convert to base64 data URI with correct MIME type
   const fileToUpload = Buffer.isBuffer(file)
-    ? `data:image/png;base64,${file.toString('base64')}`
+    ? `data:${resourceType};base64,${file.toString('base64')}`
     : file;
 
   const result = await cloudinary.uploader.upload(fileToUpload, uploadOptions);

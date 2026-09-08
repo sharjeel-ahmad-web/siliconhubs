@@ -11,7 +11,12 @@ import {
 } from '@/components/ui/cloudinary-image';
 
 const defaultTeamMembers = [
-  { id: 1, name: 'Alex Chen', role: 'Founder & CEO', image: '/team/alex.png' },
+  {
+    id: 1,
+    name: 'Sharjeel Ahmad Khan',
+    role: 'Founder & CEO',
+    image: '/team/sharjeel.png',
+  },
   {
     id: 2,
     name: 'Sarah Mitchell',

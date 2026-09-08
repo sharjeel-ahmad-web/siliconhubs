@@ -43,10 +43,15 @@ export async function POST(request: Request) {
         name: file.name,
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Upload error:', error);
+    const errorMessage =
+      error?.message || error?.error?.message || 'Failed to upload file';
     return NextResponse.json(
-      { error: 'Failed to upload file' },
+      {
+        error: 'Failed to upload file',
+        details: errorMessage,
+      },
       { status: 500 }
     );
   }
