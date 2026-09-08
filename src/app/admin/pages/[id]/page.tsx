@@ -226,7 +226,7 @@ const defaultSectionContent: Record<
       ctaText: 'Book a call',
       ctaLink: '/contact',
       email: 'contact@siliconhubs.agency',
-      whatsapp: '+1234567890',
+      whatsapp: '+923174662728',
       services: ['Chatbots', 'N8N Automation', 'Web Development', 'Shopify'],
     },
     testimonials: {
