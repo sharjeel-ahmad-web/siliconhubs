@@ -1,859 +1,697 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
+  ArrowRight,
   BarChart3,
+  Bot,
+  BrainCircuit,
+  Check,
+  ChevronDown,
+  Globe2,
+  LineChart,
+  MapPin,
   Megaphone,
+  MousePointerClick,
   Search,
+  Settings2,
+  ShoppingBag,
+  Smartphone,
+  Sparkles,
   Target,
   TrendingUp,
-  TrendingDown,
   Users,
   Workflow,
-  Filter,
   Zap,
-  LineChart,
-  ShieldCheck,
-  Layers,
-  Globe,
-  Sparkles,
-  PieChart,
-  Repeat,
+  Star,
   Mail,
-  Share2,
-  CheckCircle2,
-  ArrowRight,
-  MousePointerClick,
-  Bot,
-  DollarSign,
-  Eye,
-  UserPlus,
-  ShoppingCart,
   Gauge,
-  CalendarDays,
-  FileText,
-  Bell,
   MessageSquare,
-  Instagram,
-  Facebook,
-  Linkedin,
-  Youtube,
-  Smartphone,
-  Monitor,
-  Award,
-  Lightbulb,
-  Activity,
-  Database,
-  BarChart,
-  CircleDollarSign,
-  ChevronRight,
-  Check,
-  Clock,
-  Rocket,
-  Crosshair,
+  Layers3,
+  Eye,
   RefreshCw,
-  Workflow as WorkflowIcon,
 } from 'lucide-react';
 
 import {
   ServicesHeroSection,
   ServiceItem,
 } from '@/components/ui/services-hero-section';
-
-import ServiceCaseStudies, {
-  CaseStudy,
-} from '@/components/sections/ServiceCaseStudies';
-
+import ServiceCaseStudies from '@/components/sections/ServiceCaseStudies';
 import ServiceCTA from '@/components/sections/ServiceCTA';
-
 import { SectionHeading } from '@/components/ui/section-heading';
 
 /* =========================================================
-   SILICONHUBS BRAND COLORS
-========================================================= */
+   COLORS
+   ========================================================= */
 
-const COLORS = {
-  orange: '#FC4C00',
-  navy: '#071B3A',
-  cream: '#FFE8C1',
-  lightCream: '#FFF5E8',
-  white: '#FFFFFF',
-  border: '#E8D8C5',
-  muted: '#526071',
+const ORANGE = '#FC4C00';
+const NAVY = '#0A192F';
+const CREAM = '#FFF9F0';
+
+/* =========================================================
+   TYPES
+   ========================================================= */
+
+type Capability = {
+  id: string;
+  label: string;
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  features: string[];
+  image: string;
+};
+
+type FAQ = {
+  question: string;
+  answer: string;
 };
 
 /* =========================================================
-   ANIMATIONS
-========================================================= */
+   ANIMATION
+   ========================================================= */
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const fadeInUp = {
+const fadeUp = {
   hidden: {
     opacity: 0,
-    y: 28,
+    y: 30,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.55,
-      ease: [0.22, 1, 0.36, 1],
+      duration: 0.65,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const stagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
     },
   },
 };
 
 /* =========================================================
    SERVICES
-========================================================= */
+   ========================================================= */
 
-const services: ServiceItem[] = [
+const services = [
+  {
+    title: 'Performance Marketing',
+    description:
+      'Data-driven paid campaigns designed to generate qualified traffic, leads, sales and measurable business outcomes.',
+    icon: Megaphone,
+  },
+  {
+    title: 'SEO',
+    description:
+      'Technical, content and authority-focused SEO built around search intent and sustainable organic visibility.',
+    icon: Search,
+  },
+  {
+    title: 'Local SEO & GMB',
+    description:
+      'Google Business Profile and local search optimization designed to improve local discovery and customer actions.',
+    icon: MapPin,
+  },
+  {
+    title: 'GEO & AEO',
+    description:
+      'Content and entity architecture prepared for generative search and answer engines.',
+    icon: Sparkles,
+  },
+  {
+    title: 'Social Media',
+    description:
+      'Platform-specific content, community building, creative strategy and paid social campaigns.',
+    icon: Smartphone,
+  },
+  {
+    title: 'CRO & Funnels',
+    description:
+      'Conversion-focused landing pages, experiments and funnel optimization to turn traffic into customers.',
+    icon: MousePointerClick,
+  },
+  {
+    title: 'Lifecycle Automation',
+    description:
+      'Email, WhatsApp, CRM and behavioral automation that nurtures leads and improves retention.',
+    icon: Workflow,
+  },
+  {
+    title: 'Analytics & Attribution',
+    description:
+      'Tracking infrastructure, dashboards and attribution systems that make marketing performance measurable.',
+    icon: BarChart3,
+  },
+];
+
+/* =========================================================
+   HERO SERVICES (shaped for ServicesHeroSection)
+   ========================================================= */
+
+const heroServices: ServiceItem[] = [
   {
     id: 'performance-marketing',
     name: 'Performance Marketing',
-    url: '/contact',
+    url: '/services/digital-marketing',
     description:
-      'Data-engineered paid campaigns tuned for high ROAS, qualified leads and scalable customer acquisition.',
+      'Data-driven paid campaigns that generate qualified traffic, leads and sales.',
+    imgSrc: '/media/home/featured-services/seo.jpg',
+  },
+  {
+    id: 'seo',
+    name: 'SEO',
+    url: '/services/seo',
+    description:
+      'Technical, content and authority-focused SEO for sustainable organic visibility.',
+    imgSrc: '/media/portfolio/hero/seo.jpg',
+  },
+  {
+    id: 'local-seo-gmb',
+    name: 'Local SEO & GMB',
+    url: '/services/seo',
+    description:
+      'Google Business Profile and local search optimization for local discovery.',
     imgSrc: '/media/portfolio/featured-projects/seo-campaign.jpg',
   },
   {
-    id: 'seo-organic',
-    name: 'SEO & Organic Growth',
-    url: '/contact',
+    id: 'geo-aeo',
+    name: 'GEO & AEO',
+    url: '/services/digital-marketing',
     description:
-      'Technical SEO, content strategy and authority building designed for sustainable search growth.',
-    imgSrc: '/media/portfolio/case-studies/digital-transformation.jpg',
+      'Content and entity architecture prepared for generative search and answer engines.',
+    imgSrc: '/media/home/featured-services/web-design.jpg',
   },
   {
     id: 'social-media',
-    name: 'Social Media Strategy',
-    url: '/contact',
+    name: 'Social Media',
+    url: '/services/digital-marketing',
     description:
-      'Creative social strategies designed to increase reach, engagement, community and conversions.',
-    imgSrc: '/media/home/case-studies/enterprise-platform.jpg',
+      'Platform-specific content, community building and paid social campaigns.',
+    imgSrc: '/media/home/featured-services/chatbot-development.png',
   },
   {
     id: 'cro-funnels',
-    name: 'CRO & Funnel Design',
-    url: '/contact',
+    name: 'CRO & Funnels',
+    url: '/services/shopify',
     description:
-      'High-converting landing pages, offers and customer journeys engineered to turn traffic into revenue.',
-    imgSrc: '/media/portfolio/case-studies/ecommerce.jpg',
+      'Conversion-focused landing pages and experiments that turn traffic into customers.',
+    imgSrc: '/media/home/featured-services/shopify.png',
   },
   {
     id: 'lifecycle-automation',
-    name: 'Email & Lifecycle Automation',
-    url: '/contact',
+    name: 'Lifecycle Automation',
+    url: '/services/n8n-automations',
     description:
-      'Automated customer journeys that increase retention, repeat purchases and lifetime value.',
-    imgSrc: '/media/services/seo/case-studies/ecommerce-seo.jpg',
+      'Email, WhatsApp, CRM and behavioral automation that nurtures and retains leads.',
+    imgSrc: '/media/home/case-studies/workflow-automation.jpg',
   },
   {
-    id: 'influencer-affiliate',
-    name: 'Influencer & Digital PR',
-    url: '/contact',
+    id: 'analytics-attribution',
+    name: 'Analytics & Attribution',
+    url: '/services/digital-marketing',
     description:
-      'Creator partnerships and digital PR campaigns that increase authority, trust and brand visibility.',
-    imgSrc: '/media/services/seo/case-studies/local-business.jpg',
+      'Tracking infrastructure, dashboards and attribution that make marketing measurable.',
+    imgSrc: '/media/portfolio/hero/automation.jpg',
   },
 ];
 
 /* =========================================================
-   MARKETING PILLARS
-========================================================= */
+   CAPABILITIES
+   ========================================================= */
 
-const marketingPillars = [
+const capabilities: Capability[] = [
   {
-    id: 'paid-media',
-    label: 'Paid Media',
-    icon: Target,
-    tagline: 'Precision Audience Acquisition',
+    id: 'performance',
+    label: 'Performance',
+    icon: Megaphone,
+    title: 'Performance Marketing',
+    description:
+      'Build, launch and continuously optimize paid acquisition campaigns across the channels where your customers spend time.',
     features: [
-      {
-        title: 'Google & YouTube Ads',
-        desc: 'Capture high-intent searches and video audiences using optimized campaign structures.',
-      },
-      {
-        title: 'Meta & Instagram Ads',
-        desc: 'Full-funnel Facebook and Instagram advertising with creative testing and audience optimization.',
-      },
-      {
-        title: 'TikTok Advertising',
-        desc: 'Performance-focused short-form advertising designed around modern buying behavior.',
-      },
-      {
-        title: 'Retargeting Architecture',
-        desc: 'Reconnect with website visitors, abandoned carts and high-intent prospects.',
-      },
-      {
-        title: 'Campaign Optimization',
-        desc: 'Continuous budget, audience, creative and bidding optimization.',
-      },
-      {
-        title: 'ROAS & CAC Management',
-        desc: 'Optimize campaigns around business outcomes rather than vanity metrics.',
-      },
+      'Google Search, Display & YouTube',
+      'Meta Ads & paid social',
+      'Retargeting campaigns',
+      'Audience segmentation',
+      'Creative testing',
+      'Budget allocation',
+      'CPA, CPL & ROAS monitoring',
+      'GA4 & conversion tracking',
     ],
+    image: '/media/portfolio/featured-projects/seo-campaign.jpg',
   },
-
   {
-    id: 'organic-seo',
-    label: 'SEO & Authority',
+    id: 'seo',
+    label: 'SEO',
     icon: Search,
-    tagline: 'Sustainable Search Dominance',
+    title: 'Search Engine Optimization',
+    description:
+      'A technical and content-led SEO system designed to build stronger organic visibility around commercial search intent.',
     features: [
-      {
-        title: 'Technical SEO',
-        desc: 'Technical audits, crawl optimization, indexing, Core Web Vitals and structured data.',
-      },
-      {
-        title: 'Keyword Strategy',
-        desc: 'Research and prioritization of high-intent commercial and informational keywords.',
-      },
-      {
-        title: 'Content Engine',
-        desc: 'Content systems designed to capture search demand and build topical authority.',
-      },
-      {
-        title: 'Digital PR & Link Building',
-        desc: 'Authority-building campaigns focused on relevant and high-quality placements.',
-      },
-      {
-        title: 'Local SEO',
-        desc: 'Location-based optimization for businesses targeting local customers.',
-      },
-      {
-        title: 'SEO Reporting',
-        desc: 'Track rankings, organic traffic, impressions, clicks and conversions.',
-      },
+      'Technical SEO audits',
+      'Keyword & intent research',
+      'On-page optimization',
+      'Content clusters',
+      'Internal linking',
+      'Core Web Vitals',
+      'Schema implementation',
+      'Authority building',
+      'Search Console monitoring',
     ],
+    image: '/media/services/seo/case-studies/ecommerce-seo.jpg',
   },
-
   {
-    id: 'funnel-cro',
-    label: 'CRO & Funnels',
-    icon: Zap,
-    tagline: 'Turning Clicks Into Revenue',
+    id: 'local',
+    label: 'Local SEO',
+    icon: MapPin,
+    title: 'Local SEO & Google Business Profile',
+    description:
+      'Strengthen local discovery through Google Business Profile optimization, location signals and conversion-focused local content.',
     features: [
-      {
-        title: 'Landing Page Optimization',
-        desc: 'High-performance landing pages designed around conversion psychology.',
-      },
-      {
-        title: 'A/B Testing',
-        desc: 'Test headlines, offers, layouts, CTAs and user experiences.',
-      },
-      {
-        title: 'Heatmap Analysis',
-        desc: 'Identify friction points using behavioral analytics and session recordings.',
-      },
-      {
-        title: 'Offer Engineering',
-        desc: 'Improve value propositions, offers and conversion triggers.',
-      },
-      {
-        title: 'Checkout Optimization',
-        desc: 'Reduce abandonment and improve the customer purchase experience.',
-      },
-      {
-        title: 'Conversion Tracking',
-        desc: 'Track every important customer action from click to conversion.',
-      },
+      'Google Business Profile optimization',
+      'Primary & secondary categories',
+      'Services and business information',
+      'Photos & Google Posts',
+      'Review strategy',
+      'NAP consistency',
+      'Local citations',
+      'Location landing pages',
+      'LocalBusiness schema',
+      'Maps visibility tracking',
     ],
+    image: '/media/services/seo/case-studies/local-business.jpg',
   },
-
   {
-    id: 'retention-crm',
-    label: 'Automation & CRM',
-    icon: Mail,
-    tagline: 'Maximizing Customer Lifetime Value',
+    id: 'geo',
+    label: 'GEO + AEO',
+    icon: Sparkles,
+    title: 'Generative Engine & Answer Engine Optimization',
+    description:
+      'Prepare your website and content architecture for AI-powered discovery, conversational queries and answer-driven search experiences.',
     features: [
-      {
-        title: 'Email Automation',
-        desc: 'Welcome, nurture, abandoned cart and re-engagement campaigns.',
-      },
-      {
-        title: 'WhatsApp Marketing',
-        desc: 'Conversational marketing flows for leads and customers.',
-      },
-      {
-        title: 'Customer Segmentation',
-        desc: 'Segment users based on behavior, value and lifecycle stage.',
-      },
-      {
-        title: 'Lead Scoring',
-        desc: 'Identify high-quality leads and prioritize sales opportunities.',
-      },
-      {
-        title: 'Retention Campaigns',
-        desc: 'Automated strategies designed to increase repeat purchases.',
-      },
-      {
-        title: 'Referral Systems',
-        desc: 'Create automated referral and loyalty loops.',
-      },
+      'Generative search readiness',
+      'Answer-focused content',
+      'Entity optimization',
+      'FAQ architecture',
+      'Conversational query coverage',
+      'Citation-friendly content',
+      'Structured data',
+      'Topical authority',
+      'Knowledge/entity signals',
     ],
+    image: '/media/portfolio/case-studies/digital-transformation.jpg',
+  },
+  {
+    id: 'social',
+    label: 'Social',
+    icon: Smartphone,
+    title: 'Social Media Growth',
+    description:
+      'Build an active digital presence with content systems designed around attention, trust, engagement and conversion.',
+    features: [
+      'Content strategy',
+      'Reels & short-form video',
+      'Carousel content',
+      'Community management',
+      'Paid social',
+      'Creator campaigns',
+      'Platform-specific content',
+      'Social reporting',
+    ],
+    image: '/media/home/case-studies/enterprise-platform.jpg',
+  },
+  {
+    id: 'cro',
+    label: 'CRO',
+    icon: MousePointerClick,
+    title: 'Conversion Rate Optimization',
+    description:
+      'Remove friction from your customer journey and turn more of your existing traffic into qualified actions.',
+    features: [
+      'Landing page optimization',
+      'UX friction analysis',
+      'CTA optimization',
+      'Offer positioning',
+      'A/B testing strategy',
+      'Heatmap analysis',
+      'Session behavior analysis',
+      'Checkout optimization',
+      'Lead form optimization',
+    ],
+    image: '/media/portfolio/case-studies/ecommerce.jpg',
+  },
+  {
+    id: 'automation',
+    label: 'Automation',
+    icon: Bot,
+    title: 'Lifecycle & Marketing Automation',
+    description:
+      'Connect acquisition, CRM and retention through automated customer journeys.',
+    features: [
+      'Email automation',
+      'WhatsApp workflows',
+      'Welcome sequences',
+      'Lead nurturing',
+      'Abandoned cart recovery',
+      'Re-engagement',
+      'Customer segmentation',
+      'CRM automation',
+      'Behavior-based campaigns',
+    ],
+    image: '/media/portfolio/case-studies/digital-transformation.jpg',
+  },
+  {
+    id: 'analytics',
+    label: 'Analytics',
+    icon: BarChart3,
+    title: 'Analytics & Attribution',
+    description:
+      'Create a measurement layer that connects marketing activity with actual business outcomes.',
+    features: [
+      'Google Analytics 4',
+      'Google Tag Manager',
+      'Search Console',
+      'Looker Studio dashboards',
+      'Meta Pixel',
+      'Conversion API planning',
+      'UTM architecture',
+      'CRM attribution',
+      'Campaign reporting',
+    ],
+    image: '/media/portfolio/featured-projects/seo-campaign.jpg',
   },
 ];
 
 /* =========================================================
-   PERFORMANCE FLOW
-========================================================= */
+   METHODOLOGY
+   ========================================================= */
 
-const performanceFlow = [
+const methodology = [
   {
-    icon: Filter,
-    step: '01',
-    title: 'Data Ecosystem Audit',
+    number: '01',
+    icon: Target,
+    title: 'Audience Intelligence',
     description:
-      'We audit analytics, tracking, pixels, CRM data and attribution systems.',
+      'Understand customer intent, pain points, buying behavior and high-value segments before spending aggressively.',
   },
   {
-    icon: Workflow,
-    step: '02',
-    title: 'Growth Architecture',
+    number: '02',
+    icon: Sparkles,
+    title: 'Creative Systems',
     description:
-      'We design the complete acquisition, conversion and retention system.',
+      'Develop messaging and creative variations that can be tested, measured and continuously improved.',
   },
   {
-    icon: Megaphone,
-    step: '03',
-    title: 'Omnichannel Deployment',
-    description:
-      'We launch campaigns across search, social, content, email and automation.',
-  },
-  {
+    number: '03',
     icon: LineChart,
-    step: '04',
-    title: 'Optimization & Scale',
+    title: 'Measurement',
     description:
-      'We continuously analyze performance and move budget toward winning channels.',
+      'Build reliable tracking around conversions, acquisition costs, revenue and customer behavior.',
+  },
+  {
+    number: '04',
+    icon: TrendingUp,
+    title: 'Optimization',
+    description:
+      'Use campaign and website signals to identify opportunities, reduce friction and scale what works.',
   },
 ];
 
 /* =========================================================
-   CASE STUDIES
-========================================================= */
+   FUNNEL
+   ========================================================= */
 
-const caseStudies: CaseStudy[] = [
+const funnel = [
   {
-    img: '/media/services/seo/case-studies/ecommerce-seo.jpg',
-    title: 'Full-Funnel Demand Generation',
-    desc: 'Scaled E-commerce revenue through unified Meta, Google, content and conversion optimization.',
-    sliderName: 'demand-generation',
+    stage: '01',
+    title: 'Discover',
+    icon: Eye,
+    description: 'Reach relevant audiences.',
+    channels: ['SEO', 'Paid Media', 'Social', 'GEO'],
   },
   {
-    img: '/media/services/seo/case-studies/local-business.jpg',
-    title: 'B2B Market Authority',
-    desc: 'Built a content-led acquisition engine generating qualified pipeline through search and digital authority.',
-    sliderName: 'brand-growth',
+    stage: '02',
+    title: 'Engage',
+    icon: Users,
+    description: 'Build trust and interest.',
+    channels: ['Content', 'Video', 'Email', 'Retargeting'],
+  },
+  {
+    stage: '03',
+    title: 'Convert',
+    icon: MousePointerClick,
+    description: 'Turn intent into action.',
+    channels: ['Landing Pages', 'CRO', 'Offers', 'Lead Forms'],
+  },
+  {
+    stage: '04',
+    title: 'Retain',
+    icon: RefreshCw,
+    description: 'Increase customer lifetime value.',
+    channels: ['CRM', 'WhatsApp', 'Email', 'Automation'],
   },
 ];
 
 /* =========================================================
-   EXECUTIVE DASHBOARD DATA
-========================================================= */
+   EXECUTION FLOW
+   ========================================================= */
 
-const dashboardStats = [
+const executionFlow = [
+  'Audit',
+  'Strategy',
+  'Build',
+  'Launch',
+  'Optimize',
+  'Scale',
+];
+
+/* =========================================================
+   TOOLS
+   ========================================================= */
+
+const tools = [
+  'Google Ads',
+  'Meta Ads',
+  'TikTok Ads',
+  'GA4',
+  'Google Search Console',
+  'Google Tag Manager',
+  'Looker Studio',
+  'SEMrush',
+  'Ahrefs',
+  'Hotjar',
+  'HubSpot',
+  'Klaviyo',
+];
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+
+const faqs: FAQ[] = [
   {
-    icon: Globe,
-    label: 'Website Visitors',
-    value: '24,850',
-    growth: '+32.4%',
+    question: 'What digital marketing services does SiliconHubs provide?',
+    answer:
+      'SiliconHubs provides performance marketing, SEO, local SEO and Google Business Profile optimization, GEO and AEO strategy, social media marketing, CRO, lifecycle automation and analytics.',
   },
   {
-    icon: UserPlus,
-    label: 'Generated Leads',
-    value: '1,284',
-    growth: '+48.2%',
+    question: 'Do you provide Google Business Profile and local SEO services?',
+    answer:
+      'Yes. Our local SEO approach can include Google Business Profile optimization, business categories, services, reviews, local citations, NAP consistency, location pages, local schema and local visibility tracking.',
   },
   {
-    icon: ShoppingCart,
-    label: 'Conversions',
-    value: '347',
-    growth: '+21.7%',
+    question: 'What is GEO and AEO optimization?',
+    answer:
+      'GEO refers to Generative Engine Optimization while AEO refers to Answer Engine Optimization. The goal is to structure useful, authoritative and entity-aware content so it is better prepared for AI-powered and answer-focused search experiences.',
   },
   {
-    icon: CircleDollarSign,
-    label: 'Revenue',
-    value: '$18,750',
-    growth: '+37.2%',
+    question: 'Do you guarantee Google rankings or AI search citations?',
+    answer:
+      'No responsible agency can guarantee specific rankings, traffic or AI citations. Our work focuses on strong technical foundations, useful content, search intent, structured data, authority and continuous optimization.',
   },
   {
-    icon: Megaphone,
-    label: 'Ad Spend',
-    value: '$2,450',
-    growth: '-8.4%',
+    question: 'Can you manage paid advertising campaigns?',
+    answer:
+      'Yes. Performance marketing can cover Google Ads, Meta advertising, retargeting, creative testing, audience segmentation, campaign optimization and conversion measurement.',
   },
   {
-    icon: Gauge,
-    label: 'ROAS',
-    value: '7.65x',
-    growth: '+18.3%',
+    question: 'How do you measure digital marketing performance?',
+    answer:
+      'Measurement can include leads, sales, conversion rate, CPA, CPL, ROAS, traffic quality, organic visibility, engagement and customer lifecycle metrics depending on the business model.',
   },
 ];
 
 /* =========================================================
-   SOCIAL DATA
-========================================================= */
+   FEATURE CARD
+   ========================================================= */
 
-const socialPlatforms = [
-  {
-    icon: Instagram,
-    name: 'Instagram',
-    followers: '24.8K',
-    growth: '+14.2%',
-  },
-  {
-    icon: Facebook,
-    name: 'Facebook',
-    followers: '18.4K',
-    growth: '+9.7%',
-  },
-  {
-    icon: Linkedin,
-    name: 'LinkedIn',
-    followers: '8.7K',
-    growth: '+18.4%',
-  },
-  {
-    icon: Youtube,
-    name: 'YouTube',
-    followers: '12.1K',
-    growth: '+21.3%',
-  },
-];
+function FeatureCard({
+  icon: Icon,
+  title,
+  description,
+}: {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}) {
+  return (
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ y: -8 }}
+      className="group relative overflow-hidden rounded-3xl border border-[#FC4C00]/20 bg-[#FFF9F0] p-7 transition-all duration-300 hover:border-[#FC4C00]"
+    >
+      <div className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-[#FC4C00]/10 transition-transform duration-500 group-hover:scale-[2]" />
 
-/* =========================================================
-   CAMPAIGNS
-========================================================= */
+      <div className="relative">
+        <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0A192F] text-[#FC4C00] transition-all duration-300 group-hover:bg-[#FC4C00] group-hover:text-[#FFF9F0]">
+          <Icon size={25} />
+        </div>
 
-const campaigns = [
-  {
-    name: 'Summer Sale',
-    platform: 'Meta Ads',
-    spend: '$500',
-    leads: '142',
-    cpl: '$3.52',
-    roas: '6.4x',
-  },
-  {
-    name: 'Lead Generation',
-    platform: 'Google Ads',
-    spend: '$350',
-    leads: '96',
-    cpl: '$3.64',
-    roas: '5.8x',
-  },
-  {
-    name: 'Retargeting',
-    platform: 'Meta Ads',
-    spend: '$220',
-    leads: '87',
-    cpl: '$2.52',
-    roas: '8.1x',
-  },
-  {
-    name: 'Brand Awareness',
-    platform: 'YouTube',
-    spend: '$180',
-    leads: '41',
-    cpl: '$4.39',
-    roas: '3.7x',
-  },
-];
+        <h3 className="mb-3 text-xl font-bold text-[#0A192F]">{title}</h3>
+
+        <p className="leading-7 text-[#0A192F]/70">{description}</p>
+
+        <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-[#FC4C00]">
+          Explore capability
+          <ArrowRight
+            size={16}
+            className="transition-transform duration-300 group-hover:translate-x-2"
+          />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 /* =========================================================
-   SEO DATA
-========================================================= */
+   FAQ ITEM
+   ========================================================= */
 
-const seoKeywords = [
-  {
-    keyword: 'digital marketing agency',
-    position: '#3',
-    change: '+4',
-  },
-  {
-    keyword: 'web development agency',
-    position: '#5',
-    change: '+2',
-  },
-  {
-    keyword: 'AI automation services',
-    position: '#7',
-    change: '+6',
-  },
-  {
-    keyword: 'Shopify development',
-    position: '#4',
-    change: '+3',
-  },
-];
+function FAQItem({
+  faq,
+  open,
+  onClick,
+}: {
+  faq: FAQ;
+  open: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <div className="border-b border-[#FFF9F0]/20">
+      <button
+        onClick={onClick}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between gap-6 py-6 text-left"
+      >
+        <span className="text-lg font-semibold text-[#FFF9F0]">
+          {faq.question}
+        </span>
 
-/* =========================================================
-   CONTENT DATA
-========================================================= */
+        <ChevronDown
+          size={22}
+          className={`shrink-0 text-[#FC4C00] transition-transform duration-300 ${
+            open ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
 
-const contentItems = [
-  {
-    type: 'Reel',
-    title: 'Why Your Ads Are Not Converting',
-    platform: 'Instagram',
-    status: 'Published',
-  },
-  {
-    type: 'Carousel',
-    title: '5 Digital Marketing Mistakes',
-    platform: 'LinkedIn',
-    status: 'Scheduled',
-  },
-  {
-    type: 'Post',
-    title: 'Build. Automate. Scale.',
-    platform: 'Facebook',
-    status: 'Approved',
-  },
-  {
-    type: 'Blog',
-    title: 'Complete SEO Growth Guide',
-    platform: 'Website',
-    status: 'Draft',
-  },
-];
-
-/* =========================================================
-   COMPETITOR DATA
-========================================================= */
-
-const competitors = [
-  {
-    name: 'Your Brand',
-    followers: '24.8K',
-    engagement: '5.8%',
-    posts: '18/mo',
-  },
-  {
-    name: 'Competitor A',
-    followers: '18.2K',
-    engagement: '3.2%',
-    posts: '12/mo',
-  },
-  {
-    name: 'Competitor B',
-    followers: '31.7K',
-    engagement: '4.1%',
-    posts: '21/mo',
-  },
-];
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+          >
+            <p className="pb-6 pr-10 leading-7 text-[#FFF9F0]/70">
+              {faq.answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 /* =========================================================
    MAIN COMPONENT
-========================================================= */
+   ========================================================= */
 
 export default function DigitalMarketingPageClient() {
-  const [activeTab, setActiveTab] = useState('paid-media');
+  const [activeCapability, setActiveCapability] = useState('performance');
+  const [activeFunnel, setActiveFunnel] = useState(0);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(0);
 
-  const currentPillar =
-    marketingPillars.find((p) => p.id === activeTab) || marketingPillars[0];
+  const active =
+    capabilities.find((item) => item.id === activeCapability) ??
+    capabilities[0];
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#FFF5E8] pt-20 text-[#071B3A]">
+    <main className="overflow-hidden bg-[#FFF9F0] text-[#0A192F]">
       {/* =====================================================
           HERO
       ===================================================== */}
 
       <ServicesHeroSection
-        eyebrow="SiliconHubs Digital Growth Studio"
-        title="Engineering Unfair Growth Advantages"
-        highlightedWord="Unfair"
-        highlightedWord2="Advantages"
-        subtitle="End-to-end digital marketing systems combining strategy, performance media, creative, automation, analytics and AI to turn attention into predictable revenue."
-        services={services}
-        ctaLabel="Plan Your Growth System"
+        eyebrow="Digital Marketing & Growth"
+        title="Turn Attention Into"
+        highlightedWord="Predictable Growth"
+        highlightedWord2="with Digital Marketing"
+        subtitle="SiliconHubs combines performance marketing, SEO, local search, GEO, AEO, social media, CRO and automation into one connected growth system."
+        services={heroServices}
+        ctaLabel="Build My Growth Strategy"
         ctaHref="/contact"
         variant="digital-marketing"
       />
 
       {/* =====================================================
-          IMPACT STATS
+          HERO SUPPORT / VALUE STRIP
       ===================================================== */}
 
-      <section className="border-y border-[#E8D8C5] bg-[#FFE8C1] px-6 py-12">
-        <div className="mx-auto max-w-7xl">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-2 gap-8 md:grid-cols-4"
-          >
-            {[
-              ['4.8x', 'Average Blended ROAS'],
-              ['38%', 'Average CAC Reduction'],
-              ['100M+', 'Tracked User Signals'],
-              ['94%', 'Client Retention Rate'],
-            ].map(([metric, label]) => (
-              <motion.div
-                key={label}
-                variants={fadeInUp}
-                className="text-center"
-              >
-                <p className="text-4xl font-black text-[#FC4C00] md:text-5xl">
-                  {metric}
-                </p>
-
-                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-[#071B3A]/70">
-                  {label}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          EXECUTIVE GROWTH DASHBOARD
-      ===================================================== */}
-
-      <section className="px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Transparent Performance"
-            title="Your Entire Growth Engine"
-            titleHighlight="In One View"
-            subtitle="Every important marketing signal brought together into a single performance dashboard."
-          />
-
-          {/* Dashboard shell */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-16 overflow-hidden rounded-[30px] border border-[#E8D8C5] bg-white shadow-2xl"
-          >
-            {/* Dashboard header */}
-
-            <div className="flex flex-col justify-between gap-5 border-b border-[#E8D8C5] bg-[#071B3A] p-6 md:flex-row md:items-center">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-[#FC4C00]">
-                  SiliconHubs Growth OS
-                </p>
-
-                <h3 className="mt-2 text-2xl font-black text-white">
-                  Executive Performance Dashboard
-                </h3>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <span className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-white">
-                  <span className="h-2 w-2 rounded-full bg-green-400" />
-                  Live Data
-                </span>
-
-                <span className="rounded-full bg-[#FC4C00] px-4 py-2 text-xs font-bold text-white">
-                  September 2026
-                </span>
-              </div>
-            </div>
-
-            <div className="p-6 md:p-8">
-              {/* KPI cards */}
-
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {dashboardStats.map((stat) => {
-                  const Icon = stat.icon;
-
-                  return (
-                    <div
-                      key={stat.label}
-                      className="group rounded-2xl border border-[#E8D8C5] bg-[#FFF5E8] p-5 transition-all hover:-translate-y-1 hover:border-[#FC4C00] hover:shadow-lg"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="rounded-xl bg-[#071B3A] p-3 text-[#FC4C00]">
-                          <Icon className="h-5 w-5" />
-                        </div>
-
-                        <span className="text-xs font-bold text-green-600">
-                          {stat.growth}
-                        </span>
-                      </div>
-
-                      <p className="mt-5 text-xs font-bold uppercase tracking-wider text-[#526071]">
-                        {stat.label}
-                      </p>
-
-                      <p className="mt-1 text-3xl font-black text-[#071B3A]">
-                        {stat.value}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Dashboard lower area */}
-
-              <div className="mt-6 grid gap-6 lg:grid-cols-3">
-                {/* Growth graph */}
-
-                <div className="rounded-2xl border border-[#E8D8C5] p-6 lg:col-span-2">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="font-black text-[#071B3A]">
-                        Revenue & Lead Growth
-                      </h4>
-
-                      <p className="mt-1 text-xs text-[#526071]">
-                        Monthly performance trend
-                      </p>
-                    </div>
-
-                    <LineChart className="h-5 w-5 text-[#FC4C00]" />
-                  </div>
-
-                  <div className="mt-8 flex h-56 items-end gap-3">
-                    {[38, 48, 42, 62, 58, 74, 68, 86, 79, 94, 88, 100].map(
-                      (height, index) => (
-                        <div
-                          key={index}
-                          className="group flex flex-1 flex-col justify-end"
-                        >
-                          <div
-                            style={{ height: `${height}%` }}
-                            className="rounded-t-lg bg-[#FC4C00] transition-all duration-500 group-hover:bg-[#071B3A]"
-                          />
-                        </div>
-                      )
-                    )}
-                  </div>
-
-                  <div className="mt-4 flex justify-between text-[10px] font-bold text-[#526071]">
-                    <span>Jan</span>
-                    <span>Feb</span>
-                    <span>Mar</span>
-                    <span>Apr</span>
-                    <span>May</span>
-                    <span>Jun</span>
-                    <span>Jul</span>
-                    <span>Aug</span>
-                    <span>Sep</span>
-                  </div>
-                </div>
-
-                {/* AI insight */}
-
-                <div className="rounded-2xl bg-[#071B3A] p-6 text-white">
-                  <div className="flex items-center gap-3">
-                    <div className="rounded-xl bg-[#FC4C00] p-3">
-                      <Sparkles className="h-5 w-5" />
-                    </div>
-
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-[#FC4C00]">
-                        AI Insight
-                      </p>
-
-                      <h4 className="font-black">Growth Opportunity</h4>
-                    </div>
-                  </div>
-
-                  <p className="mt-6 text-sm leading-7 text-white/70">
-                    Retargeting currently generates your strongest return.
-                    Increasing qualified retargeting traffic could improve
-                    conversion efficiency.
-                  </p>
-
-                  <div className="mt-6 rounded-xl bg-white/10 p-4">
-                    <div className="flex justify-between">
-                      <span className="text-xs text-white/60">
-                        Current ROAS
-                      </span>
-
-                      <strong className="text-[#FC4C00]">8.1x</strong>
-                    </div>
-
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
-                      <div className="h-full w-[81%] rounded-full bg-[#FC4C00]" />
-                    </div>
-                  </div>
-
-                  <button className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#FC4C00] px-5 py-3 text-sm font-bold transition hover:bg-white hover:text-[#071B3A]">
-                    Generate Full Analysis
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          SOCIAL MEDIA ANALYTICS
-      ===================================================== */}
-
-      <section className="bg-[#FFE8C1] px-6 py-24">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Social Intelligence"
-            title="One Brand."
-            titleHighlight="Every Platform."
-            subtitle="Track audience growth, engagement and social performance across your entire digital presence."
-          />
-
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {socialPlatforms.map((platform) => {
-              const Icon = platform.icon;
-
-              return (
-                <motion.div
-                  key={platform.name}
-                  whileHover={{ y: -7 }}
-                  className="rounded-2xl border border-[#E8D8C5] bg-white p-6 shadow-sm"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="rounded-xl bg-[#FFF5E8] p-3 text-[#FC4C00]">
-                      <Icon className="h-6 w-6" />
-                    </div>
-
-                    <span className="text-xs font-bold text-green-600">
-                      {platform.growth}
-                    </span>
-                  </div>
-
-                  <h3 className="mt-6 font-bold text-[#071B3A]">
-                    {platform.name}
-                  </h3>
-
-                  <p className="mt-2 text-3xl font-black text-[#071B3A]">
-                    {platform.followers}
-                  </p>
-
-                  <p className="mt-1 text-xs text-[#526071]">Followers</p>
-
-                  <div className="mt-5 h-2 rounded-full bg-[#FFF5E8]">
-                    <div className="h-full w-[76%] rounded-full bg-[#FC4C00]" />
-                  </div>
-
-                  <div className="mt-4 flex justify-between text-xs text-[#526071]">
-                    <span>Engagement</span>
-                    <strong>5.8%</strong>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+      <section className="border-y border-[#FC4C00]/20 bg-[#0A192F]">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
+          {[
+            {
+              icon: Target,
+              title: 'Full Funnel',
+              text: 'From discovery to retention',
+            },
+            {
+              icon: Search,
+              title: 'Search Ready',
+              text: 'SEO + Local + GEO + AEO',
+            },
+            {
+              icon: Megaphone,
+              title: 'Paid Growth',
+              text: 'Campaigns built for measurable outcomes',
+            },
+            {
+              icon: BarChart3,
+              title: 'Data Driven',
+              text: 'Track, test and optimize',
+            },
+          ].map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="border-[#FFF9F0]/10 p-6 lg:border-r"
+            >
+              <item.icon className="mb-4 text-[#FC4C00]" size={24} />
+              <h3 className="font-bold text-[#FFF9F0]">{item.title}</h3>
+              <p className="mt-1 text-sm text-[#FFF9F0]/60">{item.text}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -861,782 +699,389 @@ export default function DigitalMarketingPageClient() {
           METHODOLOGY
       ===================================================== */}
 
-      <section className="px-6 py-28">
-        <div className="mx-auto max-w-7xl">
+      <section className="relative py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Our Methodology"
+            eyebrow="Our Growth Method"
             title="Marketing Built Around"
-            titleHighlight="Momentum"
-            subtitle="Isolated channels fail. We interconnect search, paid media, creative, analytics and automation into one compounding growth engine."
+            titleHighlight="Business Outcomes"
+            subtitle="Instead of treating every marketing channel as a separate activity, we connect acquisition, conversion, measurement and retention."
           />
 
           <motion.div
-            variants={staggerContainer}
+            variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '-100px' }}
             className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
           >
-            {[
-              {
-                icon: Target,
-                title: 'Audience Strategy',
-                desc: 'Identify buying signals, intent cohorts and high-value market opportunities.',
-              },
-              {
-                icon: Megaphone,
-                title: 'High-Converting Creative',
-                desc: 'Create visual and video assets designed around attention and action.',
-              },
-              {
-                icon: Database,
-                title: 'First-Party Attribution',
-                desc: 'Connect marketing interactions with CRM and business outcomes.',
-              },
-              {
-                icon: TrendingUp,
-                title: 'Algorithmic Scaling',
-                desc: 'Scale winning campaigns while continuously controlling acquisition costs.',
-              },
-            ].map(({ icon: Icon, title, desc }) => (
-              <motion.article
-                key={title}
-                variants={fadeInUp}
-                className="group rounded-2xl border border-[#E8D8C5] bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#FC4C00] hover:shadow-xl"
+            {methodology.map((item) => (
+              <motion.div
+                key={item.number}
+                variants={fadeUp}
+                whileHover={{ y: -8 }}
+                className="group rounded-3xl border border-[#0A192F]/10 bg-[#FFF9F0] p-7 transition-all duration-300 hover:border-[#FC4C00]"
               >
-                <div className="mb-6 inline-flex rounded-xl bg-[#FFF5E8] p-3 text-[#FC4C00] transition group-hover:bg-[#FC4C00] group-hover:text-white">
-                  <Icon className="h-8 w-8" />
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-[#FC4C00]">
+                    {item.number}
+                  </span>
+
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0A192F] text-[#FC4C00] transition-all group-hover:bg-[#FC4C00] group-hover:text-[#FFF9F0]">
+                    <item.icon size={22} />
+                  </div>
                 </div>
 
-                <h3 className="mb-3 text-xl font-bold text-[#071B3A]">
-                  {title}
+                <h3 className="mt-8 text-xl font-bold text-[#0A192F]">
+                  {item.title}
                 </h3>
 
-                <p className="text-sm leading-relaxed text-[#526071]">{desc}</p>
-              </motion.article>
+                <p className="mt-3 leading-7 text-[#0A192F]/70">
+                  {item.description}
+                </p>
+              </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
       {/* =====================================================
-          CAMPAIGN PERFORMANCE
+          CAPABILITIES
       ===================================================== */}
 
-      <section className="bg-white px-6 py-28">
-        <div className="mx-auto max-w-7xl">
+      <section id="capabilities" className="bg-[#0A192F] py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Paid Media Intelligence"
-            title="Every Campaign."
-            titleHighlight="Accountable."
-            subtitle="See where your advertising budget is going and which campaigns are actually producing results."
+            eyebrow="360° Digital Marketing"
+            title="One Growth System."
+            titleHighlight="Every Major Channel."
+            subtitle="Explore the complete SiliconHubs digital marketing capability stack."
           />
 
-          <div className="mt-14 overflow-hidden rounded-3xl border border-[#E8D8C5] shadow-xl">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[800px]">
-                <thead className="bg-[#071B3A] text-white">
-                  <tr>
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      Campaign
-                    </th>
-
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      Platform
-                    </th>
-
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      Spend
-                    </th>
-
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      Leads
-                    </th>
-
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      CPL
-                    </th>
-
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      ROAS
-                    </th>
-
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      Status
-                    </th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {campaigns.map((campaign) => (
-                    <tr
-                      key={campaign.name}
-                      className="border-b border-[#E8D8C5] transition hover:bg-[#FFF5E8]"
-                    >
-                      <td className="p-5 font-bold text-[#071B3A]">
-                        {campaign.name}
-                      </td>
-
-                      <td className="p-5 text-sm text-[#526071]">
-                        {campaign.platform}
-                      </td>
-
-                      <td className="p-5 font-bold">{campaign.spend}</td>
-
-                      <td className="p-5 font-bold">{campaign.leads}</td>
-
-                      <td className="p-5">{campaign.cpl}</td>
-
-                      <td className="p-5 font-black text-[#FC4C00]">
-                        {campaign.roas}
-                      </td>
-
-                      <td className="p-5">
-                        <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700">
-                          Active
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          LEAD FUNNEL
-      ===================================================== */}
-
-      <section className="px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-16 lg:grid-cols-2">
-            <div>
-              <SectionHeading
-                eyebrow="Lead Generation"
-                title="From First Click"
-                titleHighlight="To Customer"
-                subtitle="Build a measurable funnel that shows exactly how prospects move from awareness to revenue."
-              />
-
-              <div className="mt-12 space-y-5">
-                {[
-                  ['Website Visitors', '24,850', '100%'],
-                  ['Marketing Leads', '1,284', '72%'],
-                  ['Qualified Leads', '672', '54%'],
-                  ['Sales Opportunities', '481', '42%'],
-                  ['Conversions', '347', '31%'],
-                ].map(([label, value, width], index) => (
-                  <div key={label}>
-                    <div className="mb-2 flex justify-between">
-                      <span className="text-sm font-bold text-[#071B3A]">
-                        {label}
-                      </span>
-
-                      <span className="text-sm font-black text-[#FC4C00]">
-                        {value}
-                      </span>
-                    </div>
-
-                    <div className="h-3 overflow-hidden rounded-full bg-[#FFE8C1]">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.8,
-                          delay: index * 0.1,
-                        }}
-                        className="h-full rounded-full bg-[#FC4C00]"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-3xl bg-[#071B3A] p-8 text-white md:p-10">
-              <div className="flex items-center gap-4">
-                <div className="rounded-xl bg-[#FC4C00] p-3">
-                  <Users className="h-6 w-6" />
-                </div>
-
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#FC4C00]">
-                    CRM Intelligence
-                  </p>
-
-                  <h3 className="text-2xl font-black">Lead Management</h3>
-                </div>
-              </div>
-
-              <div className="mt-10 space-y-4">
-                {[
-                  ['New Leads', '1,284'],
-                  ['Contacted', '1,021'],
-                  ['Qualified', '672'],
-                  ['Proposal', '481'],
-                  ['Won', '347'],
-                ].map(([stage, count], index) => (
-                  <div
-                    key={stage}
-                    className="flex items-center justify-between rounded-xl bg-white/10 p-4"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FC4C00] text-xs font-black">
-                        {index + 1}
-                      </span>
-
-                      <span className="font-semibold">{stage}</span>
-                    </div>
-
-                    <strong className="text-[#FC4C00]">{count}</strong>
-                  </div>
-                ))}
-              </div>
-
-              <button className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-[#FC4C00] px-5 py-4 font-bold transition hover:bg-white hover:text-[#071B3A]">
-                Explore CRM
-                <ArrowRight className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          SEO DASHBOARD
-      ===================================================== */}
-
-      <section className="bg-[#FFE8C1] px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Organic Growth"
-            title="Know Exactly Where"
-            titleHighlight="You Rank"
-            subtitle="Track keyword visibility, search growth and SEO opportunities in one clear interface."
-          />
-
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            <div className="rounded-3xl bg-[#071B3A] p-8 text-white">
-              <Search className="h-10 w-10 text-[#FC4C00]" />
-
-              <p className="mt-8 text-sm text-white/60">Organic Traffic</p>
-
-              <h3 className="mt-2 text-4xl font-black">42,850</h3>
-
-              <div className="mt-4 flex items-center gap-2 text-sm font-bold text-green-400">
-                <TrendingUp className="h-4 w-4" />
-                +36.8%
-              </div>
-
-              <div className="mt-8 h-3 rounded-full bg-white/10">
-                <div className="h-full w-[82%] rounded-full bg-[#FC4C00]" />
-              </div>
-            </div>
-
-            <div className="rounded-3xl bg-white p-8 lg:col-span-2">
-              <div className="mb-6 flex items-center justify-between">
-                <div>
-                  <h3 className="text-xl font-black text-[#071B3A]">
-                    Keyword Rankings
-                  </h3>
-
-                  <p className="mt-1 text-sm text-[#526071]">
-                    Search visibility this month
-                  </p>
-                </div>
-
-                <Award className="h-6 w-6 text-[#FC4C00]" />
-              </div>
-
-              <div className="space-y-4">
-                {seoKeywords.map((item) => (
-                  <div
-                    key={item.keyword}
-                    className="flex items-center justify-between rounded-xl border border-[#E8D8C5] p-4"
-                  >
-                    <div>
-                      <p className="font-bold text-[#071B3A]">{item.keyword}</p>
-
-                      <p className="mt-1 text-xs text-[#526071]">
-                        Google Search
-                      </p>
-                    </div>
-
-                    <div className="flex items-center gap-6">
-                      <span className="text-xl font-black text-[#071B3A]">
-                        {item.position}
-                      </span>
-
-                      <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700">
-                        ↑ {item.change}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          WEBSITE ANALYTICS
-      ===================================================== */}
-
-      <section className="px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Website Intelligence"
-            title="Traffic Is Good."
-            titleHighlight="Conversions Are Better."
-            subtitle="Understand where visitors come from, what they do and which pages generate business."
-          />
-
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                icon: Eye,
-                value: '24.8K',
-                label: 'Visitors',
-              },
-              {
-                icon: MousePointerClick,
-                value: '8.4%',
-                label: 'Conversion Rate',
-              },
-              {
-                icon: Activity,
-                value: '2m 48s',
-                label: 'Avg. Session',
-              },
-              {
-                icon: Repeat,
-                value: '34.2%',
-                label: 'Returning Users',
-              },
-            ].map((item) => {
+          {/* Tabs */}
+          <div className="scrollbar-hide mt-14 flex gap-3 overflow-x-auto pb-4">
+            {capabilities.map((item) => {
               const Icon = item.icon;
-
-              return (
-                <motion.div
-                  key={item.label}
-                  whileHover={{ y: -6 }}
-                  className="rounded-2xl border border-[#E8D8C5] bg-white p-7 shadow-sm"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF5E8] text-[#FC4C00]">
-                    <Icon className="h-6 w-6" />
-                  </div>
-
-                  <p className="mt-6 text-3xl font-black text-[#071B3A]">
-                    {item.value}
-                  </p>
-
-                  <p className="mt-1 text-sm font-semibold text-[#526071]">
-                    {item.label}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          CONTENT MANAGEMENT
-      ===================================================== */}
-
-      <section className="bg-white px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Content Operations"
-            title="Every Post."
-            titleHighlight="Planned."
-            subtitle="Give clients complete visibility into what is being created, approved, scheduled and published."
-          />
-
-          <div className="mt-14 overflow-hidden rounded-3xl border border-[#E8D8C5]">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[750px]">
-                <thead className="bg-[#FFF5E8]">
-                  <tr>
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      Content
-                    </th>
-
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      Type
-                    </th>
-
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      Platform
-                    </th>
-
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      Status
-                    </th>
-
-                    <th className="p-5 text-left text-xs uppercase tracking-wider">
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {contentItems.map((item) => (
-                    <tr key={item.title} className="border-t border-[#E8D8C5]">
-                      <td className="p-5 font-bold text-[#071B3A]">
-                        {item.title}
-                      </td>
-
-                      <td className="p-5 text-sm">{item.type}</td>
-
-                      <td className="p-5 text-sm text-[#526071]">
-                        {item.platform}
-                      </td>
-
-                      <td className="p-5">
-                        <span className="rounded-full bg-[#FFE8C1] px-3 py-1 text-xs font-bold text-[#071B3A]">
-                          {item.status}
-                        </span>
-                      </td>
-
-                      <td className="p-5">
-                        <button className="rounded-lg bg-[#071B3A] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#FC4C00]">
-                          View
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          AI MARKETING ASSISTANT
-      ===================================================== */}
-
-      <section className="px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="overflow-hidden rounded-[35px] bg-[#071B3A]">
-            <div className="grid lg:grid-cols-2">
-              <div className="p-8 md:p-14">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-bold text-[#FC4C00]">
-                  <Sparkles className="h-4 w-4" />
-                  AI-POWERED MARKETING
-                </div>
-
-                <h2 className="mt-7 text-4xl font-black leading-tight text-white md:text-5xl">
-                  Your Marketing
-                  <span className="block text-[#FC4C00]">Gets Smarter.</span>
-                </h2>
-
-                <p className="mt-6 max-w-xl text-lg leading-8 text-white/65">
-                  AI analyzes campaign performance, customer behavior and
-                  marketing data to surface opportunities before they become
-                  obvious.
-                </p>
-
-                <div className="mt-8 space-y-4">
-                  {[
-                    'Generate campaign insights',
-                    'Create high-converting ad copy',
-                    'Generate social content ideas',
-                    'Identify underperforming campaigns',
-                    'Recommend budget allocation',
-                    'Summarize monthly performance',
-                  ].map((feature) => (
-                    <div
-                      key={feature}
-                      className="flex items-center gap-3 text-sm text-white/80"
-                    >
-                      <CheckCircle2 className="h-5 w-5 text-[#FC4C00]" />
-
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex items-center bg-white/5 p-8 md:p-14">
-                <div className="w-full rounded-3xl bg-white p-6 shadow-2xl">
-                  <div className="flex items-center gap-3 border-b border-[#E8D8C5] pb-5">
-                    <div className="rounded-xl bg-[#FC4C00] p-3 text-white">
-                      <Bot className="h-6 w-6" />
-                    </div>
-
-                    <div>
-                      <p className="font-black text-[#071B3A]">
-                        SiliconHubs AI
-                      </p>
-
-                      <p className="text-xs text-[#526071]">
-                        Marketing Intelligence
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 rounded-2xl bg-[#FFF5E8] p-5">
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#FC4C00]">
-                      AI Recommendation
-                    </p>
-
-                    <p className="mt-3 text-sm leading-7 text-[#071B3A]">
-                      Your retargeting campaign has the lowest cost per lead and
-                      highest ROAS. Consider reallocating 10–15% of the
-                      awareness budget toward high-intent audiences.
-                    </p>
-                  </div>
-
-                  <button className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#FC4C00] px-5 py-4 text-sm font-bold text-white">
-                    Ask AI Anything
-                    <Sparkles className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          COMPETITOR INTELLIGENCE
-      ===================================================== */}
-
-      <section className="bg-[#FFE8C1] px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Competitive Intelligence"
-            title="Don't Just Track Yourself."
-            titleHighlight="Track The Market."
-            subtitle="Understand how your digital presence compares with competitors."
-          />
-
-          <div className="mt-14 overflow-hidden rounded-3xl bg-white shadow-lg">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[700px]">
-                <thead className="bg-[#071B3A] text-white">
-                  <tr>
-                    <th className="p-6 text-left">Brand</th>
-
-                    <th className="p-6 text-left">Followers</th>
-
-                    <th className="p-6 text-left">Engagement</th>
-
-                    <th className="p-6 text-left">Content</th>
-
-                    <th className="p-6 text-left">Position</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {competitors.map((competitor, index) => (
-                    <tr
-                      key={competitor.name}
-                      className="border-b border-[#E8D8C5]"
-                    >
-                      <td className="p-6 font-bold text-[#071B3A]">
-                        <div className="flex items-center gap-3">
-                          {index === 0 && (
-                            <span className="rounded-lg bg-[#FC4C00] p-2 text-white">
-                              <Award className="h-4 w-4" />
-                            </span>
-                          )}
-
-                          {competitor.name}
-                        </div>
-                      </td>
-
-                      <td className="p-6 font-bold">{competitor.followers}</td>
-
-                      <td className="p-6 font-bold text-[#FC4C00]">
-                        {competitor.engagement}
-                      </td>
-
-                      <td className="p-6">{competitor.posts}</td>
-
-                      <td className="p-6">
-                        <span
-                          className={
-                            index === 0
-                              ? 'rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700'
-                              : 'rounded-full bg-[#FFF5E8] px-3 py-1 text-xs font-bold text-[#071B3A]'
-                          }
-                        >
-                          {index === 0 ? 'You' : `Competitor ${index}`}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          INTERACTIVE MARKETING SUITE
-      ===================================================== */}
-
-      <section className="bg-white px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="360° Digital Capabilities"
-            title="Every Digital Channel,"
-            titleHighlight="Mastered"
-            subtitle="Explore the complete marketing capabilities SiliconHubs can deploy for your business."
-          />
-
-          <div className="mt-12 flex flex-wrap justify-center gap-3">
-            {marketingPillars.map((pillar) => {
-              const Icon = pillar.icon;
-              const isActive = activeTab === pillar.id;
+              const isActive = item.id === activeCapability;
 
               return (
                 <button
-                  key={pillar.id}
-                  onClick={() => setActiveTab(pillar.id)}
-                  className={`flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-bold transition-all ${
+                  key={item.id}
+                  onClick={() => setActiveCapability(item.id)}
+                  className={`flex shrink-0 items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-all duration-300 ${
                     isActive
-                      ? 'border-[#FC4C00] bg-[#FC4C00] text-white shadow-lg shadow-[#FC4C00]/20'
-                      : 'border-[#E8D8C5] bg-[#FFF5E8] text-[#071B3A] hover:border-[#FC4C00]'
+                      ? 'border-[#FC4C00] bg-[#FC4C00] text-[#FFF9F0]'
+                      : 'border-[#FFF9F0]/20 bg-[#0A192F] text-[#FFF9F0]/70 hover:border-[#FC4C00] hover:text-[#FC4C00]'
                   }`}
                 >
-                  <Icon className="h-4 w-4" />
-
-                  {pillar.label}
+                  <Icon size={17} />
+                  {item.label}
                 </button>
               );
             })}
           </div>
 
-          <div className="mt-12">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{
-                  opacity: 0,
-                  y: 16,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                exit={{
-                  opacity: 0,
-                  y: -16,
-                }}
-                transition={{
-                  duration: 0.3,
-                }}
-                className="rounded-3xl border border-[#E8D8C5] bg-[#FFF5E8] p-8 md:p-12"
-              >
-                <div className="mb-8 flex flex-col justify-between gap-5 border-b border-[#E8D8C5] pb-6 md:flex-row md:items-center">
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#FC4C00]">
-                      Capability Focus
-                    </span>
-
-                    <h3 className="mt-2 text-3xl font-black text-[#071B3A]">
-                      {currentPillar.label}
-                    </h3>
-                  </div>
-
-                  <p className="rounded-xl border border-[#E8D8C5] bg-white px-5 py-3 text-sm font-bold text-[#FC4C00]">
-                    {currentPillar.tagline}
-                  </p>
+          {/* Active Capability */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active.id}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+              className="mt-10 grid overflow-hidden rounded-[2rem] border border-[#FFF9F0]/10 bg-[#FFF9F0] lg:grid-cols-2"
+            >
+              {/* Content */}
+              <div className="p-8 lg:p-12">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FC4C00] text-[#FFF9F0]">
+                  <active.icon size={26} />
                 </div>
 
-                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                  {currentPillar.features.map((feature) => (
+                <h3 className="mt-8 text-3xl font-bold text-[#0A192F] lg:text-4xl">
+                  {active.title}
+                </h3>
+
+                <p className="mt-5 max-w-xl leading-8 text-[#0A192F]/70">
+                  {active.description}
+                </p>
+
+                <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                  {active.features.map((feature) => (
                     <div
-                      key={feature.title}
-                      className="rounded-2xl border border-[#E8D8C5] bg-white p-6 transition hover:-translate-y-1 hover:border-[#FC4C00] hover:shadow-lg"
+                      key={feature}
+                      className="flex items-start gap-3 rounded-xl border border-[#0A192F]/10 p-3"
                     >
-                      <CheckCircle2 className="h-6 w-6 text-[#FC4C00]" />
+                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FC4C00] text-[#FFF9F0]">
+                        <Check size={12} strokeWidth={3} />
+                      </div>
 
-                      <h4 className="mt-5 font-bold text-[#071B3A]">
-                        {feature.title}
-                      </h4>
-
-                      <p className="mt-2 text-sm leading-6 text-[#526071]">
-                        {feature.desc}
-                      </p>
+                      <span className="text-sm font-medium text-[#0A192F]">
+                        {feature}
+                      </span>
                     </div>
                   ))}
                 </div>
-              </motion.div>
-            </AnimatePresence>
+
+                <Link
+                  href="/contact"
+                  className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#FC4C00] px-6 py-3.5 font-semibold text-[#FFF9F0] transition-all hover:bg-[#0A192F]"
+                >
+                  Discuss This Capability
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+
+              {/* Image */}
+              <div className="relative min-h-[400px] overflow-hidden lg:min-h-full">
+                <Image
+                  src={active.image}
+                  alt={`${active.title} - SiliconHubs digital marketing`}
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+
+                <div className="absolute inset-0 bg-[#0A192F]/50" />
+
+                <div className="absolute bottom-8 left-8 right-8 rounded-2xl border border-[#FFF9F0]/20 bg-[#0A192F]/90 p-6 backdrop-blur-md">
+                  <div className="flex items-center gap-3">
+                    <Sparkles className="text-[#FC4C00]" size={20} />
+                    <span className="font-semibold text-[#FFF9F0]">
+                      SiliconHubs Growth System
+                    </span>
+                  </div>
+
+                  <p className="mt-2 text-sm leading-6 text-[#FFF9F0]/65">
+                    Strategy, execution, measurement and optimization working
+                    together.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* =====================================================
+          PERFORMANCE MARKETING
+      ===================================================== */}
+
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid items-center gap-14 lg:grid-cols-2">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#FC4C00]/30 px-4 py-2 text-sm font-semibold text-[#FC4C00]">
+                <Megaphone size={16} />
+                Performance Marketing
+              </div>
+
+              <h2 className="mt-6 text-4xl font-bold tracking-tight text-[#0A192F] lg:text-5xl">
+                Spend Smarter.
+                <span className="block text-[#FC4C00]">
+                  Learn Faster. Scale Better.
+                </span>
+              </h2>
+
+              <p className="mt-6 max-w-xl text-lg leading-8 text-[#0A192F]/70">
+                Paid media works best when advertising, creative, landing pages,
+                tracking and conversion optimization are connected.
+              </p>
+
+              <div className="mt-9 space-y-4">
+                {[
+                  'Campaign architecture',
+                  'Audience segmentation',
+                  'Creative experimentation',
+                  'Retargeting',
+                  'Conversion tracking',
+                  'Continuous optimization',
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#FC4C00] text-[#FFF9F0]">
+                      <Check size={14} />
+                    </div>
+                    <span className="font-medium text-[#0A192F]">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/contact"
+                className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#FC4C00] px-7 py-4 font-bold text-[#FFF9F0] transition-all hover:bg-[#0A192F]"
+              >
+                Plan a Paid Growth Campaign
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+
+            {/* Dashboard */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="rounded-[2rem] border border-[#0A192F]/10 bg-[#0A192F] p-6 shadow-2xl lg:p-8">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-[#FFF9F0]/60">
+                      Campaign Overview
+                    </p>
+                    <h3 className="mt-1 text-xl font-bold text-[#FFF9F0]">
+                      Growth Dashboard
+                    </h3>
+                  </div>
+
+                  <div className="rounded-xl bg-[#FC4C00] p-3 text-[#FFF9F0]">
+                    <BarChart3 size={20} />
+                  </div>
+                </div>
+
+                {/* Chart */}
+                <div className="mt-10 flex h-48 items-end gap-3">
+                  {[35, 48, 42, 65, 58, 76, 68, 88, 80, 96].map(
+                    (height, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ height: 0 }}
+                        whileInView={{ height: `${height}%` }}
+                        viewport={{ once: true }}
+                        transition={{
+                          delay: index * 0.06,
+                          duration: 0.6,
+                        }}
+                        className="flex-1 rounded-t-lg bg-[#FC4C00]"
+                      />
+                    )
+                  )}
+                </div>
+
+                <div className="mt-4 flex justify-between text-xs text-[#FFF9F0]/50">
+                  <span>Week 1</span>
+                  <span>Week 2</span>
+                  <span>Week 3</span>
+                  <span>Week 4</span>
+                </div>
+
+                {/* Metrics */}
+                <div className="mt-8 grid grid-cols-3 gap-3">
+                  {[
+                    ['Traffic', '↑'],
+                    ['Leads', '↑'],
+                    ['Conversions', '↑'],
+                  ].map(([label, arrow]) => (
+                    <div
+                      key={label}
+                      className="rounded-2xl border border-[#FFF9F0]/10 bg-[#FFF9F0]/5 p-4"
+                    >
+                      <p className="text-xs text-[#FFF9F0]/50">{label}</p>
+                      <div className="mt-2 flex items-center gap-2">
+                        <TrendingUp size={15} className="text-[#FC4C00]" />
+                        <span className="text-lg font-bold text-[#FFF9F0]">
+                          {arrow}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="absolute -bottom-5 -left-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#FC4C00] text-[#FFF9F0] shadow-xl">
+                <Zap size={28} />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* =====================================================
-          EXECUTION FLOW
+          SEO + LOCAL + GEO/AEO
       ===================================================== */}
 
-      <section className="bg-[#071B3A] px-6 py-28 text-white">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto mb-20 max-w-3xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-[#FC4C00]">
-              Execution Engine
-            </span>
+      <section className="bg-[#FC4C00] py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFF9F0]/30 px-4 py-2 text-sm font-bold text-[#FFF9F0]">
+              <Globe2 size={16} />
+              Search Visibility
+            </div>
 
-            <h2 className="mt-4 text-4xl font-black md:text-5xl">
-              The SiliconHubs
-              <span className="text-[#FC4C00]"> Performance Flow</span>
+            <h2 className="mt-6 text-4xl font-bold tracking-tight text-[#FFF9F0] lg:text-6xl">
+              Built for Search.
+              <span className="block text-[#0A192F]">
+                Built for the Future of Search.
+              </span>
             </h2>
 
-            <p className="mt-6 text-lg leading-8 text-white/65">
-              We replace guesswork with an engineered marketing system designed
-              to create predictable and measurable growth.
+            <p className="mt-6 text-lg leading-8 text-[#FFF9F0]/80">
+              Search is evolving beyond traditional blue links. Your growth
+              strategy needs strong SEO fundamentals while preparing content and
+              entities for local, answer and generative search.
             </p>
           </div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid gap-8 md:grid-cols-4"
-          >
-            {performanceFlow.map(({ icon: Icon, step, title, description }) => (
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                icon: Search,
+                title: 'Traditional SEO',
+                items: [
+                  'Technical SEO',
+                  'Search intent',
+                  'Content clusters',
+                  'Internal linking',
+                  'Schema',
+                ],
+              },
+              {
+                icon: MapPin,
+                title: 'Local SEO + GMB',
+                items: [
+                  'Google Business Profile',
+                  'Local citations',
+                  'Reviews',
+                  'Location pages',
+                  'Maps visibility',
+                ],
+              },
+              {
+                icon: Sparkles,
+                title: 'GEO + AEO',
+                items: [
+                  'AI-search readiness',
+                  'Answer architecture',
+                  'Entity optimization',
+                  'FAQ content',
+                  'Structured data',
+                ],
+              },
+            ].map((card) => (
               <motion.div
-                key={step}
-                variants={fadeInUp}
-                className="text-center"
+                key={card.title}
+                whileHover={{ y: -8 }}
+                className="rounded-3xl border border-[#FFF9F0]/20 bg-[#0A192F] p-8"
               >
-                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border-4 border-[#071B3A] bg-[#FC4C00] shadow-xl shadow-[#FC4C00]/20 transition hover:scale-110">
-                  <Icon className="h-9 w-9" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FC4C00] text-[#FFF9F0]">
+                  <card.icon size={25} />
                 </div>
 
-                <span className="mt-6 block text-xs font-bold tracking-widest text-[#FC4C00]">
-                  PHASE {step}
-                </span>
+                <h3 className="mt-7 text-2xl font-bold text-[#FFF9F0]">
+                  {card.title}
+                </h3>
 
-                <h3 className="mt-2 text-xl font-black">{title}</h3>
-
-                <p className="mt-3 text-sm leading-7 text-white/60">
-                  {description}
-                </p>
+                <ul className="mt-6 space-y-3">
+                  {card.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-center gap-3 text-[#FFF9F0]/70"
+                    >
+                      <Check size={16} className="text-[#FC4C00]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
-          </motion.div>
-
-          <div className="mt-20 text-center">
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-3 rounded-full bg-[#FC4C00] px-10 py-5 font-bold text-white shadow-xl shadow-[#FC4C00]/20 transition hover:scale-105 hover:bg-white hover:text-[#071B3A]"
-            >
-              Request Performance Audit
-              <ArrowRight className="h-5 w-5" />
-            </a>
           </div>
         </div>
       </section>
@@ -1645,87 +1090,121 @@ export default function DigitalMarketingPageClient() {
           FULL FUNNEL
       ===================================================== */}
 
-      <section className="px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
-            <div>
-              <SectionHeading
-                eyebrow="Unified Strategy"
-                title="Full-Funnel Growth"
-                titleHighlight="Architecture"
-                subtitle="We connect awareness, engagement, conversion and retention into one measurable customer journey."
-              />
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Full-Funnel Growth"
+            title="From First Impression"
+            titleHighlight="To Customer Retention"
+            subtitle="Every stage of the customer journey should have a purpose, a message and a measurable action."
+          />
 
-              <div className="mt-10 flex flex-wrap gap-2">
-                {[
-                  'Google Ads',
-                  'Meta Ads',
-                  'GA4',
-                  'Looker Studio',
-                  'HubSpot',
-                  'Klaviyo',
-                  'SEMrush',
-                  'Ahrefs',
-                  'Hotjar',
-                  'PostHog',
-                  'TikTok Ads',
-                  'WhatsApp',
-                ].map((tool) => (
-                  <span
-                    key={tool}
-                    className="rounded-full border border-[#E8D8C5] bg-white px-4 py-2 text-xs font-bold text-[#071B3A] shadow-sm transition hover:border-[#FC4C00] hover:text-[#FC4C00]"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
+          <div className="mt-14 grid gap-6 lg:grid-cols-4">
+            {funnel.map((item, index) => {
+              const Icon = item.icon;
+              const active = activeFunnel === index;
 
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                {
-                  step: '01',
-                  label: 'Discover',
-                  icon: Search,
-                  desc: 'Capture high-intent audiences.',
-                },
-                {
-                  step: '02',
-                  label: 'Engage',
-                  icon: Users,
-                  desc: 'Build trust and attention.',
-                },
-                {
-                  step: '03',
-                  label: 'Convert',
-                  icon: MousePointerClick,
-                  desc: 'Turn traffic into customers.',
-                },
-                {
-                  step: '04',
-                  label: 'Retain',
-                  icon: Repeat,
-                  desc: 'Increase lifetime value.',
-                },
-              ].map(({ step, label, icon: Icon, desc }) => (
-                <motion.div
-                  key={label}
-                  whileHover={{ y: -6 }}
-                  className="rounded-2xl border border-[#E8D8C5] bg-white p-6 shadow-sm transition hover:border-[#FC4C00]"
+              return (
+                <motion.button
+                  key={item.title}
+                  onClick={() => setActiveFunnel(index)}
+                  whileHover={{ y: -8 }}
+                  className={`rounded-3xl border p-7 text-left transition-all duration-300 ${
+                    active
+                      ? 'border-[#FC4C00] bg-[#0A192F]'
+                      : 'border-[#0A192F]/10 bg-[#FFF9F0] hover:border-[#FC4C00]'
+                  }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-black text-[#FC4C00]">{step}</span>
+                    <span
+                      className={`text-sm font-bold ${
+                        active ? 'text-[#FC4C00]' : 'text-[#FC4C00]'
+                      }`}
+                    >
+                      {item.stage}
+                    </span>
 
-                    <Icon className="h-6 w-6 text-[#071B3A]" />
+                    <div
+                      className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
+                        active
+                          ? 'bg-[#FC4C00] text-[#FFF9F0]'
+                          : 'bg-[#0A192F] text-[#FC4C00]'
+                      }`}
+                    >
+                      <Icon size={21} />
+                    </div>
                   </div>
 
-                  <h3 className="mt-6 text-xl font-black text-[#071B3A]">
-                    {label}
+                  <h3
+                    className={`mt-7 text-2xl font-bold ${
+                      active ? 'text-[#FFF9F0]' : 'text-[#0A192F]'
+                    }`}
+                  >
+                    {item.title}
                   </h3>
 
-                  <p className="mt-2 text-xs leading-6 text-[#526071]">
-                    {desc}
+                  <p
+                    className={`mt-3 ${
+                      active ? 'text-[#FFF9F0]/65' : 'text-[#0A192F]/65'
+                    }`}
+                  >
+                    {item.description}
                   </p>
+
+                  <div className="mt-6 space-y-2">
+                    {item.channels.map((channel) => (
+                      <div
+                        key={channel}
+                        className={`rounded-lg px-3 py-2 text-sm ${
+                          active
+                            ? 'bg-[#FFF9F0]/10 text-[#FFF9F0]/80'
+                            : 'bg-[#0A192F]/5 text-[#0A192F]/70'
+                        }`}
+                      >
+                        {channel}
+                      </div>
+                    ))}
+                  </div>
+                </motion.button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          EXECUTION FLOW
+      ===================================================== */}
+
+      <section className="bg-[#0A192F] py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Execution"
+            title="A Repeatable Growth"
+            titleHighlight="Operating System"
+            subtitle="A structured process keeps strategy, execution and optimization aligned."
+          />
+
+          <div className="relative mt-16">
+            <div className="absolute left-0 right-0 top-8 hidden h-px bg-[#FFF9F0]/15 lg:block" />
+
+            <div className="grid gap-10 md:grid-cols-3 lg:grid-cols-6">
+              {executionFlow.map((step, index) => (
+                <motion.div
+                  key={step}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="relative text-center"
+                >
+                  <div className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-full border-4 border-[#0A192F] bg-[#FC4C00] font-bold text-[#FFF9F0]">
+                    {index + 1}
+                  </div>
+
+                  <h3 className="mt-5 font-bold text-[#FFF9F0]">{step}</h3>
+
+                  <p className="mt-2 text-sm text-[#FFF9F0]/50">Growth stage</p>
                 </motion.div>
               ))}
             </div>
@@ -1734,53 +1213,168 @@ export default function DigitalMarketingPageClient() {
       </section>
 
       {/* =====================================================
-          REPORTING / CLIENT EXPERIENCE
+          MARKETING FEATURES GRID
       ===================================================== */}
 
-      <section className="bg-[#FFE8C1] px-6 py-28">
-        <div className="mx-auto max-w-7xl">
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Client Experience"
-            title="No More Marketing"
-            titleHighlight="Guesswork."
-            subtitle="Your clients should always know what was done, what happened and what comes next."
+            eyebrow="Everything Connected"
+            title="The Growth Stack"
+            titleHighlight="Your Business Needs"
+            subtitle="Build a connected digital marketing engine instead of managing disconnected campaigns."
           />
 
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                icon: FileText,
-                title: 'Monthly Reports',
-                desc: 'Beautiful performance reports with insights and recommendations.',
-              },
-              {
-                icon: CheckCircle2,
-                title: 'Content Approval',
-                desc: 'Clients can review and approve posts before publishing.',
-              },
-              {
-                icon: Bell,
-                title: 'Smart Alerts',
-                desc: 'Important campaign and performance changes trigger alerts.',
-              },
-              {
-                icon: MessageSquare,
-                title: 'Client Communication',
-                desc: 'Keep strategy, feedback and campaign discussions organized.',
-              },
-            ].map(({ icon: Icon, title, desc }) => (
-              <motion.div
-                key={title}
-                whileHover={{ y: -6 }}
-                className="rounded-2xl border border-[#E8D8C5] bg-white p-7"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#071B3A] text-[#FC4C00]">
-                  <Icon className="h-6 w-6" />
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+          >
+            {services.map((service) => (
+              <FeatureCard
+                key={service.title}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          ANALYTICS
+      ===================================================== */}
+
+      <section className="bg-[#FC4C00] py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#FFF9F0]/30 px-4 py-2 text-sm font-bold text-[#FFF9F0]">
+                <BarChart3 size={16} />
+                Analytics & Attribution
+              </div>
+
+              <h2 className="mt-6 text-4xl font-bold text-[#FFF9F0] lg:text-5xl">
+                Stop Guessing.
+                <span className="block text-[#0A192F]">Start Measuring.</span>
+              </h2>
+
+              <p className="mt-6 text-lg leading-8 text-[#FFF9F0]/80">
+                A strong marketing system needs a strong measurement layer. We
+                structure analytics around meaningful business events.
+              </p>
+
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                {[
+                  'GA4',
+                  'Google Tag Manager',
+                  'Search Console',
+                  'Looker Studio',
+                  'Meta Pixel',
+                  'UTM Tracking',
+                  'CRM Attribution',
+                  'Conversion Tracking',
+                ].map((tool) => (
+                  <div
+                    key={tool}
+                    className="flex items-center gap-3 rounded-xl border border-[#FFF9F0]/20 bg-[#0A192F] p-4 text-sm font-semibold text-[#FFF9F0]"
+                  >
+                    <Check size={16} className="text-[#FC4C00]" />
+                    {tool}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Analytics Card */}
+            <div className="rounded-[2rem] border border-[#FFF9F0]/20 bg-[#0A192F] p-7 lg:p-9">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FC4C00] text-[#FFF9F0]">
+                  <Gauge size={23} />
                 </div>
 
-                <h3 className="mt-6 font-black text-[#071B3A]">{title}</h3>
+                <div>
+                  <p className="text-sm text-[#FFF9F0]/50">Measurement Layer</p>
+                  <h3 className="font-bold text-[#FFF9F0]">Marketing Health</h3>
+                </div>
+              </div>
 
-                <p className="mt-2 text-sm leading-6 text-[#526071]">{desc}</p>
+              <div className="mt-9 space-y-6">
+                {[
+                  ['Tracking', 92],
+                  ['Attribution', 84],
+                  ['Conversion Data', 88],
+                  ['Reporting', 95],
+                ].map(([label, value]) => (
+                  <div key={String(label)}>
+                    <div className="mb-2 flex justify-between text-sm">
+                      <span className="text-[#FFF9F0]/70">{label}</span>
+                      <span className="font-bold text-[#FC4C00]">{value}%</span>
+                    </div>
+
+                    <div className="h-2 overflow-hidden rounded-full bg-[#FFF9F0]/10">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${value}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1 }}
+                        className="h-full rounded-full bg-[#FC4C00]"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-9 rounded-2xl border border-[#FFF9F0]/10 bg-[#FFF9F0]/5 p-5">
+                <div className="flex gap-3">
+                  <BrainCircuit
+                    size={20}
+                    className="mt-0.5 shrink-0 text-[#FC4C00]"
+                  />
+
+                  <p className="text-sm leading-6 text-[#FFF9F0]/65">
+                    Better measurement creates better decisions. The exact KPIs
+                    depend on your business model, funnel and objectives.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          TOOLS
+      ===================================================== */}
+
+      <section className="py-24 lg:py-28">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="text-center">
+            <span className="font-semibold text-[#FC4C00]">
+              MARKETING TECHNOLOGY
+            </span>
+
+            <h2 className="mt-3 text-3xl font-bold text-[#0A192F] lg:text-4xl">
+              Tools That Power the Workflow
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-2xl text-[#0A192F]/65">
+              We work with established marketing, analytics, SEO and automation
+              platforms based on your specific requirements.
+            </p>
+          </div>
+
+          <div className="mt-12 flex flex-wrap justify-center gap-3">
+            {tools.map((tool) => (
+              <motion.div
+                key={tool}
+                whileHover={{ y: -4, scale: 1.03 }}
+                className="rounded-full border border-[#0A192F]/10 bg-[#FFF9F0] px-5 py-3 text-sm font-semibold text-[#0A192F] transition-colors hover:border-[#FC4C00]"
+              >
+                {tool}
               </motion.div>
             ))}
           </div>
@@ -1792,56 +1386,101 @@ export default function DigitalMarketingPageClient() {
       ===================================================== */}
 
       <ServiceCaseStudies
-        eyebrow="Validated Impact"
-        title="Data Speaks Louder Than"
-        titleHighlight="Promises"
-        subtitle="Explore how SiliconHubs transforms digital activity into measurable business growth."
-        caseStudies={caseStudies}
+        eyebrow="Selected Work"
+        title="Strategy That Turns Into"
+        titleHighlight="Real Digital Experiences"
+        subtitle="Explore examples of the digital transformation, web, e-commerce and SEO work behind our broader growth approach."
+        caseStudies={[
+          {
+            img: '/media/portfolio/featured-projects/seo-campaign.jpg',
+            title: 'SEO Growth System',
+            desc: 'A search-focused digital experience built around technical SEO, content architecture and measurable visibility.',
+            sliderName: 'SEO',
+          },
+          {
+            img: '/media/portfolio/case-studies/ecommerce.jpg',
+            title: 'E-Commerce Growth',
+            desc: 'A conversion-focused e-commerce experience connecting discovery, product experience and customer journeys.',
+            sliderName: 'E-Commerce',
+          },
+          {
+            img: '/media/portfolio/case-studies/digital-transformation.jpg',
+            title: 'Digital Transformation',
+            desc: 'A modern digital platform designed to connect technology, content and business growth.',
+            sliderName: 'Digital',
+          },
+        ]}
       />
+
+      {/* =====================================================
+          FAQ
+      ===================================================== */}
+
+      <section className="bg-[#0A192F] py-24 lg:py-32">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+          <div className="text-center">
+            <span className="font-semibold text-[#FC4C00]">
+              FREQUENTLY ASKED QUESTIONS
+            </span>
+
+            <h2 className="mt-4 text-4xl font-bold text-[#FFF9F0] lg:text-5xl">
+              Digital Marketing
+              <span className="text-[#FC4C00]"> FAQs</span>
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl leading-7 text-[#FFF9F0]/65">
+              Clear answers to common questions about our digital marketing,
+              SEO, local SEO, GEO, AEO and performance marketing services.
+            </p>
+          </div>
+
+          <div className="mt-14 border-t border-[#FFF9F0]/20">
+            {faqs.map((faq, index) => (
+              <FAQItem
+                key={faq.question}
+                faq={faq}
+                open={openFAQ === index}
+                onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* =====================================================
           FINAL CTA
       ===================================================== */}
 
-      <section className="bg-[#071B3A] px-6 py-28">
-        <div className="mx-auto max-w-5xl text-center">
-          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-[#FC4C00] text-white shadow-xl shadow-[#FC4C00]/20">
-            <Rocket className="h-9 w-9" />
-          </div>
+      <ServiceCTA
+        eyebrow="Ready to Grow?"
+        title="Build a Marketing Engine"
+        titleHighlight="That Compounds"
+        subtitle="Let's build a digital growth strategy around your business goals, customers, funnel and measurable outcomes."
+        ctaText="Start Your Growth Strategy"
+        ctaLink="/contact"
+      />
 
-          <p className="mt-8 text-sm font-bold uppercase tracking-widest text-[#FC4C00]">
-            Ready To Grow?
-          </p>
+      {/* =====================================================
+          STRUCTURED DATA / FAQ SEO
+      ===================================================== */}
 
-          <h2 className="mt-4 text-4xl font-black text-white md:text-6xl">
-            Turn Your Marketing Into
-            <span className="block text-[#FC4C00]">A Growth Engine.</span>
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/65">
-            Let SiliconHubs build a measurable digital marketing system designed
-            around your customers, your market and your revenue goals.
-          </p>
-
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center gap-3 rounded-full bg-[#FC4C00] px-9 py-5 font-bold text-white transition hover:scale-105 hover:bg-white hover:text-[#071B3A]"
-            >
-              Start Your Growth Session
-              <ArrowRight className="h-5 w-5" />
-            </a>
-
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/5 px-9 py-5 font-bold text-white transition hover:bg-white hover:text-[#071B3A]"
-            >
-              Request Free Audit
-              <Search className="h-5 w-5" />
-            </a>
-          </div>
-        </div>
-      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
     </main>
   );
 }

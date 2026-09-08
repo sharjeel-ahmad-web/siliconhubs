@@ -42,7 +42,7 @@ const initialContent = [
           title: 'N8N Automations',
           description:
             'Streamline your business workflows with powerful N8N automation solutions. We build custom integrations that connect your apps, automate repetitive tasks, and save you countless hours every week.',
-          imageUrl: '/media/home/featured-services/n8n-automations.jpg',
+          imageUrl: '/media/home/featured-services/n8n-automations.png',
           href: '/services/n8n-automations',
           ctaText: 'Explore Automations',
         },
@@ -50,7 +50,7 @@ const initialContent = [
           title: 'Chatbot Development',
           description:
             'Engage your customers 24/7 with intelligent AI-powered chatbots. From customer support to lead generation, our chatbots deliver personalized experiences that convert visitors into customers.',
-          imageUrl: '/media/home/featured-services/chatbot-development.jpg',
+          imageUrl: '/media/home/featured-services/chatbot-development.png',
           href: '/services/chatbot-development',
           ctaText: 'Build Your Chatbot',
         },
@@ -66,7 +66,7 @@ const initialContent = [
           title: 'Shopify Solutions',
           description:
             'Launch and scale your e-commerce business with custom Shopify stores. From theme customization to app integrations, we build online stores that drive sales and delight customers.',
-          imageUrl: '/media/home/featured-services/shopify.jpg',
+          imageUrl: '/media/home/featured-services/shopify.png',
           href: '/services/shopify',
           ctaText: 'Launch Your Store',
         },
@@ -748,7 +748,7 @@ const initialContent = [
         {
           id: 2,
           title: 'Web Design',
-          imageUrl: '/media/portfolio/hero/web-design.jpg',
+          imageUrl: '/media/portfolio/hero/web-design.png',
         },
         {
           id: 3,

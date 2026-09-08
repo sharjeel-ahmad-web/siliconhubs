@@ -20,6 +20,7 @@ interface Service {
   color: string;
 }
 
+// Cache-busting version — bump ?v= when you replace images in this folder
 const services: Service[] = [
   {
     id: 1,
@@ -30,7 +31,7 @@ const services: Service[] = [
       'Stop losing valuable time to repetitive tasks. We design intelligent automation systems that connect your tools, streamline operations, and keep your business moving—even when you are offline.',
     outcome:
       'Spend less time managing processes and more time growing your business.',
-    image: '/media/home/featured-services/n8n-automations.jpg',
+    image: '/media/home/featured-services/n8n-automations.png?v=2',
     features: [
       'Custom AI Workflows',
       'API & App Integrations',
@@ -48,7 +49,7 @@ const services: Service[] = [
       'Your website should do more than look beautiful—it should build trust and turn visitors into customers. We create fast, modern, conversion-focused websites tailored to your business goals.',
     outcome:
       'A powerful online presence built to impress visitors and generate opportunities.',
-    image: '/media/home/featured-services/web-design.jpg',
+    image: '/media/home/featured-services/web-design.png?v=2',
     features: [
       'Custom Website Design',
       'Fast & Responsive Development',
@@ -66,7 +67,7 @@ const services: Service[] = [
       'Turn your online store into a smooth and persuasive buying experience. From Shopify stores to custom e-commerce solutions, we help you create a storefront designed to build trust and drive sales.',
     outcome:
       'Make it easier for customers to discover, trust, and buy from your brand.',
-    image: '/media/home/featured-services/shopify.jpg',
+    image: '/media/home/featured-services/shopify.png?v=2',
     features: [
       'Shopify & Custom Stores',
       'Optimized Product Experience',
@@ -84,7 +85,7 @@ const services: Service[] = [
       'Great products need the right visibility. We create data-driven marketing strategies that help you reach the right audience, generate qualified leads, and turn attention into measurable business growth.',
     outcome:
       'Reach more potential customers with smarter, goal-focused campaigns.',
-    image: '/media/home/featured-services/digital-marketing.jpg',
+    image: '/media/home/featured-services/digital-marketing.jpg?v=2',
     features: [
       'Paid Advertising Campaigns',
       'Lead Generation Funnels',
@@ -102,7 +103,7 @@ const services: Service[] = [
       'Never let a valuable customer inquiry go unanswered. We build intelligent AI agents that can engage visitors, answer questions, qualify leads, and support your customers around the clock.',
     outcome:
       'Deliver faster responses and capture more opportunities without increasing workload.',
-    image: '/media/home/featured-services/chatbot-development.jpg',
+    image: '/media/home/featured-services/chatbot-development.png?v=2',
     features: [
       'Custom AI Assistants',
       '24/7 Customer Engagement',
@@ -120,7 +121,7 @@ const services: Service[] = [
       'Your ideal customers are already searching for solutions online. We help position your business where they can find you through strategic SEO, technical improvements, and content built around search intent.',
     outcome:
       'Build sustainable visibility and attract high-intent visitors over time.',
-    image: '/media/home/featured-services/seo.jpg',
+    image: '/media/home/featured-services/seo.jpg?v=2',
     features: [
       'Technical SEO Strategy',
       'Content & Keyword Planning',

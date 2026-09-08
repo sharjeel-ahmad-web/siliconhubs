@@ -34,7 +34,7 @@ const defaultItems: AccordionItem[] = [
   {
     id: 2,
     title: 'Web Design',
-    imageUrl: '/media/portfolio/hero/web-design.jpg',
+    imageUrl: '/media/portfolio/hero/web-design.png',
   },
   {
     id: 3,

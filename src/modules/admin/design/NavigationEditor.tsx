@@ -79,12 +79,6 @@ const defaultNavigation: NavigationConfig = {
           href: '/services/n8n',
           visible: true,
         },
-        {
-          id: '3-7',
-          label: 'SaaS Solutions',
-          href: '/services/saas',
-          visible: true,
-        },
       ],
     },
     { id: '4', label: 'Portfolio', href: '/portfolio', visible: true },

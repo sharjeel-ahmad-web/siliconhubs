@@ -11,10 +11,26 @@ const DEFAULT_PORTFOLIO_CONTENT: Record<string, unknown> = {
     ctaLabel: 'Start Your Project',
     ctaHref: '/contact',
     heroItems: [
-      { id: 1, title: 'E-Commerce', imageUrl: '/media/portfolio/hero/ecommerce.jpg' },
-      { id: 2, title: 'Web Design', imageUrl: '/media/portfolio/hero/web-design.jpg' },
-      { id: 3, title: 'AI Chatbots', imageUrl: '/media/portfolio/hero/ai-chatbots.jpg' },
-      { id: 4, title: 'Automation', imageUrl: '/media/portfolio/hero/automation.jpg' },
+      {
+        id: 1,
+        title: 'E-Commerce',
+        imageUrl: '/media/portfolio/hero/ecommerce.jpg',
+      },
+      {
+        id: 2,
+        title: 'Web Design',
+        imageUrl: '/media/portfolio/hero/web-design.png',
+      },
+      {
+        id: 3,
+        title: 'AI Chatbots',
+        imageUrl: '/media/portfolio/hero/ai-chatbots.jpg',
+      },
+      {
+        id: 4,
+        title: 'Automation',
+        imageUrl: '/media/portfolio/hero/automation.jpg',
+      },
       { id: 5, title: 'SEO', imageUrl: '/media/portfolio/hero/seo.jpg' },
     ],
   },
@@ -22,11 +38,26 @@ const DEFAULT_PORTFOLIO_CONTENT: Record<string, unknown> = {
     eyebrow: 'Our Expertise',
     title: 'Skills &',
     titleHighlight: 'Technologies',
-    subtitle: 'Drag and explore the technologies we master to bring your vision to life',
+    subtitle:
+      'Drag and explore the technologies we master to bring your vision to life',
     tags: [
-      'All', 'Web Design', 'Shopify', 'WordPress', 'SEO', 'Chatbot Development',
-      'N8N Automations', 'React', 'Next.js', 'Tailwind', 'TypeScript', 'Figma',
-      'Stripe', 'OpenAI', 'Analytics', 'SaaS', 'AI/ML',
+      'All',
+      'Web Design',
+      'Shopify',
+      'WordPress',
+      'SEO',
+      'Chatbot Development',
+      'N8N Automations',
+      'React',
+      'Next.js',
+      'Tailwind',
+      'TypeScript',
+      'Figma',
+      'Stripe',
+      'OpenAI',
+      'Analytics',
+      'SaaS',
+      'AI/ML',
     ],
   },
   grid: {
@@ -39,12 +70,33 @@ const DEFAULT_PORTFOLIO_CONTENT: Record<string, unknown> = {
     eyebrow: 'Case Studies',
     title: 'Success',
     titleHighlight: 'Stories',
-    subtitle: 'Deep dives into our most impactful projects and the results we achieved',
+    subtitle:
+      'Deep dives into our most impactful projects and the results we achieved',
     studies: [
-      { img: '/media/portfolio/case-studies/enterprise-platform.jpg', title: 'Enterprise Platform', desc: 'Built a scalable enterprise platform handling 1M+ daily transactions.', sliderName: 'enterprise' },
-      { img: '/media/portfolio/case-studies/mobile-app.jpg', title: 'Mobile App Launch', desc: 'Launched a mobile app achieving 100K+ downloads in the first month.', sliderName: 'mobile' },
-      { img: '/media/portfolio/case-studies/ai-integration.jpg', title: 'AI Integration', desc: 'Integrated AI-powered features reducing manual processing time by 85%.', sliderName: 'ai' },
-      { img: '/media/portfolio/case-studies/digital-transformation.jpg', title: 'Digital Transformation', desc: 'Led complete digital transformation with 200% increase in engagement.', sliderName: 'digital' },
+      {
+        img: '/media/portfolio/case-studies/enterprise-platform.jpg',
+        title: 'Enterprise Platform',
+        desc: 'Built a scalable enterprise platform handling 1M+ daily transactions.',
+        sliderName: 'enterprise',
+      },
+      {
+        img: '/media/portfolio/case-studies/mobile-app.jpg',
+        title: 'Mobile App Launch',
+        desc: 'Launched a mobile app achieving 100K+ downloads in the first month.',
+        sliderName: 'mobile',
+      },
+      {
+        img: '/media/portfolio/case-studies/ai-integration.jpg',
+        title: 'AI Integration',
+        desc: 'Integrated AI-powered features reducing manual processing time by 85%.',
+        sliderName: 'ai',
+      },
+      {
+        img: '/media/portfolio/case-studies/digital-transformation.jpg',
+        title: 'Digital Transformation',
+        desc: 'Led complete digital transformation with 200% increase in engagement.',
+        sliderName: 'digital',
+      },
     ],
   },
   cta: {
@@ -74,8 +126,16 @@ export async function GET() {
 
     for (const doc of content ?? []) {
       const section = doc?.section;
-      if (section && typeof section === 'string' && doc?.content && typeof doc.content === 'object') {
-        payload[section] = { ...(payload[section] as object || {}), ...doc.content };
+      if (
+        section &&
+        typeof section === 'string' &&
+        doc?.content &&
+        typeof doc.content === 'object'
+      ) {
+        payload[section] = {
+          ...((payload[section] as object) || {}),
+          ...doc.content,
+        };
       }
     }
 

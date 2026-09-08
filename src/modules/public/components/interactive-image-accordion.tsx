@@ -34,7 +34,7 @@ const defaultItems: AccordionItem[] = [
   {
     id: 2,
     title: 'Web Design',
-    imageUrl: '/media/portfolio/hero/web-design.jpg',
+    imageUrl: '/media/portfolio/hero/web-design.png',
   },
   {
     id: 3,
@@ -166,7 +166,13 @@ export function ImageAccordionHero({
             </p>
             {ctaButton && (
               <ParticleWrapper>
-                <Link href={ctaButton?.href != null && ctaButton.href !== '' ? ctaButton.href : '/'}>
+                <Link
+                  href={
+                    ctaButton?.href != null && ctaButton.href !== ''
+                      ? ctaButton.href
+                      : '/'
+                  }
+                >
                   <StarButton
                     className="px-8 py-4 text-base font-semibold shadow-[0_0_30px_rgba(245,129,34,0.4)] transition-transform hover:scale-105"
                     duration={2.5}

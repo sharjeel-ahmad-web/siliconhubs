@@ -103,12 +103,6 @@ const defaultSettings: NavigationSettings = {
         enabled: true,
         order: 6,
       },
-      {
-        href: '/services/saas',
-        label: 'SaaS Solutions',
-        enabled: true,
-        order: 7,
-      },
     ],
   },
   footer: {

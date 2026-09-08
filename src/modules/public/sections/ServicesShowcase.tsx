@@ -18,6 +18,7 @@ interface Service {
   color: string;
 }
 
+// Cache-busting version — bump ?v= when you replace images in this folder
 const services: Service[] = [
   {
     id: 1,
@@ -25,7 +26,7 @@ const services: Service[] = [
     title: 'N8N Automations',
     description:
       'Streamline workflows with powerful automation solutions. Connect apps, automate tasks, and save countless hours.',
-    image: '/media/home/featured-services/n8n-automations.jpg',
+    image: '/media/home/featured-services/n8n-automations.png?v=2',
     features: ['Custom workflows', 'API integrations', 'Real-time monitoring'],
     link: '/services/n8n-automations',
     color: 'from-[#06b6d4] to-[#06b6d4]',
@@ -36,7 +37,7 @@ const services: Service[] = [
     title: 'Chatbot Development',
     description:
       'AI-powered conversational interfaces that engage users and provide instant support 24/7.',
-    image: '/media/home/featured-services/chatbot-development.jpg',
+    image: '/media/home/featured-services/chatbot-development.png?v=2',
     features: [
       'Natural language processing',
       'Multi-platform support',
@@ -51,7 +52,7 @@ const services: Service[] = [
     title: 'Web Design',
     description:
       'Beautiful, responsive websites that captivate visitors and drive conversions.',
-    image: '/media/home/featured-services/web-design.jpg',
+    image: '/media/home/featured-services/web-design.png?v=2',
     features: ['Responsive design', 'UI/UX optimization', 'Brand identity'],
     link: '/services/web-design',
     color: 'from-[#06b6d4] to-[#fc4c00]',
@@ -62,7 +63,7 @@ const services: Service[] = [
     title: 'SEO Services',
     description:
       'Boost your visibility and rank higher in search results with data-driven SEO strategies.',
-    image: '/media/home/featured-services/seo.jpg',
+    image: '/media/home/featured-services/seo.jpg?v=2',
     features: ['Keyword research', 'On-page optimization', 'Link building'],
     link: '/services/seo',
     color: 'from-[#06b6d4] to-[#06b6d4]',
@@ -73,7 +74,7 @@ const services: Service[] = [
     title: 'Shopify Development',
     description:
       'Powerful e-commerce solutions that turn visitors into customers and boost sales.',
-    image: '/media/home/featured-services/shopify.jpg',
+    image: '/media/home/featured-services/shopify.png?v=2',
     features: ['Custom themes', 'App integration', 'Conversion optimization'],
     link: '/services/shopify',
     color: 'from-[#fc4c00] to-[#06b6d4]',
@@ -84,7 +85,7 @@ const services: Service[] = [
     title: 'WordPress Development',
     description:
       'Enterprise-grade WordPress solutions with custom themes, plugins, and optimization.',
-    image: '/media/home/featured-services/wordpress.jpg',
+    image: '/media/home/featured-services/wordpress.jpg?v=2',
     features: [
       'Custom plugins',
       'Performance optimization',
