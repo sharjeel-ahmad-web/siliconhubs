@@ -40,7 +40,7 @@
     "@radix-ui/react-slot": "^1.2.4",
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.16.0",
-    "@sentry/nextjs": "^10.27.0",
+    "@sentry/nextjs": "^10.73.0",
     "@splinetool/react-spline": "^4.1.0",
     "@splinetool/runtime": "^1.12.12",
     "@tsparticles/react": "^3.0.0",
