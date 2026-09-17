@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
 import { Resend } from 'resend';
 
-const DB_NAME = 'silicon-hubs';
+const DB_NAME = 'siliconhubs';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {

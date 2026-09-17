@@ -11,10 +11,18 @@
 
 'use client';
 
-import { createContext, useContext, useEffect, ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useCallback,
+  useEffect,
+  ReactNode,
+} from 'react';
+import { usePathname } from 'next/navigation';
 import { getAnalyticsTracker } from './tracker';
 import { initializeGA4, getGA4 } from './ga4';
 import { initializeSentry, getSentryMonitor } from '../monitoring/sentry';
+import { hasConsent } from '@/lib/security/cookieConsent';
 
 interface AnalyticsContextValue {
   trackEvent: (eventName: string, eventData?: Record<string, any>) => void;
@@ -55,14 +63,27 @@ export function AnalyticsProvider({
   environment = 'production',
   debug = false,
 }: AnalyticsProviderProps) {
+  const pathname = usePathname();
+
+  /**
+   * Initialize GA4 only when all conditions are met:
+   * - A measurement ID is configured in the environment
+   * - The visitor is on a public page (admin traffic is excluded)
+   * - The visitor has accepted analytics cookies (GDPR cookie consent)
+   */
+  const initGA4 = useCallback(() => {
+    if (!ga4MeasurementId) return;
+    if (pathname.startsWith('/admin')) return;
+    if (!hasConsent('analytics')) return;
+
+    initializeGA4({
+      measurementId: ga4MeasurementId,
+      debug,
+    });
+  }, [ga4MeasurementId, pathname, debug]);
+
   useEffect(() => {
-    // Initialize GA4 if measurement ID is provided
-    if (ga4MeasurementId) {
-      initializeGA4({
-        measurementId: ga4MeasurementId,
-        debug,
-      });
-    }
+    initGA4();
 
     // Initialize Sentry if DSN is provided
     if (sentryDsn) {
@@ -76,7 +97,18 @@ export function AnalyticsProvider({
 
     // Initialize custom tracker (always initialized)
     getAnalyticsTracker();
-  }, [ga4MeasurementId, sentryDsn, environment, debug]);
+
+    // If the cookie consent banner accepts analytics cookies after this
+    // provider mounted, initialize GA4 at that point.
+    const handleConsentUpdated = () => initGA4();
+    window.addEventListener('cookie-consent-updated', handleConsentUpdated);
+    return () => {
+      window.removeEventListener(
+        'cookie-consent-updated',
+        handleConsentUpdated
+      );
+    };
+  }, [initGA4, sentryDsn, environment, debug]);
 
   const trackEvent = (eventName: string, eventData?: Record<string, any>) => {
     // Track in custom tracker

@@ -8,10 +8,12 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SmoothScrollProvider>
-      <Header />
-      {children}
-      <Footer />
-    </SmoothScrollProvider>
+    <>
+      <SmoothScrollProvider>
+        <Header />
+        {children}
+        <Footer />
+      </SmoothScrollProvider>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { AnalyticsProvider } from '@/lib/analytics/AnalyticsProvider';
 
 const MagneticCursor = dynamic(
   () =>
@@ -40,6 +41,14 @@ const ChatWidget = dynamic(
   { ssr: false }
 );
 
+const WhatsAppButton = dynamic(
+  () =>
+    import('@/components/WhatsAppButton').catch(() => ({
+      default: () => null,
+    })),
+  { ssr: false }
+);
+
 export default function ClientLayoutBody({
   children,
 }: {
@@ -49,10 +58,15 @@ export default function ClientLayoutBody({
     <>
       <GlobalBackground />
       <MagneticCursor />
-      {children}
+      <AnalyticsProvider
+        ga4MeasurementId={process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}
+      >
+        {children}
+      </AnalyticsProvider>
       <CookieConsent />
       <AnalyticsTracker />
       <ChatWidget />
+      <WhatsAppButton />
     </>
   );
 }

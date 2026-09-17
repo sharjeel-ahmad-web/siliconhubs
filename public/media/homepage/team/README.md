@@ -1,9 +1,11 @@
 # Team Member Photos
 
 ## Purpose
+
 Professional headshots for team member profiles in the team section.
 
 ## Image Requirements
+
 - **Dimensions:** 600x600px (square/1:1 ratio)
 - **Format:** JPG or WebP
 - **Max Size:** 200KB per photo
@@ -11,7 +13,9 @@ Professional headshots for team member profiles in the team section.
 - **Style:** Consistent across all team members (same lighting, framing, style)
 
 ## Naming Convention
+
 Use firstname-lastname format:
+
 - `john-doe.jpg`
 - `jane-smith.jpg`
 - `alex-johnson.jpg`
@@ -19,7 +23,9 @@ Use firstname-lastname format:
 ## Photo Guidelines
 
 ### Professional Standards
+
 ✅ **Do:**
+
 - Professional attire (business or business casual)
 - Good lighting (soft, even lighting)
 - Neutral or simple background
@@ -29,6 +35,7 @@ Use firstname-lastname format:
 - High resolution (sharp, clear)
 
 ❌ **Don't:**
+
 - Selfies or casual photos
 - Busy backgrounds
 - Poor lighting (too dark or overexposed)
@@ -38,6 +45,7 @@ Use firstname-lastname format:
 - Low-quality images
 
 ### Technical Specs
+
 - **Resolution:** Minimum 600x600px
 - **Aspect Ratio:** 1:1 (square)
 - **File Size:** Under 200KB
@@ -56,9 +64,10 @@ Use firstname-lastname format:
 3. **Update team component:**
    - Open `components/sections/HolographicTeam.tsx`
    - Add new team member to the array (around line 60-180)
+
    ```tsx
    {
-     name: "John Doe",
+     name: "Sharjeel Ahmad Khan",
      position: "Senior Developer",
      bio: "Brief bio here...",
      image: "/team/john-doe.jpg",
@@ -73,7 +82,9 @@ Use firstname-lastname format:
 4. **Commit and deploy**
 
 ## Photography Services
+
 Consider hiring a professional photographer for:
+
 - Consistent style across team
 - High-quality results
 - Proper lighting and equipment
@@ -81,7 +92,9 @@ Consider hiring a professional photographer for:
 - Company branding integration
 
 ## Placeholder Images
+
 For temporary use:
+
 - Use professional stock photos
 - Or use services like UI Faces, This Person Does Not Exist
 - Always replace with real photos for production

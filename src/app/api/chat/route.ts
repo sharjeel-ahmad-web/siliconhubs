@@ -21,25 +21,37 @@ export async function POST(request: NextRequest) {
     try {
       const [blogs, projects, services, pages] = await Promise.all([
         db.collection('blogs').find({ status: 'published' }).limit(5).toArray(),
-        db.collection('projects').find({ status: 'published' }).limit(5).toArray(),
-        db.collection('services').find({ status: 'active' }).limit(10).toArray(),
-        db.collection('pages').find({ status: 'published' }).limit(10).toArray(),
+        db
+          .collection('projects')
+          .find({ status: 'published' })
+          .limit(5)
+          .toArray(),
+        db
+          .collection('services')
+          .find({ status: 'active' })
+          .limit(10)
+          .toArray(),
+        db
+          .collection('pages')
+          .find({ status: 'published' })
+          .limit(10)
+          .toArray(),
       ]);
 
       context = `
 You are Silicon Hubs AI Assistant. Here is the current site context:
 
 SERVICES:
-${services.map(s => `- ${s.title}: ${s.shortDescription}`).join('\n') || 'No services available'}
+${services.map((s) => `- ${s.title}: ${s.shortDescription}`).join('\n') || 'No services available'}
 
 RECENT PROJECTS:
-${projects.map(p => `- ${p.title} (${p.category}): ${p.shortDescription}`).join('\n') || 'No projects available'}
+${projects.map((p) => `- ${p.title} (${p.category}): ${p.shortDescription}`).join('\n') || 'No projects available'}
 
 RECENT BLOGS:
-${blogs.map(b => `- ${b.title}: ${b.excerpt}`).join('\n') || 'No blogs available'}
+${blogs.map((b) => `- ${b.title}: ${b.excerpt}`).join('\n') || 'No blogs available'}
 
 PAGES:
-${pages.map(p => `- ${p.title}: ${p.slug}`).join('\n') || 'No pages available'}
+${pages.map((p) => `- ${p.title}: ${p.slug}`).join('\n') || 'No pages available'}
 
 SILICON HUBS OVERVIEW:
 Silicon Hubs is a premium digital agency based in India offering:
@@ -51,9 +63,9 @@ Silicon Hubs is a premium digital agency based in India offering:
 - Shopify Development
 - SEO Optimization
 
-CONTACT INFO:
-Email: hello@siliconhubs.com
-Phone: +91 98765 43210
+  CONTACT INFO:
+  Email: contact@siliconhubs.com
+  Phone: +92 317 4662728
 
 RULES:
 - Always be helpful, professional, and friendly

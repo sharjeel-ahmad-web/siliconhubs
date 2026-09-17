@@ -6,7 +6,7 @@ import clientPromise from '@/lib/db/mongodb';
 import { getChatResponse, ChatMessage } from '@/lib/groq';
 import { Resend } from 'resend';
 
-const DB_NAME = 'silicon-hubs';
+const DB_NAME = 'siliconhubs';
 
 export async function POST(request: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key');

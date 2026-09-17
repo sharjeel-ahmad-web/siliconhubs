@@ -42,6 +42,8 @@ export interface ChatMessage {
   content: string;
 }
 
+const GROQ_MODEL = process.env.GROQ_MODEL || 'openai/gpt-oss-20b';
+
 export async function getChatResponse(
   messages: ChatMessage[],
   userMessage: string
@@ -92,7 +94,7 @@ export async function getChatResponse(
 
     const completion = await groq.chat.completions.create({
       messages: chatMessages,
-      model: 'llama-3.1-8b-instant',
+      model: GROQ_MODEL,
       temperature: 0.7,
       max_tokens: 500,
     });

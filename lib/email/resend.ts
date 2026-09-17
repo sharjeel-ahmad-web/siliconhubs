@@ -11,11 +11,20 @@ interface ContactEmailData {
 }
 
 export async function sendContactNotification(data: ContactEmailData) {
-  const adminEmail = process.env.CHAT_NOTIFICATION_EMAIL || process.env.ADMIN_EMAIL;
+  // Contact form submissions are delivered to the agency inbox.
+  const adminEmail = process.env.CONTACT_EMAIL || 'contact@siliconhubs.com';
+  // Sender must be a domain verified in Resend (e.g. siliconhubs.com).
+  const from =
+    process.env.EMAIL_FROM || 'SiliconHubs <onboarding@siliconhubs.com>';
+
+  if (!adminEmail) {
+    console.error('No notification email configured for contact form');
+    return false;
+  }
 
   try {
     const { error } = await resend.emails.send({
-      from: 'SiliconHubs <onboarding@resend.dev>',
+      from,
       to: adminEmail,
       subject: `New Contact: ${data.name}`,
       html: `

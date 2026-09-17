@@ -35,7 +35,7 @@ const mockNotifications: Notification[] = [
     id: '1',
     type: 'contact',
     title: 'New Contact Submission',
-    message: 'John Doe submitted a contact form',
+    message: 'Sharjeel Ahmad Khan submitted a contact form',
     time: '5 min ago',
     read: false,
   },

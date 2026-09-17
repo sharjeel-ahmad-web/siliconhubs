@@ -33,8 +33,8 @@ export default function Connect() {
   const subtitle = connectContent?.subtitle || 'Feel free to reach out to us!';
   const ctaText = connectContent?.ctaText || 'Book a call';
   const ctaLink = connectContent?.ctaLink || '/contact';
-  const email = connectContent?.email || 'contact@siliconhubs.agency';
-  const whatsapp = connectContent?.whatsapp || '+1234567890';
+  const email = connectContent?.email || 'contact@siliconhubs.com';
+  const whatsapp = connectContent?.whatsapp || '+923174662728';
   const services = connectContent?.services || [
     'Chatbots',
     'N8N Automation',
@@ -83,7 +83,7 @@ export default function Connect() {
   }, [animate]);
 
   return (
-    <section className="relative bg-black py-16 overflow-hidden">
+    <section className="relative overflow-hidden bg-black py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <HighlightGroup className="group h-full">
           <div

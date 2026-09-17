@@ -14,6 +14,15 @@ import {
   type CookiePreferences,
 } from '@/lib/security/cookieConsent';
 
+/**
+ * Notify listeners (e.g. the GA4 initializer) that cookie preferences
+ * changed so analytics can be initialized/stopped without a page reload.
+ */
+const notifyConsentUpdated = () => {
+  if (typeof window === 'undefined') return;
+  window.dispatchEvent(new CustomEvent('cookie-consent-updated'));
+};
+
 export function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
@@ -40,17 +49,20 @@ export function CookieConsent() {
       preferences: true,
     };
     setCookieConsent(allAccepted);
+    notifyConsentUpdated();
     setShowBanner(false);
   };
 
   const handleRejectAll = () => {
     setCookieConsent(DEFAULT_PREFERENCES);
+    notifyConsentUpdated();
     clearNonEssentialCookies();
     setShowBanner(false);
   };
 
   const handleSavePreferences = () => {
     setCookieConsent(preferences);
+    notifyConsentUpdated();
     clearNonEssentialCookies();
     setShowBanner(false);
   };
