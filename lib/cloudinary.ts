@@ -43,13 +43,7 @@ export async function reconfigureFromSettings(): Promise<void> {
         cachedSettings?.api_secret || process.env.CLOUDINARY_API_SECRET,
     });
   } catch {
-    // MongoDB unavailable — ensure env-based config is applied
-    cachedSettings = null;
-    cloudinary.config({
-      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-      api_key: process.env.CLOUDINARY_API_KEY,
-      api_secret: process.env.CLOUDINARY_API_SECRET,
-    });
+    // ignore DB errors; keep env-based config
   }
 }
 
@@ -164,9 +158,9 @@ export async function uploadToCloudinary(
     uploadOptions.public_id = publicId;
   }
 
-  // If file is a Buffer, convert to base64 data URI with correct MIME type
+  // If file is a Buffer, convert to base64 data URI
   const fileToUpload = Buffer.isBuffer(file)
-    ? `data:${resourceType};base64,${file.toString('base64')}`
+    ? `data:image/png;base64,${file.toString('base64')}`
     : file;
 
   const result = await cloudinary.uploader.upload(fileToUpload, uploadOptions);

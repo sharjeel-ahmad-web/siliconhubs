@@ -188,7 +188,7 @@ const heroServices: ServiceItem[] = [
     url: '/services/digital-marketing',
     description:
       'Content and entity architecture prepared for generative search and answer engines.',
-    imgSrc: '/media/home/featured-services/web-design.jpg',
+    imgSrc: '/media/home/featured-services/web-design.png',
   },
   {
     id: 'social-media',
