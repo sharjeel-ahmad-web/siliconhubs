@@ -1,12 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
-import { v2 as cloudinary } from 'cloudinary';
-import { reconfigureFromSettings } from '@/lib/cloudinary';
+import { uploadToImageKit } from '@/lib/imagekit';
 
 // POST - Submit a new testimonial (public endpoint)
 export async function POST(request: NextRequest) {
   try {
-    await reconfigureFromSettings();
     const formData = await request.formData();
 
     const name = formData.get('name') as string;
@@ -17,7 +15,6 @@ export async function POST(request: NextRequest) {
     const rating = parseInt(formData.get('rating') as string) || 5;
     const image = formData.get('image') as File | null;
 
-    // Validation
     if (!name || !email || !text) {
       return NextResponse.json(
         { error: 'Name, email, and testimonial text are required' },
@@ -25,7 +22,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -36,35 +32,21 @@ export async function POST(request: NextRequest) {
 
     let avatarUrl = '/media/home/testimonials/placeholder.jpg';
 
-    // Upload image to Cloudinary if provided
     if (image && image.size > 0) {
       try {
         const bytes = await image.arrayBuffer();
         const buffer = Buffer.from(bytes);
 
-        // Upload to Cloudinary
-        const uploadResult = await new Promise<any>((resolve, reject) => {
-          cloudinary.uploader
-            .upload_stream(
-              {
-                folder: 'testimonials',
-                transformation: [
-                  { width: 200, height: 200, crop: 'fill', gravity: 'face' },
-                  { quality: 'auto', fetch_format: 'auto' },
-                ],
-              },
-              (error, result) => {
-                if (error) reject(error);
-                else resolve(result);
-              }
-            )
-            .end(buffer);
-        });
+        const uploadResult = await uploadToImageKit(
+          buffer,
+          image.name,
+          'testimonials',
+          'image'
+        );
 
-        avatarUrl = uploadResult.secure_url;
+        avatarUrl = uploadResult.url;
       } catch (uploadError) {
-        console.error('Cloudinary upload error:', uploadError);
-        // Continue with placeholder if upload fails
+        console.error('ImageKit upload error:', uploadError);
       }
     }
 
@@ -74,7 +56,7 @@ export async function POST(request: NextRequest) {
     const now = new Date();
     const newTestimonial = {
       name,
-      email, // Store email for reference but don't display publicly
+      email,
       role: role || '',
       company: company || '',
       avatar: avatarUrl,
@@ -82,9 +64,9 @@ export async function POST(request: NextRequest) {
       rating: Math.min(5, Math.max(1, rating)),
       results: [],
       featured: false,
-      published: false, // Requires approval
-      status: 'pending', // pending, approved, rejected
-      order: 999, // Will be at the end until reordered
+      published: false,
+      status: 'pending',
+      order: 999,
       submittedAt: now,
       createdAt: now,
       updatedAt: now,

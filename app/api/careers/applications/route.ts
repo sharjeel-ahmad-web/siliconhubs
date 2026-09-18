@@ -62,14 +62,14 @@ export async function POST(request: NextRequest) {
     let resume: JobApplication['resume'] = null;
     if (body.resume) {
       if (
-        !body.resume.cloudinaryPublicId ||
+        !body.resume.imagekitFileId ||
         !body.resume.fileName ||
         !body.resume.fileSize
       ) {
         errors.resume = 'The uploaded resume reference is invalid.';
       } else {
         resume = {
-          cloudinaryPublicId: sanitizeText(body.resume.cloudinaryPublicId),
+          imagekitFileId: sanitizeText(body.resume.imagekitFileId),
           fileName: sanitizeText(body.resume.fileName).slice(0, 160),
           fileType: sanitizeText(body.resume.fileType || ''),
           fileSize: Number(body.resume.fileSize) || 0,

@@ -3,7 +3,7 @@
 /**
  * Application form for a specific job. Uses the same input treatment as the
  * rest of the site. Validates types/sizes, uploads the resume first (secure,
- * non-public Cloudinary reference), then submits the application.
+ * non-public ImageKit reference), then submits the application.
  */
 import { useState } from 'react';
 import { UploadCloud, CheckCircle2, Loader2, XCircle } from 'lucide-react';

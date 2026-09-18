@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { connectDB } from '@/lib/db/mongodb';
 import { authOptions } from '@/lib/auth/authOptions';
-import { sanitizeText } from '@/lib/security/sanitization';
+import { sanitizeText, sanitizeHTML } from '@/lib/security/sanitization';
 import { slugify } from '@/lib/careers/helpers';
 
 export async function GET(request: NextRequest) {
@@ -78,11 +78,11 @@ export async function POST(request: NextRequest) {
       country: sanitizeText(body.country),
       remoteStatus: sanitizeText(body.remoteStatus),
       shortDescription: sanitizeText(body.shortDescription),
-      description: sanitizeText(body.description),
-      responsibilities: sanitizeText(body.responsibilities),
-      requirements: sanitizeText(body.requirements),
-      niceToHave: sanitizeText(body.niceToHave),
-      benefits: sanitizeText(body.benefits),
+      description: sanitizeHTML(body.description),
+      responsibilities: sanitizeHTML(body.responsibilities),
+      requirements: sanitizeHTML(body.requirements),
+      niceToHave: sanitizeHTML(body.niceToHave),
+      benefits: sanitizeHTML(body.benefits),
       skills: Array.isArray(body.skills)
         ? body.skills.map((s: string) => sanitizeText(s))
         : [],

@@ -128,7 +128,7 @@ const navigation: NavItem[] = [
     children: [
       { name: 'All Media', href: '/admin/media', icon: Layers },
       {
-        name: 'Cloudinary Migration',
+        name: 'Media Migration',
         href: '/admin/media/migrate',
         icon: Layers,
       },

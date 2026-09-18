@@ -12,7 +12,7 @@ export const config = {
 
 /**
  * POST /api/careers/applications/resume
- * Upload a resume/CV to Cloudinary as an AUTHENTICATED (non-public) raw file.
+ * Upload a resume/CV to ImageKit as an AUTHENTICATED (non-public) raw file.
  * Expects multipart/form-data with a "file" field.
  * Returns only a storage reference — never a public URL.
  */

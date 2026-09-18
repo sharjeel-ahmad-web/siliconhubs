@@ -1,15 +1,11 @@
-/**
- * Resume / CV upload + authenticated delivery.
- *
- * Resumes are uploaded to Cloudinary with resource_type=raw and type=authenticated
- * so files are NEVER publicly accessible. Authorized CMS users download them through
- * signed URLs generated in /api/admin/careers/resume/[applicationId].
- */
-import cloudinary from '@/lib/cloudinary';
+import {
+  uploadToImageKit,
+  getImageKitUrl,
+  deleteFromImageKit,
+} from '@/lib/imagekit';
 
 const RESUME_FOLDER = 'siliconhubs/resumes';
 
-/** Allowed resume file extensions + size limit (5MB). */
 export const ALLOWED_RESUME_TYPES = [
   'application/pdf',
   'application/msword',
@@ -17,17 +13,17 @@ export const ALLOWED_RESUME_TYPES = [
 ] as const;
 
 export const ALLOWED_RESUME_EXTENSIONS = ['pdf', 'doc', 'docx'] as const;
-export const MAX_RESUME_SIZE = 5 * 1024 * 1024; // 5 MB
+export const MAX_RESUME_SIZE = 5 * 1024 * 1024;
 
 export interface ResumeUploadResult {
-  cloudinaryPublicId: string;
+  imagekitFileId: string;
   fileName: string;
   fileType: string;
   fileSize: number;
   format: string;
+  url: string;
 }
 
-/** Validate an uploaded resume file (server side). */
 export function validateResumeFile(
   file: {
     name?: string;
@@ -61,70 +57,36 @@ export function validateResumeFile(
   return { ok: true };
 }
 
-/**
- * Upload a resume buffer to Cloudinary (authenticated, non-public).
- * Returns the Cloudinary public id and file metadata to store with the application.
- */
 export async function uploadResume(
   buffer: Buffer,
   originalName: string,
   mimeType: string
 ): Promise<ResumeUploadResult> {
-  const extension = (originalName.split('.').pop() || 'pdf').toLowerCase();
-  const safeName = (originalName || 'resume')
-    .replace(/[^\w.\- ]/g, '')
-    .trim()
-    .replace(/\s+/g, '-');
-
-  const result = await cloudinary.uploader.upload(
-    `data:${mimeType || 'application/pdf'};base64,${buffer.toString('base64')}`,
-    {
-      folder: RESUME_FOLDER,
-      resource_type: 'raw',
-      public_id: `${Date.now()}-${safeName.replace(/[^\w.\-]/g, '').slice(0, 80)}`,
-      use_filename: true,
-      unique_filename: false,
-      overwrite: false,
-    }
+  const upload = await uploadToImageKit(
+    buffer,
+    originalName,
+    RESUME_FOLDER,
+    'raw'
   );
 
   return {
-    cloudinaryPublicId: result.public_id,
+    imagekitFileId: upload.fileId,
     fileName: originalName,
     fileType: mimeType || 'application/pdf',
     fileSize: buffer.length,
-    format: extension,
+    format: upload.format,
+    url: upload.url,
   };
 }
 
-/**
- * Generate a signed download URL for an authenticated Cloudinary raw file.
- * Only valid briefly and only readable by the holder of the signature.
- */
-export function getResumeDownloadUrl(publicId: string, format = 'pdf'): string {
-  const resourceType = 'raw';
-  const cloudName =
-    process.env.CLOUDINARY_CLOUD_NAME ||
-    (cloudinary.config() as any).cloud_name ||
-    '';
-
-  return cloudinary.utils.private_download_url(publicId, format, {
-    resource_type: resourceType,
-    cloud_name: cloudName as any,
-    sign_url: true,
-    attachment: true,
-  } as any);
+export function getResumeDownloadUrl(
+  fileId: string,
+  _fileName: string,
+  _format = 'pdf'
+): string {
+  return getImageKitUrl(fileId);
 }
 
-/** Permanently delete a resume from Cloudinary (used when an application is deleted). */
-export async function deleteResume(publicId: string): Promise<boolean> {
-  try {
-    const result = await cloudinary.uploader.destroy(publicId, {
-      resource_type: 'raw',
-      type: 'authenticated',
-    });
-    return result.result === 'ok';
-  } catch {
-    return false;
-  }
+export async function deleteResume(fileId: string): Promise<boolean> {
+  return deleteFromImageKit(fileId);
 }

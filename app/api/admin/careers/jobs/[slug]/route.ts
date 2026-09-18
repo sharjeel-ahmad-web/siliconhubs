@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { connectDB } from '@/lib/db/mongodb';
 import { authOptions } from '@/lib/auth/authOptions';
-import { sanitizeText } from '@/lib/security/sanitization';
+import { sanitizeText, sanitizeHTML } from '@/lib/security/sanitization';
 import { slugify } from '@/lib/careers/helpers';
 import { CareerJob } from '@/types/careers';
 
@@ -47,18 +47,18 @@ export async function PUT(
       ...(body.shortDescription && {
         shortDescription: sanitizeText(body.shortDescription),
       }),
-      ...(body.description && { description: sanitizeText(body.description) }),
+      ...(body.description && { description: sanitizeHTML(body.description) }),
       ...(body.responsibilities && {
-        responsibilities: sanitizeText(body.responsibilities),
+        responsibilities: sanitizeHTML(body.responsibilities),
       }),
       ...(body.requirements && {
-        requirements: sanitizeText(body.requirements),
+        requirements: sanitizeHTML(body.requirements),
       }),
       ...(body.niceToHave !== undefined && {
-        niceToHave: sanitizeText(body.niceToHave),
+        niceToHave: sanitizeHTML(body.niceToHave),
       }),
       ...(body.benefits !== undefined && {
-        benefits: sanitizeText(body.benefits),
+        benefits: sanitizeHTML(body.benefits),
       }),
       ...(body.salary !== undefined && { salary: sanitizeText(body.salary) }),
       ...(body.seoTitle !== undefined && {

@@ -61,7 +61,7 @@ export interface CareerJob {
 }
 
 export interface ResumeFile {
-  cloudinaryPublicId: string;
+  imagekitFileId: string;
   fileName: string;
   fileType: string;
   fileSize: number;
