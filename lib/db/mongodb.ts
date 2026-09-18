@@ -63,4 +63,10 @@ export const COLLECTIONS = {
   ANALYTICS_PAGEVIEWS: 'analytics_pageviews',
   ANALYTICS_SESSIONS: 'analytics_sessions',
   ANALYTICS_EVENTS: 'analytics_events',
+  // Careers / recruitment
+  JOBS: 'jobs',
+  JOB_APPLICATIONS: 'applications',
+  CANDIDATES: 'candidates',
+  INTERVIEWS: 'interviews',
+  CAREER_SETTINGS: 'careerSettings',
 } as const;

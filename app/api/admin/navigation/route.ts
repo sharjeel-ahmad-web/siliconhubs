@@ -22,7 +22,8 @@ const defaultNavigation = {
       { href: '/portfolio', label: 'Portfolio', enabled: true, order: 2 },
       { href: '/blog', label: 'Blog', enabled: true, order: 3 },
       { href: '/about', label: 'About', enabled: true, order: 4 },
-      { href: '/contact', label: 'Contact', enabled: true, order: 5 },
+      { href: '/careers', label: 'Careers', enabled: true, order: 5 },
+      { href: '/contact', label: 'Contact', enabled: true, order: 6 },
     ],
     serviceLinks: [
       {
@@ -95,6 +96,7 @@ const defaultNavigation = {
         links: [
           { href: '/about', label: 'About Us', enabled: true },
           { href: '/portfolio', label: 'Portfolio', enabled: true },
+          { href: '/careers', label: 'Careers', enabled: true },
           { href: '/contact', label: 'Contact', enabled: true },
         ],
       },

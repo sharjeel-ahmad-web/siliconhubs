@@ -112,6 +112,19 @@ const navigation: NavItem[] = [
     href: '/admin/testimonials',
     icon: MessageSquare,
   },
+  {
+    name: 'Careers / Recruitment',
+    icon: Briefcase,
+    children: [
+      { name: 'Dashboard', href: '/admin/careers', icon: BarChart3 },
+      { name: 'Jobs', href: '/admin/careers/jobs', icon: FileText },
+      {
+        name: 'Applications',
+        href: '/admin/careers/applications',
+        icon: Users,
+      },
+    ],
+  },
   { name: 'Contacts', href: '/admin/contacts', icon: MessageSquare },
   {
     name: 'Analytics',

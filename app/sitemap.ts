@@ -20,6 +20,7 @@ const staticPages = [
   { path: '/services/saas', priority: 0.8, changefreq: 'weekly' },
   { path: '/portfolio', priority: 0.7, changefreq: 'weekly' },
   { path: '/blog', priority: 0.7, changefreq: 'daily' },
+  { path: '/careers', priority: 0.7, changefreq: 'daily' },
   { path: '/contact', priority: 0.6, changefreq: 'monthly' },
 ];
 
@@ -82,6 +83,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     } catch (error) {
       console.warn('Could not fetch projects for sitemap:', error);
+    }
+
+    // Add published (open) job openings
+    try {
+      const jobs = await db
+        .collection('jobs')
+        .find({
+          published: true,
+          archived: { $ne: true },
+          status: { $ne: 'closed' },
+        })
+        .toArray();
+      for (const job of jobs) {
+        // Respect closing dates — closed roles disappear from the sitemap
+        const closing = job.closingDate ? new Date(job.closingDate) : null;
+        if (
+          closing &&
+          !Number.isNaN(closing.getTime()) &&
+          closing.getTime() < Date.now()
+        ) {
+          continue;
+        }
+        urls.push({
+          url: `${baseUrl}/careers/${job.slug}`,
+          lastModified: job.updatedAt || job.createdAt || now,
+          changeFrequency: 'weekly',
+          priority: 0.6,
+        });
+      }
+    } catch (error) {
+      console.warn('Could not fetch jobs for sitemap:', error);
     }
   } catch (error) {
     // If MongoDB is not available, just return static pages

@@ -317,6 +317,164 @@ export function generateLocalBusinessSchema(
 }
 
 /**
+ * Generate JobPosting Schema for job detail pages.
+ * Only includes fields that are actually available — salary and location are
+ * never fabricated. Synchronize with visible page content.
+ */
+export function generateJobPostingSchema(job: {
+  title: string;
+  description: string;
+  url: string;
+  datePosted: string;
+  validThrough?: string;
+  employmentType?: string;
+  experienceLevel?: string;
+  location?: string;
+  city?: string;
+  country?: string;
+  remoteStatus?: string;
+  salary?: string;
+  skills?: string[];
+  featuredImage?: string;
+}): Record<string, unknown> {
+  const baseUrl = getBaseUrl();
+
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'JobPosting',
+    title: job.title,
+    description: job.description,
+    datePosted: job.datePosted,
+    hiringOrganization: {
+      '@type': 'Organization',
+      name: 'SiliconHubs',
+      sameAs: baseUrl,
+    },
+    employerOverview: {
+      '@type': 'Organization',
+      name: 'SiliconHubs',
+      description:
+        'Premium digital solutions provider specializing in N8N Automations, Chatbot Development, Web Design, WordPress, Shopify, and SEO services.',
+      url: baseUrl,
+    },
+    applicantLocationRequirements: {
+      '@type': 'Country',
+      name: job.country || job.remoteStatus === 'remote' ? 'Worldwide' : 'PK',
+    },
+    jobLocationType:
+      job.remoteStatus === 'remote'
+        ? 'TELECOMMUTE'
+        : job.remoteStatus === 'hybrid'
+          ? 'MIXED'
+          : undefined,
+    url: job.url,
+  };
+
+  if (job.validThrough) schema.validThrough = job.validThrough;
+  if (job.employmentType) {
+    const typeMap: Record<string, string> = {
+      'Full-time': 'FULL_TIME',
+      'Part-time': 'PART_TIME',
+      Contract: 'CONTRACTOR',
+      Freelance: 'CONTRACTOR',
+      Internship: 'INTERN',
+    };
+    schema.employmentType = typeMap[job.employmentType] || job.employmentType;
+  }
+  if (job.experienceLevel) {
+    const seniority = job.experienceLevel.toLowerCase();
+    if (
+      seniority.includes('entry') ||
+      seniority.includes('junior') ||
+      seniority.includes('intern')
+    ) {
+      schema.employmentType = [
+        'INTERN',
+        'FULL_TIME',
+        'PART_TIME',
+        'CONTRACTOR',
+        'TEMPORARY',
+      ];
+    }
+  }
+
+  if (job.location) {
+    schema.jobLocation = {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: job.city || job.location.split(',')[0]?.trim(),
+        addressCountry: job.country || 'PK',
+      },
+    };
+  }
+
+  if (job.salary) {
+    // Only output salary range when the agency has explicitly published one.
+    const match = job.salary.match(
+      /([\d,.]+)\s*[-–]\s*([\d,.]+)\s*([A-Za-z$€£]*)/
+    );
+    if (match) {
+      const currency = match[3] || (job.salary.includes('$') ? 'USD' : 'USD');
+      schema.baseSalary = {
+        '@type': 'MonetaryAmount',
+        currency,
+        value: {
+          '@type': 'QuantitativeValue',
+          minValue: parseFloat(match[1].replace(/,/g, '')),
+          maxValue: parseFloat(match[2].replace(/,/g, '')),
+          unitText: 'YEAR',
+        },
+      };
+    } else {
+      schema.baseSalary = {
+        '@type': 'MonetaryAmount',
+        currency: 'USD',
+        value: {
+          '@type': 'QuantitativeValue',
+          value: job.salary,
+        },
+      };
+    }
+  }
+
+  if (job.skills?.length) {
+    schema.skills = job.skills.join(', ');
+  }
+
+  if (job.featuredImage) {
+    schema.image = [job.featuredImage];
+  }
+
+  // Remove undefined fields so only actually available data is emitted
+  for (const key of Object.keys(schema)) {
+    if (schema[key] === undefined) delete schema[key];
+  }
+
+  return schema;
+}
+
+/**
+ * Generate FAQPage Schema — only when questions are actually rendered on the page.
+ */
+export function generateFAQPageSchema(
+  faqs: { question: string; answer: string }[]
+): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+/**
  * Convert schema object to JSON-LD script tag
  */
 export function schemaToJsonLd(schema: object): string {

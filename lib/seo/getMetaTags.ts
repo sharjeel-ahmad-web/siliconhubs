@@ -46,6 +46,11 @@ const defaultMeta: Record<string, Partial<PageMeta>> = {
     description:
       'Insights, tips, and news about web development, automation, AI, and digital marketing from the SiliconHubs team.',
   },
+  '/careers': {
+    title: 'Careers at SiliconHubs | Join Our Team',
+    description:
+      'Explore open positions at SiliconHubs. Grow your career with a premium digital agency working on meaningful web, automation and AI projects.',
+  },
   '/services/chatbot-development': {
     title: 'AI Chatbot Development Services | SiliconHubs',
     description:
