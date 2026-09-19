@@ -5,6 +5,7 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import StructuredData from '@/components/seo/StructuredData';
 import { getPublishedJobBySlug } from '@/lib/careers/data';
 import { generateJobPostingSchema } from '@/lib/seo/structuredData';
+import { getJobSchemaDescription } from '@/lib/careers/helpers';
 import JobDetailClient from './JobDetailClient';
 import { CareerJob } from '@/types/careers';
 
@@ -36,7 +37,7 @@ export default async function JobDetailPage({ params, searchParams }: Props) {
 
   const schema = generateJobPostingSchema({
     title: job.title,
-    description: job.description,
+    description: getJobSchemaDescription(job),
     url: `/careers/${job.slug}`,
     datePosted: job.publishedAt ? new Date(job.publishedAt).toISOString() : '',
     validThrough: job.closingDate

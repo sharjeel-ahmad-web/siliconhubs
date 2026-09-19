@@ -98,13 +98,34 @@ export function ApplicationForm({ job, onSuccess }: ApplicationFormProps) {
         method: 'POST',
         body: fd,
       });
-      const data = await res.json();
+      //   const data = await res.json();
+      //   if (!res.ok) {
+      //     setResumeError(
+      //       data.error || 'Failed to upload resume. Please try again.'
+      //     );
+      //     return;
+      //   }
+      //   setResume(data.resume);
+      const data = await res.json().catch(() => null);
+
       if (!res.ok) {
         setResumeError(
-          data.error || 'Failed to upload resume. Please try again.'
+          data?.error || 'Failed to upload resume. Please try again.'
         );
         return;
       }
+
+      if (
+        !data?.resume?.imagekitFileId ||
+        !data?.resume?.fileName ||
+        typeof data?.resume?.fileSize !== 'number'
+      ) {
+        setResumeError(
+          'The resume upload could not be verified. Please try again.'
+        );
+        return;
+      }
+
       setResume(data.resume);
     } catch {
       setResumeError('Failed to upload resume. Please try again.');

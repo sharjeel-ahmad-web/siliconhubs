@@ -17,7 +17,7 @@ export function slugify(title: string): string {
 }
 
 export function getBaseUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.agency';
+  return process.env.NEXT_PUBLIC_SITE_URL || 'https://siliconhubs.com';
 }
 
 /** A job is open when it is published, not archived and not past its closing date. */
@@ -155,6 +155,39 @@ export function timeAgo(
   if (months < 12) return `${months} month${months === 1 ? '' : 's'} ago`;
   const years = Math.floor(months / 12);
   return `${years} year${years === 1 ? '' : 's'} ago`;
+}
+
+/**
+ * Combine all job content fields into a single plain-text description
+ * for the JobPosting schema. Only non-empty fields are included, and
+ * HTML tags are stripped so the result is human-readable plain text.
+ */
+export function getJobSchemaDescription(job: Partial<CareerJob>): string {
+  const sections: string[] = [];
+  if (job.shortDescription) sections.push(job.shortDescription);
+  if (job.description) sections.push(stripHtml(job.description));
+  if (job.responsibilities) sections.push(stripHtml(job.responsibilities));
+  if (job.requirements) sections.push(stripHtml(job.requirements));
+  if (job.niceToHave) sections.push(stripHtml(job.niceToHave));
+  if (job.benefits) sections.push(stripHtml(job.benefits));
+  return sections.join(' ');
+}
+
+/** Strip HTML tags and collapse whitespace to produce clean plain text. */
+function stripHtml(html?: string | null): string {
+  if (!html) return '';
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /** Generate a unique public application reference id. */
