@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat, Inter, Fira_Code, Poppins } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import StructuredData from '@/components/seo/StructuredData';
 import { generateOrganizationSchema } from '@/lib/seo/structuredData';
 import ClientLayoutBody from './components/ClientLayoutBody';
@@ -73,6 +74,7 @@ export default function RootLayout({
       </head>
       <body className="bg-warm-cream font-inter text-dark-grey">
         <ClientLayoutBody>{children}</ClientLayoutBody>
+        <Analytics />
       </body>
     </html>
   );

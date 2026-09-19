@@ -46,6 +46,7 @@
     "@splinetool/runtime": "^1.12.12",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.9.1",
+    "@vercel/analytics": "^2.0.1",
     "@vercel/blob": "^0.23.4",
     "@vercel/kv": "^2.0.0",
     "@vercel/postgres": "^0.10.0",
