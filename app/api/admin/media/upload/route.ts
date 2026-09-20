@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server';
-import { uploadToCloudinary, reconfigureFromSettings } from '@/lib/cloudinary';
+import { uploadToImageKit } from '@/lib/imagekit';
 
 export async function POST(request: Request) {
   try {
-    await reconfigureFromSettings();
     const formData = await request.formData();
     const file = formData.get('file') as File;
     const folder = (formData.get('folder') as string) || 'siliconhubs';
@@ -16,31 +15,29 @@ export async function POST(request: Request) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    // Determine resource type
+    // ImageKit stores images and videos through the same upload endpoint.
     const isVideo = file.type.startsWith('video/');
     const resourceType = isVideo ? 'video' : 'image';
 
-    // Convert buffer to base64 data URI
-    const base64 = buffer.toString('base64');
-    const dataUri = `data:${file.type};base64,${base64}`;
-
-    // Upload to Cloudinary
-    const result = await uploadToCloudinary(dataUri, {
+    const result = await uploadToImageKit(
+      buffer,
+      file.name,
       folder,
-      resourceType,
-    });
+      resourceType
+    );
 
     return NextResponse.json({
       success: true,
       file: {
-        publicId: result.publicId,
-        url: result.secureUrl,
+        publicId: result.fileId,
+        url: result.url,
         format: result.format,
-        width: result.width,
-        height: result.height,
-        size: result.bytes,
-        type: result.resourceType,
-        name: file.name,
+        width: result.width || 0,
+        height: result.height || 0,
+        size: result.fileSize,
+        type: resourceType,
+        name: result.fileName,
+        folder: result.folder,
       },
     });
   } catch (error: any) {

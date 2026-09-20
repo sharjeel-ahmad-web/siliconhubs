@@ -31,6 +31,8 @@ export async function uploadToImageKit(
   fileSize: number;
   format: string;
   folder: string;
+  width?: number;
+  height?: number;
 }> {
   assertImageKitConfig();
 
@@ -99,6 +101,8 @@ export async function uploadToImageKit(
     fileSize: buffer.length,
     format: data.format || getExtension(fileName) || 'raw',
     folder,
+    width: data.width,
+    height: data.height,
   };
 }
 
