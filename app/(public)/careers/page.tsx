@@ -7,6 +7,9 @@ import { getCareerSettings, getPublishedJobs } from '@/lib/careers/data';
 import { toPublicJob } from '@/lib/careers/helpers';
 import CareersPageClient from './CareersPageClient';
 
+// Careers content is managed in MongoDB and must be read on each request.
+export const dynamic = 'force-dynamic';
+
 // Unique metadata for the Careers page
 export async function generateMetadata(): Promise<Metadata> {
   const base = await getMetaTags('/careers');

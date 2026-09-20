@@ -39,7 +39,7 @@ export function useSocialLinks() {
         const response = await fetch('/api/settings/social');
         if (response.ok) {
           const data = await response.json();
-          setSocialLinks(data);
+          setSocialLinks({ ...defaultLinks, ...data });
         }
       } catch (error) {
         console.error('Error fetching social links:', error);
