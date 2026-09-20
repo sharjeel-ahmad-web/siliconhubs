@@ -68,6 +68,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        {/* Pinterest domain verification */}
+        <meta
+          name="p:domain_verify"
+          content="bf45f8495703b146e381ef0817b23de1"
+        />
         {/* Organization Schema - Global */}
         <StructuredData schema={generateOrganizationSchema()} />
       </head>

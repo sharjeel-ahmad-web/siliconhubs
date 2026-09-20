@@ -59,22 +59,22 @@ export const defaultSocials: Social[] = [
   {
     name: 'Instagram',
     image: '/media/about/social-links/instagram.svg',
-    href: 'https://instagram.com/siliconhubs',
+    href: 'https://www.instagram.com/siliconhubs/',
   },
   {
     name: 'LinkedIn',
     image: '/media/about/social-links/linkedin.svg',
-    href: 'https://linkedin.com/company/siliconhubs',
+    href: 'https://www.linkedin.com/in/sharjeel-ahmad-2646361b7/',
   },
   {
     name: 'Twitter',
     image: '/media/about/social-links/twitter.svg',
-    href: 'https://twitter.com/siliconhubs',
+    href: 'https://x.com/Siliconhubs',
   },
   {
     name: 'Facebook',
     image: '/media/about/social-links/facebook.svg',
-    href: 'https://facebook.com/siliconhubs',
+    href: 'https://www.facebook.com/profile.php?id=61593591315934',
   },
 ];
 

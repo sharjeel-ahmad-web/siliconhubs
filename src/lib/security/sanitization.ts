@@ -1,23 +1,44 @@
 /**
  * Input Sanitization Utilities
- * Implements DOMPurify-based sanitization for XSS prevention
+ * Uses sanitize-html (pure CommonJS, no jsdom) for XSS prevention.
+ * isomorphic-dompurify was replaced because it pulls in jsdom, which fails
+ * on Vercel serverless runtimes with ERR_REQUIRE_ESM (@exodus/bytes).
  */
 
-import DOMPurify, { Config } from 'isomorphic-dompurify';
+import sanitizeHtml from 'sanitize-html';
+
+/**
+ * Subset of sanitize-html options used by this module.
+ * (Avoids pulling in @types/sanitize-html's `export =` namespace, which is
+ * incompatible with ESM module resolution in this project.)
+ */
+interface SanitizeOptions {
+  allowedTags?: string[] | false;
+  allowedAttributes?: Record<string, string[]> | false;
+  allowedSchemes?: string[] | boolean;
+  allowedSchemesAppliedToAttributes?: string[];
+  allowProtocolRelative?: boolean;
+  disallowedTagsMode?:
+    | 'discard'
+    | 'escape'
+    | 'recursiveEscape'
+    | 'completelyDiscard';
+  [key: string]: any;
+}
 
 /**
  * Sanitize HTML input to prevent XSS attacks
  * @param input Raw HTML input
- * @param options DOMPurify configuration options
+ * @param options sanitize-html configuration options
  * @returns Sanitized HTML string
  */
-export function sanitizeHTML(input: string, options?: Config): string {
+export function sanitizeHTML(input: string, options?: SanitizeOptions): string {
   if (typeof input !== 'string') {
     return '';
   }
 
-  const defaultConfig: Config = {
-    ALLOWED_TAGS: [
+  const defaultConfig: SanitizeOptions = {
+    allowedTags: [
       'p',
       'br',
       'strong',
@@ -38,30 +59,34 @@ export function sanitizeHTML(input: string, options?: Config): string {
       'code',
       'pre',
     ],
-    ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'id'],
-    ALLOW_DATA_ATTR: false,
-    ALLOWED_URI_REGEXP:
-      /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|cid|xmpp):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
+    allowedAttributes: {
+      a: ['href', 'title'],
+      img: ['src', 'alt', 'title'],
+      '*': ['class', 'id'],
+    },
+    allowedSchemes: ['http', 'https', 'mailto', 'tel'],
+    allowedSchemesAppliedToAttributes: ['href', 'src'],
+    allowProtocolRelative: false,
   };
 
   const config = { ...defaultConfig, ...options };
-  return DOMPurify.sanitize(input, config);
+  return sanitizeHtml(input, config as any);
 }
 
 /**
  * Sanitize plain text input (removes all HTML)
  * @param input Raw text input
- * @returns Sanitized plain text
+ * @returns Sanitized plain text string
  */
 export function sanitizeText(input: string): string {
   if (typeof input !== 'string') {
     return '';
   }
 
-  return DOMPurify.sanitize(input, {
-    ALLOWED_TAGS: [],
-    ALLOWED_ATTR: [],
-  });
+  return sanitizeHtml(input, {
+    allowedTags: [],
+    allowedAttributes: {},
+  } as any);
 }
 
 /**
@@ -114,7 +139,6 @@ export function sanitizeEmail(email: string): string {
 
   // Basic email validation regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   if (!emailRegex.test(trimmed)) {
     return '';
   }
@@ -133,13 +157,13 @@ export function sanitizePhone(phone: string): string {
   }
 
   // Remove all non-digit characters except + at the start
-  return phone.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
+  return phone.replace(/[^\d+]/g, '').replace(/^(\+?).*/, '$1');
 }
 
 /**
  * Validate and sanitize JSON input
- * @param input JSON string to validate
- * @returns Parsed and sanitized JSON object or null if invalid
+ * @param input JSON string to sanitize
+ * @returns Parsed and sanitized object or null if invalid
  */
 export function sanitizeJSON<T = any>(input: string): T | null {
   if (typeof input !== 'string') {

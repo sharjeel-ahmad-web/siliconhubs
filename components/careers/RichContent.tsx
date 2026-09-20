@@ -2,7 +2,7 @@
 
 /**
  * Renders CMS rich-text (HTML) content safely.
- * Uses the project's existing isomorphic-dompurify sanitization utilities.
+ * Uses the project's sanitize-html sanitization utilities.
  */
 import { sanitizeHTML } from '@/lib/security/sanitization';
 
