@@ -25,6 +25,9 @@
     "test:unit": "jest --testPathIgnorePatterns=integration",
     "test:integration": "jest --testPathPattern=integration"
   },
+  "overrides": {
+    "html-encoding-sniffer": "4.0.0"
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
