@@ -12,11 +12,11 @@ export interface SocialLinks {
 }
 
 const defaultLinks: SocialLinks = {
-  facebook: 'https://facebook.com/siliconhubs',
-  twitter: 'https://twitter.com/siliconhubs',
-  instagram: 'https://instagram.com/siliconhubs',
-  linkedin: 'https://linkedin.com/company/siliconhubs',
-  youtube: '',
+  facebook: 'https://www.facebook.com/profile.php?id=61593591315934',
+  twitter: 'https://x.com/Siliconhubs',
+  instagram: 'https://www.instagram.com/siliconhubs/',
+  linkedin: 'https://www.linkedin.com/in/sharjeel-ahmad-2646361b7/',
+  youtube: 'https://www.youtube.com/@SiliconHubsAgency',
   github: 'https://github.com/siliconhubs',
 };
 
