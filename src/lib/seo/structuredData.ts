@@ -132,10 +132,14 @@ export function generateOrganizationSchema(
       ...options?.contactPoint,
     },
     sameAs: [
-      // Add your social media URLs here
-      // 'https://facebook.com/siliconhubs',
-      // 'https://twitter.com/siliconhubs',
-      // 'https://linkedin.com/company/siliconhubs',
+      'https://www.facebook.com/profile.php?id=61593591315934',
+      'https://x.com/SiliconHubs',
+      'https://www.instagram.com/siliconhubs/',
+      'https://www.linkedin.com/in/sharjeel-ahmad-2646361b7/',
+      'https://www.youtube.com/@SiliconHubsAgency',
+      'https://github.com/siliconhubs',
+      'https://www.tiktok.com/@siliconhubs',
+      'https://pin.it/7aO5YxU8U',
     ],
     address: {
       '@type': 'PostalAddress',

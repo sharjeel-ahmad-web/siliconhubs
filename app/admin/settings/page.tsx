@@ -86,6 +86,16 @@ export default function SettingsPage() {
   );
   const [youtubeUrl, setYoutubeUrl] = useState('');
   const [githubUrl, setGithubUrl] = useState('https://github.com/siliconhubs');
+  const [tiktokUrl, setTiktokUrl] = useState(
+    'https://www.tiktok.com/@siliconhubs'
+  );
+  const [pinterestUrl, setPinterestUrl] = useState('https://pin.it/7aO5YxU8U');
+  const [upworkUrl, setUpworkUrl] = useState(
+    'https://www.upwork.com/freelancers/~01ace30ba193ab9962'
+  );
+  const [discordUrl, setDiscordUrl] = useState(
+    'https://discord.com/channels/1551286828798320655/1551286830962319372'
+  );
 
   // Notification Settings
   const [emailNotifications, setEmailNotifications] = useState(true);
@@ -134,6 +144,10 @@ export default function SettingsPage() {
             setLinkedinUrl(data.social_links.linkedin || '');
             setYoutubeUrl(data.social_links.youtube || '');
             setGithubUrl(data.social_links.github || '');
+            setTiktokUrl(data.social_links.tiktok || '');
+            setPinterestUrl(data.social_links.pinterest || '');
+            setUpworkUrl(data.social_links.upwork || '');
+            setDiscordUrl(data.social_links.discord || '');
           }
 
           // Load general settings
@@ -185,6 +199,10 @@ export default function SettingsPage() {
             linkedin: linkedinUrl,
             youtube: youtubeUrl,
             github: githubUrl,
+            tiktok: tiktokUrl,
+            pinterest: pinterestUrl,
+            upwork: upworkUrl,
+            discord: discordUrl,
           },
         }),
       });
@@ -965,6 +983,8 @@ export default function SettingsPage() {
                         </label>
                         <input
                           type="url"
+                          value={tiktokUrl}
+                          onChange={(e) => setTiktokUrl(e.target.value)}
                           placeholder="https://tiktok.com/@yourhandle"
                           className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                         />
@@ -975,7 +995,33 @@ export default function SettingsPage() {
                         </label>
                         <input
                           type="url"
+                          value={pinterestUrl}
+                          onChange={(e) => setPinterestUrl(e.target.value)}
                           placeholder="https://pinterest.com/yourprofile"
+                          className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="mb-1 block text-sm font-medium text-slate-300">
+                          Upwork
+                        </label>
+                        <input
+                          type="url"
+                          value={upworkUrl}
+                          onChange={(e) => setUpworkUrl(e.target.value)}
+                          placeholder="https://www.upwork.com/freelancers/..."
+                          className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="mb-1 block text-sm font-medium text-slate-300">
+                          Discord
+                        </label>
+                        <input
+                          type="url"
+                          value={discordUrl}
+                          onChange={(e) => setDiscordUrl(e.target.value)}
+                          placeholder="https://discord.com/..."
                           className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                         />
                       </div>

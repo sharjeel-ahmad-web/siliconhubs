@@ -9,17 +9,42 @@ const linksToCheck = [
   { url: '/contact', foundOn: '/', type: 'internal' as const },
   { url: '/blog', foundOn: '/', type: 'internal' as const },
   {
-    url: 'https://facebook.com/siliconhubs',
+    url: 'https://www.facebook.com/profile.php?id=61593591315934',
     foundOn: '/',
     type: 'external' as const,
   },
   {
-    url: 'https://twitter.com/siliconhubs',
+    url: 'https://x.com/SiliconHubs',
     foundOn: '/',
     type: 'external' as const,
   },
   {
-    url: 'https://linkedin.com/company/siliconhubs',
+    url: 'https://www.instagram.com/siliconhubs/',
+    foundOn: '/',
+    type: 'external' as const,
+  },
+  {
+    url: 'https://www.linkedin.com/in/sharjeel-ahmad-2646361b7/',
+    foundOn: '/',
+    type: 'external' as const,
+  },
+  {
+    url: 'https://www.youtube.com/@SiliconHubsAgency',
+    foundOn: '/',
+    type: 'external' as const,
+  },
+  {
+    url: 'https://github.com/siliconhubs',
+    foundOn: '/',
+    type: 'external' as const,
+  },
+  {
+    url: 'https://www.tiktok.com/@siliconhubs',
+    foundOn: '/',
+    type: 'external' as const,
+  },
+  {
+    url: 'https://pin.it/7aO5YxU8U',
     foundOn: '/',
     type: 'external' as const,
   },

@@ -9,15 +9,24 @@ export interface SocialLinks {
   linkedin: string;
   youtube: string;
   github: string;
+  tiktok: string;
+  upwork: string;
+  pinterest: string;
+  discord: string;
 }
 
 const defaultLinks: SocialLinks = {
-  facebook: 'https://facebook.com/siliconhubs',
-  twitter: 'https://twitter.com/siliconhubs',
-  instagram: 'https://instagram.com/siliconhubs',
-  linkedin: 'https://linkedin.com/company/siliconhubs',
-  youtube: '',
+  facebook: 'https://www.facebook.com/profile.php?id=61593591315934',
+  twitter: 'https://x.com/SiliconHubs',
+  instagram: 'https://www.instagram.com/siliconhubs/',
+  linkedin: 'https://www.linkedin.com/in/sharjeel-ahmad-2646361b7/',
+  youtube: 'https://www.youtube.com/@SiliconHubsAgency',
   github: 'https://github.com/siliconhubs',
+  tiktok: 'https://www.tiktok.com/@siliconhubs',
+  upwork: 'https://www.upwork.com/freelancers/~01ace30ba193ab9962',
+  pinterest: 'https://pin.it/7aO5YxU8U',
+  discord:
+    'https://discord.com/channels/1551286828798320655/1551286830962319372',
 };
 
 export function useSocialLinks() {
@@ -38,7 +47,6 @@ export function useSocialLinks() {
         setLoading(false);
       }
     }
-
     fetchSocialLinks();
   }, []);
 

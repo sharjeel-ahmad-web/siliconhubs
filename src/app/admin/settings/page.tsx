@@ -86,6 +86,16 @@ export default function SettingsPage() {
   );
   const [youtubeUrl, setYoutubeUrl] = useState('');
   const [githubUrl, setGithubUrl] = useState('https://github.com/siliconhubs');
+  const [tiktokUrl, setTiktokUrl] = useState(
+    'https://www.tiktok.com/@siliconhubs'
+  );
+  const [pinterestUrl, setPinterestUrl] = useState('https://pin.it/7aO5YxU8U');
+  const [upworkUrl, setUpworkUrl] = useState(
+    'https://www.upwork.com/freelancers/~01ace30ba193ab9962'
+  );
+  const [discordUrl, setDiscordUrl] = useState(
+    'https://discord.com/channels/1551286828798320655/1551286830962319372'
+  );
 
   // Notification Settings
   const [emailNotifications, setEmailNotifications] = useState(true);
@@ -134,6 +144,8 @@ export default function SettingsPage() {
             setLinkedinUrl(data.social_links.linkedin || '');
             setYoutubeUrl(data.social_links.youtube || '');
             setGithubUrl(data.social_links.github || '');
+            setTiktokUrl(data.social_links.tiktok || '');
+            setPinterestUrl(data.social_links.pinterest || '');
           }
 
           // Load general settings
@@ -185,6 +197,8 @@ export default function SettingsPage() {
             linkedin: linkedinUrl,
             youtube: youtubeUrl,
             github: githubUrl,
+            tiktok: tiktokUrl,
+            pinterest: pinterestUrl,
           },
         }),
       });

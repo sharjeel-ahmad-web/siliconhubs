@@ -9,6 +9,10 @@ export interface SocialLinks {
   linkedin: string;
   youtube: string;
   github: string;
+  tiktok: string;
+  upwork: string;
+  pinterest: string;
+  discord: string;
 }
 
 const defaultLinks: SocialLinks = {
@@ -18,6 +22,11 @@ const defaultLinks: SocialLinks = {
   linkedin: 'https://www.linkedin.com/in/sharjeel-ahmad-2646361b7/',
   youtube: 'https://www.youtube.com/@SiliconHubsAgency',
   github: 'https://github.com/siliconhubs',
+  tiktok: 'https://www.tiktok.com/@siliconhubs',
+  upwork: 'https://www.upwork.com/freelancers/~01ace30ba193ab9962',
+  pinterest: 'https://pin.it/7aO5YxU8U',
+  discord:
+    'https://discord.com/channels/1551286828798320655/1551286830962319372',
 };
 
 export function useSocialLinks() {
