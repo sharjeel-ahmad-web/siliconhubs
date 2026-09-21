@@ -10,6 +10,12 @@ const PRIVATE_KEY = process.env.IMAGEKIT_PRIVATE_KEY || '';
 const IMAGEKIT_UPLOAD_ENDPOINT = 'https://api.imagekit.io/v1/files/upload';
 
 const IMAGEKIT_API_ENDPOINT = 'https://api.imagekit.io/v1/files';
+const IMAGEKIT_FOLDERS_ENDPOINT = 'https://api.imagekit.io/v1/folders';
+
+function getImageKitAuthorization(): string {
+  assertImageKitConfig();
+  return `Basic ${Buffer.from(`${PRIVATE_KEY}:`).toString('base64')}`;
+}
 
 /**
  * Upload a file to ImageKit from the server.
@@ -125,15 +131,11 @@ export async function deleteFromImageKit(fileId: string): Promise<boolean> {
      *
      * Keep the private key on the server only.
      */
-    const credentials = Buffer.from(`${PRIVATE_KEY}:`).toString('base64');
-
     const response = await fetch(
       `${IMAGEKIT_API_ENDPOINT}/${encodeURIComponent(fileId)}`,
       {
         method: 'DELETE',
-        headers: {
-          Authorization: `Basic ${credentials}`,
-        },
+        headers: { Authorization: getImageKitAuthorization() },
       }
     );
 
@@ -151,6 +153,58 @@ export async function deleteFromImageKit(fileId: string): Promise<boolean> {
 
     return false;
   }
+}
+
+/** List folders directly below an ImageKit folder path. */
+export async function listImageKitFolders(
+  parentFolderPath = ''
+): Promise<{ name: string; path: string }[]> {
+  const params = new URLSearchParams({
+    parentFolderPath: parentFolderPath ? `/${parentFolderPath}` : '/',
+  });
+  const response = await fetch(
+    `${IMAGEKIT_FOLDERS_ENDPOINT}?${params.toString()}`,
+    { headers: { Authorization: getImageKitAuthorization() } }
+  );
+
+  if (!response.ok) {
+    throw new Error(`ImageKit folder listing failed: ${response.status}`);
+  }
+
+  const folders = await response.json();
+  return (Array.isArray(folders) ? folders : []).map((folder: any) => ({
+    name: folder.folderName || folder.name,
+    path: folder.folderPath || folder.path,
+  }));
+}
+
+/** List files in an ImageKit folder. */
+export async function listImageKitFiles(
+  folder = '',
+  type: 'image' | 'video' = 'image',
+  limit = 500
+): Promise<any[]> {
+  const params = new URLSearchParams({
+    path: folder ? `/${folder}` : '/',
+    limit: String(Math.min(limit, 1000)),
+    fileType: 'all',
+  });
+  const response = await fetch(
+    `${IMAGEKIT_API_ENDPOINT}?${params.toString()}`,
+    {
+      headers: { Authorization: getImageKitAuthorization() },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`ImageKit file listing failed: ${response.status}`);
+  }
+
+  const files = await response.json();
+  return (Array.isArray(files) ? files : []).filter((file: any) => {
+    const fileType = file.fileType || file.type;
+    return fileType === type;
+  });
 }
 
 /**

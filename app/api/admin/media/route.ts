@@ -1,54 +1,32 @@
 import { NextResponse } from 'next/server';
-import { listCloudinaryFiles, deleteFromCloudinary, reconfigureFromSettings } from '@/lib/cloudinary';
-import cloudinary from '@/lib/cloudinary';
+import { deleteFromImageKit, listImageKitFiles } from '@/lib/imagekit';
 
 // GET - List all media files
 export async function GET(request: Request) {
   try {
-    await reconfigureFromSettings();
     const { searchParams } = new URL(request.url);
     const folder = searchParams.get('folder') || '';
     const type = (searchParams.get('type') as 'image' | 'video') || 'image';
-    const debug = searchParams.get('debug') === 'true';
-
-    // Debug mode: list all folders first
-    if (debug) {
-      try {
-        const foldersResult = await cloudinary.api.root_folders();
-        const subFolders = folder
-          ? await cloudinary.api
-              .sub_folders(folder)
-              .catch(() => ({ folders: [] }))
-          : { folders: [] };
-        return NextResponse.json({
-          rootFolders: foldersResult.folders,
-          subFolders: subFolders.folders,
-          searchFolder: folder,
-          type,
-        });
-      } catch (debugError) {
-        console.error('Debug error:', debugError);
-      }
-    }
-
-    const files = await listCloudinaryFiles(folder, type, 500);
+    const files = await listImageKitFiles(folder, type, 500);
 
     // Format the response - extract folder from public_id
     const formattedFiles = files.map((file: any) => {
-      const publicId = file.public_id;
+      const publicId = file.fileId;
       const lastSlash = publicId.lastIndexOf('/');
       const fileFolder = lastSlash > -1 ? publicId.substring(0, lastSlash) : '';
 
       return {
-        publicId: file.public_id,
-        url: file.secure_url,
+        publicId,
+        url: file.url,
         format: file.format,
         width: file.width,
         height: file.height,
-        size: file.bytes,
-        type: file.resource_type,
-        createdAt: file.created_at,
-        folder: file.folder || fileFolder,
+        size: file.size,
+        type: file.fileType || type,
+        createdAt: file.createdAt,
+        folder: file.filePath
+          ? file.filePath.substring(0, file.filePath.lastIndexOf('/'))
+          : fileFolder,
       };
     });
 
@@ -79,7 +57,7 @@ export async function DELETE(request: Request) {
       );
     }
 
-    const success = await deleteFromCloudinary(publicId, resourceType);
+    const success = await deleteFromImageKit(publicId);
 
     if (success) {
       return NextResponse.json({
