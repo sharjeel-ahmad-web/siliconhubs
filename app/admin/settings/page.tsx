@@ -35,6 +35,7 @@ import {
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState('general');
   const [saving, setSaving] = useState(false);
+  const [testingEmail, setTestingEmail] = useState(false);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState<{
     type: 'success' | 'error';
@@ -122,6 +123,17 @@ export default function SettingsPage() {
   const [cloudinaryApiKey, setCloudinaryApiKey] = useState('');
   const [cloudinaryApiSecret, setCloudinaryApiSecret] = useState('');
 
+  // SMTP settings are stored server-side in the email_smtp settings record.
+  const [smtpEnabled, setSmtpEnabled] = useState(false);
+  const [smtpHost, setSmtpHost] = useState('');
+  const [smtpPort, setSmtpPort] = useState('587');
+  const [smtpEncryption, setSmtpEncryption] = useState<'tls' | 'ssl' | 'none'>(
+    'tls'
+  );
+  const [smtpUsername, setSmtpUsername] = useState('');
+  const [smtpPassword, setSmtpPassword] = useState('');
+  const [smtpFromEmail, setSmtpFromEmail] = useState('');
+
   // Maintenance
   const [maintenanceMode, setMaintenanceMode] = useState(false);
   const [maintenanceMessage, setMaintenanceMessage] = useState(
@@ -172,6 +184,15 @@ export default function SettingsPage() {
             setCloudinaryApiKey(data.cloudinary.cloudinaryApiKey || '');
             setCloudinaryApiSecret(data.cloudinary.cloudinaryApiSecret || '');
           }
+
+          if (data.email_smtp) {
+            setSmtpEnabled(Boolean(data.email_smtp.enabled));
+            setSmtpHost(data.email_smtp.host || '');
+            setSmtpPort(String(data.email_smtp.port || '587'));
+            setSmtpEncryption(data.email_smtp.encryption || 'tls');
+            setSmtpUsername(data.email_smtp.username || '');
+            setSmtpFromEmail(data.email_smtp.fromEmail || '');
+          }
         }
       } catch (error) {
         console.error('Error loading settings:', error);
@@ -206,6 +227,25 @@ export default function SettingsPage() {
           },
         }),
       });
+
+      await fetch('/api/admin/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: 'email_smtp',
+          value: {
+            enabled: smtpEnabled,
+            host: smtpHost,
+            port: smtpPort,
+            encryption: smtpEncryption,
+            username: smtpUsername,
+            password: smtpPassword,
+            fromEmail: smtpFromEmail,
+          },
+        }),
+      });
+
+      setSmtpPassword('');
 
       // Save general settings
       await fetch('/api/admin/settings', {
@@ -248,6 +288,28 @@ export default function SettingsPage() {
     } finally {
       setSaving(false);
       setTimeout(() => setMessage(null), 3000);
+    }
+  };
+
+  const handleTestEmail = async () => {
+    setTestingEmail(true);
+    setMessage(null);
+    try {
+      const response = await fetch('/api/admin/email/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ recipient: contactEmail }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Email test failed.');
+      setMessage({ type: 'success', text: data.message });
+    } catch (error) {
+      setMessage({
+        type: 'error',
+        text: error instanceof Error ? error.message : 'Email test failed.',
+      });
+    } finally {
+      setTestingEmail(false);
     }
   };
 
@@ -1468,8 +1530,13 @@ export default function SettingsPage() {
                           readOnly
                           className="flex-1 cursor-not-allowed rounded-lg border border-slate-700 bg-navy px-4 py-2 text-slate-400"
                         />
-                        <button className="rounded-lg bg-slate-700 px-4 py-2 text-sm text-white transition-colors hover:bg-slate-600">
-                          Test Email
+                        <button
+                          type="button"
+                          onClick={handleTestEmail}
+                          disabled={testingEmail}
+                          className="rounded-lg bg-slate-700 px-4 py-2 text-sm text-white transition-colors hover:bg-slate-600 disabled:opacity-50"
+                        >
+                          {testingEmail ? 'Sending...' : 'Test Email'}
                         </button>
                       </div>
                       <p className="mt-2 text-xs text-slate-500">
@@ -1677,12 +1744,28 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="space-y-4">
+                  <label className="flex items-center justify-between rounded-lg border border-slate-700 bg-navy p-4">
+                    <div>
+                      <p className="font-medium text-white">Enable SMTP</p>
+                      <p className="text-sm text-slate-400">
+                        Use SMTP first for all transactional email.
+                      </p>
+                    </div>
+                    <input
+                      type="checkbox"
+                      checked={smtpEnabled}
+                      onChange={(e) => setSmtpEnabled(e.target.checked)}
+                      className="h-5 w-5 rounded border-slate-600 text-cyan focus:ring-cyan"
+                    />
+                  </label>
                   <div>
                     <label className="mb-1 block text-sm font-medium text-slate-300">
                       SMTP Host
                     </label>
                     <input
                       type="text"
+                      value={smtpHost}
+                      onChange={(e) => setSmtpHost(e.target.value)}
                       placeholder="smtp.gmail.com or smtp.office365.com"
                       className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     />
@@ -1698,6 +1781,8 @@ export default function SettingsPage() {
                       </label>
                       <input
                         type="text"
+                        value={smtpPort}
+                        onChange={(e) => setSmtpPort(e.target.value)}
                         placeholder="587"
                         className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                       />
@@ -1709,7 +1794,15 @@ export default function SettingsPage() {
                       <label className="mb-1 block text-sm font-medium text-slate-300">
                         Encryption
                       </label>
-                      <select className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none">
+                      <select
+                        value={smtpEncryption}
+                        onChange={(e) =>
+                          setSmtpEncryption(
+                            e.target.value as 'tls' | 'ssl' | 'none'
+                          )
+                        }
+                        className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
+                      >
                         <option value="tls">TLS (Recommended)</option>
                         <option value="ssl">SSL</option>
                         <option value="none">None</option>
@@ -1722,6 +1815,8 @@ export default function SettingsPage() {
                     </label>
                     <input
                       type="text"
+                      value={smtpUsername}
+                      onChange={(e) => setSmtpUsername(e.target.value)}
                       placeholder="your-email@gmail.com"
                       className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     />
@@ -1732,6 +1827,8 @@ export default function SettingsPage() {
                     </label>
                     <input
                       type="password"
+                      value={smtpPassword}
+                      onChange={(e) => setSmtpPassword(e.target.value)}
                       placeholder="••••••••"
                       className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     />
@@ -1747,16 +1844,28 @@ export default function SettingsPage() {
                     </label>
                     <input
                       type="email"
+                      value={smtpFromEmail}
+                      onChange={(e) => setSmtpFromEmail(e.target.value)}
                       placeholder="noreply@yourdomain.com"
                       className="w-full rounded-lg border border-slate-700 bg-navy px-4 py-2 text-white focus:border-cyan focus:outline-none"
                     />
                   </div>
                   <div className="flex gap-3">
-                    <button className="rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80">
+                    <button
+                      type="button"
+                      onClick={handleSave}
+                      disabled={saving}
+                      className="rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80 disabled:opacity-50"
+                    >
                       Save SMTP Settings
                     </button>
-                    <button className="rounded-lg bg-slate-700 px-4 py-2 text-white transition-colors hover:bg-slate-600">
-                      Send Test Email
+                    <button
+                      type="button"
+                      onClick={handleTestEmail}
+                      disabled={testingEmail}
+                      className="rounded-lg bg-slate-700 px-4 py-2 text-white transition-colors hover:bg-slate-600 disabled:opacity-50"
+                    >
+                      {testingEmail ? 'Sending...' : 'Send Test Email'}
                     </button>
                   </div>
                 </div>

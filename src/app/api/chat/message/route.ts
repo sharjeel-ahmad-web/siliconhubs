@@ -4,12 +4,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ObjectId } from 'mongodb';
 import clientPromise from '@/lib/db/mongodb';
 import { getChatResponse, ChatMessage } from '@/lib/groq';
-import { Resend } from 'resend';
+import { sendTransactionalEmail } from '@/lib/email';
 
 const DB_NAME = 'siliconhubs';
 
 export async function POST(request: NextRequest) {
-  const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key');
   try {
     const { conversationId, message } = await request.json();
 
@@ -93,8 +92,7 @@ export async function POST(request: NextRequest) {
           process.env.CHAT_NOTIFICATION_EMAIL || process.env.ADMIN_EMAIL;
 
         if (notificationEmail) {
-          await resend.emails.send({
-            from: 'Silicon Hubs <onboarding@resend.dev>',
+          await sendTransactionalEmail({
             to: notificationEmail,
             subject: `🔔 Human Support Requested - ${conversation.visitorName}`,
             html: `
@@ -143,7 +141,6 @@ export async function POST(request: NextRequest) {
 
 // GET - Fetch messages for a conversation (for polling)
 export async function GET(request: NextRequest) {
-  const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key');
   try {
     const { searchParams } = new URL(request.url);
     const conversationId = searchParams.get('conversationId');

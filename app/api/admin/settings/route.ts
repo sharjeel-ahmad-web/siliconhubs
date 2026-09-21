@@ -1,12 +1,53 @@
 'use server';
 
 import { NextResponse } from 'next/server';
+import { getServerSession } from 'next-auth';
 import clientPromise from '@/lib/db/mongodb';
 import { Settings } from '@/lib/db/models';
+import { authOptions } from '@/lib/auth/authOptions';
+
+const SENSITIVE_KEY = /(password|secret|api.?key|private.?key|token)/i;
+
+function redact(value: unknown, key = ''): unknown {
+  if (SENSITIVE_KEY.test(key)) return value ? '••••••••' : '';
+  if (Array.isArray(value)) return value.map((item) => redact(item));
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([childKey, childValue]) => [
+        childKey,
+        redact(childValue, childKey),
+      ])
+    );
+  }
+  return value;
+}
+
+function mergeSecrets(existing: any, incoming: any): any {
+  if (!incoming || typeof incoming !== 'object' || Array.isArray(incoming)) {
+    return incoming;
+  }
+  const result = { ...(existing || {}) };
+  for (const [key, value] of Object.entries(incoming)) {
+    if (SENSITIVE_KEY.test(key) && (!value || value === '••••••••')) continue;
+    result[key] =
+      value && typeof value === 'object' && !Array.isArray(value)
+        ? mergeSecrets(existing?.[key], value)
+        : value;
+  }
+  return result;
+}
+
+async function requireAdmin() {
+  const session = await getServerSession(authOptions);
+  return Boolean(session);
+}
 
 // GET - Retrieve settings
 export async function GET(request: Request) {
   try {
+    if (!(await requireAdmin())) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
     const { searchParams } = new URL(request.url);
     const key = searchParams.get('key');
 
@@ -17,14 +58,14 @@ export async function GET(request: Request) {
     if (key) {
       // Get specific setting
       const setting = await collection.findOne({ key });
-      return NextResponse.json(setting?.value || null);
+      return NextResponse.json(redact(setting?.value || null));
     }
 
     // Get all settings
     const settings = await collection.find({}).toArray();
     const settingsMap: Record<string, any> = {};
     settings.forEach((s) => {
-      settingsMap[s.key] = s.value;
+      settingsMap[s.key] = redact(s.value);
     });
 
     return NextResponse.json(settingsMap);
@@ -40,6 +81,9 @@ export async function GET(request: Request) {
 // POST - Save settings
 export async function POST(request: Request) {
   try {
+    if (!(await requireAdmin())) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
     const body = await request.json();
     const { key, value } = body;
 
@@ -51,13 +95,16 @@ export async function POST(request: Request) {
     const db = client.db('siliconhubs');
     const collection = db.collection<Settings>('settings');
 
+    const existing = await collection.findOne({ key });
+    const safeValue = mergeSecrets(existing?.value, value);
+
     await collection.updateOne(
       { key },
-      { $set: { key, value, updatedAt: new Date() } },
+      { $set: { key, value: safeValue, updatedAt: new Date() } },
       { upsert: true }
     );
 
-    return NextResponse.json({ success: true, key, value });
+    return NextResponse.json({ success: true, key });
   } catch (error) {
     console.error('Error saving settings:', error);
     return NextResponse.json(
@@ -70,6 +117,9 @@ export async function POST(request: Request) {
 // PUT - Bulk update settings
 export async function PUT(request: Request) {
   try {
+    if (!(await requireAdmin())) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
     const body = await request.json();
     const settings = body.settings as Record<string, any>;
 
@@ -84,13 +134,24 @@ export async function PUT(request: Request) {
     const db = client.db('siliconhubs');
     const collection = db.collection<Settings>('settings');
 
-    const operations = Object.entries(settings).map(([key, value]) => ({
-      updateOne: {
-        filter: { key },
-        update: { $set: { key, value, updatedAt: new Date() } },
-        upsert: true,
-      },
-    }));
+    const operations = await Promise.all(
+      Object.entries(settings).map(async ([key, value]) => {
+        const existing = await collection.findOne({ key });
+        return {
+          updateOne: {
+            filter: { key },
+            update: {
+              $set: {
+                key,
+                value: mergeSecrets(existing?.value, value),
+                updatedAt: new Date(),
+              },
+            },
+            upsert: true,
+          },
+        };
+      })
+    );
 
     await collection.bulkWrite(operations);
 

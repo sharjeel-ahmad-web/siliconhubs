@@ -1,6 +1,4 @@
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { sendTransactionalEmail } from '@/lib/email';
 
 interface ContactEmailData {
   name: string;
@@ -13,21 +11,14 @@ interface ContactEmailData {
 export async function sendContactNotification(data: ContactEmailData) {
   // Contact form submissions are delivered to the agency inbox.
   const adminEmail = process.env.CONTACT_EMAIL || 'contact@siliconhubs.com';
-  // Sender must be a domain verified in Resend (e.g. siliconhubs.com).
-  const from =
-    process.env.EMAIL_FROM || 'SiliconHubs <onboarding@siliconhubs.com>';
-
   if (!adminEmail) {
-    console.error('No notification email configured for contact form');
-    return false;
+    throw new Error('No notification email configured for contact form.');
   }
 
-  try {
-    const { error } = await resend.emails.send({
-      from,
-      to: adminEmail,
-      subject: `New Contact: ${data.name}`,
-      html: `
+  await sendTransactionalEmail({
+    to: adminEmail,
+    subject: `New Contact: ${data.name}`,
+    html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #0a192f;">New Contact Form Submission</h2>
           <div style="background: #ffe8c1; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -43,18 +34,8 @@ export async function sendContactNotification(data: ContactEmailData) {
           </p>
         </div>
       `,
-      replyTo: data.email,
-    });
-
-    if (error) {
-      console.error('Resend error:', error);
-      return false;
-    }
-    return true;
-  } catch (error) {
-    console.error('Email send error:', error);
-    return false;
-  }
+    replyTo: data.email,
+  });
 }
 // ---------------------------------------------------------------------------
 // Careers / recruitment emails — reuse the same Resend infrastructure.
@@ -70,18 +51,14 @@ interface ApplicationReceivedData {
 export async function sendApplicationReceivedEmail(
   data: ApplicationReceivedData & { email: string }
 ) {
-  const from =
-    process.env.EMAIL_FROM || 'SiliconHubs <onboarding@siliconhubs.com>';
   const careersEmail =
     process.env.CAREERS_EMAIL || 'careers@siliconhubs.agency';
 
-  try {
-    const { error } = await resend.emails.send({
-      from,
-      to: data.email,
-      replyTo: careersEmail,
-      subject: `Application received — ${data.jobTitle} | SiliconHubs`,
-      html: `
+  await sendTransactionalEmail({
+    to: data.email,
+    replyTo: careersEmail,
+    subject: `Application received — ${data.jobTitle} | SiliconHubs`,
+    html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #363534;">
           <h2 style="color: #0a192f;">Thank you for applying, ${data.candidateName}!</h2>
           <p>We have received your application for <strong>${data.jobTitle}</strong> at SiliconHubs.</p>
@@ -95,17 +72,7 @@ export async function sendApplicationReceivedEmail(
           <p>Best regards,<br/>The SiliconHubs Team</p>
         </div>
       `,
-    });
-
-    if (error) {
-      console.error('Resend error (application received):', error);
-      return false;
-    }
-    return true;
-  } catch (error) {
-    console.error('Email send error (application received):', error);
-    return false;
-  }
+  });
 }
 
 export interface ApplicationStatusUpdateData {
@@ -119,18 +86,14 @@ export interface ApplicationStatusUpdateData {
 export async function sendApplicationStatusEmail(
   data: ApplicationStatusUpdateData
 ) {
-  const from =
-    process.env.EMAIL_FROM || 'SiliconHubs <onboarding@siliconhubs.com>';
   const careersEmail =
     process.env.CAREERS_EMAIL || 'careers@siliconhubs.agency';
 
-  try {
-    const { error } = await resend.emails.send({
-      from,
-      to: data.email,
-      replyTo: careersEmail,
-      subject: `Application update — ${data.jobTitle} | SiliconHubs`,
-      html: `
+  await sendTransactionalEmail({
+    to: data.email,
+    replyTo: careersEmail,
+    subject: `Application update — ${data.jobTitle} | SiliconHubs`,
+    html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #363534;">
           <h2 style="color: #0a192f;">Hi ${data.candidateName},</h2>
           <p>There is an update on your application for <strong>${data.jobTitle}</strong>.</p>
@@ -140,17 +103,7 @@ export async function sendApplicationStatusEmail(
           <p>Best regards,<br/>The SiliconHubs Team</p>
         </div>
       `,
-    });
-
-    if (error) {
-      console.error('Resend error (application status):', error);
-      return false;
-    }
-    return true;
-  } catch (error) {
-    console.error('Email send error (application status):', error);
-    return false;
-  }
+  });
 }
 
 export interface InterviewInviteData {
@@ -166,18 +119,14 @@ export interface InterviewInviteData {
 }
 
 export async function sendInterviewInviteEmail(data: InterviewInviteData) {
-  const from =
-    process.env.EMAIL_FROM || 'SiliconHubs <onboarding@siliconhubs.com>';
   const careersEmail =
     process.env.CAREERS_EMAIL || 'careers@siliconhubs.agency';
 
-  try {
-    const { error } = await resend.emails.send({
-      from,
-      to: data.email,
-      replyTo: careersEmail,
-      subject: `Interview invitation — ${data.jobTitle} | SiliconHubs`,
-      html: `
+  await sendTransactionalEmail({
+    to: data.email,
+    replyTo: careersEmail,
+    subject: `Interview invitation — ${data.jobTitle} | SiliconHubs`,
+    html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #363534;">
           <h2 style="color: #0a192f;">Interview invitation, ${data.candidateName}!</h2>
           <p>We are excited to move your application for <strong>${data.jobTitle}</strong> forward.</p>
@@ -191,15 +140,5 @@ export async function sendInterviewInviteEmail(data: InterviewInviteData) {
           <p>Best regards,<br/>The SiliconHubs Team</p>
         </div>
       `,
-    });
-
-    if (error) {
-      console.error('Resend error (interview invite):', error);
-      return false;
-    }
-    return true;
-  } catch (error) {
-    console.error('Email send error (interview invite):', error);
-    return false;
-  }
+  });
 }

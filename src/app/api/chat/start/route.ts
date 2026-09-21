@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/db/mongodb';
-import { Resend } from 'resend';
+import { sendTransactionalEmail } from '@/lib/email';
 
 const DB_NAME = 'siliconhubs';
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -62,8 +61,7 @@ export async function POST(request: NextRequest) {
         process.env.CHAT_NOTIFICATION_EMAIL || process.env.ADMIN_EMAIL;
 
       if (notificationEmail) {
-        await resend.emails.send({
-          from: 'Silicon Hubs <onboarding@resend.dev>',
+        await sendTransactionalEmail({
           to: notificationEmail,
           subject: `New Chat Started - ${name}`,
           html: `
