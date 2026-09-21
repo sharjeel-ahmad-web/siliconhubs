@@ -12,7 +12,7 @@ export async function GET(
 
     const blog = await db
       .collection('blogs')
-      .findOne({ slug: params.slug, published: true });
+      .findOne({ slug: params.slug, published: { $in: [true, 'true'] } });
 
     if (!blog) {
       return NextResponse.json({ error: 'Blog not found' }, { status: 404 });

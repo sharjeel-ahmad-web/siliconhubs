@@ -1,6 +1,8 @@
 ﻿import { NextRequest, NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db/mongodb';
 
+export const dynamic = 'force-dynamic';
+
 // GET published blog posts (public)
 export async function GET(request: NextRequest) {
   try {
@@ -11,7 +13,9 @@ export async function GET(request: NextRequest) {
     const limit = searchParams.get('limit');
     const category = searchParams.get('category');
 
-    const query: Record<string, unknown> = { published: true };
+    const query: Record<string, unknown> = {
+      published: { $in: [true, 'true'] },
+    };
     if (featured === 'true') {
       query.featured = true;
     }
@@ -26,7 +30,21 @@ export async function GET(request: NextRequest) {
     }
 
     const blogs = await cursor.toArray();
-    return NextResponse.json(Array.isArray(blogs) ? blogs : [], {
+    const serializedBlogs = blogs.map((blog: any) => ({
+      ...blog,
+      _id: blog._id?.toString?.() || String(blog._id),
+      publishedAt: blog.publishedAt
+        ? new Date(blog.publishedAt).toISOString()
+        : undefined,
+      createdAt: blog.createdAt
+        ? new Date(blog.createdAt).toISOString()
+        : undefined,
+      updatedAt: blog.updatedAt
+        ? new Date(blog.updatedAt).toISOString()
+        : undefined,
+    }));
+
+    return NextResponse.json(serializedBlogs, {
       headers: { 'Cache-Control': 'no-store' },
     });
   } catch (error) {

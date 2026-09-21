@@ -6,6 +6,8 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import { generateArticleSchema } from '@/lib/seo/structuredData';
 import BlogDetailClient from './BlogDetailClient';
 
+export const dynamic = 'force-dynamic';
+
 interface BlogPost {
   _id: string;
   title: string;
@@ -33,7 +35,7 @@ export async function generateMetadata({
 
     const blog = await db
       .collection<BlogPost>('blogs')
-      .findOne({ slug: params.slug, published: true });
+      .findOne({ slug: params.slug, published: { $in: [true, 'true'] } });
 
     if (!blog) {
       return {
@@ -57,22 +59,26 @@ export async function generateMetadata({
         publishedTime: blog.publishedAt,
         authors: [blog.author],
         tags: blog.tags || [],
-        images: blog.coverImage || blog.thumbnail
-          ? [
-              {
-                url: blog.coverImage || blog.thumbnail,
-                width: 1200,
-                height: 630,
-                alt: blog.title,
-              },
-            ]
-          : [],
+        images:
+          blog.coverImage || blog.thumbnail
+            ? [
+                {
+                  url: blog.coverImage || blog.thumbnail,
+                  width: 1200,
+                  height: 630,
+                  alt: blog.title,
+                },
+              ]
+            : [],
       },
       twitter: {
         card: 'summary_large_image',
         title: blog.title,
         description: blog.excerpt || blog.content.substring(0, 160),
-        images: blog.coverImage || blog.thumbnail ? [blog.coverImage || blog.thumbnail] : [],
+        images:
+          blog.coverImage || blog.thumbnail
+            ? [blog.coverImage || blog.thumbnail]
+            : [],
       },
       alternates: {
         canonical: `${baseUrl}/blog/${blog.slug}`,
@@ -99,7 +105,7 @@ export default async function SingleBlogPage({
 
     const blog = await db
       .collection<BlogPost>('blogs')
-      .findOne({ slug: params.slug, published: true });
+      .findOne({ slug: params.slug, published: { $in: [true, 'true'] } });
 
     if (!blog) {
       notFound();
