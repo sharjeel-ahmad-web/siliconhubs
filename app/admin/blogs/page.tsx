@@ -32,7 +32,7 @@ export default function AdminBlogsPage() {
     category: 'Development',
     tags: '',
     featured: false,
-    published: false,
+    published: true,
   });
 
   const categories = [
@@ -168,7 +168,7 @@ export default function AdminBlogsPage() {
       category: 'Development',
       tags: '',
       featured: false,
-      published: false,
+      published: true,
     });
   };
 

@@ -26,7 +26,9 @@ export async function GET(request: NextRequest) {
     }
 
     const blogs = await cursor.toArray();
-    return NextResponse.json(Array.isArray(blogs) ? blogs : []);
+    return NextResponse.json(Array.isArray(blogs) ? blogs : [], {
+      headers: { 'Cache-Control': 'no-store' },
+    });
   } catch (error) {
     console.error('[api/blogs GET]', error);
     return NextResponse.json([]);
