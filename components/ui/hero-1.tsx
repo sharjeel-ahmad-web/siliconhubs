@@ -22,11 +22,11 @@ export function Hero1({
   return (
     <section
       id="hero"
-      className="relative mx-auto min-h-[70vh] w-full rounded-b-xl bg-[linear-gradient(to_bottom,#000,#000_30%,#1a3a4a_78%,#06b6d4_100%)] px-6 pt-28 text-center md:px-8"
+      className="relative mx-auto min-h-[58vh] w-full overflow-hidden rounded-b-[2rem] bg-[#14213D] px-6 pt-28 text-center md:px-8"
     >
       {/* Grid BG */}
       <div
-        className="absolute inset-0 -z-10 h-[420px] w-full bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#333_1px,transparent_1px)] bg-[size:6rem_5rem] opacity-80"
+        className="absolute inset-0 -z-10 h-[420px] w-full bg-[linear-gradient(to_right,rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.08)_1px,transparent_1px)] bg-[size:6rem_5rem] opacity-60"
         style={{
           maskImage:
             'radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%)',
@@ -48,12 +48,12 @@ export function Hero1({
       <div className="relative z-10 pb-12 pt-12">
         {/* Eyebrow */}
         {eyebrow && (
-          <a href="#" className="group inline-block">
-            <span className="mx-auto flex w-fit items-center justify-center rounded-3xl border-[2px] border-cyan/20 bg-gradient-to-tr from-cyan/10 via-gray-400/5 to-transparent px-5 py-2 text-sm uppercase tracking-tight text-gray-400">
+          <div className="group inline-block">
+            <span className="mx-auto flex w-fit items-center justify-center rounded-3xl border border-[#F4511E]/40 bg-[#FFF4E6]/10 px-5 py-2 text-sm uppercase tracking-tight text-[#FFB38F]">
               {eyebrow}
               <ChevronRight className="ml-2 inline h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
-          </a>
+          </div>
         )}
 
         {/* Title with Animated Gradient */}
@@ -61,7 +61,7 @@ export function Hero1({
           className="animate-fade-in -translate-y-4 text-balance bg-clip-text py-6 text-4xl font-semibold leading-none tracking-tighter text-transparent opacity-0 sm:text-5xl md:text-6xl lg:text-6xl"
           style={{
             backgroundImage:
-              'linear-gradient(90deg, #06b6d4, #fc4c00, #06b6d4, #fc4c00)',
+              'linear-gradient(90deg, #FFF4E6, #F4511E, #FFF4E6, #F4511E)',
             backgroundSize: '300% 100%',
             animation:
               'gradient-shift 4s ease-in-out infinite, fade-in 0.6s ease-out forwards',
@@ -71,7 +71,7 @@ export function Hero1({
         </h1>
 
         {/* Subtitle */}
-        <p className="animate-fade-in mx-auto mb-12 max-w-3xl -translate-y-4 text-balance px-4 text-lg tracking-tight text-gray-400 opacity-0 md:text-xl">
+        <p className="animate-fade-in mx-auto mb-12 max-w-3xl -translate-y-4 text-balance px-4 text-lg tracking-tight text-[#F7E3C6] opacity-0 md:text-xl">
           {subtitle}
         </p>
 

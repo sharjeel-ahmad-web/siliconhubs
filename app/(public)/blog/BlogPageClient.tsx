@@ -65,7 +65,7 @@ const defaultFilterContent: FilterContent = {
     'Business',
     'Tutorial',
   ],
-  activeColor: '#37AFE1',
+  activeColor: '#F4511E',
 };
 
 const defaultEmptyStateContent: EmptyStateContent = {
@@ -145,7 +145,7 @@ export default function BlogPageClient() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#FFF4E6] text-[#14213D]">
       {/* Hero Section - Uses CMS content with fallback */}
       <Hero1
         eyebrow={hero.eyebrow}
@@ -172,7 +172,7 @@ export default function BlogPageClient() {
                 className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${
                   selectedCategory === category
                     ? 'text-white shadow-lg'
-                    : 'bg-[#1E293B] text-slate-300 hover:text-white'
+                    : 'bg-[#FFEDD7] text-[#5F6368] hover:text-[#14213D]'
                 }`}
                 style={
                   selectedCategory === category
@@ -191,7 +191,7 @@ export default function BlogPageClient() {
           {/* Blog Grid */}
           {loading ? (
             <div className="flex justify-center py-20">
-              <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#37AFE1]/30 border-t-[#37AFE1]" />
+              <div className="h-12 w-12 animate-spin rounded-full border-2 border-[#F4511E]/30 border-t-[#F4511E]" />
             </div>
           ) : listToRender.length === 0 ? (
             <motion.div
@@ -214,10 +214,10 @@ export default function BlogPageClient() {
                   className="group"
                 >
                   <Link href={blog?.slug ? `/blog/${blog.slug}` : '/blog'}>
-                    <div className="overflow-hidden rounded-2xl border border-slate-800 bg-[#1E293B]/50 transition-all duration-500 hover:border-[#37AFE1]/50 hover:shadow-xl hover:shadow-[#37AFE1]/10">
+                    <div className="overflow-hidden rounded-2xl border border-[#E8D8C5] bg-white/70 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#F4511E]/50 hover:shadow-xl hover:shadow-[#F4511E]/10">
                       {/* Thumbnail */}
                       <div className="relative h-52 overflow-hidden">
-                        <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#1E293B] to-transparent" />
+                        <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#14213D]/70 to-transparent" />
                         {blog.thumbnail ? (
                           <Image
                             src={blog.thumbnail}
@@ -226,24 +226,24 @@ export default function BlogPageClient() {
                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                           />
                         ) : (
-                          <div className="h-full w-full bg-gradient-to-br from-[#37AFE1]/20 to-[#F58122]/20" />
+                          <div className="h-full w-full bg-gradient-to-br from-[#14213D] to-[#F4511E]" />
                         )}
-                        <span className="absolute left-4 top-4 z-20 rounded-full bg-[#37AFE1] px-3 py-1 text-xs font-medium text-white">
+                        <span className="absolute left-4 top-4 z-20 rounded-full bg-[#F4511E] px-3 py-1 text-xs font-medium text-white">
                           {blog.category}
                         </span>
                       </div>
 
                       {/* Content */}
                       <div className="p-6">
-                        <h3 className="mb-3 line-clamp-2 text-xl font-bold text-white transition-colors group-hover:text-[#37AFE1]">
+                        <h3 className="mb-3 line-clamp-2 text-xl font-bold text-[#14213D] transition-colors group-hover:text-[#F4511E]">
                           {blog.title}
                         </h3>
-                        <p className="mb-4 line-clamp-2 text-sm text-slate-400">
+                        <p className="mb-4 line-clamp-2 text-sm text-[#5F6368]">
                           {blog.excerpt}
                         </p>
 
                         {/* Meta */}
-                        <div className="flex items-center justify-between text-xs text-slate-500">
+                        <div className="flex items-center justify-between text-xs text-[#7C756E]">
                           <div className="flex items-center gap-4">
                             <span className="flex items-center gap-1">
                               <Calendar className="h-3 w-3" />
@@ -254,7 +254,7 @@ export default function BlogPageClient() {
                               {blog.readTime || 5} min read
                             </span>
                           </div>
-                          <ArrowRight className="h-4 w-4 text-[#37AFE1] transition-transform group-hover:translate-x-1" />
+                          <ArrowRight className="h-4 w-4 text-[#F4511E] transition-transform group-hover:translate-x-1" />
                         </div>
                       </div>
                     </div>
@@ -268,4 +268,3 @@ export default function BlogPageClient() {
     </div>
   );
 }
-

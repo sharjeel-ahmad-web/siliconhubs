@@ -6,6 +6,7 @@ import { ParticleWrapper } from '@/components/ui/particle-button';
 import { StarButton } from '@/components/ui/star-button';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { useSiteContent } from '@/lib/hooks/useSiteContent';
+import { useSocialLinks } from '@/lib/hooks/useSocialLinks';
 import {
   FacebookIcon,
   InstagramIcon,
@@ -20,6 +21,7 @@ import {
 } from '@/components/ui/social-icons';
 
 export default function SimpleCTA() {
+  const { socialLinks: configuredLinks } = useSocialLinks();
   // Fetch CMS content
   const { content: ctaContent } = useSiteContent<{
     eyebrow?: string;
@@ -56,23 +58,63 @@ export default function SimpleCTA() {
     {
       name: 'Instagram',
       icon: InstagramIcon,
-      href: '#',
+      href: configuredLinks.instagram,
       hoverClass: 'instagram',
     },
-    { name: 'Facebook', icon: FacebookIcon, href: '#', hoverClass: 'facebook' },
-    { name: 'Twitter', icon: TwitterIcon, href: '#', hoverClass: 'twitter' },
-    { name: 'TikTok', icon: TikTokIcon, href: '#', hoverClass: 'tiktok' },
-    { name: 'YouTube', icon: YouTubeIcon, href: '#', hoverClass: 'youtube' },
-    { name: 'LinkedIn', icon: LinkedInIcon, href: '#', hoverClass: 'linkedin' },
-    { name: 'Telegram', icon: TelegramIcon, href: '#', hoverClass: 'telegram' },
-    { name: 'Discord', icon: DiscordIcon, href: '#', hoverClass: 'discord' },
+    {
+      name: 'Facebook',
+      icon: FacebookIcon,
+      href: configuredLinks.facebook,
+      hoverClass: 'facebook',
+    },
+    {
+      name: 'Twitter',
+      icon: TwitterIcon,
+      href: configuredLinks.twitter,
+      hoverClass: 'twitter',
+    },
+    {
+      name: 'TikTok',
+      icon: TikTokIcon,
+      href: configuredLinks.tiktok,
+      hoverClass: 'tiktok',
+    },
+    {
+      name: 'YouTube',
+      icon: YouTubeIcon,
+      href: configuredLinks.youtube,
+      hoverClass: 'youtube',
+    },
+    {
+      name: 'LinkedIn',
+      icon: LinkedInIcon,
+      href: configuredLinks.linkedin,
+      hoverClass: 'linkedin',
+    },
+    {
+      name: 'Telegram',
+      icon: TelegramIcon,
+      href: 'https://t.me/siliconhubs',
+      hoverClass: 'telegram',
+    },
+    {
+      name: 'Discord',
+      icon: DiscordIcon,
+      href: configuredLinks.discord,
+      hoverClass: 'discord',
+    },
     {
       name: 'Pinterest',
       icon: PinterestIcon,
-      href: '#',
+      href: configuredLinks.pinterest,
       hoverClass: 'pinterest',
     },
-    { name: 'GitHub', icon: GitHubIcon, href: '#', hoverClass: 'github' },
+    {
+      name: 'GitHub',
+      icon: GitHubIcon,
+      href: configuredLinks.github,
+      hoverClass: 'github',
+    },
   ];
 
   return (
