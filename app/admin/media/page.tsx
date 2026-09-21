@@ -33,7 +33,7 @@ interface MediaFile {
   folder?: string;
 }
 
-interface CloudinaryFolder {
+interface MediaFolder {
   name: string;
   path: string;
 }
@@ -50,13 +50,13 @@ export default function MediaLibraryPage() {
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
   const [dragActive, setDragActive] = useState(false);
   const [currentFolder, setCurrentFolder] = useState<string>('');
-  const [subfolders, setSubfolders] = useState<CloudinaryFolder[]>([]);
+  const [subfolders, setSubfolders] = useState<MediaFolder[]>([]);
   const [notice, setNotice] = useState<{
     type: 'error' | 'success';
     text: string;
   } | null>(null);
 
-  // Fetch folders from Cloudinary
+  // Fetch folders from ImageKit
   const fetchFolders = useCallback(async (folder: string = '') => {
     setFoldersLoading(true);
     try {
@@ -81,7 +81,7 @@ export default function MediaLibraryPage() {
     }
   }, []);
 
-  // Fetch files from Cloudinary
+  // Fetch files from ImageKit
   const fetchMedia = useCallback(async () => {
     setLoading(true);
     try {
@@ -250,7 +250,7 @@ export default function MediaLibraryPage() {
         <div>
           <h1 className="text-3xl font-bold text-white">Media Library</h1>
           <p className="mt-1 text-slate-400">
-            Manage your images and videos with Cloudinary
+            Manage your images and videos with ImageKit
           </p>
         </div>
         <div className="flex items-center gap-3">

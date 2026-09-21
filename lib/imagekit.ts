@@ -10,7 +10,6 @@ const PRIVATE_KEY = process.env.IMAGEKIT_PRIVATE_KEY || '';
 const IMAGEKIT_UPLOAD_ENDPOINT = 'https://api.imagekit.io/v1/files/upload';
 
 const IMAGEKIT_API_ENDPOINT = 'https://api.imagekit.io/v1/files';
-const IMAGEKIT_FOLDERS_ENDPOINT = 'https://api.imagekit.io/v1/folders';
 
 function getImageKitAuthorization(): string {
   assertImageKitConfig();
@@ -155,27 +154,49 @@ export async function deleteFromImageKit(fileId: string): Promise<boolean> {
   }
 }
 
-/** List folders directly below an ImageKit folder path. */
+/** Derive folders from ImageKit file paths without relying on a folder endpoint. */
 export async function listImageKitFolders(
   parentFolderPath = ''
 ): Promise<{ name: string; path: string }[]> {
   const params = new URLSearchParams({
-    parentFolderPath: parentFolderPath ? `/${parentFolderPath}` : '/',
+    limit: '1000',
+    fileType: 'all',
   });
   const response = await fetch(
-    `${IMAGEKIT_FOLDERS_ENDPOINT}?${params.toString()}`,
-    { headers: { Authorization: getImageKitAuthorization() } }
+    `${IMAGEKIT_API_ENDPOINT}?${params.toString()}`,
+    {
+      headers: { Authorization: getImageKitAuthorization() },
+    }
   );
 
   if (!response.ok) {
-    throw new Error(`ImageKit folder listing failed: ${response.status}`);
+    throw new Error(`ImageKit file listing failed: ${response.status}`);
   }
 
-  const folders = await response.json();
-  return (Array.isArray(folders) ? folders : []).map((folder: any) => ({
-    name: folder.folderName || folder.name,
-    path: folder.folderPath || folder.path,
-  }));
+  const files = await response.json();
+  const parent = parentFolderPath.replace(/^\/+|\/+$/g, '');
+  const folderPaths = new Set<string>();
+
+  for (const file of Array.isArray(files) ? files : []) {
+    const filePath = String(file.filePath || '').replace(/^\/+|\/+$/g, '');
+    if (!filePath) continue;
+
+    const parts = filePath.split('/');
+    const parentParts = parent ? parent.split('/') : [];
+    if (
+      parentParts.length > parts.length - 1 ||
+      parentParts.some((part, index) => parts[index] !== part)
+    ) {
+      continue;
+    }
+
+    const childFolder = parts.slice(0, parentParts.length + 1).join('/');
+    if (childFolder !== parent) folderPaths.add(childFolder);
+  }
+
+  return Array.from(folderPaths)
+    .sort()
+    .map((path) => ({ name: path.split('/').pop() || path, path }));
 }
 
 /** List files in an ImageKit folder. */
