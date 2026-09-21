@@ -162,7 +162,9 @@ export function Timeline({ data }: TimelineProps) {
     <div className="space-y-8">
       {data.map((item, index) => (
         <TimelineContent key={index} animationNum={index} className="space-y-4">
-          <h2 className="mb-4 text-2xl font-bold text-white">{item.title}</h2>
+          <h2 className="mb-4 text-2xl font-bold text-[#14213D]">
+            {item.title}
+          </h2>
           {item.content}
         </TimelineContent>
       ))}

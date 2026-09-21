@@ -40,13 +40,13 @@ function BlogTimeline({ content }: { content: string }) {
       sections.push({
         title,
         content: (
-          <div className="space-y-4 text-slate-300">
+          <div className="space-y-4 text-[#5F6368]">
             {sectionContent.split('\n\n').map((paragraph, idx) => {
               if (paragraph.startsWith('## ')) {
                 return (
                   <h3
                     key={idx}
-                    className="mb-3 mt-6 text-xl font-bold text-white"
+                    className="mb-3 mt-6 text-xl font-bold text-[#14213D]"
                   >
                     {paragraph.slice(3)}
                   </h3>
@@ -56,7 +56,7 @@ function BlogTimeline({ content }: { content: string }) {
                 return (
                   <h4
                     key={idx}
-                    className="mb-2 mt-4 text-lg font-semibold text-[#37AFE1]"
+                    className="mb-2 mt-4 text-lg font-semibold text-[#F4511E]"
                   >
                     {paragraph.slice(4)}
                   </h4>
@@ -67,7 +67,7 @@ function BlogTimeline({ content }: { content: string }) {
                   <ul key={idx} className="ml-4 space-y-2">
                     {paragraph.split('\n').map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="mt-1 text-[#F58122]">✓</span>
+                        <span className="mt-1 text-[#F4511E]">✓</span>
                         <span>{item.slice(2)}</span>
                       </li>
                     ))}
@@ -76,7 +76,7 @@ function BlogTimeline({ content }: { content: string }) {
               }
               if (paragraph.trim()) {
                 return (
-                  <p key={idx} className="leading-relaxed text-slate-300">
+                  <p key={idx} className="leading-relaxed text-[#5F6368]">
                     {paragraph}
                   </p>
                 );
@@ -93,7 +93,7 @@ function BlogTimeline({ content }: { content: string }) {
       sections.push({
         title: 'Content',
         content: (
-          <div className="leading-relaxed text-slate-300">{content}</div>
+          <div className="leading-relaxed text-[#5F6368]">{content}</div>
         ),
       });
     }
@@ -104,7 +104,9 @@ function BlogTimeline({ content }: { content: string }) {
   return <Timeline data={timelineData} />;
 }
 
-export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps) {
+export default function BlogDetailClient({
+  initialBlog,
+}: BlogDetailClientProps) {
   const [relatedBlogs, setRelatedBlogs] = useState<BlogPost[]>([]);
   const blog = initialBlog;
 
@@ -146,7 +148,7 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#FFF4E6] text-[#14213D]">
       {/* Hero Section */}
       <section className="relative px-6 pb-20 pt-32">
         {/* Background */}
@@ -159,10 +161,10 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
                 fill
                 className="object-cover opacity-20"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/80 to-black" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#14213D]/55 via-[#14213D]/85 to-[#14213D]" />
             </>
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-b from-[#37AFE1]/10 to-black" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#F4511E]/20 to-[#14213D]" />
           )}
         </div>
 
@@ -174,7 +176,7 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
           >
             <Link
               href="/blog"
-              className="mb-8 inline-flex items-center gap-2 text-slate-400 transition-colors hover:text-[#37AFE1]"
+              className="mb-8 inline-flex items-center gap-2 text-[#E8D8C5] transition-colors hover:text-[#F4511E]"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Blog
@@ -185,7 +187,7 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 inline-block rounded-full bg-[#37AFE1] px-4 py-1 text-sm font-medium text-white"
+            className="mb-6 inline-block rounded-full bg-[#F4511E] px-4 py-1 text-sm font-medium text-white"
           >
             {blog.category}
           </motion.span>
@@ -205,7 +207,7 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex flex-wrap items-center gap-6 text-slate-400"
+            className="flex flex-wrap items-center gap-6 text-[#E8D8C5]"
           >
             <span className="flex items-center gap-2">
               <User className="h-4 w-4" />
@@ -221,7 +223,7 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
             </span>
             <button
               onClick={sharePost}
-              className="flex items-center gap-2 transition-colors hover:text-[#37AFE1]"
+              className="flex items-center gap-2 transition-colors hover:text-[#F4511E]"
             >
               <Share2 className="h-4 w-4" />
               Share
@@ -231,7 +233,7 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
       </section>
 
       {/* Content with Timeline */}
-      <section className="py-12">
+      <section className="bg-[#FFF4E6] px-6 py-16">
         <BlogTimeline content={blog.content} />
 
         {/* Tags */}
@@ -241,14 +243,14 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="mt-12 border-t border-slate-800 pt-8"
+              className="mt-12 border-t border-[#E8D8C5] pt-8"
             >
               <div className="flex flex-wrap items-center gap-3">
-                <Tag className="h-4 w-4 text-slate-500" />
+                <Tag className="h-4 w-4 text-[#7C756E]" />
                 {blog.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="cursor-pointer rounded-full bg-[#1E293B] px-3 py-1 text-sm text-slate-300 transition-colors hover:bg-[#37AFE1]/20 hover:text-[#37AFE1]"
+                    className="cursor-pointer rounded-full bg-[#FFEDD7] px-3 py-1 text-sm text-[#5F6368] transition-colors hover:bg-[#F4511E]/15 hover:text-[#F4511E]"
                   >
                     {tag}
                   </span>
@@ -261,15 +263,15 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
 
       {/* Related Posts */}
       {relatedBlogs.length > 0 && (
-        <section className="bg-[#0F172A] px-6 py-20">
+        <section className="border-t border-[#E8D8C5] bg-[#FFEDD7] px-6 py-20">
           <div className="mx-auto max-w-7xl">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-10 text-center text-3xl font-bold text-white"
+              className="mb-10 text-center text-3xl font-bold text-[#14213D]"
             >
-              Related <span className="text-[#37AFE1]">Posts</span>
+              Related <span className="text-[#F4511E]">Posts</span>
             </motion.h2>
 
             <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
@@ -281,8 +283,12 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Link href={relatedBlog?.slug ? `/blog/${relatedBlog.slug}` : '/blog'}>
-                    <div className="group overflow-hidden rounded-xl border border-slate-800 bg-[#1E293B]/50 transition-all duration-300 hover:border-[#37AFE1]/50">
+                  <Link
+                    href={
+                      relatedBlog?.slug ? `/blog/${relatedBlog.slug}` : '/blog'
+                    }
+                  >
+                    <div className="group overflow-hidden rounded-xl border border-[#E8D8C5] bg-white/75 shadow-sm transition-all duration-300 hover:border-[#F4511E]/50 hover:shadow-lg hover:shadow-[#F4511E]/10">
                       <div className="relative h-40 overflow-hidden">
                         {relatedBlog.thumbnail ? (
                           <Image
@@ -292,14 +298,14 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                         ) : (
-                          <div className="h-full w-full bg-gradient-to-br from-[#37AFE1]/20 to-[#F58122]/20" />
+                          <div className="h-full w-full bg-gradient-to-br from-[#14213D] to-[#F4511E]" />
                         )}
                       </div>
                       <div className="p-5">
-                        <h3 className="line-clamp-2 text-lg font-semibold text-white transition-colors group-hover:text-[#37AFE1]">
+                        <h3 className="line-clamp-2 text-lg font-semibold text-[#14213D] transition-colors group-hover:text-[#F4511E]">
                           {relatedBlog.title}
                         </h3>
-                        <p className="mt-2 line-clamp-2 text-sm text-slate-400">
+                        <p className="mt-2 line-clamp-2 text-sm text-[#5F6368]">
                           {relatedBlog.excerpt}
                         </p>
                       </div>
@@ -314,4 +320,3 @@ export default function BlogDetailClient({ initialBlog }: BlogDetailClientProps)
     </div>
   );
 }
-
