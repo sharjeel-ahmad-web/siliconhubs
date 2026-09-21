@@ -414,7 +414,8 @@ export default function HolographicTeam() {
           id: i + 1,
           name: m.name,
           role: m.role,
-          image: defaultTeamMembers[i]?.image || m.image,
+          image:
+            m.image || defaultTeamMembers[i]?.image || '/team/placeholder.png',
         }))
       : defaultTeamMembers;
 
