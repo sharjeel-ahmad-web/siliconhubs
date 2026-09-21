@@ -8,6 +8,31 @@ interface ContactEmailData {
   message: string;
 }
 
+export interface ContactReplyData {
+  recipient: string;
+  contactName: string;
+  message: string;
+}
+
+export async function sendContactReply(data: ContactReplyData) {
+  const from =
+    process.env.EMAIL_FROM || 'SiliconHubs <onboarding@siliconhubs.com>';
+
+  await sendTransactionalEmail({
+    to: data.recipient,
+    subject: 'Re: Your inquiry to SiliconHubs',
+    text: data.message,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <p>Hi ${data.contactName},</p>
+        <p style="white-space: pre-wrap;">${data.message}</p>
+        <p>Best regards,<br/>SiliconHubs</p>
+      </div>
+    `,
+    replyTo: from,
+  });
+}
+
 export async function sendContactNotification(data: ContactEmailData) {
   // Contact form submissions are delivered to the agency inbox.
   const adminEmail = process.env.CONTACT_EMAIL || 'contact@siliconhubs.com';

@@ -29,6 +29,9 @@ export default function ContactsPage() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
+  const [replyMessage, setReplyMessage] = useState('');
+  const [sendingReply, setSendingReply] = useState(false);
+  const [replyNotice, setReplyNotice] = useState<string | null>(null);
 
   useEffect(() => {
     fetchContacts();
@@ -67,6 +70,34 @@ export default function ContactsPage() {
       setSelectedContact(null);
     } catch (error) {
       console.error('Error deleting contact:', error);
+    }
+  };
+
+  const sendReply = async () => {
+    if (!selectedContact || !replyMessage.trim()) return;
+
+    setSendingReply(true);
+    setReplyNotice(null);
+    try {
+      const response = await fetch(
+        `/api/admin/contacts/${selectedContact._id}/reply`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: replyMessage }),
+        }
+      );
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Failed to send reply');
+      setReplyMessage('');
+      setReplyNotice(data.message || 'Reply sent successfully.');
+      fetchContacts();
+    } catch (error) {
+      setReplyNotice(
+        error instanceof Error ? error.message : 'Failed to send reply'
+      );
+    } finally {
+      setSendingReply(false);
     }
   };
 
@@ -252,13 +283,29 @@ export default function ContactsPage() {
                 </div>
               </div>
 
-              <div className="flex gap-3">
-                <a
-                  href={`mailto:${selectedContact?.email ?? ''}?subject=Re: Your inquiry to SiliconHubs`}
-                  className="rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80"
-                >
-                  Reply via Email
-                </a>
+              <div className="space-y-3">
+                <textarea
+                  value={replyMessage}
+                  onChange={(event) => setReplyMessage(event.target.value)}
+                  placeholder="Write your reply..."
+                  rows={5}
+                  className="w-full rounded-lg border border-slate-700 bg-[#0F172A] px-4 py-3 text-white placeholder-slate-500 focus:border-cyan focus:outline-none"
+                />
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={sendReply}
+                    disabled={sendingReply || !replyMessage.trim()}
+                    className="rounded-lg bg-cyan px-4 py-2 text-white transition-colors hover:bg-cyan/80 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {sendingReply ? 'Sending...' : 'Send Reply'}
+                  </button>
+                  {replyNotice && (
+                    <span className="text-sm text-slate-400">
+                      {replyNotice}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           ) : (
