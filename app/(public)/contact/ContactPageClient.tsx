@@ -8,6 +8,7 @@ import { Hero1 } from '@/components/ui/hero-1';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { useSiteContent } from '@/lib/hooks/useSiteContent';
 import { useState, useEffect } from 'react';
+import CalendlyBookingButton from '@/components/CalendlyBookingButton';
 
 export default function ContactPageClient() {
   const [contactEmail, setContactEmail] = useState('');
@@ -109,6 +110,10 @@ export default function ContactPageClient() {
                 {formContent?.titleHighlight || 'Message'}
               </span>
             </motion.h2>
+            <CalendlyBookingButton
+              description="Choose a time that works for you"
+              className="mb-8"
+            />
             {/* Make sure your ContactForm component is styled for light mode internally */}
             <ContactForm />
           </div>

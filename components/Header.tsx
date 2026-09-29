@@ -8,6 +8,7 @@ import { ParticleWrapper } from '@/components/ui/particle-button';
 import { StarButton } from '@/components/ui/star-button';
 import { useNavigation } from '@/lib/hooks/useNavigation';
 import Logo from '@/components/Logo';
+import CalendlyBookingButton from '@/components/CalendlyBookingButton';
 
 // Magnetic Nav Link with dock-style hover effect
 function MagneticNavLink({
@@ -328,6 +329,7 @@ export default function Header() {
               </motion.div>
             </ParticleWrapper>
           )}
+          <CalendlyBookingButton compact className="hidden md:inline-flex" />
 
           {/* Mobile Menu Button */}
           <button
@@ -375,6 +377,7 @@ export default function Header() {
           }}
         >
           <div className="flex flex-col gap-1 p-4">
+            <CalendlyBookingButton className="mb-2 w-full" />
             {navLinks.map((link) => (
               <div key={link.href}>
                 {link.hasDropdown ? (

@@ -6,6 +6,7 @@ import { useAnalytics } from '@/components/analytics/AnalyticsTracker';
 import dynamic from 'next/dynamic';
 import { ArrowRight } from 'lucide-react';
 import { StarButton } from '@/components/ui/star-button';
+import CalendlyBookingButton from '@/components/CalendlyBookingButton';
 import Link from 'next/link';
 
 // Dynamic import of AnimatedBackground (client-side only, avoid SSR/chunk issues)
@@ -84,13 +85,14 @@ export default function CleanHero() {
             </p>
 
             {/* CTA Section */}
-            <div className="mt-4 flex flex-col items-center gap-6">
+            <div className="mt-4 flex flex-col items-center gap-4 sm:flex-row">
               {/* Primary CTA Button */}
               <Link href={ctaLink ?? '/'}>
                 <StarButton className="h-10 px-6 text-sm font-semibold transition-transform hover:scale-105 sm:h-12 sm:px-8 sm:text-base">
                   {ctaText}
                 </StarButton>
               </Link>
+              <CalendlyBookingButton />
             </div>
           </div>
         </div>
