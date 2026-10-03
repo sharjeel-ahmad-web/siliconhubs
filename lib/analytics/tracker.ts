@@ -52,7 +52,8 @@ class AnalyticsTracker {
   private trackAnimationEngagement() {
     // Track hero interactions
     document.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
+      const target = e.target;
+      if (!(target instanceof Element)) return;
       if (target.closest('[data-animation="hero"]')) {
         this.incrementInteraction('hero');
       }
@@ -60,7 +61,8 @@ class AnalyticsTracker {
 
     // Track particle interactions
     document.addEventListener('mousemove', (e) => {
-      const target = e.target as HTMLElement;
+      const target = e.target;
+      if (!(target instanceof Element)) return;
       if (target.closest('[data-animation="particles"]')) {
         this.incrementInteraction('particles');
       }
@@ -70,7 +72,8 @@ class AnalyticsTracker {
     document.addEventListener(
       'mouseenter',
       (e) => {
-        const target = e.target as HTMLElement;
+        const target = e.target;
+        if (!(target instanceof Element)) return;
         if (target.hasAttribute('data-magnetic')) {
           this.incrementInteraction('magnetic-cursor');
         }
