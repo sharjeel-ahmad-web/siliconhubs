@@ -133,7 +133,7 @@ export default function MagneticCursor() {
     };
 
     const isElement = (target: EventTarget | null): target is Element => {
-      return target !== null && 'tagName' in target;
+      return target instanceof Element;
     };
 
     const isInteractiveElement = (element: Element): boolean => {

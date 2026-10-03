@@ -5,6 +5,9 @@ import {
   Search,
   Loader2,
   Eye,
+  Download,
+  FileText,
+  ClipboardCheck,
   Users,
   Briefcase,
   Clock,
@@ -12,6 +15,7 @@ import {
   ChevronUp,
   Filter,
 } from 'lucide-react';
+import type { ATSReview } from '@/lib/careers/ats';
 
 interface Application {
   _id: string;
@@ -30,6 +34,7 @@ interface Application {
   availability?: string;
   coverLetter?: string;
   resume?: any;
+  atsReview?: ATSReview;
   stage: string;
   jobTitle?: string;
   createdAt: string;
@@ -53,6 +58,8 @@ export default function AdminCareersApplicationsPage() {
   const [search, setSearch] = useState('');
   const [stageFilter, setStageFilter] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [atsRunningId, setAtsRunningId] = useState<string | null>(null);
+  const [atsError, setAtsError] = useState('');
 
   useEffect(() => {
     fetchApplications();
@@ -95,6 +102,28 @@ export default function AdminCareersApplicationsPage() {
       }
     } catch (error) {
       console.error('Error updating stage:', error);
+    }
+  };
+
+  const handleAtsTest = async (appId: string) => {
+    setAtsRunningId(appId);
+    setAtsError('');
+    try {
+      const res = await fetch(
+        `/api/admin/careers/applications?atsId=${appId}`,
+        { method: 'POST' }
+      );
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'ATS test failed.');
+      setApplications((current) =>
+        current.map((app) =>
+          app._id === appId ? { ...app, atsReview: data.review } : app
+        )
+      );
+    } catch (error) {
+      setAtsError(error instanceof Error ? error.message : 'ATS test failed.');
+    } finally {
+      setAtsRunningId(null);
     }
   };
 
@@ -275,12 +304,103 @@ export default function AdminCareersApplicationsPage() {
                         <h4 className="mb-2 text-sm font-semibold text-white">
                           Resume
                         </h4>
-                        <p className="text-sm text-slate-300">
-                          {app.resume.fileName}{' '}
-                          <span className="text-slate-500">
-                            ({(app.resume.fileSize / 1024).toFixed(0)} KB)
-                          </span>
-                        </p>
+                        <div className="flex flex-wrap items-center gap-3">
+                          <p className="text-sm text-slate-300">
+                            {app.resume.fileName}{' '}
+                            <span className="text-slate-500">
+                              ({(app.resume.fileSize / 1024).toFixed(0)} KB)
+                            </span>
+                          </p>
+                          <a
+                            href={`/api/admin/careers/applications?resumeId=${app._id}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1.5 text-sm text-[#FC4C00] hover:underline"
+                          >
+                            <Eye className="h-4 w-4" /> View
+                          </a>
+                          <a
+                            href={`/api/admin/careers/applications?resumeId=${app._id}&download=1`}
+                            className="inline-flex items-center gap-1.5 text-sm text-[#FC4C00] hover:underline"
+                          >
+                            <Download className="h-4 w-4" /> Download
+                          </a>
+                          <button
+                            type="button"
+                            onClick={() => handleAtsTest(app._id)}
+                            disabled={atsRunningId === app._id}
+                            className="inline-flex items-center gap-1.5 rounded-md border border-slate-600 px-3 py-1.5 text-sm text-white hover:border-[#FC4C00] disabled:cursor-wait disabled:opacity-60"
+                          >
+                            {atsRunningId === app._id ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <ClipboardCheck className="h-4 w-4" />
+                            )}
+                            {atsRunningId === app._id
+                              ? 'Analyzing'
+                              : 'Run ATS test'}
+                          </button>
+                        </div>
+                        {atsError && atsRunningId === null && (
+                          <p role="alert" className="mt-2 text-sm text-red-400">
+                            {atsError}
+                          </p>
+                        )}
+                        {app.atsReview && (
+                          <div className="mt-4 border-t border-slate-700/50 pt-4">
+                            <div className="flex flex-wrap items-baseline justify-between gap-2">
+                              <h5 className="flex items-center gap-2 text-sm font-semibold text-white">
+                                <FileText className="h-4 w-4 text-[#FC4C00]" />
+                                ATS readiness estimate: {app.atsReview.score}
+                                /100
+                              </h5>
+                              <span className="text-xs text-slate-500">
+                                {app.atsReview.wordCount} words · checked{' '}
+                                {new Date(
+                                  app.atsReview.reviewedAt
+                                ).toLocaleString()}
+                              </span>
+                            </div>
+                            <p className="mt-1 text-xs text-slate-500">
+                              Screening aid only; this heuristic is not a hiring
+                              decision.
+                            </p>
+                            <ul className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+                              {app.atsReview.checks.map((check) => (
+                                <li
+                                  key={check.label}
+                                  className="text-slate-300"
+                                >
+                                  <span
+                                    className={
+                                      check.status === 'good'
+                                        ? 'text-green-400'
+                                        : 'text-amber-400'
+                                    }
+                                  >
+                                    {check.status === 'good' ? 'OK' : 'Review'}
+                                  </span>{' '}
+                                  {check.label}: {check.detail}
+                                </li>
+                              ))}
+                            </ul>
+                            {(app.atsReview.matchedKeywords.length > 0 ||
+                              app.atsReview.missingKeywords.length > 0) && (
+                              <div className="mt-3 grid gap-3 text-sm md:grid-cols-2">
+                                <p className="text-slate-300">
+                                  Matched:{' '}
+                                  {app.atsReview.matchedKeywords.join(', ') ||
+                                    'None'}
+                                </p>
+                                <p className="text-slate-300">
+                                  Not found:{' '}
+                                  {app.atsReview.missingKeywords.join(', ') ||
+                                    'None'}
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        )}
                       </div>
                     )}
 
