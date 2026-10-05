@@ -115,21 +115,6 @@ const TechStackMarquee = dynamic(
   }
 );
 
-const AboutSection = dynamic(
-  () =>
-    import('@/components/ui/about-section').catch(() => ({
-      default: NullComponent,
-    })),
-  {
-    ssr: false,
-    loading: () => (
-      <section className="flex items-center justify-center bg-warm-cream py-20">
-        <div className="h-12 w-12 animate-spin rounded-full border-2 border-cyan/30 border-t-cyan" />
-      </section>
-    ),
-  }
-);
-
 const CaseStudiesCarousel = dynamic(
   () =>
     import('@/components/sections/CaseStudiesCarousel').catch(() => ({
@@ -194,7 +179,6 @@ const HOME_SECTIONS = [
   'hero',
   'servicesShowcase',
   'portfolioGallery',
-  'about',
   'bentoGrid',
   'techStack',
   'caseStudies',
@@ -218,9 +202,6 @@ export default function HomeSections() {
         </OptimizedSectionWrapper>
         <OptimizedSectionWrapper section="portfolioGallery">
           <PortfolioGallery />
-        </OptimizedSectionWrapper>
-        <OptimizedSectionWrapper section="about">
-          <AboutSection />
         </OptimizedSectionWrapper>
         <OptimizedSectionWrapper section="bentoGrid">
           <BentoGridSection />

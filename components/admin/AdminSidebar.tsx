@@ -21,6 +21,7 @@ import {
   Navigation,
   MessageCircle,
   BookOpen,
+  FileBadge,
 } from 'lucide-react';
 
 interface AdminSidebarProps {
@@ -122,6 +123,20 @@ const navigation: NavItem[] = [
         name: 'Applications',
         href: '/admin/careers/applications',
         icon: Users,
+      },
+    ],
+  },
+  {
+    name: 'HR',
+    icon: Users,
+    adminOnly: true,
+    children: [
+      { name: 'Employees', href: '/admin/hr/employees', icon: Users },
+      { name: 'HR Letters', href: '/admin/hr/letters', icon: FileBadge },
+      {
+        name: 'Letter Templates',
+        href: '/admin/hr/letters/templates',
+        icon: FileText,
       },
     ],
   },

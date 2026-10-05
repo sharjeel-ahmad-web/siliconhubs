@@ -20,7 +20,7 @@ const values = [
     icon: Zap,
     title: 'Built for Real Business Growth',
     description:
-      'We do not build digital products just to look impressive. Every solution is designed around your goals, your customers, and the results that matter to your business.',
+      '1122 We do not build digital products just to look impressive. Every solution is designed around your goals, your customers, and the results that matter to your business.',
     accent: 'orange',
   },
   {
