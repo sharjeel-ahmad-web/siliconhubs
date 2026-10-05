@@ -15,7 +15,7 @@ export default function HRLetterDocument({ letter }: { letter: HRLetter }) {
     ...DEFAULT_COMPANY,
     ...letter.companySnapshot,
     signatoryName:
-      letter.companySnapshot?.signatoryName || DEFAULT_COMPANY.signatoryName,
+      letter.companySnapshot?.signatoryName ?? DEFAULT_COMPANY.signatoryName,
     signatoryDesignation:
       letter.companySnapshot?.signatoryDesignation ||
       DEFAULT_COMPANY.signatoryDesignation,
@@ -80,7 +80,7 @@ export default function HRLetterDocument({ letter }: { letter: HRLetter }) {
         />
       </div>
 
-      <header className="relative z-10 flex items-center justify-between gap-5 border-b-[3px] border-[#F4511E] pb-5">
+      <header className="relative z-10 flex items-center justify-center border-b-[3px] border-[#F4511E] pb-5">
         <div className="relative h-14 w-36 shrink-0 overflow-hidden sm:h-16 sm:w-48">
           <Image
             src="/logos/Siliconhubs main logo.png"
@@ -91,10 +91,6 @@ export default function HRLetterDocument({ letter }: { letter: HRLetter }) {
             style={{ objectPosition: 'center 47%' }}
             priority
           />
-        </div>
-        <div className="text-right">
-          <p className="text-lg font-bold text-[#14213D]">{company.name}</p>
-          <p className="text-xs text-[#14213D]/70">{company.tagline}</p>
         </div>
       </header>
 
@@ -153,7 +149,9 @@ export default function HRLetterDocument({ letter }: { letter: HRLetter }) {
           />
         )}
         <div className="w-56 border-t border-[#14213D]/50 pt-2">
-          <p className="font-bold text-[#14213D]">{company.signatoryName}</p>
+          {company.signatoryName && (
+            <p className="font-bold text-[#14213D]">{company.signatoryName}</p>
+          )}
           <p className="text-sm font-semibold text-[#F4511E]">
             {company.signatoryDesignation}
           </p>

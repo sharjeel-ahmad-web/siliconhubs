@@ -218,8 +218,7 @@ export async function POST(request: NextRequest) {
           ? companySettings.address.trim()
           : DEFAULT_COMPANY.address,
       signatoryName:
-        typeof signatorySettings.signatoryName === 'string' &&
-        signatorySettings.signatoryName.trim()
+        typeof signatorySettings.signatoryName === 'string'
           ? signatorySettings.signatoryName.trim().slice(0, 120)
           : DEFAULT_COMPANY.signatoryName,
       signatoryDesignation:

@@ -99,7 +99,7 @@ export default function HRLetterComposer() {
           address: general.address || '',
           signatoryName:
             typeof signatoryData?.signatoryName === 'string'
-              ? signatoryData.signatoryName || DEFAULT_COMPANY.signatoryName
+              ? signatoryData.signatoryName.trim().slice(0, 120)
               : DEFAULT_COMPANY.signatoryName,
           signatoryDesignation:
             typeof signatoryData?.signatoryDesignation === 'string'

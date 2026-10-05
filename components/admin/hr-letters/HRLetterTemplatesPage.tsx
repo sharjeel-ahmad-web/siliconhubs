@@ -69,7 +69,9 @@ export default function HRLetterTemplatesPage() {
       }
       setTemplates(data);
       setSignatoryName(
-        signatoryData?.signatoryName || DEFAULT_COMPANY.signatoryName
+        typeof signatoryData?.signatoryName === 'string'
+          ? signatoryData.signatoryName
+          : DEFAULT_COMPANY.signatoryName
       );
       setSignatoryDesignation(
         signatoryData?.signatoryDesignation ||
@@ -316,7 +318,7 @@ export default function HRLetterTemplatesPage() {
           </p>
         </div>
         <label className="space-y-1.5 text-sm font-medium text-slate-700">
-          Signatory name
+          Signatory name (optional)
           <input
             value={signatoryName}
             onChange={(event) => setSignatoryName(event.target.value)}
