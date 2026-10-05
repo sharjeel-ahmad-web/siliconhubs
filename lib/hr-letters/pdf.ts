@@ -7,6 +7,7 @@ import {
   formatHRLetterText,
   removeEmployeeIdFromLetter,
 } from '@/lib/hr-letters/letter-format';
+import { getHRLetterVerificationUrl } from '@/lib/hr-letters/verification';
 
 /* =========================================================
    SILICONHUBS BRAND SYSTEM
@@ -823,10 +824,7 @@ export async function downloadHRLetterPdf(letter: HRLetter): Promise<void> {
   const watermarkLogo = await getWatermarkLogo();
   const verificationQr = letter.verificationToken
     ? await QRCode.toDataURL(
-        new URL(
-          `/verify/hr-letter/${encodeURIComponent(letter.verificationToken)}`,
-          window.location.origin
-        ).toString(),
+        getHRLetterVerificationUrl(letter.verificationToken),
         {
           errorCorrectionLevel: 'H',
           margin: 1,

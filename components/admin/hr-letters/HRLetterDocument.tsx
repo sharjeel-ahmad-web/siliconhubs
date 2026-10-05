@@ -8,6 +8,7 @@ import {
   formatHRLetterText,
   type HRLetterTextStyle,
 } from '@/lib/hr-letters/letter-format';
+import { getHRLetterVerificationUrl } from '@/lib/hr-letters/verification';
 
 export default function HRLetterDocument({ letter }: { letter: HRLetter }) {
   const [verificationQr, setVerificationQr] = useState('');
@@ -27,12 +28,7 @@ export default function HRLetterDocument({ letter }: { letter: HRLetter }) {
     }
 
     let active = true;
-    const verificationUrl = new URL(
-      `/verify/hr-letter/${encodeURIComponent(letter.verificationToken)}`,
-      window.location.origin
-    ).toString();
-
-    QRCode.toDataURL(verificationUrl, {
+    QRCode.toDataURL(getHRLetterVerificationUrl(letter.verificationToken), {
       errorCorrectionLevel: 'H',
       margin: 1,
       width: 256,
